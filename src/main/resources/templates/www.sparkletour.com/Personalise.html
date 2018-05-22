@@ -749,17 +749,17 @@
                     </div>
                 </div>
 
-                <div id="loginbefore" class="tool" style="display:none;">
-                    <a href="javascript:void(0);" onclick="modalMyYaoyueShow()" class="loginBtn">登录注册</a>
-                </div>
-                <div id="loginafter" class="tool" style="display: none">
+                <!--<div id="loginbefore" class="tool">
+                    <a href="javascript:void(0);" onclick="modalMyYaoyueShow()" class="loginBtn"></a>
+                </div>-->
+                <div id="loginafter" class="tool">
                     <a href="javascript:void(0);" class="logined">我的耀悅
-                        <div class="loginBtnNav" style="z-index: 9999999;">
+                        <div class="loginBtnNav">
                             <ul>
-                                <li class="setBorderBot"></li>
-                                <li id="liMyMessagePage" onclick="location.href='associator'/*tpa=http://www.sparkletour.com/member/*/">会员信息</li>
-                                <li id="liOrderQuery" onclick="location.href='order'/*tpa=http://www.sparkletour.com/member/order*/">订单查询</li>
-                                <li id="liPointQuery" onclick="location.href='point'/*tpa=http://www.sparkletour.com/member/point*/">会员积分</li>
+                                <li class="setBorderBot" onclick="modalMyYaoyueShow()">登录</li>
+                                <li id="liMyMessagePage" onclick="location.href='associator'">会员信息</li>
+                                <li id="liOrderQuery" onclick="location.href='order'">订单查询</li>
+                                <li id="liPointQuery" onclick="location.href='point'">会员积分</li>
                                 <li id="liTraveler">常用出行人</li>
                                 <li id="liUpPassWd">修改密码</li>
                                 <li id="userExit" class="setBorderTop" onclick="Logout();">退出</li>
