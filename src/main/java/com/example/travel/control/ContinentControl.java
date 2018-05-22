@@ -49,6 +49,8 @@ public class ContinentControl {
          //旅行主题
           model.addAttribute("themeList",themeService.listTheme());
 
+        // System.out.println(11111);
+
         return "/www.sparkletour.com/index";
      }
 }
