@@ -2,6 +2,6 @@ package test;
 
 public class test {
     public void aaaa(){
-        System.out.println(2222);
+        System.out.println(4444);
     }
 }
