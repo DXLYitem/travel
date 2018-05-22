@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.travel.dao.ItemDao">
+
+    <resultMap id="ItemMap" type="com.example.travel.entity.Item" autoMapping="true">
+        <result column="hobbyName" property="hobbyName"></result>
+        <result column="styleName" property="styleName"></result>
+        <result column="themeName" property="themeName"></result>
+        <result column="trafficName" property="trafficName"></result>
+        <result column="travelName" property="travelName"></result>
+
+    </resultMap>
+    <!--根据获取的值分页查询-->
+    <select id="selectPageItem" resultMap="ItemMap" parameterType="Item">
+/*SELECT * FROM item*/
+
+    SELECT ite.*,sy.styleName,the.themeName,tr.trafficName,tra.travelName,hob.hobbyName
+    FROM item ite
+    LEFT JOIN theme the ON the.themeId=ite.themeId
+    LEFT JOIN style sy ON sy.styleId=ite.styleId
+    LEFT JOIN traffic tr ON tr.trafficId=ite.trafficId
+    LEFT JOIN travel tra ON tra.travelId=ite.travelId
+    LEFT JOIN hobby hob ON hob.hobbyId=ite.hobbyId
+
+<where>
+    <if test="themeId !=null">AND ite.themeId=#{themeId}</if>
+    <if test="hobbyId !=null">AND ite.hobbyId=#{hobbyId}</if>
+    <if test="travelId !=null">AND ite.travelId=#{travelId}</if>
+    <if test="trafficId !=null">AND ite.trafficId=#{trafficId}</if>
+    <if test="styleId !=null">AND ite.styleId=#{styleId}</if>
+</where>
+    <!--按各个条件分页查询-->
+  <!--  GROUP BY
+    <if test="themeId !=null">AND themeId=#{themeId}</if>
+    <if test="hobbyId !=null">AND hobbyId=#{hobbyId}</if>
+    <if test="travelId !=null">AND travelId=#{travelId}</if>
+    <if test="trafficId !=null">AND trafficId=#{trafficId}</if>
+    <if test="styleId !=null">AND styleId=#{styleId}</if>
+    #{currentPage},#{pageSize}-->
+    </select>
+
+    <!--按各个条件查询记录总条数-->
+   <!-- <select id="selectPageCount"  resultType="Item" resultMap="ItemMap">
+        SELECT COUNT(*) FROM item
+        <where>
+            <if test="themeId !=null">AND themeId=#{themeId}</if>
+            <if test="hobbyId !=null">AND hobbyId=#{hobbyId}</if>
+            <if test="travelId !=null">AND travelId=#{travelId}</if>
+            <if test="trafficId !=null">AND trafficId=#{trafficId}</if>
+            <if test="styleId !=null">AND styleId=#{styleId}</if>
+        </where>
+    </select>-->
+
+</mapper>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.travel.dao.ContinentDao">
+
+    <select id="selectContinent"  resultType="Continent"  parameterType="int">
+          SELECT * FROM continent
+             <where>
+                 <if test="continentId != null"> and continentId=#{continentId}</if>
+                <!-- <if test="continentName !=null and continentName != ''"> and continentName=#{continentName}</if>-->
+             </where>
+    </select>
+
+</mapper>

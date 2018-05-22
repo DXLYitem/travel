@@ -1,0 +1,2408 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset=utf-8"utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" /><meta name="author" content="耀悦旅行" />
+    <title>
+
+    </title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="bookmark" href="/favicon.ico" />
+    <link rel="stylesheet" href="../../../static/styles/loaders.css"/>
+    <link rel="stylesheet" href="../../../static/scripts/libs/owl-carousel/owl.carousel.css"/>
+    <link rel="stylesheet" href="../../../static/scripts/libs/owl-carousel/owl.theme.css"/>
+    <link rel="stylesheet" href="../../../static/scripts/libs/jPlayer/skin/pink.flag/css/jplayer.pink.flag.min.css" />
+    <link rel="stylesheet" href="../../../static/styles/custom.css-ver=20171031132229.css"/>
+    <script type="text/javascript" src="../../../static/scripts/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="../../../static/scripts/myjs.js"></script>
+    <script type="text/javascript" src="../../../static/scripts/o_code.js-ver=20180305112245"></script>
+    <style type="text/css">
+        .sider-chart {
+            position: absolute;
+            right: 0;
+            top: 0;
+            border-radius: 10px;
+            width: 50px;
+            height: 135px;
+            background: url("../../../static/images/sider-chart.png")/*tpa=http://www.sparkletour.com/images/sider-chart.png*//*tpa=http://www.sparkletour.com/images/sider-chart.png*/ no-repeat -1px 0;
+        }
+
+        .sider-chart .top-service {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 91px;
+        }
+
+        .sider-chart .bottom-up {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 44px;
+            cursor: pointer;
+        }
+
+        .top-service .chart-img {
+            position: absolute;
+            width: 272px;
+            height: 297px;
+            top: 2px;
+            left: -272px;
+            display: none;
+        }
+
+        .top-service .chart-img .inner {
+            width: 262px;
+            height: 297px;
+            background: url("../../../static/images/chart-img.png")/*tpa=http://www.sparkletour.com/images/chart-img.png*//*tpa=http://www.sparkletour.com/images/chart-img.png*/ no-repeat left top;
+            box-shadow: 5px 5px 5px #ccc;
+            box-shadow: 5px 5px 5px #ccc;
+        }
+
+        .chart-mask1 {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 9998;
+            display: none;
+        }
+
+        .chart-popup {
+            padding: 50px 200px;
+            background-color: #fff;
+            text-align: center;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate3d(-50%,-50%,0);
+            -moz-transform: translate3d(-50%,-50%,0);
+            -o-transform:translate3d(-50%,-50%,0);
+            z-index: 9999;
+            display: none;
+            transform: translate3d(-50%,-50%,0);
+        }
+
+        .chart-popup h5 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            margin-top: 30px;
+        }
+
+        .chart-popup p {
+            color: #858585;
+        }
+
+        .chart-popup .close-popup {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            font-size: 30px;
+            cursor: pointer;
+        }
+    </style>
+
+    <script src="../../../static/scripts/libs/jquery-1.11.2.min.js"></script>
+    <script src="../../../static/scripts/libs/jquery.enplaceholder.js"></script>
+    <script src="../../../static/scripts/libs/jquery.easing.min.js"></script>
+    <script src="../../../static/scripts/libs/owl-carousel/owl.carousel.min.js" ></script>
+    <script src="../../../static/scripts/libs/jquery.zaccordion.min.js" ></script>
+    <script src="../../../static/scripts/libs/jquery.simplyscroll.min.js"></script>
+    <script src="../../../static/scripts/libs/jPlayer/jquery.jplayer.min.js"></script>
+    <script src="../../../static/scripts/libs/icheck.min.js"></script>
+
+    <script src="../../../static/scripts/libs/bootstrap-datepicker.min.js" ></script>
+    <script src="../../../static/scripts/libs/bootstrap-datepicker.zh-CN.min.js" ></script>
+    <script src="../../../static/scripts/libs/bootstrap-typeahead.min.js"></script>
+    <script src="../../../static/scripts/libs/bloodhound.min.js"></script>
+    <script src="../../../static/scripts/autocomplete.js"></script>
+    <script src="../../../static/scripts/custom.js-ver=20170904134726"></script>
+    <script src="../../../static/scripts/jquery.cookie.js"></script>
+    <script src="../../../static/scripts/libs/bootstrap.min.js"></script>
+    <script src="../../../static/scripts/yaoyue.default.js"></script>
+
+
+
+    <!--[if (gte IE 6)&(lte IE 8)]>
+    <script type="text/javascript" src="../../../static/scripts/libs/selectivizr-min.js"/>
+    <![endif]-->
+
+    <link rel="alternate" href="javascript:void(0);" hreflang="zh-Hant" />
+    <link rel="stylesheet" href="../../../static/scripts/libs/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../static/scripts/libs/bootstrap-datepicker3.css"/>
+
+
+    <!--[if (gt IE 8)|!(IE)]><!-->
+    <link rel="stylesheet" href="../../../static/styles/default.css"/>
+    <link rel="stylesheet" href="../../../static/styles/shen.css"/>
+    <link rel="stylesheet" href="../../../static/styles/shen150920.css-ver=20171130141404.css" />
+    <!--<![endif]-->
+
+
+
+    <!--[if (lte IE 8)&!(IEMobile)]><link rel="stylesheet" href="../../../static/styles/oldie.css"/><![endif]-->
+    <!--[if lt IE 9]>
+    <script src="../../../static/scripts/libs/html5shiv.js" />
+    <![endif]-->
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "../../hm.baidu.com/hm.js-6f73c5138127e55458126f6f07b458ac"/*tpa=https://hm.baidu.com/hm.js?6f73c5138127e55458126f6f07b458ac*/;
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+            var hm2 = document.createElement("script");
+            hm2.src = "../../hm.baidu.com/hm.js-1fefae274a4bd92d9d3d722764124989"/*tpa=https://hm.baidu.com/hm.js?1fefae274a4bd92d9d3d722764124989*/;
+            s.parentNode.insertBefore(hm2, s);
+        })();
+    </script>
+    <script type="text/javascript" > var _oztime = (new Date()).getTime(); </script>
+
+    <script type="text/javascript">
+
+        var isLoginUrl = "/Shared/IsLogedin";
+        var isMobile = /^(?:13\d|15\d|18\d|17\d|14\d)\d{5}(\d{3}|\*{3})$/;
+        var isPhone = /^((0\d{2,3})-)?(\d{7,8})(-(\d{3,}))?$/;   //座机验证规则
+        $(function () {
+            $(".stickyTools").css("display", "none");
+
+            $("#returnTop").click(function () {
+                var speed = 200;//滑动的速度
+                $('body,html').animate({ scrollTop: 0 }, speed);
+                return false;
+            });
+
+            var time = null;
+            function siderChart() {
+                $('.sider-chart').stop(true);
+                var bodyScrollT = $(document).scrollTop();
+                var windowH = $(window).height();
+                var siderChartH = $('.sider-chart').height();
+                $('.sider-chart').animate({
+                    top: bodyScrollT + (windowH - siderChartH) / 2 + 'px'
+                }, 500)
+            }
+            siderChart();
+            $(window).resize(function () {
+                siderChart();
+            });
+            $(window).scroll(function () {
+                siderChart();
+            });
+            $('.top-service').hover(function () {
+                $(this).find('.chart-img').fadeIn();
+            }, function () {
+                $(this).find('.chart-img').fadeOut();
+            });
+            $('.chart-img .inner').click(function () {
+                $('.chart-mask1').fadeIn(300);
+                $('.chart-popup').fadeIn(600);
+            });
+            $('.close-popup').click(function () {
+                $('.chart-mask1').fadeOut(600);
+                $('.chart-popup').fadeOut(300);
+            })
+
+            $(document).on("click", ".next", function () {
+                ChangeMonth(1);
+            });
+            $(document).on("click", ".prev", function () {
+                ChangeMonth(-1);
+            });
+            //$(document).on("click", "td:has(input.pDate)", function () {
+            //    $('#modalBookNow').modal('show');
+            //    //$("#bstartDate").val($(this).find(".pDate").val());
+            //    $("#bstartDate").datepicker("setDate", $(this).find(".pDate").val());
+            //});
+            $("#custmiseUserName").on("blur", function () {
+                if (/^\s*$/.test($("#custmiseUserName").val())) {
+                    $("#custmiseUserName").siblings(".warning-name").show();
+                }
+                else {
+                    $("#custmiseUserName").siblings(".warning-name").hide();
+                }
+            });
+
+            $("#bcustmiseUserName").on("blur", function () {
+                if (/^\s*$/.test($("#bcustmiseUserName").val())) {
+                    $("#bcustmiseUserName").siblings(".warning-name").show();
+                }
+                else {
+                    $("#bcustmiseUserName").siblings(".warning-name").hide();
+                }
+            });
+            $("#customiseUserMobile").on("blur", function () {
+                if (!isMobile.test($("#customiseUserMobile").val()) && !isPhone.test($("#customiseUserMobile").val())) {
+                    $("#customiseUserMobile").siblings(".warning-mobile").show();
+                }
+                else {
+                    $("#customiseUserMobile").siblings(".warning-mobile").hide();
+                }
+            });
+            $("#bcustomiseUserMobile").on("blur", function () {
+                if (!isMobile.test($("#bcustomiseUserMobile").val()) && !isPhone.test($("#bcustomiseUserMobile").val())) {
+                    $("#bcustomiseUserMobile").siblings(".warning-mobile").show();
+                }
+                else {
+                    $("#bcustomiseUserMobile").siblings(".warning-mobile").hide();
+                }
+            });
+            $("#btnCustomiseProduct").on("click", function () {
+                var flag = false;
+                if (/^\s*$/.test($("#custmiseUserName").val())) {
+                    $("#custmiseUserName").val('');
+                    $("#custmiseUserName").focus();
+                    $("#custmiseUserName").siblings(".warning-name").show();
+                    flag = true;
+                }
+                else {
+                    $("#custmiseUserName").siblings(".warning-name").hide();
+                }
+
+                if (!isMobile.test($("#customiseUserMobile").val()) && !isPhone.test($("#customiseUserMobile").val())) {
+                    $("#customiseUserMobile").val('');
+                    $("#customiseUserMobile").focus();
+                    $("#customiseUserMobile").siblings(".warning-mobile").show();
+                    flag = true;
+                }
+                else {
+                    $("#customiseUserMobile").siblings(".warning-mobile").hide();
+                }
+                if (/^\s*$/.test($("#txt_code_2").val())) {
+                    $("#txt_code_2").val('');
+                    $("#txt_code_2").focus();
+                    $("#txt_code_2").siblings(".warning-name").show();
+                    flag = true;
+                }
+                else {
+                    $("#txt_code_2").siblings(".warning-name").hide();
+                }
+                if (flag) {
+                    return;
+                }
+                var params = $("#frmCustomiseProduct").serializeArray();
+                params.push({ "name": "productId", "value": $("#hidProductId").val() });
+                params.push({ "name": "productName", "value": $("#sp_mian_title").html() + $("#sp_sub_title").html() });
+                console.log(params);
+                $(".loadingindex").fadeIn();
+                __ozEvent("xjcg", "xjID=" + $("#customiseUserMobile").val())
+                $.ajax({
+                    url: '../Product/BookWithRequire.ashx'/*tpa=http://www.sparkletour.com/Product/BookWithRequire.ashx*/,
+                    data: params,
+                    type: "post",
+                    success: function (res) {
+                        $(".loadingindex").fadeOut();
+                        console.log(res);
+                        if (res.Code == 0) {
+                            $('#modalCustomiseProduct').modal('hide');
+                            $("#modalThanksBooking").modal("show");
+                        }
+                        else if (res.Code == -2 || res.Code == -1) {
+                            $("#txt_code_2").val('');
+                            $("#txt_code_2").focus();
+                            $("#txt_code_2").siblings(".warning-name").show();
+                        }
+                        else {
+                            alert(res.Msg);
+                        }
+                    }
+                });
+            });
+
+            $('#modalMyYaoyue').on('hidden.bs.modal', function () {
+                window.doNavOrder = false;
+            })
+        });
+        function orderNavigate() {
+            $("#frmBookNow")[0].submit();
+        }
+
+    </script>
+    <style>
+        body {
+            -moz-user-select: none;
+        }
+    </style>
+</head>
+<body onselectstart="return false">
+
+<div class="chart-mask1"></div>
+<div class="loadingindex">
+    <div class="loader">
+        <div class="loader-inner ball-spin-fade-loader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+<div class="loaderbtn">
+    <div class="loader-inner ball-clip-rotate">
+        <div></div>
+    </div>
+</div>
+
+
+<a class="skipLink" href="#pageContent">Skip navigation</a>
+<aside class="stickyTools">
+    <div class="contentWrapper">
+        <ul>
+            <li>
+                <a class="phone" href="javascript:void(0);">电话</a>
+                <div class="content">
+                    <p>400&nbsp;890&nbsp;5588</p>
+                </div>
+            </li>
+            <li>
+                <a class="wechat" href="javascript:void(0);">微信</a>
+                <div class="content">
+                    <img src="../../../static/images/content/wechat.jpg" alt="our we chat" />
+                </div>
+            </li>
+            <li><a class="backToTop" href="#siteHeader">回到顶部</a></li>
+        </ul>
+    </div>
+</aside>
+
+<div class="pageWrapper" id="pageWrapper">
+
+
+    <header class="header" role="banner" id="siteHeader">
+        <div class="masthead">
+            <div class="contentWrapper">
+                <h1 class="logo"><a href="../index.htm" tppabs="http://www.sparkletour.com/">
+                    <img src="../../../static/images/content/logo.png" alt="耀悅"></a></h1>
+
+                <nav class="navigation" role="navigation">
+                    <ul class="level1">
+                        <li class="discover">
+                            <a href="javascript:void(0);">探索世界</a>
+                            <ul class="level2">
+                                <li>
+                                    <a href="../ProductList/5644.htm" tppabs="http://www.sparkletour.com/ProductList/5644">欧洲</a>
+                                    <ul class="level3">
+                                        <li><a href="../ProductList/5651.htm" tppabs="http://www.sparkletour.com/ProductList/5651">英国爱尔兰</a></li>
+                                        <li><a href="../ProductList/5655.htm" tppabs="http://www.sparkletour.com/ProductList/5655">荷兰比利时</a></li>
+                                        <li><a href="../ProductList/5652.htm" tppabs="http://www.sparkletour.com/ProductList/5652">法意瑞</a></li>
+                                        <li><a href="../ProductList/5653.htm" tppabs="http://www.sparkletour.com/ProductList/5653">德奥捷匈</a></li>
+                                        <li><a href="../ProductList/8856.htm" tppabs="http://www.sparkletour.com/ProductList/8856">北欧波罗的海</a></li>
+                                        <li><a href="../ProductList/5654.htm" tppabs="http://www.sparkletour.com/ProductList/5654">西班牙葡萄牙</a></li>
+                                        <li><a href="../ProductList/5656.htm" tppabs="http://www.sparkletour.com/ProductList/5656">俄罗斯</a></li>
+                                        <li><a href="../ProductList/5657.htm" tppabs="http://www.sparkletour.com/ProductList/5657">希腊</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="../ProductList/5650.htm" tppabs="http://www.sparkletour.com/ProductList/5650">美洲</a>
+                                    <ul class="level3">
+                                        <li><a href="../ProductList/5684.htm" tppabs="http://www.sparkletour.com/ProductList/5684">巴哈马</a></li>
+                                        <li><a href="../ProductList/5685.htm" tppabs="http://www.sparkletour.com/ProductList/5685">加拿大</a></li>
+                                        <li><a href="../ProductList/5686.htm" tppabs="http://www.sparkletour.com/ProductList/5686">美国</a></li>
+                                        <li><a href="../ProductList/134.htm" tppabs="http://www.sparkletour.com/ProductList/134">关岛</a></li>
+                                        <li><a href="../ProductList/5687.htm" tppabs="http://www.sparkletour.com/ProductList/5687">夏威夷</a></li>
+                                        <li><a href="../ProductList/7471.htm" tppabs="http://www.sparkletour.com/ProductList/7471">墨西哥古巴</a></li>
+                                        <li><a href="../ProductList/7470.htm" tppabs="http://www.sparkletour.com/ProductList/7470">南美洲</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="../ProductList/5646.htm" tppabs="http://www.sparkletour.com/ProductList/5646">中东&amp;非洲</a>
+                                    <ul class="level3">
+                                        <li><a href="../ProductList/5665.htm" tppabs="http://www.sparkletour.com/ProductList/5665">阿联酋</a></li>
+                                        <li><a href="../ProductList/5667.htm" tppabs="http://www.sparkletour.com/ProductList/5667">非洲</a></li>
+                                        <li><a href="../ProductList/5668.htm" tppabs="http://www.sparkletour.com/ProductList/5668">毛里求斯塞舌尔</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="../ProductList/5645.htm" tppabs="http://www.sparkletour.com/ProductList/5645">大洋洲</a>
+                                    <ul class="level3">
+                                        <li><a href="../ProductList/5658.htm" tppabs="http://www.sparkletour.com/ProductList/5658">大溪地</a></li>
+                                        <li><a href="../ProductList/5659.htm" tppabs="http://www.sparkletour.com/ProductList/5659">澳大利亚</a></li>
+                                        <li><a href="../ProductList/5660.htm" tppabs="http://www.sparkletour.com/ProductList/5660">新西兰</a></li>
+                                        <li><a href="../ProductList/5661.htm" tppabs="http://www.sparkletour.com/ProductList/5661">斐济</a></li>
+                                        <li><a href="../ProductList/8719.htm" tppabs="http://www.sparkletour.com/ProductList/8719">新咯里多尼亚</a></li>
+                                        <li><a href="../ProductList/5662.htm" tppabs="http://www.sparkletour.com/ProductList/5662">瓦努阿图</a></li>
+                                        <li><a href="../ProductList/5663.htm" tppabs="http://www.sparkletour.com/ProductList/5663">库克群岛</a></li>
+                                        <li><a href="../ProductList/5664.htm" tppabs="http://www.sparkletour.com/ProductList/5664">萨摩亚</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="../ProductList/5647.htm" tppabs="http://www.sparkletour.com/ProductList/5647">东南亚&amp;南亚</a>
+                                    <ul class="level3">
+                                        <li><a href="../ProductList/5669.htm" tppabs="http://www.sparkletour.com/ProductList/5669">泰国</a></li>
+                                        <li><a href="../ProductList/5671.htm" tppabs="http://www.sparkletour.com/ProductList/5671">新加坡马来西亚</a></li>
+                                        <li><a href="../ProductList/6556.htm" tppabs="http://www.sparkletour.com/ProductList/6556">越南柬埔寨老挝</a></li>
+                                        <li><a href="../ProductList/5670.htm" tppabs="http://www.sparkletour.com/ProductList/5670">缅甸菲律宾</a></li>
+                                        <li><a href="../ProductList/5672.htm" tppabs="http://www.sparkletour.com/ProductList/5672">印度尼西亚</a></li>
+                                        <li><a href="../ProductList/5675.htm" tppabs="http://www.sparkletour.com/ProductList/5675">不丹尼泊尔印度</a></li>
+                                        <li><a href="../ProductList/5673.htm" tppabs="http://www.sparkletour.com/ProductList/5673">马尔代夫</a></li>
+                                        <li><a href="../ProductList/5674.htm" tppabs="http://www.sparkletour.com/ProductList/5674">斯里兰卡</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="../ProductList/5648.htm" tppabs="http://www.sparkletour.com/ProductList/5648">东北亚</a>
+                                    <ul class="level3">
+                                        <li><a href="../ProductList/5676.htm" tppabs="http://www.sparkletour.com/ProductList/5676">日本</a></li>
+                                        <li><a href="../ProductList/5677.htm" tppabs="http://www.sparkletour.com/ProductList/5677">东京周边</a></li>
+                                        <li><a href="../ProductList/5678.htm" tppabs="http://www.sparkletour.com/ProductList/5678">大阪周边</a></li>
+                                        <li><a href="../ProductList/5679.htm" tppabs="http://www.sparkletour.com/ProductList/5679">北海道</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="javascript:if(confirm('http://www.sparkletour.com/ProductList/5649  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ������, �����������, ����Ŀ����ֹͣ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.sparkletour.com/ProductList/5649'" tppabs="http://www.sparkletour.com/ProductList/5649">中国</a>
+                                    <ul class="level3">
+                                        <li><a href="../ProductList/5682.htm" tppabs="http://www.sparkletour.com/ProductList/5682">港澳台</a></li>
+                                        <li><a href="../ProductList/5683.htm" tppabs="http://www.sparkletour.com/ProductList/5683">国内</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="../ProductList/6101.htm" tppabs="http://www.sparkletour.com/ProductList/6101">极地</a>
+                                    <ul class="level3">
+                                        <li><a href="../ProductList/6101.htm" tppabs="http://www.sparkletour.com/ProductList/6101">南北极</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">主题臻选</a>
+                            <ul class="level2 themeCollections">
+                                <li>
+                                    <a href="../ProductList/4963.htm" tppabs="http://www.sparkletour.com/ProductList/4963">旅行偏好</a>
+                                    <ul class="level3">
+                                        <li><a href="../ProductList/4968.htm" tppabs="http://www.sparkletour.com/ProductList/4968">初游首选</a></li>
+                                        <li><a href="../ProductList/4969.htm" tppabs="http://www.sparkletour.com/ProductList/4969">深度体验</a></li>
+                                        <li><a href="../ProductList/4970.htm" tppabs="http://www.sparkletour.com/ProductList/4970">顶级体验</a></li>
+                                        <li><a href="../ProductList/4971.htm" tppabs="http://www.sparkletour.com/ProductList/4971">海岛度假</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="../ProductList/4964.htm" tppabs="http://www.sparkletour.com/ProductList/4964">旅行主题</a>
+                                    <ul class="level3">
+                                        <li><a href="../ProductList/4974.htm" tppabs="http://www.sparkletour.com/ProductList/4974">运动乐活</a></li>
+                                        <li><a href="../ProductList/4975.htm" tppabs="http://www.sparkletour.com/ProductList/4975">亲子优选</a></li>
+                                        <li><a href="../ProductList/4976.htm" tppabs="http://www.sparkletour.com/ProductList/4976">环球自驾</a></li>
+                                        <li><a href="../ProductList/4977.htm" tppabs="http://www.sparkletour.com/ProductList/4977">探索野奢</a></li>
+                                        <li><a href="../ProductList/4978.htm" tppabs="http://www.sparkletour.com/ProductList/4978">健康悦活</a></li>
+                                        <li><a href="../ProductList/4979.htm" tppabs="http://www.sparkletour.com/ProductList/4979">婚礼蜜月</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="../ProductList/4965.htm" tppabs="http://www.sparkletour.com/ProductList/4965">交通工具</a>
+                                    <ul class="level3">
+                                        <li><a href="../ProductList/4981.htm" tppabs="http://www.sparkletour.com/ProductList/4981">商务舱</a></li>
+                                        <li><a href="../ProductList/4982.htm" tppabs="http://www.sparkletour.com/ProductList/4982">豪华列车</a></li>
+                                        <li><a href="../ProductList/4983.htm" tppabs="http://www.sparkletour.com/ProductList/4983">私人飞机</a></li>
+                                        <li><a href="../ProductList/4986.htm" tppabs="http://www.sparkletour.com/ProductList/4986">顶级邮轮</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="../ProductList/4966.htm" tppabs="http://www.sparkletour.com/ProductList/4966">旅行方式</a>
+                                    <ul class="level3">
+                                        <li><a href="../ProductList/4987.htm" tppabs="http://www.sparkletour.com/ProductList/4987">私享游</a></li>
+                                        <li><a href="../ProductList/4988.htm" tppabs="http://www.sparkletour.com/ProductList/4988">高端自由行</a></li>
+                                        <li><a href="../ProductList/4989.htm" tppabs="http://www.sparkletour.com/ProductList/4989">度假套餐</a></li>
+                                    </ul>
+                                </li>
+                                <li class="specialCollections">
+                                    <a href="../ProductList/4967.htm" tppabs="http://www.sparkletour.com/ProductList/4967">耀悦特辑</a>
+                                    <ul class="level3">
+                                        <li>
+                                            <a href="../ProductList/8362.htm" tppabs="http://www.sparkletour.com/ProductList/8362">
+                                <span class="img">
+                                    <img src="../../../static/images/content/productList/20160901183916926.jpg" alt="安缦甄选" width="100" height="100"></span>
+                                                <span class="title">安缦甄选</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="../themes/52experiences/index.htm" tppabs="http://www.sparkletour.com/themes/52experiences">
+                                <span class="img">
+                                    <img src="../../../static/images/content/productList/4bvhx630093806.jpg" alt="极致之旅" width="100" height="100"></span>
+                                                <span class="title">极致之旅</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="../ProductList/94.htm" tppabs="http://www.sparkletour.com/ProductList/94">
+                                <span class="img">
+                                    <img src="../../../static/images/content/productlist/68f2rp11092821.jpg" alt="大溪地专辑" width="100" height="100"></span>
+                                                <span class="title">大溪地专辑</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li><a href="../Personalise.htm" tppabs="http://www.sparkletour.com/Personalise">私人定制</a></li>
+                        <li><a href="../ProductList/pt/4.htm" tppabs="http://www.sparkletour.com/ProductList/pt/4">度假套餐</a>
+                            <ul class="level2">
+                                <li>
+                                    <a href="javascript:void(0)">酒店品牌</a>
+                                    <ul class="level3">
+                                        <li><a href="../ProductList/35048.htm" tppabs="http://www.sparkletour.com/ProductList/35048">安缦</a></li>
+                                        <li><a href="../ProductList/35049.htm" tppabs="http://www.sparkletour.com/ProductList/35049">四季</a></li>
+                                        <li><a href="../ProductList/35050.htm" tppabs="http://www.sparkletour.com/ProductList/35050">唯逸</a></li>
+                                        <li><a href="../ProductList/35051.htm" tppabs="http://www.sparkletour.com/ProductList/35051">六善</a></li>
+                                        <li><a href="../ProductList/35052.htm" tppabs="http://www.sparkletour.com/ProductList/35052">小众酒店</a></li>
+                                        <li><a href="../ProductList/8693.htm" tppabs="http://www.sparkletour.com/ProductList/8693">欧洲河轮</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">区域</a>
+                                    <ul class="level3">
+                                        <li><a href="../ProductList/35053/4.htm" tppabs="http://www.sparkletour.com/ProductList/35053/4">亚洲</a></li>
+                                        <li><a href="../ProductList/5644/4.htm" tppabs="http://www.sparkletour.com/ProductList/5644/4">欧洲</a></li>
+                                        <li><a href="../ProductList/5650/4.htm" tppabs="http://www.sparkletour.com/ProductList/5650/4">美洲</a></li>
+                                        <li><a href="../ProductList/5646/4.htm" tppabs="http://www.sparkletour.com/ProductList/5646/4">中东&非洲</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                        </li>
+                        <li><a href="../nge.htm" tppabs="http://www.sparkletour.com/nge">国家地理</a></li>
+                        <li><a href="../themes/health/index.htm" tppabs="http://www.sparkletour.com/themes/health/">海外健康</a></li>
+                        <li>
+                            <a href="javascript:void(0);">公司简介</a>
+                            <ul class="level2">
+                                <li>
+                                    <ul class="level3">
+                                        <li><a href="../AboutUs/index.htm" tppabs="http://www.sparkletour.com/AboutUs">品牌故事</a></li>
+                                        <li><a href="../ProductClub.htm" tppabs="http://www.sparkletour.com/ProductClub">耀悦会</a></li>
+                                        <li><a href="../InvitationList.htm" tppabs="http://www.sparkletour.com/InvitationList">邀约 · 分享</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div class="quickTool">
+                    <div class="tool">
+                        <a class="phone" href="tel:4008905588">400 890 5588</a>
+                    </div>
+                    <div class="tool">
+                        <div class="searchForm">
+                            <div class="quickSearch">
+                                <!-- <input type="text" name="keyword" id="keyword" placeholder="快速搜索" /> -->
+                                <button>快速搜索<span class="accessible">搜索</span></button>
+                            </div>
+                            <div class="searchPanel">
+                                <a href="javascript:void(0);" class="close">X<span class="accessible">关闭搜索面板</span></a>
+                                <div class="row">
+                                    <fieldset class="byDate">
+                                        <legend>按时间出行</legend>
+                                        <ul>
+                                            <li>
+                                                <input type="text" class="datePicker" id="txtStartDate" value="" /></li>
+                                            <li>
+                                                <input type="text" class="datePicker" id="txtEndDate" value="" /></li>
+                                        </ul>
+                                    </fieldset>
+                                    <fieldset class="byDestination">
+                                        <legend>按目的地</legend>
+                                        <div>
+                                            <input type="text" class="inputDestination" id="searchByDestination" placeholder="输入目的地" />
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <div class="actions">
+                                    <button id="btnHeadSearch" type="submit">搜 索</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="loginbefore" class="tool" style="display:none;">
+                        <a href="javascript:void(0);" onclick="modalMyYaoyueShow()" class="loginBtn">登录注册</a>
+                    </div>
+                    <div id="loginafter" class="tool" style="display: none">
+                        <a href="javascript:void(0);" class="logined">我的耀悅
+                            <div class="loginBtnNav" style="z-index: 9999999;">
+                                <ul>
+                                    <li class="setBorderBot"></li>
+                                    <li id="liMyMessagePage" onclick="location.href='../member/index.htm'/*tpa=http://www.sparkletour.com/member/*/">会员信息</li>
+                                    <li id="liOrderQuery" onclick="location.href='../member/order.htm'/*tpa=http://www.sparkletour.com/member/order*/">订单查询</li>
+                                    <li id="liPointQuery" onclick="location.href='../member/point.htm'/*tpa=http://www.sparkletour.com/member/point*/">会员积分</li>
+                                    <li id="liTraveler">常用出行人</li>
+                                    <li id="liUpPassWd">修改密码</li>
+                                    <li id="userExit" class="setBorderTop" onclick="Logout();">退出</li>
+                                </ul>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="navline"></div>
+        </div>
+    </header>
+    <!-- 登录 注册 忘记密码 入口 -->
+    <div class="modal fade modalMyYaoyue" id="modalMyYaoyue" tabindex="-1" role="dialog" aria-labelledby="modalMyYaoyueLabel" aria-hidden="true" data-backdrop="static">
+        <div class="modal-dialog1">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="modalMyYaoyueLabel">我的耀悅</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="modalMyYaoyueContent1 clearfix">
+                        <div class="login_left">
+                            <form name="form1">
+                                <div class="hel">欢迎登录</div>
+
+                                <div class="login_text">您的手机</div>
+                                <div class="login_text">
+                                    <input id="txt_phone" name="txt_phone" type="text" placeholder="手机号" />
+                                </div>
+                                <div class="login_text">验证码</div>
+                                <div class="login_text">
+                                    <input id="txt_check_code" type="text" name="txt_check_code" placeholder="验证码" style="text-align: left; float: left; width: 150px;" />
+                                    <a id="btn_send_code" href="#" style="float: left; margin-left: 10px">发送验证码</a>
+                                </div>
+                                <div id="lnerror_text" class="error_text" style="display: none"></div>
+
+                                <div class="login_text" style="margin-top: 10px;">
+                                    <div style="position: relative; width: 275px;">
+                                        <input id="btn_login" type="button" value="登 录" />
+                                        <div class="loaderbtn">
+                                            <div class="loader-inner ball-clip-rotate">
+                                                <div></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--[if lte IE 8]>
+    <div id="browser">
+        <p>我们检测到您还在使用版本较低的IE内核浏览器，为了获得最佳的浏览体验，耀悦旅行推荐您使用<span class="close">关闭</span></p>
+        <dl>
+            <dd><a target="_blank" href="javascript:if(confirm('https://www.google.com/intl/zh-CN/chrome/browser/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='https://www.google.com/intl/zh-CN/chrome/browser/'" tppabs="https://www.google.com/intl/zh-CN/chrome/browser/">谷歌浏览器</a></dd>
+            <dd><a target="_blank" href="javascript:if(confirm('http://support.apple.com/kb/DL1531?viewlocale=zh_CN  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://support.apple.com/kb/DL1531?viewlocale=zh_CN'" tppabs="http://support.apple.com/kb/DL1531?viewlocale=zh_CN">Safari浏览器</a></dd>
+            <dd><a target="_blank" href="javascript:if(confirm('http://www.firefox.com.cn/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.firefox.com.cn/'" tppabs="http://www.firefox.com.cn/">火狐浏览器</a></dd>
+            <dd><a target="_blank" href="javascript:if(confirm('http://windows.microsoft.com/zh-cn/internet-explorer/download-ie  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://windows.microsoft.com/zh-cn/internet-explorer/download-ie'" tppabs="http://windows.microsoft.com/zh-cn/internet-explorer/download-ie">IE浏览器</a><span>（IE9以上）</span></dd>
+        </dl>
+    </div>
+    <![endif]-->
+    <script type="text/javascript">
+        IsLogin();
+        var prodListUrl = "/ProductList";
+        var isMobile = /^(?:13\d|15\d|18\d|17\d|14\d)\d{5}(\d{3}|\*{3})$/; //手机号码验证规则
+        var isEmail = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;//电子邮件验证规则
+        var wait = 60;
+        var countDown, timer;
+        function setCookie(name, value, exdays, domain) {
+            var str = name + "=" + encodeURIComponent(value);
+            var d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            str += ";expires=" + d.toGMTString();
+            str = domain ? str + ";domain=" + domain : str;
+            document.cookie = str;
+
+        }
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i].trim();
+                if (c.indexOf(name) == 0) return decodeURIComponent(c.substring(name.length, c.length));
+            }
+            return "";
+        }
+        function deleteCookie(name, domain) {
+            var date = new Date("1970-01-01");
+            var str = name + "=null;expires=" + date.toGMTString();
+            str = domain ? str + ";domain=" + domain : str;
+            document.cookie = str;
+        }
+        function modalMyYaoyueShow() {
+            $("#lnerror_text").hide();
+            $("#modalMyYaoyue").modal("show");
+        }
+        function CheckPhone() {
+            var flag = true;
+            var val = $.trim($("#txt_phone").val());
+            if (val == "") {
+                $("#lnerror_text").text("* 请输入手机号");
+                $("#lnerror_text").show();
+                flag = false;
+            }
+            else if (!isMobile.test(val)) {
+                $("#lnerror_text").text("* 您输入的账号有误，请重新输入");
+                $("#lnerror_text").show();
+                $("#txt_phone").val("");
+                flag = false;
+            }
+            return flag;
+        }
+        function CheckCode() {
+            var flag = true;
+            var val = $.trim($("#txt_check_code").val());
+            if (val == "") {
+                $("#lnerror_text").text("* 请输入验证码");
+                $("#lnerror_text").show();
+                flag = false;
+            }
+            return flag;
+        }
+        function time(o) {
+            if (wait == 0) {
+                $(o).bind("click", function () {
+                    $("#lnerror_text").hide();
+                    if (CheckPhone()) {
+                        $.get("/common/sendcode.ashx?phone=" + $.trim($("#txt_phone").val()), function (res) {
+                            console.log(res);
+                        })
+                        time(this);
+                    }
+                }).css({ "color": "#93608e" });
+                o.innerText = "发送验证码";
+                wait = 60;
+            } else {
+                $(o).unbind("click").css({ "color": "gray" });
+                o.innerText = "重新发送(" + wait + ")";
+                wait--;
+                setTimeout(function () {
+                        time(o)
+                    },
+                    1000)
+            }
+        }
+        function IsLogin() {
+            if ($.cookie("customer")) {
+                var c = JSON.parse($.cookie("customer"));
+                $(".setBorderBot").text(c.nick_name + '，您好');
+                $("#loginbefore").hide();
+                $("#loginafter").show();
+            }
+        }
+        function NeedLogin() {
+            if (!$.cookie("customer")) {
+                modalMyYaoyueShow();
+            }
+        }
+        function Logout() {
+            $.cookie("customer", '', { expires: -1, domain: "http://www.sparkletour.com/ProductDetail/sparkletour.com", path: "/" });
+            location.href = "../index.htm"/*tpa=http://www.sparkletour.com/*/;
+        }
+        $("#btn_login").bind("click", function () {
+            $("#lnerror_text").hide();
+            if (CheckPhone() && CheckCode()) {
+                $.cookie("customer", JSON.stringify(testJson), { expires: 1, domain: "http://www.sparkletour.com/ProductDetail/sparkletour.com", path: "/" });
+                location.reload();
+            }
+        });
+        $("#btn_send_code").bind("click", function () {
+            $("#lnerror_text").hide();
+            if (CheckPhone()) {
+                $.get("/common/sendcode.ashx?phone=" + $.trim($("#txt_phone").val()), function (res) {
+                    console.log(res);
+                })
+                console.log("send code");
+                time(this);
+            }
+        });
+    </script>
+
+    <main role="main" id="pageContent" class="pageContent clearfix">
+        <input name="hidProductId" type="hidden" id="hidProductId" value="39634" />
+        <input name="hid_duration" type="hidden" id="hid_duration" value="10" />
+        <div class="productIntroduction">
+            <div class="banner contentWrapper">
+                <h2>
+                    <p>
+                            <span class="title" id="sp_mian_title">
+                                塞舌尔 王子的誓言</span><span class="subTitle" id="sp_sub_title">8晚10天私享游</span>
+                    </p>
+                    <p class="features">
+                        尊享阿提哈德商务舱 直升机直抵北岛 马埃岛四季酒店
+                    </p>
+                </h2>
+                <ul class="productInfo">
+                    <li class="price">
+                        <span id="sp_min_price"></span>
+                    </li>
+                </ul>
+            </div>
+            <div class="descriptionWrapper">
+                <div class="contentWrapper clearfix">
+                    <div class="description">
+                        <h3 class="accessible">线路介绍</h3>
+                        <div class="owl-carousel owl-theme productBannerImages">
+                            <div class="item">
+                                <img src = "../../../static/images/content/productlist/n66lhr26005021.jpg" alt="塞舌尔 王子的誓言">
+                            </div>
+                            <div class="item">
+                                <img src = "../../../static/images/content/productlist/24lx0023171703.png" alt="塞舌尔 王子的誓言">
+                            </div>
+                            <div class="item">
+                                <img src = "../../../static/images/content/productlist/8pj4jl24113703.jpg" alt="塞舌尔 王子的誓言">
+                            </div>
+                            <div class="item">
+                                <img src = "../../../static/images/content/productlist/6x2pv824113702.jpg" alt="塞舌尔 王子的誓言">
+                            </div>
+
+                        </div>
+                        <p>
+                            这里是英国皇室威廉王子和凯特王妃的蜜月之所。<br/>这里有被美国国家地理杂志评为世界第一的沙滩-德阿让海滩。<br/>这里是全球三大珍惜濒危植物之一海椰子的生长地。<br/>这就是塞舌尔，欧洲人坚信，这里是圣经中提到的伊甸园。
+                        </p>
+                    </div>
+                    <div class="overview">
+                        <div class="schedule">
+                            <dl>
+                                <dt>最早出发日期</dt>
+                                <dd>
+                                    <div class="productStartDate">
+                                        <a href="#priceCalendar" id="lk_price"></a>
+                                    </div>
+                                </dd>
+                                <dt>出发城市</dt>
+                                <dd>
+                                    北京
+                                    <a href="javascript:void(0);" data-toggle="modal" data-target="#modalCustomiseProduct">其他城市</a></dd>
+                                <dt>起价说明</dt>
+                                <dd>
+                                    <ul class="priceNotes">
+                                        <li class="iconClock">
+                                            提前出发日60天报名，立减500元/位<br/>赠送美亚“安心游”旅行保障计划，保额最高可达220万
+                                        </li>
+
+
+                                        <li class="iconGroup">
+                                            本产品基于2位贵宾出行<br/>4位（含）以上贵宾同时报名，享受200元/人优惠<br/>6位（含）以上贵宾同时报名，享受500元/人优惠
+                                        </li>
+
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <div id="__divProductDetail" class="actions">
+                                <button id="btnBookNow1" onclick="" class="button primary" data-toggle="modal" data-target="#modalBookNow">立即预订</button>
+                                <button id="btnBookCustomise1" onclick="" class="button secondary" data-toggle="modal" data-target="#modalCustomiseProduct">行程个性化调整</button>
+                            </div>
+                        </div>
+                        <div class="tags">
+                            <h3>产品标签</h3>
+                            <ul class="list-inline">
+                                <li>顶级体验</li>
+                                <li>婚礼蜜月</li>
+                                <li>商务舱</li>
+                                <li>私享游</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="features">
+                <div class="contentWrapper">
+                    <h3 class="accessible">产品特色</h3>
+                    <dl>
+                        <dt class="lh40">北岛酒店 王子蜜月之选</dt>
+                        <dd class="lh34">北岛位于马埃岛以北，搭乘直升飞机仅需20分钟即可抵达。在入住期间，可以随心享受由名厨打理的早午晚三餐、浮潜和深潜活动、深潜初级教学、独木舟、山地骑行、日落游艇巡航、半日海钓巡航、岛上度假向导、专享电瓶车接送、无线网络等。</dd>
+                        <dt class="lh40">四季酒店 顶级服务品质</dt>
+                        <dd class="lh34">四季位于Baie Lazare地区的Petite Anse区，位于“失落的伊甸园”中心，塞舌尔四季度假村为您提供极致的热带岛屿入住体验。 这处被丛林覆盖的度假村拥有怪石嶙峋的海岸和细腻洁白的沙滩。</dd>
+                        <dt class="lh40">尊享航程 舒适旅程</dt>
+                        <dd class="lh34">国际段选成乘阿提哈德航空公务舱，塞舌尔内陆直升机往返。旅行舒适无忧。</dd>
+                        <dt class="lh40">探索野奢 完美假期</dt>
+                        <dd class="lh34">耀悦特别安排探索之旅，在世界最小的国家公园五月谷，邂逅仅存的7000余世界濒危植物之一海椰子，这是欧洲人心目中的伊甸园。</dd>
+
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <div class="productDetails">
+            <div id="__divNavProductDetails" class="productDetailsNav">
+                <div class="contentWrapper clearfix">
+                    <div class="navLinks" id="productDetailsNavLinks">
+                        <ul class="nav list-inline">
+                            <li><a href="#productFeatures">产品特色</a></li>
+                            <li><a href="#dailySchedule">每日行程</a></li>
+                            <li><a href="#hotelInfo">酒店信息</a></li>
+                            <li><a href="#priceCalendar">价格日历</a></li>
+                            <li><a href="#costExplanation" class="enableTab">费用说明</a></li>
+                            <li><a href="#bookingNotice" class="enableTab">预订须知</a></li>
+                        </ul>
+                    </div>
+                    <ul class="actions list-inline">
+
+                        <li><a id="btnBookNow2" class="button secondary" href="javascript:void(0);" data-toggle="modal" data-target="#modalBookNow">立即预订</a></li>
+                        <li><a id="btnBookCustomise2" class="button secondary" href="javascript:void(0);" data-toggle="modal" data-target="#modalCustomiseProduct">行程个性化调整</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <section class="dailySchedule" id="dailySchedule">
+                <div class="contentWrapper">
+                    <h3>每日行程</h3>
+                    <ol class="scheduleList">
+                        <li>
+                            <div class="day" style="background-image: url('http://images1.aoyou.com/productlist/201603/4jt6z423184748.jpg?imageView2/1/q/90/w/360/h/270/');">
+                                <span>第一天</span>
+                            </div>
+                            <h4><span class="number">1</span><span class="from">北京/塞舌尔</span></h4>
+                            <p class="description">当日凌晨于首都国际机场出发（需于出发前一日晚间抵达机场），选乘屡获殊荣的阿提哈德航空公务舱，经阿布扎比转机，飞往有“世界最美海岛”之称的塞舌尔。抵达塞舌尔马埃国际机场后，由当地代表接机，送往直升机坪，搭乘私人直升机入住威廉王子与凯特王妃的新婚蜜月地【北岛North Island】。 ◇ 马埃岛-北岛 直升飞机飞行约 30 分钟</p>
+                            <ul class="agenda">
+                                <li>
+                                    <div class="icon flight"></div>
+                                    <div class="agendaItem">
+                                        <p>
+                    <span class="time"> EY889 商务舱
+                    </span>
+                                        </p>
+                                        <p>
+                                            北京 首都国际  01:25 — 阿布扎比 阿布扎比国际机场 06:15
+                                        </p>
+                                    </div>
+                                    <div class="agendaItem">
+                                        <p>
+                    <span class="time">阿提哈德航空 EY4119 商务舱
+                    </span>
+                                        </p>
+                                        <p>
+                                            阿布扎比 巴提恩机场  08:05 — 塞舌尔-维多利亚 塞舌尔国际机场 12:40
+                                        </p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="icon hotel"></div>
+                                    <div class="agendaItem">
+                                        <p>
+                    <span>北岛度假村 North Island<br/>
+                        沙滩别墅
+                    </span>
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="dining">
+                                    <ol>
+                                        <li>
+                                            <div class="icon breakfast"></div>
+                                            <div class="agendaItem">
+                                                <span class="name">早餐</span><span class="cotent">商务舱餐食</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="icon lunch"></div>
+                                            <div class="agendaItem">
+                                                <span class="name">午餐</span><span class="cotent">商务舱餐食</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="icon dinner"></div>
+                                            <div class="agendaItem">
+                                                <span class="name">晚餐</span><span class="cotent">酒店零点晚餐</span>
+                                            </div>
+                                        </li>
+                                    </ol>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="day" style="background-image: url('http://images1.aoyou.com/productlist/201603/v82xvz23171630.jpg?imageView2/1/q/90/w/360/h/270/');">
+                                <span>第二天</span>
+                            </div>
+                            <h4><span class="number">2</span><span class="from">北岛 王子蜜月地</span></h4>
+                            <p class="description">酒店早餐后，全天自由活动。<br />作为 Wildness Safaris 旗下唯一的海岛度假村，北岛的奢华更多体现于“天人合一”的完美平衡，当你从空中俯瞰时，很难想象这座小岛曾荣获“世界十大奢华酒店”、“世界最佳岛屿度假村”等诸多殊荣。她是塞舌尔这座纯净天堂的灵魂所在。入住北岛期间，您可免费享受以下服务和设施：由名厨打理的早午晚三餐、酒水畅饮（部分顶级红酒和香槟除外）、浮潜和深潜活动、深潜初级教学、独木舟、山地骑行、日落游艇巡航、半日海钓巡航、岛上度假向导、健身房、专享电瓶车接送、无线网络<br /><strong>旅游顾问提示</strong>：本日为自由活动，不提供当地代表服务，期间的离岛观光费用敬请自理。	&nbsp;<br /></p>
+                            <ul class="agenda">
+                                <li>
+                                    <div class="icon hotel"></div>
+                                    <div class="agendaItem">
+                                        <p>
+                    <span>北岛度假村 North Island<br/>
+                        沙滩别墅
+                    </span>
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="dining">
+                                    <ol>
+                                        <li>
+                                            <div class="icon breakfast"></div>
+                                            <div class="agendaItem">
+                                                <span class="name">早餐</span><span class="cotent">酒店早餐</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="icon lunch"></div>
+                                            <div class="agendaItem">
+                                                <span class="name">午餐</span><span class="cotent">酒店午餐</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="icon dinner"></div>
+                                            <div class="agendaItem">
+                                                <span class="name">晚餐</span><span class="cotent">酒店晚餐</span>
+                                            </div>
+                                        </li>
+                                    </ol>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="day" style="background-image: url('http://images1.aoyou.com/productlist/201603/00n02623171631.jpg?imageView2/1/q/90/w/360/h/270/');">
+                                <span>第三天</span>
+                            </div>
+                            <h4><span class="number">3</span><span class="from">北岛 王子蜜月地</span></h4>
+                            <p class="description">酒店早餐后，全天自由活动。<br />请您在北岛享受阳光、大海、沙滩的恩赐，尽情体验世外桃源的生活。入住北岛期间，您可免费享受以下服务和设施：由名厨打理的早午晚三餐、酒水畅饮（部分顶级红酒和香槟除外）、浮潜和深潜活动、深潜初级教学、独木舟、山地骑行、日落游艇巡航、半日海钓巡航、岛上度假向导、健身房、专享电瓶车接送、无线网络<br /><strong>旅游顾问提示：</strong>本日为自由活动，不提供当地代表服务，期间的离岛观光费用敬请自理。<br /></p>
+                            <ul class="agenda">
+                                <li>
+                                    <div class="icon hotel"></div>
+                                    <div class="agendaItem">
+                                        <p>
+                    <span>北岛度假村 North Island<br/>
+                        沙滩别墅
+                    </span>
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="dining">
+                                    <ol>
+                                        <li>
+                                            <div class="icon breakfast"></div>
+                                            <div class="agendaItem">
+                                                <span class="name">早餐</span><span class="cotent">酒店早餐</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="icon lunch"></div>
+                                            <div class="agendaItem">
+                                                <span class="name">午餐</span><span class="cotent">酒店午餐</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="icon dinner"></div>
+                                            <div class="agendaItem">
+                                                <span class="name">晚餐</span><span class="cotent">酒店晚餐</span>
+                                            </div>
+                                        </li>
+                                    </ol>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="day" style="background-image: url('http://images1.aoyou.com/productlist/201603/06j42223171630.jpg?imageView2/1/q/90/w/360/h/270/');">
+                                <span>第四天</span>
+                            </div>
+                            <h4><span class="number">4</span><span class="from">北岛 王子蜜月地</span></h4>
+                            <p class="description">酒店早餐后，全天自由活动。<br />请您在北岛享受阳光、大海、沙滩的恩赐，尽情体验世外桃源的生活。入住北岛期间，您可免费享受以下服务和设施：由名厨打理的早午晚三餐、酒水畅饮（部分顶级红酒和香槟除外）、浮潜和深潜活动、深潜初级教学、独木舟、山地骑行、日落游艇巡航、半日海钓巡航、岛上度假向导、健身房、专享电瓶车接送、无线网络<br /><strong>旅游顾问提示</strong>：本日为自由活动，不提供当地代表服务，期间的离岛观光费用敬请自理。<br /></p>
+                            <ul class="agenda">
+                                <li>
+                                    <div class="icon hotel"></div>
+                                    <div class="agendaItem">
+                                        <p>
+                    <span>北岛度假村 North Island<br/>
+                        沙滩别墅
+                    </span>
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="dining">
+                                    <ol>
+                                        <li>
+                                            <div class="icon breakfast"></div>
+                                            <div class="agendaItem">
+                                                <span class="name">早餐</span><span class="cotent">酒店早餐</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="icon lunch"></div>
+                                            <div class="agendaItem">
+                                                <span class="name">午餐</span><span class="cotent">酒店午餐</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="icon dinner"></div>
+                                            <div class="agendaItem">
+                                                <span class="name">晚餐</span><span class="cotent">酒店晚餐</span>
+                                            </div>
+                                        </li>
+                                    </ol>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="day" style="background-image: url('http://images1.aoyou.com/productlist/201603/62xf4h23171624.jpg?imageView2/1/q/90/w/360/h/270/');">
+                                <span>第五天</span>
+                            </div>
+                            <h4><span class="number">5</span><span class="from">马埃岛 情迷克里奥</span></h4>
+                            <p class="description">酒店早餐后，与北岛告别。搭乘私人直升机返回马埃岛，由当地代表和私人专车接机。今日中午，我们邀您前往本地最受欢迎的特色餐厅，品尝<strong>【克里奥风味午餐】</strong>。备选餐厅：Marie Antoinette、Kaz Zanana Pink Salt、Maria's Rock Cafe享用午餐后，让我们走进塞舌尔的迷你首都<strong>【维多利亚 Victoria】</strong>，在当地代表的引领下，穿过大街小巷，参观<strong>【传统市场 Market】</strong>，与首都地标<strong>【钟楼 Clock Tower】</strong>合影，感受多姿多彩，和谐相融的克里奥文化。结束游览后，您将抵达屡获殊荣的<strong>【四季度假村</strong> <strong>Fourseason Resort】</strong>，入住休息。</p>
+                            <ul class="agenda">
+                                <li>
+                                    <div class="icon hotel"></div>
+                                    <div class="agendaItem">
+                                        <p>
+                    <span>塞舌尔四季度假村Four Seasons Resort Seychelles<br/>
+                        海景别墅
+                    </span>
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="dining">
+                                    <ol>
+                                        <li>
+                                            <div class="icon breakfast"></div>
+                                            <div class="agendaItem">
+                                                <span class="name">早餐</span><span class="cotent">酒店早餐</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="icon lunch"></div>
+                                            <div class="agendaItem">
+                                                <span class="name">午餐</span><span class="cotent">本地特色午餐</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="icon dinner"></div>
+                                            <div class="agendaItem">
+                                                <span class="name">晚餐</span><span class="cotent">酒店晚餐</span>
+                                            </div>
+                                        </li>
+                                    </ol>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="day" style="background-image: url('http://images1.aoyou.com/productlist/201603/0220h423171629.jpg?imageView2/1/q/90/w/360/h/270/');">
+                                <span>第六天</span>
+                            </div>
+                            <h4><span class="number">6</span><span class="from">马埃岛 漫享时光</span></h4>
+                            <p class="description">酒店早餐后，全天自由活动。<br />请您在度假村尽受阳光、大海、沙滩的恩赐，尽情体验世外桃源的生活。入住四季度假村期间，您可免费享受以下服务和设施：每日早餐和晚餐、免费浮潜装备、部分非机动水上活动、客房管家、健身房、电瓶车接送、无线网络<br /><strong>◇ 特别注意</strong>：本日为自由活动，不提供当地代表服务，期间的午餐和观光费用敬请自理。<br /></p>
+                            <ul class="agenda">
+                                <li>
+                                    <div class="icon hotel"></div>
+                                    <div class="agendaItem">
+                                        <p>
+                    <span>塞舌尔四季度假村Four Seasons Resort Seychelles<br/>
+                        海景别墅
+                    </span>
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="dining">
+                                    <ol>
+                                        <li>
+                                            <div class="icon breakfast"></div>
+                                            <div class="agendaItem">
+                                                <span class="name">早餐</span><span class="cotent">酒店早餐</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="icon lunch"></div>
+                                            <div class="agendaItem">
+                                                <span class="name">午餐</span><span class="cotent">随心自理</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="icon dinner"></div>
+                                            <div class="agendaItem">
+                                                <span class="name">晚餐</span><span class="cotent">酒店晚餐</span>
+                                            </div>
+                                        </li>
+                                    </ol>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="day" style="background-image: url('http://images1.aoyou.com/productlist/201603/rbzn2p23171627.png?imageView2/1/q/90/w/360/h/270/');">
+                                <span>第七天</span>
+                            </div>
+                            <h4><span class="number">7</span><span class="from">普拉兰+拉迪格 双岛私享游</span></h4>
+                            <p class="description">今日，我们邀您前往塞舌尔独具特色的两个外岛，发现更多精彩！早餐后，当地代表带您前往码头，乘豪华快船前往<strong>【普拉兰岛 Praslin】</strong>，这是塞舌尔第二大岛，也是早期探险者心中的伊甸园。岛上有世界最小的世界自然遗产地<strong>【五月谷保护区 Valleder Mer】</strong>，那里绿荫遮天，溪水潺潺，是塞舌尔国宝海椰子的栖息地。中午时分，乘船到宛如仙境的<strong>【拉迪格岛 La Digue】</strong>。享用特色午餐后，我们将带您搭乘木制牛车或敞篷卡车，穿过古老的"殖民庄园"，穿越奇异的巨石丛，发现纯美的"银泉沙滩"，这里的海水如水晶般清澈，沙、石、海的完美组合，让她成为《国家地理》评定的"世界最美沙滩"。黄昏时分乘船返回马埃岛，专车送返四季度假村休息。◇ 四季度假村-马埃岛码头 车程约40分钟 马埃岛-普拉兰岛 船程约50分钟   普拉兰岛-拉迪格岛 船程约20分钟 拉迪格岛-马埃岛 船程约1小时</p>
+                            <ul class="agenda">
+                                <li>
+                                    <div class="icon hotel"></div>
+                                    <div class="agendaItem">
+                                        <p>
+                    <span>塞舌尔四季度假村Four Seasons Resort Seychelles<br/>
+                        海景别墅
+                    </span>
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="dining">
+                                    <ol>
+                                        <li>
+                                            <div class="icon breakfast"></div>
+                                            <div class="agendaItem">
+                                                <span class="name">早餐</span><span class="cotent">酒店早餐</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="icon lunch"></div>
+                                            <div class="agendaItem">
+                                                <span class="name">午餐</span><span class="cotent">拉迪格岛</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="icon dinner"></div>
+                                            <div class="agendaItem">
+                                                <span class="name">晚餐</span><span class="cotent">酒店晚餐</span>
+                                            </div>
+                                        </li>
+                                    </ol>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="day" style="background-image: url('http://images1.aoyou.com/productlist/201603/p2x06823171625.jpg?imageView2/1/q/90/w/360/h/270/');">
+                                <span>第八天</span>
+                            </div>
+                            <h4><span class="number">8</span><span class="from">马埃岛 漫享时光</span></h4>
+                            <p class="description">今日，请您在度假村尽受阳光、大海、沙滩的恩赐，尽情体验世外桃源的生活。入住四季度假村期间，您可免费享受以下服务和设施：每日早餐和晚餐、免费浮潜装备、部分非机动水上活动、客房管家、健身房、电瓶车接送、无线网络<strong>◇</strong> <strong>特别注意</strong>：本日为自由活动，不提供当地代表服务，期间的午餐和观光费用敬请自理。</p>
+                            <ul class="agenda">
+                                <li>
+                                    <div class="icon hotel"></div>
+                                    <div class="agendaItem">
+                                        <p>
+                    <span>塞舌尔四季度假村Four Seasons Resort Seychelles<br/>
+                        海景别墅
+                    </span>
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="dining">
+                                    <ol>
+                                        <li>
+                                            <div class="icon breakfast"></div>
+                                            <div class="agendaItem">
+                                                <span class="name">早餐</span><span class="cotent">酒店早餐</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="icon lunch"></div>
+                                            <div class="agendaItem">
+                                                <span class="name">午餐</span><span class="cotent">随心自理</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="icon dinner"></div>
+                                            <div class="agendaItem">
+                                                <span class="name">晚餐</span><span class="cotent">酒店晚餐</span>
+                                            </div>
+                                        </li>
+                                    </ol>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="day" style="background-image: url('http://images1.aoyou.com/productlist/201603/8n2xtn23171625.jpg?imageView2/1/q/90/w/360/h/270/');">
+                                <span>第九天</span>
+                            </div>
+                            <h4><span class="number">9</span><span class="from">塞舌尔-阿布扎比</span></h4>
+                            <p class="description">酒店早餐后，今天是您在塞舌尔度过的最后一天，上午退房后，当地代表将带您离开四季度假村，前往马埃岛的至高点<strong>【修道院观景台 Mission Lodge Viewpoint】</strong>，俯瞰壮丽的群岛美景。享用午餐后，前往马埃岛国际机场，下午乘机告别伊甸园，经阿布扎比转机返回北京。<br /><strong>旅游顾问提示</strong>：四季度假村-观景台 车程约60分钟 观景台-马埃岛机场 车程约30分钟<br /></p>
+                            <ul class="agenda">
+                                <li>
+                                    <div class="icon flight"></div>
+                                    <div class="agendaItem">
+                                        <p>
+                    <span class="time">阿提哈德航空 EY4120 商务舱
+                    </span>
+                                        </p>
+                                        <p>
+                                            塞舌尔-维多利亚 塞舌尔国际机场  15:40 — 阿布扎比 巴提恩机场 20:10
+                                        </p>
+                                    </div>
+                                    <div class="agendaItem">
+                                        <p>
+                    <span class="time">阿提哈德航空 EY886 商务舱
+                    </span>
+                                        </p>
+                                        <p>
+                                            阿布扎比 巴提恩机场  21:30 — 北京 首都国际 08:50
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="dining">
+                                    <ol>
+                                        <li>
+                                            <div class="icon breakfast"></div>
+                                            <div class="agendaItem">
+                                                <span class="name">早餐</span><span class="cotent">酒店早餐</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="icon lunch"></div>
+                                            <div class="agendaItem">
+                                                <span class="name">午餐</span><span class="cotent">本地特色午餐</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="icon dinner"></div>
+                                            <div class="agendaItem">
+                                                <span class="name">晚餐</span><span class="cotent">公务舱餐食</span>
+                                            </div>
+                                        </li>
+                                    </ol>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="day" style="background-image: url('http://images1.aoyou.com/productlist/201603/n0jlhj23171626.jpg?imageView2/1/q/90/w/360/h/270/');">
+                                <span>第十天</span>
+                            </div>
+                            <h4><span class="number">10</span><span class="from">阿布扎比/北京</span></h4>
+                            <p class="description">当日早晨抵达北京首都国际机场，结束难忘的塞舌尔王子誓言之旅，耀悦期待与您再次相约！</p>
+                            <ul class="agenda">
+                                <li class="dining">
+                                    <ol>
+                                        <li>
+                                            <div class="icon breakfast"></div>
+                                            <div class="agendaItem">
+                                                <span class="name">早餐</span><span class="cotent">公务舱餐食</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="icon lunch"></div>
+                                            <div class="agendaItem">
+                                                <span class="name">午餐</span><span class="cotent">随心自理</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="icon dinner"></div>
+                                            <div class="agendaItem">
+                                                <span class="name">晚餐</span><span class="cotent">随心自理</span>
+                                            </div>
+                                        </li>
+                                    </ol>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ol>
+                </div>
+            </section>
+            <section class="hotelInfo" id="hotelInfo">
+                <div class="contentWrapper" role="tabpanel">
+                    <h3>酒店信息</h3>
+                    <!-- Hotel Nav tabs -->
+                    <ul class="nav nav-tabs hotelTabNav" role="tablist">
+                        <li role = "presentation" class="active"><a href = "#hotel14" aria-controls="hotel15086" role="tab" data-toggle="tab">Day 1 - 4</a></li>
+                        <li role = "presentation" class=""><a href = "#hotel58" aria-controls="hotel14276" role="tab" data-toggle="tab">Day 5 - 8</a></li>
+
+                    </ul>
+                    <!-- Hotel Tab panes -->
+                    <div class="tab-content clearfix">
+                        <div role="tabpanel" class="tab-pane active dailyHotel" id="hotel14">
+                            <div class="hotelImages">
+                                <div class="owl-carousel owl-theme hotelImages" style="min-height: 550px;">
+                                    <div class="item">
+                                        <img src = "../../../static/images/Hotel_Photo/519328/20141117161934471551d.jpg" alt="北岛度假村" />
+                                    </div>
+                                    <div class="item">
+                                        <img src = "../../../static/images/Hotel_Photo/20141117161947472932d.jpg" alt="北岛度假村" />
+                                    </div>
+                                    <div class="item">
+                                        <img src = "../../../static/images/Hotel_Photo/20141117162000644967d.jpg" alt="北岛度假村" />
+                                    </div>
+                                    <div class="item">
+                                        <img src = "../../../static/images/Hotel_Photo/20141117162013781326d.jpg"  alt="北岛度假村" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hotel">
+                                <h4><span class="nameCN">北岛度假村</span><span class="nameEN">North Island</span></h4>
+                                <ul class="hotelOverviewList">
+                                    <li><span>星级：</span><span class="stars"> ★ ★ ★ ★ ★</span></li>
+                                    <li><span>房型：</span><span class="room"> 沙滩别墅</span></li>
+                                    <li><span>地址：</span><span>North Island,Seychelles</span ></li>
+                                </ul>
+                                <p class="description">
+                                    试想一下，在一间450平米的客房内尽情放松的感觉，这个数字绝非夸大其词，而是北岛度假村赠与每一位入住客人最慷慨的礼物。作为Wildness Collection旗下唯一的岛屿度假酒店，北岛的设计完全秉承“野奢”原则，在选材用料上极其贴近自然，体现原生海岛的天然风貌。这座以一岛一酒店形式开发的避世圣地，仅有11间客房，所有房间面向海滩，拥有私家按摩池和绝佳海景，直升机是唯一的官方上岛方式。作为英国威廉王子的蜜月之选，北岛曾在福布斯世界十大奢华酒店中排名榜首，只有最尊贵而富有品位的旅行家，才值得拥有她的美丽。
+                                </p>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane  dailyHotel" id="hotel58">
+                            <div class="hotelImages">
+                                <div class="owl-carousel owl-theme hotelImages" style="min-height: 550px;">
+                                    <div class="item">
+                                        <img src = "../../../static/images/Hotel_Photo/20121130175619558111d.jpg" alt="塞舌尔四季度假村Four Seasons Resort Seychelles" />
+                                    </div>
+                                    <div class="item">
+                                        <img src = "../../../static/images/Hotel_Photo/20121130175619976572d.jpg" alt="塞舌尔四季度假村Four Seasons Resort Seychelles" />
+                                    </div>
+                                    <div class="item">
+                                        <img src = "../../../static/images/Hotel_Photo/20121130175619341224d.jpg" alt="塞舌尔四季度假村Four Seasons Resort Seychelles" />
+                                    </div>
+                                    <div class="item">
+                                        <img src = "../../../static/images/Hotel_Photo/20121130175620243547d.jpg" alt="塞舌尔四季度假村Four Seasons Resort Seychelles" />
+                                    </div>
+                                    <div class="item">
+                                        <img src = "../../../static/images/Hotel_Photo/20121130175620878619d.jpg" alt="塞舌尔四季度假村Four Seasons Resort Seychelles" />
+                                    </div>
+                                    <div class="item">
+                                        <img src = "../../../static/images/Hotel_Photo/20121130175620458853d.jpg" alt="塞舌尔四季度假村Four Seasons Resort Seychelles" />
+                                    </div>
+                                    <div class="item">
+                                        <img src = "../../../static/images/Hotel_Photo/20121130175620194925d.jpg" alt="塞舌尔四季度假村Four Seasons Resort Seychelles" />
+                                    </div>
+                                    <div class="item">
+                                        <img src = "../../../static/images/Hotel_Photo/20121130175620632399d.jpg" alt="塞舌尔四季度假村Four Seasons Resort Seychelles" />
+                                    </div>
+                                    <div class="item">
+                                        <img src = "../../../static/images/Hotel_Photo/20121130175620633622d.bmp.jpg" alt="塞舌尔四季度假村Four Seasons Resort Seychelles" />
+                                    </div>
+                                    <div class="item">
+                                        <img src = "../../../static/images/Hotel_Photo/20121130175620328344d.bmp" alt="塞舌尔四季度假村Four Seasons Resort Seychelles" />
+                                    </div>
+                                    <div class="item">
+                                        <img src = "../../../static/images/Hotel_Photo/20121130175621114865d.jpg" alt="塞舌尔四季度假村Four Seasons Resort Seychelles" />
+                                    </div>
+                                    <div class="item">
+                                        <img src = "../../../static/images/Hotel_Photo/20121130175621533436d.jpg" alt="塞舌尔四季度假村Four Seasons Resort Seychelles" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hotel">
+                                <h4><span class="nameCN">塞舌尔四季度假村Four Seasons Resort Seychelles</span><span class="nameEN"></span></h4>
+                                <ul class="hotelOverviewList">
+                                    <li><span>星级：</span><span class="stars"> ★ ★ ★ ★ ★</span></li>
+                                    <li><span>房型：</span><span class="room"> 海景别墅</span></li>
+                                    <li><span>地址：</span><span>Mahe</span ></li>
+                                </ul>
+                                <p class="description">
+                                    四季酒店及度假村最新酒店于塞舌尔开张，酒店设于马埃岛西南海岸幽静的山上。这家酒店是四季酒店印度洋系列的第四个产业，另外三家酒店设在毛里求斯（2008年秋季开张）及马尔代夫。
+                                    马埃岛是塞舌尔的首都，也是塞舌尔群岛115个岛屿当中最大的一个，靠近肯雅海岸及马达加斯加东北。坐拥自然树林景观，塞舌尔四季酒店拥有67间独立别墅与套房，设在热带林梢间的高架上，眺望Petite Anse（小海湾）的私人细白沙滩。
+                                    “我们的酒店所处在的Petite Anse海湾的位置，给人的感觉有如私人岛屿。”总经理Markus Iseli解释。“Petite Anse是这个国家收藏最好的秘密，马蹄形的海岸完美地铺设情调，让你在这里自在地享受赤足、聆听热带鸟语。”
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <section class="priceCalendar" id="priceCalendar">
+                <div class="contentWrapper">
+                    <h3>价格日历</h3>
+                    <div class="priceCalendarInnerWrapper clearfix">
+                        <div class="calendar">
+
+                            <table>
+                                <caption>
+                                    <div class="month"><span id="spnYear">2017</span>年<span id="spnMonth">7</span>月</div>
+                                    <div class="buttons">
+                                        <button class="prev" style="visibility: hidden">&lt;</button>
+                                        <button class="next">&gt;</button>
+                                    </div>
+                                </caption>
+                                <thead>
+                                <tr>
+                                    <th>星期日</th>
+                                    <th>星期一</th>
+                                    <th>星期二</th>
+                                    <th>星期三</th>
+                                    <th>星期四</th>
+                                    <th>星期五</th>
+                                    <th>星期六</th>
+                                </tr>
+                                </thead>
+                                <tbody id="tb_calendar">
+                                </tbody>
+                            </table>
+
+
+                        </div>
+                        <div class="bookingProcedure">
+                            <h4>预订流程说明</h4>
+                            <ul class="bookingGuideline">
+                                <li>
+                                    <p class="title">
+                                        <span class="stepNo step1">1</span>
+                                        <span class="stepIcon dateAndCount"></span>
+                                        <span class="stepText">日期人数</span>
+                                        <span class="arrowDown"></span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p class="title">
+                                        <span class="stepNo step2">2</span>
+                                        <span class="stepIcon startBooking"></span>
+                                        <span class="stepText">立即预订</span>
+                                        <span class="arrowDown"></span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p class="title">
+                                        <span class="stepNo step3">3</span>
+                                        <span class="stepIcon submitInformation"></span>
+                                        <span class="stepText">填写信息</span>
+                                        <span class="arrowDown"></span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p class="title">
+                                        <span class="stepNo step4">4</span>
+                                        <span class="stepIcon waitingForConfirmation"></span>
+                                        <span class="stepText">客服确认</span>
+                                        <span class="arrowDown"></span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p class="title">
+                                        <span class="stepNo step5">5</span>
+                                        <span class="stepIcon signAndPay"></span>
+                                        <span class="stepText">签约支付</span>
+                                        <span class="arrowDown"></span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p class="title">
+                                        <span class="stepNo step6">6</span>
+                                        <span class="stepIcon bookingSucceed"></span>
+                                        <span class="stepText">预订成功</span>
+                                        <span class="arrowDown"></span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p class="title">
+                                        <span class="stepNo step7">7</span>
+                                        <span class="stepIcon startJourney"></span>
+                                        <span class="stepText">开心出游</span>
+                                        <span class="arrowDown"></span>
+                                    </p>
+                                </li>
+                            </ul>
+                            <div id="__divPriceCalendarProductDetail" class="actions">
+                                <button class="button primary" id="bookNow" onclick="" data-toggle="modal" data-target="#modalBookNow" name="bookNow">立即预订</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="otherDetails">
+
+                <div role="tabpanel" class="otherDetailsTabs contentWrapper">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs clearfix" role="tablist">
+                        <li role="presentation" class="active"><a class="enableScrollBy" href="#costExplanation" aria-controls="costExplanation" role="tab" data-toggle="tab">费用说明</a></li>
+                        <li role="presentation"><a class="enableScrollBy" href="#bookingNotice" aria-controls="bookingNotice" role="tab" data-toggle="tab">预订须知</a></li>
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <section role="tabpanel" class="tab-panel active" id="costExplanation">
+                            <h3 class="accessible">费用说明</h3>
+                            <h4>费用包含：</h4>
+                            <ul class="nolstStyle">
+                                <li>1.行程中所列的公务舱机票及税费</li>
+                                <li>2.行程中标明的专车接送和当地代表服务费</li>
+                                <li>3.行程中标明酒店的住宿费用，北岛入住期间每日早午晚三餐，四季入住期间每日早晚餐。</li>
+                                <li>4.行程中标明游览服务项目费</li>
+                                <li>5.美亚健行天下旅游意外险</li>
+                                <li>6.旅行顾问服务费</li>
+
+                            </ul>
+                            <h4>费用不含：</h4>
+                            <ul class="nolstStyle">
+                                <li>1.国内出发地的送机和接机服务</li>
+                                <li>2.自由活动期间的景点门票、餐食和其它私人消费，机票、酒店和游览行程的升级费用、酒店内私人消费</li>
+                                <li>3.费用包含中未注明包含的其它费用</li>
+
+                            </ul>
+                        </section>
+                        <section role="tabpanel" class="tab-panel" id="bookingNotice">
+                            <h3 class="accessible">预订须知</h3>
+                            <h4>报名条件</h4>
+                            <p></p>
+
+                            <h4>价格说明</h4>
+                            <p>本产品价格仅供参考，实际确认的价格可能根据出发日期和人数的变动有所调整</p>
+
+                            <h4>预订须知
+                            </h4>
+                            <ol>
+                                <li>【取消规则】本产品订单提交成功后不可更改、不可取消、不可签转。请确保旅客信息准确、出行证件有效。</li>
+                                <li>【温馨提示】确认出行时间：本产品预订生效后出行贵宾变更或取消出行，将给旅行社造成损失（该损失可能涵盖旅游费用的大部分）。按照合同约定，旅游者在承担该损失的同时，还需要向旅行社支付违约金。为避免上述情况发生，请您在预订前详细阅读本文件所示的变更政策，充分评估自身出行的可行性。酒店入住提示：根据国际惯例，酒店的入住时间为下午14：00之后，退房时间为中午12：00之前，如提前入住或延后退房需另行支付超时费；为确保安全，在入住时酒店可能要求您支付一定数额的押金或使用信用卡担保，在退房时若没有其它额外费用产生，酒店会将押金退还，或取消信用卡担保（可能需要一定操作时间）。在您入住酒店期间发生的房费以外的私人费用，请于退房前到酒店前台结算支付，具体收费规定以酒店所示为准。维护身体健康：请您确认出行人身体条件能够适应和完成旅游活动；如旅游期间需随时服用药物，请随身携带并备足用量。在旅游过程中，敬请注意饮食卫生，提高防护传染病、流行病的意识，注意用餐卫生，不食用不卫生、不合格的食品和饮料。做好个人防护：如旅途涉及热带、高原、海滨、草原等特殊气候、地理条件，应采取必要防护措施，充分了解目的地情况，备好相应服装鞋帽，做好防晒、防蚊虫、防高原反应等工作。晕车的旅游者，请备好有效药物。旅途中如有不良反应，请及时说明求助。注意人身安全：请您在自身能够控制风险的范围内活动，旅游期间尽量避免单独行动，注意人身安全。旅游途中如遇个人无法解决的紧急情况，应立即报警并寻求当地警察机关或中国驻当地使领馆的帮助。自由活动提示：请您在自由活动期间，根据自身情况选择能够控制风险的活动项目。如有心脏病、高血压、恐高症等，勿选择刺激性或高风险活动。潜水/跳伞/攀岩/蹦极/骑马/热气球/快艇等高空、高速、水上、水下高风险活动，更具危险性，请在参与前充分了解活动知识，服从工作人员指挥，如有条件建议另行购买特定保险。防范水上风险：水上游览或活动，应加倍注意安全，不可在未了解水域情况并做好安全措施前擅自下水或单独前往深水区、危险水域活动，应听从工作人员的指挥和合理劝阻。 遵守交通规则：通过马路时走人行横道或地下通道。行车途中系好安全带，并不要在车内走动，老人和儿童要有成年人陪护，以防不确定危险。车辆在颠簸路段行驶过程中不要离开座位和饮食（主要是坚果类），以免发生呛水或卡咽危险。保管贵重物品：钱包、旅行证件、交通票证、珠宝首饰等贵重物品请随身携带或申请酒店的保险柜服务，勿放入交运行李、酒店房间或汽车座椅上；外出期间应稳妥安置，不要离开自己视线范围；游览、拍照、散步、购物时，随时注意和检查，谨防被盗遗失。保持通讯畅通：请出行贵宾保持出行时所持的手机号码与预留在我方的一致，并在出行期间保持手机畅通有效，以备紧急之需。理性购物消费：购物时请特别关注商品质量及价格，购物后请向商家索取发票或收据。</li>
+                                <li>【航班】产品中所展示航班、机型信息仅供参考，最终信息以出行通知为准。近期北京上海等国内部分城市进入雨季，若您从外阜出发，建议您提前一天抵达机场。另航班可能因为天气等原因受到影响，造成延误或取消，请您实时关注航班变化，与所乘航空公司密切沟通，保持信息畅通</li>
+                                <li>【酒店】产品中所展示的酒店信息、图片仅供参考，酒店星级为当地酒店评定标准，最终以实际入住为准</li>
+                                <li>【证件】请您携带本人的有效身份证或其他身份证明的原件。以防搭乘交通工具或入住酒店时，相关单位提出须出示相关身份证明原件的要求。具体有效证件包括：居民身份证、个人因私护照、港澳通行证、台湾通行证、军官证等。若您持个人因私护照出境，请确保出行人护照有效期距离返回出发地日期半年以上，如因出行人护照遗失、过期、有效期不足而产生的相关费用，中青旅不予承担。</li>
+                                <li>【外籍】若您持有外籍护照，请您自行与出入境管理局确认您的中国签证可以在您旅行结束后顺利返回中国，如因外籍出行人护照、签证手续不全导致产生的相关费用，中青旅不予承担。</li>
+                                <li>【自由活动】在自由行过程中您自愿参加的一切活动项目，请充分了解活动的内容并严格遵守活动项目的安全规定，建议您主动购买相关保险，中青旅对您在此过程中发生的意外不承担任何责任。</li>
+                                <li>【预订限制】本产品2位贵宾起订，网站上标示的标准价格，均基于2位贵宾入住1间双人客房的情形计算，如出现1位贵宾入住1间客房，需由贵宾自行承担房费差价（即单间差）。</li>
+                                <li>【酒店床型】塞舌尔酒店床型以大床为主，度假酒店内极少有双床房型，请特别注意。</li>
+                                <li>【护照】如果您持有外籍护照，请您与出入境管理局确认您的中国签证可以在旅行结束后可保证您顺利返回中国，如因外籍出行人护照、签证手续不全导致出行人本人及陪同人行程变动，产生的相关费用我方恕不承担。</li>
+                                <li>【签证】请您确保所持因私护照在结束旅游行程，返回出发地的当日仍保有半年以上的有效期，并请务必在护照“注意事项”页（封底）持照人签名处签署本人姓名，否则北京及各国边防有权拒绝入境；因出行贵宾护照遗失、过期、有效期不足、签证无效而产生的相关费用，我方恕不承担。</li>
+                                <li>【特殊类产品说明】由于本产品机票和酒店预订的特殊性，出行人不能将旅游合同中自身的权利义务随意转让给第三人，因权利转让而产生的相关费用，我方恕不承担。</li>
+
+                            </ol>
+                        </section>
+                        <section role="tabpanel" class="tab-panel" id="otherInformation"></section>
+                        <section role="tabpanel" class="tab-panel" id="visaInformation">
+                            <h3 class="accessible">资料下载</h3>
+                            <h4 class="visaDataHeader">资料下载</h4>
+                            <ul class="visaFiles"></ul>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="personalization">
+            <h2>上述产品不符合您的需求？</h2>
+            <p>欢迎填写下表提交，即刻联系耀悦的私人旅行顾问</p>
+            <p>我们将为您和您的亲友量身定制专属行程</p>
+            <div class="actions">
+                <a href="../Personalise.htm" tppabs="http://www.sparkletour.com/Personalise">
+                    <button class="button primary">私人定制</button></a>
+            </div>
+        </div>
+        <div class="moreBrilliantProducts">
+            <div class="contentWrapper">
+                <h2>更多精彩</h2>
+                <div class="owl-carousel owl-theme BrilliantProducts clearfix">
+                    <div class="item">
+                        <div class="productCard">
+                            <img src="../../../static/images/content/productlist/d2nnbp17152426.jpg" alt="午夜阳光海景舱&lt;br /&gt;南极半岛经典航程&lt;br /&gt;达拉斯沃斯堡退税购物">
+                            <a target="_blank" href="94288.htm" tppabs="http://www.sparkletour.com/ProductDetail/94288" class="cover">
+                                <div class="briefInfo centeredWrapper">
+                                    <div class="centeredContent">
+                                        <ul class="features">
+                                            <li>午夜阳光海景舱<br />
+                                                南极半岛经典航程<br />
+                                                达拉斯沃斯堡退税购物
+                                            </li>
+                                        </ul>
+                                        <p class="price">￥7.99 万元起</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="productInfo">
+                            <p class="title">
+                                智利&amp;南极 远征世界尽头
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="productCard">
+                            <img src="../../../static/images/content/productlist/z2r6h008173358.jpg" alt="异国草原骑马&lt;br /&gt;宿国家公园内蒙古包&lt;br /&gt;别样亲子体验">
+                            <a target="_blank" href="93758.htm" tppabs="http://www.sparkletour.com/ProductDetail/93758" class="cover">
+                                <div class="briefInfo centeredWrapper">
+                                    <div class="centeredContent">
+                                        <ul class="features">
+                                            <li>异国草原骑马<br />
+                                                宿国家公园内蒙古包<br />
+                                                别样亲子体验
+                                            </li>
+                                        </ul>
+                                        <p class="price">￥2.59 万元起</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="productInfo">
+                            <p class="title">
+                                蒙古 小雄鹰的草原梦
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="productCard">
+                            <img src="../../../static/images/content/productlist/fpfb6z27170845.jpg" alt="斐济瓦国双重体验&lt;br /&gt;国际连锁华威酒店&lt;br /&gt;赠送瓦国Ekasup民俗村游览">
+                            <a target="_blank" href="94345.htm" tppabs="http://www.sparkletour.com/ProductDetail/94345" class="cover">
+                                <div class="briefInfo centeredWrapper">
+                                    <div class="centeredContent">
+                                        <ul class="features">
+                                            <li>斐济瓦国双重体验<br />
+                                                国际连锁华威酒店<br />
+                                                赠送瓦国Ekasup民俗村游览
+                                            </li>
+                                        </ul>
+                                        <p class="price">￥0.88 万元起</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="productInfo">
+                            <p class="title">
+                                斐济瓦努阿图 缤纷华威
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="productCard">
+                            <img src="../../../static/images/content/productlist/201604/04x64n05180613.jpg" alt="法国农庄松露大餐&lt;br /&gt;卡玛格湿地观火烈鸟&lt;br /&gt;卡朗克海峡徒步">
+                            <a target="_blank" href="93428.htm" tppabs="http://www.sparkletour.com/ProductDetail/93428" class="cover">
+                                <div class="briefInfo centeredWrapper">
+                                    <div class="centeredContent">
+                                        <ul class="features">
+                                            <li>法国农庄松露大餐<br />
+                                                卡玛格湿地观火烈鸟<br />
+                                                卡朗克海峡徒步
+                                            </li>
+                                        </ul>
+                                        <p class="price">￥4.95 万元起</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="productInfo">
+                            <p class="title">
+                                法国 探索大自然
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="productCard">
+                            <img src="../../../static/images/content/productlist/2nv68l17112852.jpg" alt="马赛马拉&amp;塞伦盖地两大国家公园&lt;br /&gt;长颈鹿庄园&amp;大象孤儿院">
+                            <a target="_blank" href="92453.htm" tppabs="http://www.sparkletour.com/ProductDetail/92453" class="cover">
+                                <div class="briefInfo centeredWrapper">
+                                    <div class="centeredContent">
+                                        <ul class="features">
+                                            <li>马赛马拉&塞伦盖地两大国家公园<br />
+                                                长颈鹿庄园&大象孤儿院
+                                            </li>
+                                        </ul>
+                                        <p class="price">￥7.65 万元起</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="productInfo">
+                            <p class="title">
+                                肯尼亚&amp;坦桑尼亚 动物大迁徙
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="productCard">
+                            <img src="../../../static/images/content/productlist/zj42vh03135159.jpg" alt="热海艺妓+伊豆私汤&lt;br /&gt;东京品米其林美食">
+                            <a target="_blank" href="55680.htm" tppabs="http://www.sparkletour.com/ProductDetail/55680" class="cover">
+                                <div class="briefInfo centeredWrapper">
+                                    <div class="centeredContent">
+                                        <ul class="features">
+                                            <li>热海艺妓+伊豆私汤<br />
+                                                东京品米其林美食
+                                            </li>
+                                        </ul>
+                                        <p class="price">￥3.75 万元起</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="productInfo">
+                            <p class="title">
+                                热海&amp;伊豆&amp;东京 私汤秘境
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal for customise product -->
+        <div class="modal fade modalCustomiseProduct" id="modalCustomiseProduct" tabindex="-1" role="dialog" aria-labelledby="modalCustomiseProductLabel" aria-hidden="true" data-backdrop="static">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="modalCustomiseProductLabel">行程个性化调整</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modalCustomiseProductContent">
+                            <form id="frmCustomiseProduct">
+                                <p class="productTitle">
+                                    塞舌尔 王子的誓言
+                                </p>
+                                <div class="formSection clearfix customiseProductFields">
+
+                                    <fieldset class="participants">
+                                        <legend>请选择出行人数</legend>
+                                        <ul class="list-inline mb10 clearfix">
+                                            <li>
+                                                <label for="customiseAdultQuantity">成人</label>
+                                                <select name="customiseAdultQuantity" id="customiseAdultQuantity">
+                                                    <option value="1">1</option>
+                                                    <option value="2" selected="selected">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                </select>
+                                            </li>
+                                            <li>
+                                                <label for="customiseChildrenQuantity">儿童</label>
+                                                <select name="customiseChildrenNumber" id="customiseChildrenNumber">
+                                                    <option value="0" selected="selected">0</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                </select>
+                                            </li>
+                                            <li>
+                                                <label for="customiseRoomQuantity">房间数</label>
+                                                <select name="customiseRoomQuantity" id="customiseRoomQuantity">
+                                                    <option value="1" selected="selected">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                </select>
+                                            </li>
+                                        </ul>
+                                        <p>出行人数不足本产品规定的最少报名人数时，您需要补缴一定费用，敬请理解</p>
+                                    </fieldset>
+
+                                </div>
+                                <div class="formSection notes">
+                                    <p>
+                                        耀悦致力于提供更灵活的旅行解决方案，以真正满足您的需求<br />
+                                        您可通过以下选项，对我们的标准产品进行个性化调整<br />
+
+                                        旅行顾问的服务时间：<br />
+                                        周一至周五0:00-17:00提交，旅行顾问将于当天与您联系<br />
+                                        周一至周五16:00以后及法定节假日提交，旅行顾问将于下一工作日内与您联系
+                                    </p>
+                                </div>
+                                <div class="personaliseApplyDetails">
+                                    <fieldset>
+                                        <legend>
+                                            <label for="customiseDepartureCity">选择出发城市</label></legend>
+                                        <div class="form-group email">
+                                            <label for="customiseDepartureCity">出发城市更改为</label><input type="text" id="customiseDepartureCity" name="customiseDepartureCity" placeholder="例如：上海" />
+                                        </div>
+                                    </fieldset>
+                                    <fieldset>
+                                        <legend><span>出发日期</span></legend>
+                                        <div class="form-group input-daterange productStartDate">
+                                            <p class="remarks">如果现有日期不能满足您的需求，请选择您期望的出发日期</p>
+                                            <label for="startFrom">我期望的出发日期在</label>
+                                            <input type="text" name="expectStartFrom" id="expectStartFrom" value="" readonly="readonly" /><span class="iconDate"></span>
+                                            <span class="daterangeDivider">至</span>
+                                            <input type="text" name="expectStartTo" id="expectStartTo" value="" readonly="readonly" />
+                                            <span class="iconDate"></span>
+                                            <span>之间</span>
+                                        </div>
+                                        <div class="form-group otherStartDate">
+                                            <label for="otherStartDate">其他请注明</label>
+                                            <input type="text" name="otherStartDate" id="otherStartDate" />
+                                        </div>
+                                    </fieldset>
+                                    <fieldset>
+                                        <legend><span>航班</span></legend>
+                                        <div class="form-group">
+                                            <label for="flightTime">调整航班时间</label>
+                                            <input type="text" class="form-control" id="adjustFlightTime" name="adjustFlightTime" placeholder="例如：安排早去晚回的航班" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="flightCompany">航空公司偏好</label>
+                                            <input type="text" class="form-control" id="flightCompany" name="flightCompany" placeholder="例如：首选国航航班" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="flightSeat">更改航班舱位</label>
+                                            <input type="text" class="form-control" id="flightSeat" name="flightSeat" placeholder="例如：安排豪华经济舱" />
+                                        </div>
+                                    </fieldset>
+
+                                    <fieldset>
+                                        <legend><span>酒店</span></legend>
+                                        <div class="form-group">
+                                            <label for="hotelBrand">安排指定酒店</label>
+                                            <input type="text" class="form-control" id="hotelBrand" name="hotelBrand" placeholder="例如：全程安排四季酒店" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="hotelRoom">更改酒店房型</label>
+                                            <input type="text" class="form-control" id="hotelRoom" name="hotelRoom" placeholder="例如：全程升级行政套房" />
+                                        </div>
+                                    </fieldset>
+
+                                    <fieldset>
+                                        <legend><span>目的地服务</span></legend>
+                                        <div class="form-group">
+                                            <label for="tourSchedule">调整行程节奏</label>
+                                            <input type="text" class="form-control" id="tourSchedule" name="tourSchedule" placeholder="例如：某地游览时间延长2日" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="sightSpots">指定游览项目</label>
+                                            <input type="text" class="form-control" id="sightSpots" name="sightSpots" placeholder="例如：安排某特殊景点参观" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="specialFood">特殊餐食要求</label>
+                                            <input type="text" class="form-control" id="specialFood" name="specialFood" placeholder="例如：安排2家米其林餐厅" />
+                                        </div>
+                                    </fieldset>
+                                    <fieldset>
+                                        <legend>
+                                            <label for="otherRemarks">其他需求</label></legend>
+                                        <div class="form-group">
+                                            <textarea name="otherRemarks" id="otherRemarks" cols="30" rows="10" placeholder="其它需要帮助安排的事宜"></textarea>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <div class="formSection last columns2 clearfix customiseUserInfo">
+                                    <div class="form-group" style="float: none">
+                                        <label for="custmiseUserName">姓名</label>
+                                        <input type="text" class="form-control" id="custmiseUserName" name="custmiseUserName" placeholder="怎么称呼您" />
+                                        <p class="warning-name">*请填写联系人</p>
+                                    </div>
+                                    <div class="form-group" style="float: none">
+                                        <label for="customiseUserMobile">手机号码</label>
+                                        <input type="text" class="form-control" id="customiseUserMobile" name="customiseUserMobile" placeholder="您的手机号码" />
+                                        <p class="warning-mobile">*联系电话为空或格式有误，请重新填写</p>
+                                    </div>
+                                    <div class="form-group" style="float: none">
+                                        <label for="txt_code_2">验证码</label>
+                                        <input type="text" class="form-control" id="txt_code_2" name="txt_code_2" placeholder="请填写验证码" />
+                                        <img id="img_code_2" width="56" height="28" src="../common/code.ashx.gif" tppabs="http://www.sparkletour.com/common/code.ashx" />
+                                        <p class="warning-mobile">*请填写正确的验证码</p>
+
+                                    </div>
+                                    <div class="actions">
+                                        <button class="actionButton customiseProductReset" type="reset">重新填写</button>
+                                        <button class="actionButton customiseProductSubmit" id="btnCustomiseProduct" type="button">提交</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal for Book Now -->
+        <div class="modal fade modalBookNow" id="modalBookNow" tabindex="-1" role="dialog" aria-labelledby="modalBookNowTitle" aria-hidden="true" data-backdrop="static">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="modalBookNowTitle">开始预订</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form id="frmBookNow">
+                            <div class="modalCustomiseProductContent bookNow">
+                                <p class="productTitle"><span class="label">您预订的</span>塞舌尔 王子的誓言</p>
+                                <div class="formSection clearfix customiseProductFields">
+                                    <fieldset>
+                                        <legend><span class="divider"></span>出发日期</legend>
+                                        <div class="productDate" id="productStartDate">
+                                            <input type="text" name="bstartDate" id="bstartDate" value="" readonly="readonly" />
+                                        </div>
+                                    </fieldset>
+                                    <fieldset>
+                                        <legend><span class="divider"></span>返回日期</legend>
+                                        <div class="productDate" id="productReturnDate">
+                                            <input type="text" name="bstartTo" id="breturnDate" value="" readonly="readonly" />
+                                        </div>
+                                    </fieldset>
+
+                                </div>
+                                <div class="formSection clearfix customiseProductFields">
+                                    <fieldset class="participants">
+                                        <legend><span class="divider"></span>请选择出行人数（最少预订人数：<span>2</span>位 如实际预定人数不足您可能被要求补缴费用）</legend>
+                                        <ul class="list-inline">
+                                            <li>
+                                                <label for="slct_adult_num">成人</label>
+                                                <select name="slct_adult_num" id="slct_adult_num">
+                                                    <option value="1">1</option>
+                                                    <option value="2" selected="selected">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                </select>
+                                            </li>
+                                            <li>
+                                                <label for="slct_child_num">儿童</label>
+                                                <select name="slct_child_num" id="slct_child_num">
+                                                    <option value="0" selected="selected">0</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                </select>
+                                            </li>
+                                            <li>
+                                                <label for="slct_room_num">房间数</label>
+                                                <select name="slct_room_num" id="slct_room_num">
+                                                    <option value="1" selected="selected">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                </select>
+                                            </li>
+                                        </ul>
+                                        <p style="margin-top: 15px;">
+                                            出行人数不足本产品规定的最少报名人数时，您需要补缴额外费用，敬请理解。
+                                            <br />
+                                            儿童的年龄区间为2-11岁，已满12岁的客人均按成人计算，未满2岁的婴儿费用请致电详询：400 890 5588。
+                                        </p>
+                                    </fieldset>
+                                </div>
+                                <div class="formSection clearfix customiseProductFields">
+                                    <fieldset class="departure">
+                                        <legend><span class="divider"></span>出发城市</legend>
+                                        <input type="text" name="txt_dep_city" id="txt_dep_city" value="北京" readonly="readonly" />
+                                        <span class="changeDepartureCity">您可选择<a data-dismiss="modal" data-target="#modalCustomiseProduct" data-toggle="modal" href="javascript:void(0);">行程个性化调整</a>以更改出发城市</span>
+                                    </fieldset>
+                                </div>
+                                <div class="formSection clearfix customiseProductFields">
+                                    <fieldset class="departure">
+                                        <legend><span class="divider"></span>联系信息</legend>
+                                        <ul>
+                                            <li>
+                                                <label for="txt_customer_name">姓名</label>
+                                                <input type="text" style="border: 1px solid rgb(177, 119, 177); padding: 5px; margin: 5px;" name="txt_customer_name" id="txt_customer_name" />
+                                                <p class="warning-name" style="display: none;">*请填写联系人姓名</p>
+                                            </li>
+                                            <li>
+                                                <label for="txt_customer_phone">手机</label>
+                                                <input type="text" style="border: 1px solid rgb(177, 119, 177); padding: 5px; margin: 5px;" name="txt_customer_phone" id="txt_customer_phone" />
+                                                <p class="warning-name" style="display: none;">*请填写联系人手机号</p>
+                                            </li>
+                                            <li>
+                                                <label for="txt_code">验证码</label>
+                                                <input type="text" style="border: 1px solid rgb(177, 119, 177); padding: 5px; margin: 5px;" name="txt_code" id="txt_code" />
+                                                <p class="warning-name" style="display: none;">*请填写正确的验证码</p>
+                                                <img id="img_code" width="56" height="28" src="../common/code.ashx.gif" tppabs="http://www.sparkletour.com/common/code.ashx" />
+                                            </li>
+                                        </ul>
+                                    </fieldset>
+                                </div>
+                                <div class="formSection last columns2 clearfix customiseUserInfo">
+                                    <div class="actions centerContent">
+
+                                        <div style="width: 315px; position: relative; text-align: center; margin: 0 auto;">
+                                            <input class="actionButton customiseProductSubmit" type="button" id="btnNextStep" value="提交" />
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade modalMsg modalThanksBooking" id="modalThanksBooking" tabindex="-1" role="dialog" aria-labelledby="modalThanksBookingLabel" aria-hidden="true" data-backdrop="static">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title accessible" id="modalThanksBookingLabel">感谢您的预订</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modalMsgContent clearfix">
+                            <p class="info">
+                                我们已收到您的预订需求<br />
+                                感谢您对耀悦的支持与信任！
+                            </p>
+                            <p>
+                                私人旅行顾问将在以下时间与您取得联系，确认下一步预订事宜<br />
+                                工作日：上午9:00——下午18:00<br />
+                                法定节假日：上午10:00——下午18:00<br />
+                                如果您希望了解预订进展，请于工作日拨打耀悦<a href="tel:400 890 5588">贵宾热线： 400 890 5588</a>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sider-chart">
+            <div class="top-service">
+                <div class="chart-img">
+                    <div class="inner"></div>
+                </div>
+            </div>
+            <div class="bottom-up" id="returnTop"></div>
+        </div>
+        <div class="chart-popup">
+            <img src="../../../static/images/webchart.png">
+            <h5>微信扫码加好友，1对1专属服务</h5>
+            <p>服务时间：工作日9:00-18:00</p>
+            <span class="close-popup">×</span>
+        </div>
+
+
+        <section class="brandStory" id="brandStory">
+            <div class="contentWrapper row">
+                <h2 class="accessible">品牌故事</h2>
+                <ul>
+                    <li class="iconLaunchTime">
+                        <img src="../../../static/images/content/brandStory-01.png" alt="30年专业旅游运营经验"></li>
+                    <li class="iconConsultantExperience">
+                        <img src="../../../static/images/content/brandStory-02.png" alt="10年耀悦旅行顾问平均从业时间"></li>
+                    <li class="iconStuffEducation">
+                        <img src="../../../static/images/content/brandStory-03.png" alt="60%员工海外留学经历"></li>
+                    <li class="iconServiceTime">
+                        <img src="../../../static/images/content/brandStory-04.png" alt="7x24全球紧急联系人贴心服务"></li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <section class="partners">
+            <div class="contentWrapper row">
+                <h2>合作伙伴</h2>
+                <ul class="partnersList">
+                    <li><a target="_blank" href="javascript:if(confirm('http://www.hilton.com.cn/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.hilton.com.cn/'" tppabs="http://www.hilton.com.cn/">
+                        <img src="../../../static/images/content/partners/partners-16.png" alt=""></a></li>
+                    <li><a target="_blank" href="javascript:if(confirm('http://www.shangri-la.com/cn/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.shangri-la.com/cn/'" tppabs="http://www.shangri-la.com/cn/">
+                        <img src="../../../static/images/content/partners/partners-18.png" alt=""></a></li>
+                    <li><a target="_blank" href="javascript:if(confirm('http://zh-keepexploring.canada.travel/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://zh-keepexploring.canada.travel/'" tppabs="http://zh-keepexploring.canada.travel/">
+                        <img src="../../../static/images/content/partners/partners-19.png"  alt=""></a></li>
+                    <li><a target="_blank" href="javascript:if(confirm('http://www.clubmed.com.cn/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.clubmed.com.cn/'" tppabs="http://www.clubmed.com.cn/">
+                        <img src="../../../static/images/content/partners/partners-17.png"  alt=""></a></li>
+                    <li><a target="_blank" href="javascript:if(confirm('http://www.americanairlines.cn/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.americanairlines.cn/'" tppabs="http://www.americanairlines.cn/">
+                        <img src="../../../static/images/content/partners/partners-01.png" alt=""></a></li>
+                    <li><a target="_blank" href="javascript:if(confirm('http://www.starwoodhotels.com/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.starwoodhotels.com/'" tppabs="http://www.starwoodhotels.com/">
+                        <img src="../../../static/images/content/partners/partners-02.png"  alt=""></a></li>
+                    <li><a target="_blank" href="javascript:if(confirm('http://www.mandarinoriental.com.cn/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.mandarinoriental.com.cn/'" tppabs="http://www.mandarinoriental.com.cn/">
+                        <img src="../../../static/images/content/partners/partners-03.png" alt=""></a></li>
+                    <li><a target="_blank" href="javascript:if(confirm('http://tahiti-tourisme.com/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://tahiti-tourisme.com/'" tppabs="http://tahiti-tourisme.com/">
+                        <img src="../../../static/images/content/partners/partners-04.png" alt=""></a></li>
+                    <li><a target="_blank" href="javascript:if(confirm('http://www.belmond.com/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.belmond.com/'" tppabs="http://www.belmond.com/">
+                        <img src="../../../static/images/content/partners/partners-05.png" tppabs="http://www.sparkletour.com/images/content/partners/partners-05.png" alt=""></a></li>
+                    <li><a target="_blank" href="javascript:if(confirm('http://www.airfrance.com.cn/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.airfrance.com.cn/'" tppabs="http://www.airfrance.com.cn/">
+                        <img src="../../../static/images/content/partners/partners-06.png" alt=""></a></li>
+                    <li><a target="_blank" href="javascript:if(confirm('http://www.peninsula.com/zh-cn  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.peninsula.com/zh-cn'" tppabs="http://www.peninsula.com/zh-cn">
+                        <img src="../../../static/images/content/partners/partners-07.png" alt=""></a></li>
+                    <li><a target="_blank" href="javascript:if(confirm('http://www.traveltexas.net.cn/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.traveltexas.net.cn/'" tppabs="http://www.traveltexas.net.cn/">
+                        <img src="../../../static/images/content/partners/partners-08.png" alt=""></a></li>
+                    <li><a target="_blank" href="javascript:if(confirm('http://www.jumeirah.com/zh/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.jumeirah.com/zh/'" tppabs="http://www.jumeirah.com/zh/">
+                        <img src="../../../static/images/content/partners/partners-09.png" alt=""></a></li>
+                    <li><a target="_blank" href="javascript:if(confirm('http://www.amanresorts.com/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.amanresorts.com/'" tppabs="http://www.amanresorts.com/">
+                        <img src="../../../static/images/content/partners/partners-10.png" alt=""></a></li>
+                    <li><a target="_blank" href="javascript:if(confirm('http://sr-jet.com/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://sr-jet.com/'" tppabs="http://sr-jet.com/">
+                        <img src="../../../static/images/content/partners/partners-11.png" alt=""></a></li>
+                    <li><a target="_blank" href="javascript:if(confirm('http://www.emirates.com/cn/chinese/index.aspx  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.emirates.com/cn/chinese/index.aspx'" tppabs="http://www.emirates.com/cn/chinese/index.aspx">
+                        <img src="../../../static/images/content/partners/partners-12.png" alt=""></a></li>
+                    <li><a target="_blank" href="javascript:if(confirm('http://www.airchina.com.cn/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.airchina.com.cn/'" tppabs="http://www.airchina.com.cn/">
+                        <img src="../../../static/images/content/partners/partners-13.png"  alt=""></a></li>
+                    <li><a target="_blank" href="javascript:if(confirm('http://www.banyantree.com/zh/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.banyantree.com/zh/'" tppabs="http://www.banyantree.com/zh/">
+                        <img src="../../../static/images/content/partners/partners-14.png" alt=""></a></li>
+                    <li><a target="_blank" href="javascript:if(confirm('http://www.united.com/web/zh-CN/Default.aspx  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.united.com/web/zh-CN/Default.aspx'" tppabs="http://www.united.com/web/zh-CN/Default.aspx">
+                        <img src="../../../static/images/content/partners/partners-15.png" alt=""></a></li>
+                    <li><a target="_blank" href="javascript:if(confirm('http://etdc.juran.com.cn/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://etdc.juran.com.cn/'" tppabs="http://etdc.juran.com.cn/">
+                        <img src="../../../static/images/content/partners/partners-20.png"  alt=""></a></li>
+                </ul>
+            </div>
+        </section>
+        <section class="AboutUs">
+            <div class="contentWrapper row">
+                <h2 class="accessible">关于我们</h2>
+                <ul class="contactUs row">
+                    <li class="phone"><a href="tel:4008905588">400 890 5588</a></li>
+                    <li class="wechat">
+                        <img src="../../../static/images/content/wechat.jpg" alt="耀悅微信平台"></li>
+                </ul>
+                <div class="copyright">
+                    <p class="intro">耀悦&nbsp;&nbsp;中青旅旗下高端旅游品牌</p>
+                    <p>
+                        <a href="javascript:if(confirm('http://www.aoyou.com/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.aoyou.com/'" tppabs="http://www.aoyou.com/">
+                            <img src="../../../static/images/content/united-logo.png" alt="中青旅-耀悅" class="unitedLogo" /></a>
+                        <span class="copyrightInfo">Copyright SparkleTour  耀悦 2013-2017｜京ICP备17033069｜<a href="../SiteMap.htm" tppabs="http://www.sparkletour.com/SiteMap" target="_blank" style="color: #fff">网站地图</a></span>
+                    </p>
+
+                </div>
+            </div>
+        </section>
+    </footer>
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "../../hm.baidu.com/hm.js-0e68a173699885d7e33f7045626edbee"/*tpa=https://hm.baidu.com/hm.js?0e68a173699885d7e33f7045626edbee*/;
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+</div>
+<script type="text/javascript">
+    var calendarData = [];
+    var curIndex = 0;
+    $.ajax({
+        url: "http://www.sparkletour.com/404.html?aspxerrorpath=/product/calendar.ashx",
+        data: { "productId": $("#hidProductId").val() },
+        type: "POST",
+        success: function (data) {
+            if (data != null && data.CalendarMonthList.length > 0) {
+                $("#lk_price").html(data.DepDate);
+                var date = data.DepDate.replace("年", "-").replace("月", "-").replace("日", "")
+                $("#bstartDate").val(date);
+                var tmp = date.split('-');
+                var depDate = new Date(parseInt(tmp[0], 10), parseInt(tmp[1], 10) - 1, parseInt(tmp[2], 10));
+                var dur = parseInt($("#hid_duration").val(), 10) - 1;
+                var retDate = depDate.setDate(depDate.getDate() + dur);
+                retDate = new Date(retDate);
+                $("#breturnDate").val(retDate.getFullYear() + "-" + (retDate.getMonth() + 1) + "-" + retDate.getDate());
+                $("#sp_min_price").html("￥" + data.MinPrice + "万起");
+                calendarData = data.CalendarMonthList;
+                InitCalendar();
+            }
+        }
+    })
+    function InitCalendar() {
+        var monthItem = calendarData[curIndex];
+        var list = monthItem.Dates;
+
+        if (list.length > 0) {
+            var html = ["<tr>"];
+            for (var i = 0; i < list.length; i++) {
+                var item = list[i];
+                if (item.Day == 0) {
+                    html.push("<td class=\"calendarActive\"></td>");
+                }
+                else if (item.Day > 0) {
+                    if (item.Price == "") {
+                        html.push("<td class=\"calendarActive\"><p class=\"day\">" + item.Day + "</p></td>");
+                    }
+                    else {
+                        html.push("<td class=\"calendarActive\" onclick=\"SetDate('" + monthItem.Year + "-" + monthItem.Month + "-" + item.Day + "')\">");
+                        html.push("    <p class=\"day\">" + item.Day + "</p>");
+                        html.push("    <p class=\"price\">￥" + item.Price + " 万</p>");
+                        html.push("    <div class=\"status confirmLater\">");
+                        html.push("        <p class=\"mark\"></p>");
+                        html.push("        <div class=\"description\">");
+                        html.push("            <p><span class=\"statusText\">稍后确认：</span>旅行顾问将在您提交预订后，第一时间核实资源可用性，之后联系您确认。</p>");
+                        //html.push("            <p>最晚报名日期：<span class=\"bookingDeadline\">07月17日</span></p>");
+                        html.push("        </div>");
+                        html.push("    </div>");
+                        html.push("</td>");
+                    }
+                }
+                if (i > 0 && i % 7 == 6) {
+                    html.push("</tr><tr>");
+                }
+            }
+            html.push["</tr>"];
+            $("#tb_calendar").html(html.join(""));
+            $("#spnYear").html(monthItem.Year);
+            $("#spnMonth").html(monthItem.Month);
+        }
+
+    }
+    function ChangeMonth(step) {
+        var max = calendarData.length - 1;
+        curIndex += step;
+        $(".prev").css({ "visibility": "visible" });
+        $(".next").css({ "visibility": "visible" });
+        if (curIndex < 0) {
+            curIndex = 0;
+        }
+        else if (curIndex > max) {
+            curIndex = max;
+        }
+        if (curIndex == 0) {
+            $(".prev").css({ "visibility": "hidden" });
+        } else if (curIndex == max) {
+            $(".next").css({ "visibility": "hidden" });
+        }
+        InitCalendar();
+    }
+    function SetDate(date) {
+        $("#bstartDate").val(date);
+        var tmp = date.split('-');
+        var depDate = new Date(parseInt(tmp[0], 10), parseInt(tmp[1], 10) - 1, parseInt(tmp[2], 10));
+        var dur = parseInt($("#hid_duration").val(), 10) - 1;
+        var retDate = depDate.setDate(depDate.getDate() + dur);
+        retDate = new Date(retDate);
+        $('#modalBookNow').modal('show');
+        $("#breturnDate").val(retDate.getFullYear() + "-" + (retDate.getMonth() + 1) + "-" + retDate.getDate());
+    }
+    $("#img_code").bind("click", function () {
+        $("#img_code").attr("src", "/common/code.ashx?r=" + Math.random());
+        $("#img_code_2").attr("src", $("#img_code").attr("src"));
+    })
+    $("#img_code_2").bind("click", function () {
+        $("#img_code").attr("src", "/common/code.ashx?r=" + Math.random());
+        $("#img_code_2").attr("src", $("#img_code").attr("src"));
+    })
+    $("#btnNextStep").bind("click", function () {
+        var cusAdultNumber = parseFloat($("#slct_adult_num").val());
+        var cusChildNumber = parseFloat($("#slct_child_num").val());
+        var roomNumber = parseFloat($("#slct_room_num").val());
+        var cusNumber = cusAdultNumber + cusChildNumber;
+        if (cusNumber / roomNumber > 2) {
+            if (!confirm("根据酒店要求，大于等于3人选择入住一间酒店会产生费用的增加，预订成功后，待销售人员与您电话确认。")) {
+                return false;
+            }
+        }
+        var flag = false;
+        if (/^\s*$/.test($("#txt_customer_name").val())) {
+            $("#txt_customer_name").val('');
+            $("#txt_customer_name").focus();
+            $("#txt_customer_name").siblings(".warning-name").show();
+            flag = true;
+        }
+        else {
+            $("#txt_customer_name").siblings(".warning-name").hide();
+        }
+        if (!isMobile.test($("#txt_customer_phone").val()) && !isPhone.test($("#txt_customer_phone").val())) {
+            $("#txt_customer_phone").val('');
+            $("#txt_customer_phone").focus();
+            $("#txt_customer_phone").siblings(".warning-name").show();
+            flag = true;
+        }
+        else {
+            $("#txt_customer_phone").siblings(".warning-name").hide();
+        }
+        if (/^\s*$/.test($("#txt_code").val())) {
+            $("#txt_code").val('');
+            $("#txt_code").focus();
+            $("#txt_code").siblings(".warning-name").show();
+            flag = true;
+        }
+        else {
+            $("#txt_code").siblings(".warning-name").hide();
+        }
+        if (flag) {
+            return;
+        }
+        var postData = {
+            ProductId: $("#hidProductId").val(),
+            ProductName: $("#sp_mian_title").html() + $("#sp_sub_title").html(),
+            DepDate: $("#bstartDate").val(),
+            AdultNum: cusAdultNumber,
+            ChildNum: cusChildNumber,
+            RoomNum: roomNumber,
+            DepCity: $("#txt_dep_city").val(),
+            CustomerName: $("#txt_customer_name").val(),
+            CustomerPhone: $("#txt_customer_phone").val(),
+            Code: $("#txt_code").val()
+        };
+
+        $(".loadingindex").fadeIn();
+        __ozEvent("xjcg", "xjID=" + $("#txt_customer_phone").val())
+        $.ajax({
+            url: "../product/book.ashx"/*tpa=http://www.sparkletour.com/product/book.ashx*/,
+            type: "POST",
+            data: postData,
+            success: function (res) {
+                $(".loadingindex").fadeOut();
+                console.log(res);
+                $("#img_code").attr("src", "/common/code.ashx?r=" + Math.random());
+                if (res.Code == 0) {
+                    $('#modalBookNow').modal('hide');
+                    $("#modalThanksBooking").modal("show");
+                }
+                else if (res.Code == -2 || res.Code == -1) {
+                    $("#txt_code").val('');
+                    $("#txt_code").focus();
+                    $("#txt_code").siblings(".warning-name").show();
+                }
+                else {
+                    alert(res.Msg);
+                }
+            }
+        });
+    })
+</script>
+</body>
+</html>

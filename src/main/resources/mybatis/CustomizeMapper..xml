@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.travel.dao.CustomizeDao">
+    <insert id="submit" parameterType="Customize">
+        insert into customize(destination,tripsNum,contact,phone,email,startDate,endDate,flightTime,flightSpace,flightCompany,hotel,roomType,rhythm,tourProject,meal,other)
+        value (#{destination},#{tripsNum},#{contact},#{phone},#{email},#{startDate},#{endDate},#{flightTime},#{flightSpace},#{flightCompany},#{hotel},#{roomType},#{rhythm},#{tourProject},#{meal},#{other})
+    </insert>
+
+    <select id="selId" resultType="int" >
+        SELECT LAST_INSERT_ID();
+    </select>
+
+</mapper>
