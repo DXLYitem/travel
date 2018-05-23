@@ -336,9 +336,9 @@
 </nav>
 
             <div class="quickTool">
-                <div class="tool">
+                <!--<div class="tool">
                     <a class="phone" href="tel:4008905588">400 890 5588</a>
-                </div>
+                </div>-->
                 <div class="tool">
                     <div class="searchForm">
                         <div class="quickSearch">
@@ -382,12 +382,10 @@
                     <a href="javascript:void(0);" class="logined">我的耀悅
                         <div class="loginBtnNav" style="z-index: 9999999;">
                             <ul>
-                                <li class="setBorderBot"></li>
-                                <li id="liMyMessagePage" onclick="location.href='member/index.htm'/*tpa=http://www.sparkletour.com/member/*/">会员信息</li>
-                                <li id="liOrderQuery" onclick="location.href='member/order.htm'/*tpa=http://www.sparkletour.com/member/order*/">订单查询</li>
-                                <li id="liPointQuery" onclick="location.href='member/point.htm'/*tpa=http://www.sparkletour.com/member/point*/">会员积分</li>
-                                <li id="liTraveler">常用出行人</li>
-                                <li id="liUpPassWd">修改密码</li>
+                                <li class="setBorderBot" onclick="modalMyYaoyueShow()">登录注册</li>
+                                <li id="liMyMessagePage" onclick="location.href='member/index.htm'">会员信息</li>
+                                <li id="liOrderQuery" onclick="location.href='member/order.html'">订单查询</li>
+                                <li id="liPointQuery" onclick="location.href='member/point.html'">会员积分</li>
                                 <li id="userExit" class="setBorderTop" onclick="Logout();">退出</li>
                             </ul>
                         </div>
@@ -537,11 +535,11 @@
         }
     }
     function IsLogin() {
-        if ($.cookie("customer")) {
+        if ($.cookie("customer")) {/*
             var c = JSON.parse($.cookie("customer"));
             $(".setBorderBot").text(c.nick_name + '，您好');
             $("#loginbefore").hide();
-            $("#loginafter").show();
+            $("#loginafter").show();*/
         }
     }
     function NeedLogin() {
