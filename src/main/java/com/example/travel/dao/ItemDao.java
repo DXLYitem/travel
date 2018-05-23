@@ -3,6 +3,7 @@ package com.example.travel.dao;
 import com.example.travel.entity.Item;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.Date;
 import java.util.List;
 
 public interface ItemDao {
@@ -22,7 +23,9 @@ public interface ItemDao {
             @Param("hobbyId") Integer hobbyId,
             @Param("travelId") Integer travelId,
             @Param("trafficId") Integer trafficId,
-            @Param("styleId") Integer styleId
+            @Param("styleId") Integer styleId,
+            @Param("startTime") Date startTime,
+            @Param("continentId")Integer continentId
                          /* @Param("currentPage") Integer currentPage,
                           @Param("pageSize") Integer pageSize*/
     );

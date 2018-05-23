@@ -48,6 +48,16 @@ public class Item implements Serializable {
     //旅行名
     private String travelName;
 
+    private Integer continentId;
+
+    public Integer getContinentId() {
+        return continentId;
+    }
+
+    public void setContinentId(Integer continentId) {
+        this.continentId = continentId;
+    }
+
     public String getHobbyName() {
         return hobbyName;
     }

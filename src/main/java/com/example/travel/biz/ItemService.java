@@ -2,13 +2,14 @@ package com.example.travel.biz;
 
 import com.example.travel.entity.Item;
 
+import java.util.Date;
 import java.util.List;
 
 /**
  * 查询旅游项目表所有数据
  */
 public interface ItemService {
-    List<Item>itemsList(Integer themeId, Integer hobbyId, Integer travelId, Integer trafficId, Integer styleId);
+    List<Item>itemsList(Integer themeId, Integer hobbyId, Integer travelId, Integer trafficId, Integer styleId, Date startTime,Integer continentId );
 
    boolean itemCount(Integer themeId, Integer hobbyId, Integer travelId, Integer trafficId, Integer styleId);
 

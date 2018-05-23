@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -20,7 +21,7 @@ public class ItemServiceImpl implements ItemService {
     private RedisUtil redisUtil;
 
     @Override
-    public List<Item> itemsList(Integer themeId, Integer hobbyId, Integer travelId, Integer trafficId, Integer styleId) {
+    public List<Item> itemsList(Integer themeId, Integer hobbyId, Integer travelId, Integer trafficId, Integer styleId, Date startTime,Integer continentId) {
         Item item=new Item();
         //父级主题Id
         if(themeId!=null){
@@ -42,7 +43,14 @@ public class ItemServiceImpl implements ItemService {
         if(styleId!=null){
             item.setStyleId(styleId);
         }
-        List<Item>items=itemDao.selectPageItem(themeId, hobbyId, travelId, trafficId, styleId);
+
+        if(startTime!=null){
+            item.setStartTime(startTime);
+        }
+        if(continentId!=null){
+            item.setContinentId(continentId);
+        }
+        List<Item>items=itemDao.selectPageItem(themeId, hobbyId, travelId, trafficId, styleId ,startTime,continentId);
 
         if(redisUtil.exists("item")){
             redisUtil.remove("item");
