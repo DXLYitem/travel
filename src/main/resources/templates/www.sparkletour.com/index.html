@@ -294,8 +294,8 @@
 
             </ul>
         </li>
-        <li><a href="Personalise" tppabs="http://www.sparkletour.com/Personalise">私人定制</a></li>
-        <li><a href="ProductList/pt/4.htm" tppabs="http://www.sparkletour.com/ProductList/pt/4">度假套餐</a>
+        <li><a href="Personalise" >私人定制</a></li>
+        <li><a href="ProductList/pt/4.htm" >度假套餐</a>
             <ul class="level2">
                 <li>
                     <a href="javascript:void(0)">酒店品牌</a>
@@ -331,7 +331,7 @@
                 </li>
             </ul>
         </li>
-        <!--<li><a href="themes/health/index.htm" tppabs="http://www.sparkletour.com/themes/health/">会员信息</a></li>-->
+
     </ul>
 </nav>
 
@@ -342,19 +342,18 @@
                 <div class="tool">
                     <div class="searchForm">
                         <div class="quickSearch">
-                            <!-- <input type="text" name="keyword" id="keyword" placeholder="快速搜索" /> -->
+
                             <button>快速搜索<span class="accessible">搜索</span></button>
                         </div>
                         <div class="searchPanel">
                             <a href="javascript:void(0);" class="close">X<span class="accessible">关闭搜索面板</span></a>
                             <div class="row">
                                 <fieldset class="byDate">
-                                    <legend>按时间出行</legend>
+                                    <legend>按出发时间</legend>
                                     <ul>
                                         <li>
                                             <input type="text" class="datePicker" id="txtStartDate" value=""  style="width: 260px;height: 32px;"/></li>
-                                       <!-- <li>
-                                            <input type="text" class="datePicker" id="txtEndDate" value="" /></li>-->
+
                                     </ul>
                                 </fieldset>
                               <fieldset class="byDestination">
@@ -362,7 +361,8 @@
                                     <div>
 
                                         <select class="inputDestination" id="searchByDestination">
-                                            <option th:each="con: ${conList}" style="background-color: #0c1116"><span th:text="${con.continentName}" ></span></option>
+                                            <option  style="background-color: #0c1116" value="0">请选择</option>
+                                            <option th:each="con: ${conList}" style="background-color: #0c1116" th:value="${con.continentId}" th:text="${con.continentName}"></option>
                                         </select>
                                        <!-- <input type="text" class="inputDestination" id="searchByDestination" placeholder="输入目的地" />-->
                                     </div>
@@ -573,8 +573,28 @@
 
     $("#btnHeadSearch").bind("click", function () {
         var time=$("#txtStartDate").val();
-        var a=$("#searchByDestination").text();
-        location.href = "index.htm";
+        var continentId=$("#searchByDestination option:selected").val();
+        alert(continentId);
+        alert(time);
+        //location.href = "ProductList?continentId="+continentId+"&startTime="+time;
+
+
+
+       if(continentId==0 && (time!=NaN && time !="" && time !=undefined)){
+            location.href = "ProductList?startTime="+time;
+        }
+        if(continentId!=0 && (time==NaN || time =="" || time ==undefined)){
+            location.href = "ProductList?continentId="+continentId
+        }
+        if(continentId!=0 && (time!=NaN && time !="" && time !=undefined)){
+            location.href = "ProductList?continentId="+continentId+"&startTime="+time;
+        }
+        if(continentId==0 && (time==NaN  || time =="" || time ==undefined)){
+            location.href = "ProductList";
+        }
+
+
+
     })
 
 </script>
