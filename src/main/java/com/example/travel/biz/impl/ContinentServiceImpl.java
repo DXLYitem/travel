@@ -36,4 +36,10 @@ public class ContinentServiceImpl implements ContinentService {
             return list;
         }
     }
+
+    @Override
+    public List<Continent> listContinentByholidayId(Integer holidayId) {
+        List<Continent> list=continentDao.selectContinentByholidayId(holidayId);
+        return list;
+    }
 }

@@ -8,7 +8,6 @@
         SELECT * FROM hobby
              <where>
                  <if test="themeId != null"> and themeId=#{themeId}</if>
-
              </where>
     </select>
 

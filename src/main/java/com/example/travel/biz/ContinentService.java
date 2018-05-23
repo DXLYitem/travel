@@ -11,4 +11,10 @@ public interface ContinentService {
 
     public List<Continent> listContinent(Integer continentId);
 
+    /**
+     * 根据度假ID查询度假套餐表下面的区域
+     * @param holidayId
+     * @return
+     */
+    List<Continent> listContinentByholidayId(Integer holidayId);
 }
