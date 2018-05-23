@@ -820,12 +820,12 @@
         <input name="hid_duration" type="hidden" id="hid_duration" value="10" />
         <div class="productIntroduction">
             <div class="banner contentWrapper">
-                <h2>
+                <h2 th:each="Item:${itemList}">
                     <p>
-                            <span class="title" id="sp_mian_title">
-                                塞舌尔 王子的誓言</span><span class="subTitle" id="sp_sub_title">8晚10天私享游</span>
+                            <span class="title" id="sp_mian_title" th:text="${Item.title}">
+                                塞舌尔 王子的誓言</span><span class="subTitle" id="sp_sub_title" th:text="${Item.playTime}"></span><span th:text="${Item.styleName}" class="subTitle" id="sp_sub_title"></span>
                     </p>
-                    <p class="features">
+                    <p class="features" th:text="${Item.explain}">
                         尊享阿提哈德商务舱 直升机直抵北岛 马埃岛四季酒店
                     </p>
                 </h2>
@@ -860,26 +860,24 @@
                     </div>
                     <div class="overview">
                         <div class="schedule">
-                            <dl>
+                            <dl th:each="Item:${itemList}">
                                 <dt>最早出发日期</dt>
                                 <dd>
                                     <div class="productStartDate">
                                         <a href="#priceCalendar" id="lk_price"></a>
                                     </div>
                                 </dd>
-                                <dt>出发城市</dt>
-                                <dd>
-                                    北京
-                                    <a href="javascript:void(0);" data-toggle="modal" data-target="#modalCustomiseProduct">其他城市</a></dd>
+                                <dt>出发城市<span th:text="${Item.city}"style="color: red;margin-left:10px"></span></dt>
+                                    <dd><a href="javascript:void(0);" data-toggle="modal" data-target="#modalCustomiseProduct">其他城市</a></dd>
                                 <dt>起价说明</dt>
                                 <dd>
-                                    <ul class="priceNotes">
-                                        <li class="iconClock">
+                                    <ul class="priceNotes" th:each="detail:${detailList}">
+                                        <li class="iconClock" th:text="${Item.priceDesc}">
                                             提前出发日60天报名，立减500元/位<br/>赠送美亚“安心游”旅行保障计划，保额最高可达220万
                                         </li>
 
 
-                                        <li class="iconGroup">
+                                        <li class="iconGroup" th:text="${detail.priceDescOne}">
                                             本产品基于2位贵宾出行<br/>4位（含）以上贵宾同时报名，享受200元/人优惠<br/>6位（含）以上贵宾同时报名，享受500元/人优惠
                                         </li>
 
@@ -891,13 +889,13 @@
                                 <button id="btnBookCustomise1" onclick="" class="button secondary" data-toggle="modal" data-target="#modalCustomiseProduct">行程个性化调整</button>
                             </div>
                         </div>
-                        <div class="tags">
+                        <div class="tags" th:each="Item:${itemList}">
                             <h3>产品标签</h3>
                             <ul class="list-inline">
-                                <li>顶级体验</li>
-                                <li>婚礼蜜月</li>
-                                <li>商务舱</li>
-                                <li>私享游</li>
+                                <li th:text="${Item.hobbyName}"></li>
+                                <li th:text="${Item.styleName}"></li>
+                                <li th:text="${Item.travelName}"></li>
+                                <li th:text="${Item.trafficName}"></li>
                             </ul>
                         </div>
 

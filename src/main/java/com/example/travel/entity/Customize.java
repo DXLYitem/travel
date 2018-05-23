@@ -25,7 +25,7 @@ public class Customize implements Serializable {
     //结束日期
     private Date endDate;
     //航班时间
-    private Date flightTime;
+    private String flightTime;
     //航班舱位（下拉框选择）
     private String flightSpace;
     //航空公司
@@ -111,11 +111,11 @@ public class Customize implements Serializable {
         this.endDate = endDate;
     }
 
-    public Date getFlightTime() {
+    public String getFlightTime() {
         return flightTime;
     }
 
-    public void setFlightTime(Date flightTime) {
+    public void setFlightTime(String flightTime) {
         this.flightTime = flightTime;
     }
 

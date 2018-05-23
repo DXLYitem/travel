@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.travel.dao.DetailDao">
+  <resultMap id="DetailMapper" type="Detail" autoMapping="true">
+    <result property="title" column="title"/>
+    <result property="explain" column="explain"/>
+    <result property="playTime" column="playTime" />
+    <result property="price" column="price" />
+    <result property="priceDesc" column="priceDesc" />
+  </resultMap>
+
+  <!--根据详细Id查询-->
+  <select id="selectDetail" resultMap="DetailMapper">
+    SELECT * FROM detail
+      <where>
+          <if test="detailId !=null">AND detailId=#{detailId}</if>
+      </where>
+  </select>
+</mapper>

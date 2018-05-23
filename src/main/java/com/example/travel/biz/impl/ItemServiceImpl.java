@@ -9,18 +9,19 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 @Service
 @Transactional(propagation = Propagation.REQUIRED,rollbackFor = Exception.class)//事物处理
-public class ItemServiceImpl implements ItemService {
+public class ItemServiceImpl implements ItemService{
     @Resource
     private ItemDao itemDao;
     @Resource
     private RedisUtil redisUtil;
 
     @Override
-    public List<Item> itemsList(Integer themeId, Integer hobbyId, Integer travelId, Integer trafficId, Integer styleId) {
+    public List<Item> itemsList(Integer themeId, Integer hobbyId, Integer travelId, Integer trafficId, Integer styleId, Date startTime,Integer continentId) {
         Item item=new Item();
         //父级主题Id
         if(themeId!=null){
@@ -42,7 +43,14 @@ public class ItemServiceImpl implements ItemService {
         if(styleId!=null){
             item.setStyleId(styleId);
         }
-        List<Item>items=itemDao.selectPageItem(themeId, hobbyId, travelId, trafficId, styleId);
+
+        if(startTime!=null){
+            item.setStartTime(startTime);
+        }
+        if(continentId!=null){
+            item.setContinentId(continentId);
+        }
+        List<Item>items=itemDao.selectPageItem(themeId, hobbyId, travelId, trafficId, styleId ,startTime,continentId);
 
         if(redisUtil.exists("item")){
             redisUtil.remove("item");
@@ -50,7 +58,6 @@ public class ItemServiceImpl implements ItemService {
         redisUtil.lPush("item",items);
         return items;
     }
-
     @Override
     public boolean itemCount(Integer themeId, Integer hobbyId, Integer travelId, Integer trafficId, Integer styleId) {
         Item item = new Item();
@@ -81,5 +88,20 @@ public class ItemServiceImpl implements ItemService {
         redisUtil.lPush("itemCount", itemCount);
 
         return itemCount>0;
+    }
+    @Override
+    public List<Item> findDetailId(Integer detailId) {
+        Item item=new Item();
+        if(detailId!=null){
+            item.setStyleId(detailId);
+        }
+        List<Item>findDetailId=itemDao.selectDetailId(detailId);
+
+        if(redisUtil.exists("findDetailId")){
+            redisUtil.remove("findDetailId");
+        }
+        redisUtil.lPush("findDetailId",findDetailId);
+
+        return findDetailId;
     }
 }

@@ -1,6 +1,7 @@
 package com.example.travel.control;
 
 import com.example.travel.biz.ContinentService;
+import com.example.travel.biz.impl.AssociatorServiceImpl;
 import com.example.travel.biz.impl.CustomizeServiceImpl;
 import com.example.travel.biz.impl.HotelServiceImpl;
 import com.example.travel.biz.impl.PreorderServiceImpl;
@@ -26,6 +27,8 @@ public class PersonaliseController {
     private CustomizeServiceImpl customizeServiceImpl;
     @Autowired
     private PreorderServiceImpl preorderServiceImpl;
+    @Autowired
+    private AssociatorServiceImpl associatorServiceImpl;
 
     @RequestMapping("/Personalise")
     public String personalise(Model model){
@@ -71,9 +74,18 @@ public class PersonaliseController {
     @RequestMapping("simpleSubmit")
     @ResponseBody
     public Integer simpleSubmit(Customize customize){
-        /*int num=customizeServiceImpl.addCustomize(customize);
-        return  num;*/
-        return 0;
+        if(customize.getFlightSpace().equals("选择舱位")){
+            customize.setFlightSpace(null);
+        }
+        if(customize.getHotel().equals("请选择")){
+            customize.setHotel(null);
+        }
+        if(customize.getRoomType().equals("选择房间类型")){
+            customize.setRoomType(null);
+        }
+        int num=customizeServiceImpl.addCustomize(customize);
+        return  num;
+        /*return 0;*/
     }
 
     /**
@@ -99,7 +111,7 @@ public class PersonaliseController {
 
     @RequestMapping("associator")
     public String associator(){
-        return "www.sparkletour.com/member/associator";
+        return "www.sparkletour.com/member/index";
     }
 
     @RequestMapping("point")
