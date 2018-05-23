@@ -12,4 +12,11 @@ public interface ItemService {
 
    boolean itemCount(Integer themeId, Integer hobbyId, Integer travelId, Integer trafficId, Integer styleId);
 
+    /**
+     * 根据详细Id查询
+     * @param detailId
+     * @return
+     */
+    List<Item>findDetailId(Integer detailId);
+
 }
