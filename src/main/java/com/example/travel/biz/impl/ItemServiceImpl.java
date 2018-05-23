@@ -14,7 +14,7 @@ import java.util.List;
 
 @Service
 @Transactional(propagation = Propagation.REQUIRED,rollbackFor = Exception.class)//事物处理
-public class ItemServiceImpl implements ItemService {
+public class ItemServiceImpl implements ItemService{
     @Resource
     private ItemDao itemDao;
     @Resource
@@ -58,7 +58,6 @@ public class ItemServiceImpl implements ItemService {
         redisUtil.lPush("item",items);
         return items;
     }
-
     @Override
     public boolean itemCount(Integer themeId, Integer hobbyId, Integer travelId, Integer trafficId, Integer styleId) {
         Item item = new Item();
@@ -89,5 +88,20 @@ public class ItemServiceImpl implements ItemService {
         redisUtil.lPush("itemCount", itemCount);
 
         return itemCount>0;
+    }
+    @Override
+    public List<Item> findDetailId(Integer detailId) {
+        Item item=new Item();
+        if(detailId!=null){
+            item.setStyleId(detailId);
+        }
+        List<Item>findDetailId=itemDao.selectDetailId(detailId);
+
+        if(redisUtil.exists("findDetailId")){
+            redisUtil.remove("findDetailId");
+        }
+        redisUtil.lPush("findDetailId",findDetailId);
+
+        return findDetailId;
     }
 }
