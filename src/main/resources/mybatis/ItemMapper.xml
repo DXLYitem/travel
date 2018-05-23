@@ -33,26 +33,19 @@
     <if test="startTime !=null">AND ite.startTime>=#{startTime}</if>
     <if test="continentId !=null">AND con.continentId=#{continentId}</if>
 </where>
-    <!--按各个条件分页查询-->
-  <!--  GROUP BY
-    <if test="themeId !=null">AND themeId=#{themeId}</if>
-    <if test="hobbyId !=null">AND hobbyId=#{hobbyId}</if>
-    <if test="travelId !=null">AND travelId=#{travelId}</if>
-    <if test="trafficId !=null">AND trafficId=#{trafficId}</if>
-    <if test="styleId !=null">AND styleId=#{styleId}</if>
-    #{currentPage},#{pageSize}-->
     </select>
 
-    <!--按各个条件查询记录总条数-->
-   <!-- <select id="selectPageCount"  resultType="Item" resultMap="ItemMap">
-        SELECT COUNT(*) FROM item
-        <where>
-            <if test="themeId !=null">AND themeId=#{themeId}</if>
-            <if test="hobbyId !=null">AND hobbyId=#{hobbyId}</if>
-            <if test="travelId !=null">AND travelId=#{travelId}</if>
-            <if test="trafficId !=null">AND trafficId=#{trafficId}</if>
-            <if test="styleId !=null">AND styleId=#{styleId}</if>
-        </where>
-    </select>-->
+<select id="selectDetailId" resultMap="ItemMap">
+    SELECT ite.*,sy.styleName,the.themeName,tr.trafficName,tra.travelName,hob.hobbyName
+    FROM item ite
+    LEFT JOIN theme the ON the.themeId=ite.themeId
+    LEFT JOIN style sy ON sy.styleId=ite.styleId
+    LEFT JOIN traffic tr ON tr.trafficId=ite.trafficId
+    LEFT JOIN travel tra ON tra.travelId=ite.travelId
+    LEFT JOIN hobby hob ON hob.hobbyId=ite.hobbyId
 
+    <where>
+        <if test="detailId !=null">AND ite.detailId=#{detailId}</if>
+    </where>
+</select>
 </mapper>
