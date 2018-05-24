@@ -32,15 +32,15 @@ public class ContinentControl {
     @Resource
     private BrandService brandService;
 
-    @RequestMapping("/index")
-    public String selectContinent(Model model, Integer continentId) {
-        //地域
-        List<Continent> list = continentService.listContinent(continentId);
-        model.addAttribute("conList", list);
-        //地区
-        for (int i = 0; i < list.size(); i++) {
-            model.addAttribute("couList" + i, countryService.listCountry(list.get(i).getContinentId()));
-        }
+     @RequestMapping("/index")
+     public  String selectContinent(Model model,Integer continentId){
+         //地域
+         List<Continent> list=continentService.listContinent();
+         model.addAttribute("conList",list);
+         //地区
+         for(int i=0;i<list.size();i++){
+           model.addAttribute("couList"+i,countryService.listCountry(list.get(i).getContinentId()));
+         }
 
         //偏好
         model.addAttribute("h", hobbyService.listHobby(1));
@@ -59,8 +59,6 @@ public class ContinentControl {
 
         model.addAttribute("continent",continentService.listContinentByholidayId(2));
 
-        // System.out.println(11111);
-
         return "/www.sparkletour.com/index";
-    }
+     }
 }

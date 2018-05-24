@@ -25,7 +25,8 @@ public interface ItemDao {
             @Param("trafficId") Integer trafficId,
             @Param("styleId") Integer styleId,
             @Param("startTime") Date startTime,
-            @Param("continentId")Integer continentId
+            @Param("continentId")Integer continentId,
+            @Param("countryId")Integer countryId
                          /* @Param("currentPage") Integer currentPage,
                           @Param("pageSize") Integer pageSize*/
     );
@@ -44,5 +45,25 @@ public interface ItemDao {
                         @Param("trafficId") Integer trafficId,
                         @Param("styleId") Integer styleId);
 
-    List<Item>selectDetailId(@Param("detailId") Integer detailId);
+
+    List<Item>selectDetailId(@Param("detailId") Integer themeId);
+
+
+    List<Item> selectTravelName(@Param("themeId") Integer themeId,
+                                @Param("hobbyId") Integer hobbyId,
+                                @Param("travelId") Integer travelId,
+                                @Param("trafficId") Integer trafficId,
+                                @Param("styleId") Integer styleId,
+                                @Param("startTime") Date startTime,
+                                @Param("continentId")Integer continentId,
+                                @Param("countryId")Integer countryId);
+
+    List<Item> selectHobbyName(@Param("themeId") Integer themeId,
+                               @Param("hobbyId") Integer hobbyId,
+                               @Param("travelId") Integer travelId,
+                               @Param("trafficId") Integer trafficId,
+                               @Param("styleId") Integer styleId,
+                               @Param("startTime") Date startTime,
+                               @Param("continentId")Integer continentId,
+                               @Param("countryId")Integer countryId);
 }

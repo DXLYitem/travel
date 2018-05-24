@@ -8,7 +8,7 @@ import java.util.List;
 
 
 public interface ContinentService {
-    public List<Continent> listContinent(Integer continentId);
+    public List<Continent> listContinent();
 
     /**
      * 根据度假ID查询度假套餐表下面的区域

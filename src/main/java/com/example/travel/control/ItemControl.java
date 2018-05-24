@@ -1,9 +1,8 @@
 package com.example.travel.control;
 
 import com.example.travel.biz.*;
+import com.example.travel.entity.Continent;
 import com.example.travel.entity.Item;
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.annotation.Resource;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -19,34 +19,73 @@ import java.util.List;
 public class ItemControl {
     @Resource
     private ItemService itemService;
-   /* @Resource
+    @Resource
+    private ContinentService continentService;
+    @Resource
+    private CountryService countryService;
+    @Resource
     private ThemeService themeService;
     @Resource
     private HobbyService hobbyService;
     @Resource
-    private StyleService styleService;
-    @Resource
     private TravelService travelService;
     @Resource
-    private TrafficService trafficService;*/
+    private TrafficService trafficService;
+    @Resource
+    private StyleService styleService;
+
     @RequestMapping("ProductList")
     public String pList(@RequestParam(required=true,defaultValue="1") Integer page, Model model,
                         Integer themeId, Integer hobbyId, Integer travelId,
-                        Integer trafficId, Integer styleId, Integer pn,String  startTime,Integer continentId) throws ParseException {
+                        Integer trafficId, Integer styleId, Integer pn,String  startTime,Integer continentId,Integer countryId) throws ParseException {
         SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
         Date date=new Date();
         if(startTime!=null){
           date=sdf.parse(startTime);
        }
+        //地域
+        List<Continent> list=continentService.listContinent();
+        model.addAttribute("conList",list);
+        //地区
+        for(int i=0;i<list.size();i++){
+            model.addAttribute("couList"+i,countryService.listCountry(list.get(i).getContinentId()));
+        }
+
+        //偏好
+        model.addAttribute("h",hobbyService.listHobby(1));
+        //主题
+        model.addAttribute("t",travelService.listTravel(2));
+        //交通工具
+        model.addAttribute("c",trafficService.listTraffic(3));
+        //旅行方式
+        model.addAttribute("s",styleService.listStyle(4));
+        //旅行主题
+        model.addAttribute("themeList",themeService.listTheme());
+
 
         //page从第几页开始，pagerSize每页显示3条数据
        // PageHelper.startPage(page,10);
-        List<Item>itemList=itemService.itemsList(themeId, hobbyId, travelId, trafficId, styleId,date,continentId);
-        PageInfo<Item> pager=new PageInfo<Item>(itemList);
-        if(itemList!=null){
+        List<Item>itemList=itemService.itemsList(themeId, hobbyId, travelId, trafficId, styleId,date,continentId,countryId);
+        List<String> strList=new ArrayList<String>();
+         for(int i=0;i<itemList.size();i++){
+             String[] arr = itemList.get(i).getTitle().split(" ");
+             strList.add(arr[0]);
+         }
+        //查询旅行主题
+        List<Item> travelList=itemService.listTravelName(themeId, hobbyId, travelId, trafficId, styleId,date,continentId,countryId);
+        //查询旅行偏好
+        List<Item> hList=itemService.listHobbyName(themeId, hobbyId, travelId, trafficId, styleId,date,continentId,countryId);
+
+       // PageInfo<Item> pager=new PageInfo<Item>(itemList);
+        if(itemList.size()>0 && strList.size()>0 && travelList.size()>0 ){
             //根据点击分页查询
             //model.addAttribute("pager",pager);
             model.addAttribute("ItemList",itemList);
+            model.addAttribute("strList",strList);
+            model.addAttribute("travelList",travelList);
+            model.addAttribute("hList",hList);
+
+          //  model.addAttribute("arrExplain",explain);
         }
        return "/www.sparkletour.com/ProductList/94";
     }

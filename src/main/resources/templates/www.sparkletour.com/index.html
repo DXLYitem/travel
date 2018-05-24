@@ -296,32 +296,32 @@
         <li class="discover">
             <a href="index">探索世界</a>
             <ul class="level2">
-                <li th:each="con,last : ${conList}">
-                    <a href="ProductList/5644.htm" th:text="${con.continentName}">o</a>
+                <li th:each="con,last : ${conList}">            <!--洲-->
+                    <a th:href="@{'ProductList?continentId='+${con.continentId}}" th:text="${con.continentName}">o</a>
                     <ul class="level3">
-                        <div th:if="${last.index} eq '0'">
-                            <li th:each="cou : ${couList0}"><a href=""  th:text="${cou.countryName}"></a></li>
+                        <div th:if="${last.index} eq '0'">                          <!--国-->
+                            <li th:each="cou : ${couList0}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}"  th:text="${cou.countryName}"></a></li>
                         </div>
                         <div th:if="${last.index} eq '1'">
-                            <li th:each="cou : ${couList1}"><a href="" th:text="${cou.countryName}"></a></li>
+                            <li th:each="cou : ${couList1}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}" th:text="${cou.countryName}"></a></li>
                         </div>
                         <div th:if="${last.index} eq '2'">
-                            <li th:each="cou : ${couList2}"><a href=""  th:text="${cou.countryName}"></a></li>
+                            <li th:each="cou : ${couList2}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}"  th:text="${cou.countryName}"></a></li>
                         </div>
                         <div th:if="${last.index} eq '3'">
-                            <li th:each="cou : ${couList3}"><a href=""  th:text="${cou.countryName}"></a></li>
+                            <li th:each="cou : ${couList3}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}"  th:text="${cou.countryName}"></a></li>
                         </div>
                         <div th:if="${last.index} eq '4'">
-                            <li th:each="cou : ${couList4}"><a href="" th:text="${cou.countryName}"></a></li>
+                            <li th:each="cou : ${couList4}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}" th:text="${cou.countryName}"></a></li>
                         </div>
                         <div th:if="${last.index} eq '5'">
-                            <li th:each="cou : ${couList5}"><a href="" th:text="${cou.countryName}"></a></li>
+                            <li th:each="cou : ${couList5}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}" th:text="${cou.countryName}"></a></li>
                         </div>
                         <div th:if="${last.index} eq '6'">
-                            <li th:each="cou : ${couList6}"><a href=""  th:text="${cou.countryName}"></a></li>
+                            <li th:each="cou : ${couList6}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}"  th:text="${cou.countryName}"></a></li>
                         </div>
                         <div th:if="${last.index} eq '7'">
-                            <li th:each="cou : ${couList7}"><a href=""th:text="${cou.countryName}"></a></li>
+                            <li th:each="cou : ${couList7}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}" th:text="${cou.countryName}"></a></li>
                         </div>
 
                                     </ul>
@@ -437,6 +437,9 @@
                         </div>
                     </div>
                 </div>
+
+
+
 
                 <div id="loginbefore" class="tool" style="display:none;">
                     <a href="javascript:void(0);" onclick="modalMyYaoyueShow()" class="loginBtn"></a>
@@ -635,12 +638,6 @@
     $("#btnHeadSearch").bind("click", function () {
         var time=$("#txtStartDate").val();
         var continentId=$("#searchByDestination option:selected").val();
-        alert(continentId);
-        alert(time);
-        //location.href = "ProductList?continentId="+continentId+"&startTime="+time;
-
-
-
        if(continentId==0 && (time!=NaN && time !="" && time !=undefined)){
             location.href = "ProductList?startTime="+time;
         }

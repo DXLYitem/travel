@@ -22,15 +22,15 @@ public class ContinentServiceImpl implements ContinentService {
     private ContinentDao continentDao;
 
     @Override
-    public List<Continent> listContinent(Integer continentId) {
-        String conKey="conKey"+continentId;
-        //判断redis缓存里键为conKey集合是否存在
+    public List<Continent> listContinent() {
+        String conKey="conKey";
+        //判断redis缓存里键为con集合是否存在
         if(redisUtil.exists(conKey)){
             Object o = redisUtil.lRange(conKey, 0, redisUtil.length(conKey)).get(0);
             return (List<Continent>) o;
         }else{
             //查询地域集合
-            List<Continent> list=continentDao.selectContinent(continentId);
+            List<Continent> list=continentDao.selectContinent();
             //把键为conKey值为list集合缓存到redis
             redisUtil.lPush(conKey,list);
             return list;

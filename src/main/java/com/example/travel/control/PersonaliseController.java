@@ -48,7 +48,7 @@ public class PersonaliseController {
         roomstyle.add(new RoomStyle(1,"商务间"));
         roomstyle.add(new RoomStyle(1,"标准间"));
         roomstyle.add(new RoomStyle(1,"单人间"));
-        model.addAttribute("area",continentService.listContinent(null));
+        model.addAttribute("area",continentService.listContinent());
         model.addAttribute("cang",cangWeis);
         model.addAttribute("roomstyle",roomstyle);
         return "www.sparkletour.com/Personalise";
