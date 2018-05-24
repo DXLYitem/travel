@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.security.Key;
 import java.util.List;
 @Service
 @Transactional(propagation = Propagation.REQUIRED,rollbackFor = Exception.class)//事物处理
@@ -21,16 +22,12 @@ public class DetailServiceImpl implements DetailService{
     private RedisUtil redisUtil;
     @Override
     public List<Detail> detailList(Integer detailId){
-      Detail detail=new Detail();
-        if(detailId!=null){
-            detail.setDetailId(detailId);
-        }
+      String key="Key"+detailId;
+      if(redisUtil.exists(key)){
+        Object deId=redisUtil.lRange(key,0,redisUtil.length(key)).get(0);
+        return (List<Detail>)deId;
+      }
         List<Detail>detailList=detailDao.selectDetail(detailId);
-        if(redisUtil.exists("detailList")){
-            redisUtil.remove("detailList");
-        }
-        redisUtil.lPush("item",detailList);
-
         return detailList;
     }
 }

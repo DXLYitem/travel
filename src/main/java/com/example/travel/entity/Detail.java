@@ -1,6 +1,7 @@
 package com.example.travel.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * 详细表
@@ -19,6 +20,16 @@ public class Detail implements Serializable {
     private String priceDesctwo;
     //地图图片路径
     private String mapPath;
+
+   /* public Item item;
+
+    public Item getItem() {
+        return item;
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
+    }*/
 
     public Integer getDetailId() {
         return detailId;

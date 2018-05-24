@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper  namespace="com.example.travel.dao.IntroductionDao">
+    <resultMap id="IntrodMapper" type="Introduction" autoMapping="true">
+        <result property="title" column="title"/>
+        <result property="explain" column="explain"/>
+    </resultMap>
+<select id="selectIntrod" parameterType="Integer" resultMap="IntrodMapper">
+    SELECT * FROM introduction
+    <where>
+        <if test="detailId !=null">AND detailId=#{detailId}</if>
+    </where>
+</select>
+</mapper>

@@ -22,34 +22,6 @@ public class ItemServiceImpl implements ItemService{
 
     @Override
     public List<Item> itemsList(Integer themeId, Integer hobbyId, Integer travelId, Integer trafficId, Integer styleId, Date startTime,Integer continentId) {
-        Item item=new Item();
-        //父级主题Id
-        if(themeId!=null){
-            item.setItemId(themeId);
-        }
-        //旅行偏好Id
-        if(hobbyId!=null){
-            item.setHobbyId(hobbyId);
-        }
-        //旅行主题Id
-        if(travelId!=null){
-            item.setTravelId(travelId);
-        }
-        //交通工具Id
-        if(trafficId!=null){
-            item.setTravelId(trafficId);
-        }
-        //旅行方式Id
-        if(styleId!=null){
-            item.setStyleId(styleId);
-        }
-
-        if(startTime!=null){
-            item.setStartTime(startTime);
-        }
-        if(continentId!=null){
-            item.setContinentId(continentId);
-        }
         List<Item>items=itemDao.selectPageItem(themeId, hobbyId, travelId, trafficId, styleId ,startTime,continentId);
 
         if(redisUtil.exists("item")){
@@ -60,30 +32,6 @@ public class ItemServiceImpl implements ItemService{
     }
     @Override
     public boolean itemCount(Integer themeId, Integer hobbyId, Integer travelId, Integer trafficId, Integer styleId) {
-        Item item = new Item();
-        //父级主题Id
-        if (themeId != null) {
-            item.setItemId(themeId);
-        }
-        //旅行偏好Id
-        if (hobbyId != null) {
-            item.setHobbyId(hobbyId);
-        }
-        //旅行主题Id
-        if (travelId != null) {
-            item.setTravelId(travelId);
-        }
-        //交通工具Id
-        if (trafficId != null) {
-            item.setTravelId(trafficId);
-        }
-        //旅行方式Id
-        if (styleId != null) {
-            item.setStyleId(styleId);
-        }
-        if (redisUtil.exists("itemCount")) {
-            redisUtil.remove("itemCount");
-        }
         int itemCount = itemDao.selectPageCount(themeId, hobbyId, travelId, trafficId, styleId);
         redisUtil.lPush("itemCount", itemCount);
 

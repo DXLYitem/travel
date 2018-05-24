@@ -1,8 +1,10 @@
 package com.example.travel.control;
 
 import com.example.travel.biz.DetailService;
+import com.example.travel.biz.IntroductionService;
 import com.example.travel.biz.ItemService;
 import com.example.travel.entity.Detail;
+import com.example.travel.entity.Introduction;
 import com.example.travel.entity.Item;
 import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
@@ -17,18 +19,33 @@ public class DetailControl {
     private DetailService detailService;
     @Resource
     private ItemService itemService;
+    @Resource
+    private IntroductionService introductionService;
     @RequestMapping("ProductDetail")
     private String detailList(Model model, Integer detailId){
         Integer a=detailId;
+        /**
+         * 根据详细Id查询
+         */
         List<Detail>detailList=detailService.detailList(detailId);
-
+        /**
+         * 根据项目Id查询
+         */
         List<Item>itemList=itemService.findDetailId(detailId);
+        /**
+         * 根据介绍Id查询
+         */
+        List<Introduction>introList=introductionService.finddetailId(detailId);
+        if(introList!=null){
+            model.addAttribute("introList",introList);
+        }
         if(itemList!=null){
             model.addAttribute("itemList",itemList);
         }
         if(detailList!=null){
             model.addAttribute("detailList",detailList);
         }
+
         return "/www.sparkletour.com/ProductDetail/39634";
     }
 }

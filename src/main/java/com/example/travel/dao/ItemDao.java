@@ -43,5 +43,6 @@ public interface ItemDao {
                         @Param("travelId") Integer travelId,
                         @Param("trafficId") Integer trafficId,
                         @Param("styleId") Integer styleId);
-    List<Item>selectDetailId(@Param("detailId") Integer themeId);
+
+    List<Item>selectDetailId(@Param("detailId") Integer detailId);
 }

@@ -24,7 +24,7 @@ public class ContinentServiceImpl implements ContinentService {
     @Override
     public List<Continent> listContinent(Integer continentId) {
         String conKey="conKey"+continentId;
-        //判断redis缓存里键为con集合是否存在
+        //判断redis缓存里键为conKey集合是否存在
         if(redisUtil.exists(conKey)){
             Object o = redisUtil.lRange(conKey, 0, redisUtil.length(conKey)).get(0);
             return (List<Continent>) o;
