@@ -12,6 +12,9 @@ public class Continent implements Serializable {
     // 地域名
     private String continentName;
 
+    //套餐ID
+    private Integer holidayId;
+
     public Integer getContinentId() {
         return continentId;
     }
@@ -28,11 +31,20 @@ public class Continent implements Serializable {
         this.continentName = continentName;
     }
 
+    public Integer getHolidayId() {
+        return holidayId;
+    }
+
+    public void setHolidayId(Integer holidayId) {
+        this.holidayId = holidayId;
+    }
+
     @Override
     public String toString() {
         return "Continent{" +
                 "continentId=" + continentId +
                 ", continentName='" + continentName + '\'' +
+                ", holidayId=" + holidayId +
                 '}';
     }
 }

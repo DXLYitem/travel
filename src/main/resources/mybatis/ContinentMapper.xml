@@ -12,4 +12,11 @@
              </where>
     </select>
 
+    <select id="selectContinentByholidayId"  resultType="Continent" parameterType="int">
+        SELECT * FROM continent
+        <where>
+            <if test="holidayId != null"> and holidayId=#{holidayId}</if>
+        </where>
+    </select>
+
 </mapper>
