@@ -142,27 +142,18 @@
     <script src="../../static/scripts/libs/icheck.min.js"
             tppabs="http://www.sparkletour.com/scripts/libs/icheck.min.js"></script>
 
-    <script src="../../static/scripts/libs/bootstrap-datepicker.min.js"
-            tppabs="http://www.sparkletour.com/scripts/libs/bootstrap-datepicker.min.js"></script>
-    <script src="../../static/scripts/libs/bootstrap-datepicker.zh-CN.min.js"
-            tppabs="http://www.sparkletour.com/scripts/libs/bootstrap-datepicker.zh-CN.min.js"></script>
-    <script src="../../static/scripts/libs/bootstrap-typeahead.min.js"
-            tppabs="http://www.sparkletour.com/scripts/libs/bootstrap-typeahead.min.js"></script>
-    <script src="../../static/scripts/libs/bloodhound.min.js"
-            tppabs="http://www.sparkletour.com/scripts/libs/bloodhound.min.js"></script>
-    <script src="../../static/scripts/autocomplete.js"
-            tppabs="http://www.sparkletour.com/scripts/autocomplete.js"></script>
-    <script src="../../static/scripts/custom.js-ver=20170904134726"
-            tppabs="http://www.sparkletour.com/scripts/custom.js?ver=20170904134726"></script>
-    <script src="../../static/scripts/jquery.cookie.js"
-            tppabs="http://www.sparkletour.com/scripts/jquery.cookie.js"></script>
-    <script src="../../static/scripts/libs/bootstrap.min.js"
-            tppabs="http://www.sparkletour.com/scripts/libs/bootstrap.min.js"></script>
-    <script src="../../static/scripts/yaoyue.default.js"
-            tppabs="http://www.sparkletour.com/scripts/yaoyue.default.js"></script>
+<script src="../../static/scripts/libs/bootstrap-datepicker.min.js" tppabs="http://www.sparkletour.com/scripts/libs/bootstrap-datepicker.min.js"></script>
+<script src="../../static/scripts/libs/bootstrap-datepicker.zh-CN.min.js" tppabs="http://www.sparkletour.com/scripts/libs/bootstrap-datepicker.zh-CN.min.js"></script>
+<script src="../../static/scripts/libs/bootstrap-typeahead.min.js" tppabs="http://www.sparkletour.com/scripts/libs/bootstrap-typeahead.min.js"></script>
+<script src="../../static/scripts/libs/bloodhound.min.js" tppabs="http://www.sparkletour.com/scripts/libs/bloodhound.min.js"></script>
+<script src="../../static/scripts/autocomplete.js" tppabs="http://www.sparkletour.com/scripts/autocomplete.js"></script>
+<script src="../../static/scripts/custom.js-ver=20170904134726" tppabs="http://www.sparkletour.com/scripts/custom.js?ver=20170904134726"></script>
+<script src="../../static/scripts/jquery.cookie.js" tppabs="http://www.sparkletour.com/scripts/jquery.cookie.js"></script>
+<script src="../../static/scripts/libs/bootstrap.min.js" tppabs="http://www.sparkletour.com/scripts/libs/bootstrap.min.js"></script>
+<script src="../../static/scripts/yaoyue.default.js" tppabs="http://www.sparkletour.com/scripts/yaoyue.default.js"></script>
 
 
-    <!--[if (gte IE 6)&(lte IE 8)]>
+<!--[if (gte IE 6)&(lte IE 8)]>
     <script type="text/javascript" src="../../static/scripts/libs/selectivizr-min.js"
             tppabs="http://www.sparkletour.com/scripts/libs/selectivizr-min.js"></script>
     <![endif]-->
@@ -291,6 +282,48 @@
                                             </li>
                                         </div>
 
+    <div class="pageWrapper" id="pageWrapper">
+
+
+<header class="header" role="banner" id="siteHeader">
+    <div class="masthead">
+        <div class="contentWrapper">
+            <h1 class="logo"><a href="index.html" tppabs="http://www.sparkletour.com/">
+                <img src="../../static/images/content/logo.png"  alt="耀悅"></a></h1>
+
+<nav class="navigation" role="navigation">
+    <ul class="level1">
+        <li class="discover">
+            <a href="index">探索世界</a>
+            <ul class="level2">
+                <li th:each="con,last : ${conList}">
+                    <a href="ProductList/5644.htm" th:text="${con.continentName}">o</a>
+                    <ul class="level3">
+                        <div th:if="${last.index} eq '0'">
+                            <li th:each="cou : ${couList0}"><a href=""  th:text="${cou.countryName}"></a></li>
+                        </div>
+                        <div th:if="${last.index} eq '1'">
+                            <li th:each="cou : ${couList1}"><a href="" th:text="${cou.countryName}"></a></li>
+                        </div>
+                        <div th:if="${last.index} eq '2'">
+                            <li th:each="cou : ${couList2}"><a href=""  th:text="${cou.countryName}"></a></li>
+                        </div>
+                        <div th:if="${last.index} eq '3'">
+                            <li th:each="cou : ${couList3}"><a href=""  th:text="${cou.countryName}"></a></li>
+                        </div>
+                        <div th:if="${last.index} eq '4'">
+                            <li th:each="cou : ${couList4}"><a href="" th:text="${cou.countryName}"></a></li>
+                        </div>
+                        <div th:if="${last.index} eq '5'">
+                            <li th:each="cou : ${couList5}"><a href="" th:text="${cou.countryName}"></a></li>
+                        </div>
+                        <div th:if="${last.index} eq '6'">
+                            <li th:each="cou : ${couList6}"><a href=""  th:text="${cou.countryName}"></a></li>
+                        </div>
+                        <div th:if="${last.index} eq '7'">
+                            <li th:each="cou : ${couList7}"><a href=""th:text="${cou.countryName}"></a></li>
+                        </div>
+
                                     </ul>
                                 </li>
                             </ul>
@@ -364,9 +397,9 @@
 </nav>
 
                 <div class="quickTool">
-                    <div class="tool">
+                    <!--<div class="tool">
                         <a class="phone" href="tel:4008905588">400 890 5588</a>
-                    </div>
+                    </div>-->
                     <div class="tool">
                         <div class="searchForm">
                             <div class="quickSearch">
@@ -406,16 +439,16 @@
                 </div>
 
                 <div id="loginbefore" class="tool" style="display:none;">
-                    <a href="javascript:void(0);" onclick="modalMyYaoyueShow()" class="loginBtn">登录注册</a>
+                    <a href="javascript:void(0);" onclick="modalMyYaoyueShow()" class="loginBtn"></a>
                 </div>
-                <div id="loginafter" class="tool" style="display: none">
+                <div id="loginafter" class="tool">
                     <a href="javascript:void(0);" class="logined">我的耀悅
-                        <div class="loginBtnNav" style="z-index: 9999999;">
+                        <div class="loginBtnNav">
                             <ul>
-                                <li class="setBorderBot" onclick="modalMyYaoyueShow()">登录注册</li>
-                                <li id="liMyMessagePage" onclick="location.href='member/index.htm'">会员信息</li>
-                                <li id="liOrderQuery" onclick="location.href='member/order.html'">订单查询</li>
-                                <li id="liPointQuery" onclick="location.href='member/point.html'">会员积分</li>
+                                <li class="setBorderBot" onclick="modalMyYaoyueShow()">登&nbsp;录</li>
+                                <li id="liMyMessagePage" onclick="location.href='associator'">会员信息</li>
+                                <li id="liOrderQuery" onclick="location.href='order'">订单查询</li>
+                                <li id="liPointQuery" onclick="location.href='point'">会员积分</li>
                                 <li id="userExit" class="setBorderTop" onclick="Logout();">退出</li>
                             </ul>
                         </div>
@@ -487,7 +520,7 @@
     var isEmail = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;//电子邮件验证规则
     var wait = 60;
     var countDown, timer;
-    function setCookie(name, value, exdays, domain) {
+    /*function setCookie(name, value, exdays, domain) {
         var str = name + "=" + encodeURIComponent(value);
         var d = new Date();
         d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -510,7 +543,7 @@
         var str = name + "=null;expires=" + date.toGMTString();
         str = domain ? str + ";domain=" + domain : str;
         document.cookie = str;
-    }
+    }*/
     function modalMyYaoyueShow() {
         $("#lnerror_text").hide();
         $("#modalMyYaoyue").modal("show");
@@ -585,7 +618,7 @@
         $("#lnerror_text").hide();
         if (CheckPhone() && CheckCode()) {
             $.cookie("customer", JSON.stringify(testJson), { expires: 1, domain: "http://www.sparkletour.com/sparkletour.com", path: "/" });
-            location.reload();
+            location.href="order";
         }
     });
     $("#btn_send_code").bind("click", function () {
