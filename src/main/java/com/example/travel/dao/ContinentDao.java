@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface ContinentDao {
 
-    public List<Continent> selectContinent(@Param("continentId") Integer continentId );
+    public List<Continent> selectContinent();
 
     /**
      * 根据度假ID查询度假套餐表下面的区域
