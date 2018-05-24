@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset=utf-8"utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -84,7 +84,7 @@
         left: 50%;
         -webkit-transform: translate3d(-50%,-50%,0);
         -moz-transform: translate3d(-50%,-50%,0);
-        -0-transform:translate3d(-50%,-50%,0);
+        -o-transform:translate3d(-50%,-50%,0);
         z-index: 9999;
         display: none;
         transform: translate3d(-50%,-50%,0);
@@ -459,13 +459,13 @@
                 <div id="loginbefore" class="tool" style="display:none;">
                     <a href="javascript:void(0);" onclick="modalMyYaoyueShow()" class="loginBtn">登录注册</a>
                 </div>
-                <div id="loginafter" class="tool" style="display: none">
+                <div id="loginafter" class="tool">
                     <a href="javascript:void(0);" class="logined">我的耀悅
                         <div class="loginBtnNav" style="z-index: 9999999;">
                             <ul>
-                                <li id="liMyMessagePage" onclick="location.href='associator'">会员信息</li>
-                                <li id="liOrderQuery" onclick="location.href='order'">订单查询</li>
-                                <li id="liPointQuery" onclick="location.href='point'">会员积分</li>
+                                <li id="liMyMessagePage" class="associator">会员信息</li>
+                                <li id="liOrderQuery" class="order">订单查询</li>
+                                <li id="liPointQuery" class="point">会员积分</li>
                                 <li id="userExit" class="setBorderTop" onclick="Logout();">退出</li>
                             </ul>
                         </div>
@@ -615,27 +615,33 @@
         }
     }
     function IsLogin() {
-        if ($.cookie("customer")) {
-            var c = JSON.parse($.cookie("customer"));
-            $(".setBorderBot").text(c.nick_name + '，您好');
-            $("#loginbefore").hide();
-            $("#loginafter").show();
+        if (!$.cookie("customer")) {
+            /*var c = JSON.parse($.cookie("customer"));*/
+            /*$(".setBorderBot").text(c.nick_name + '，您好');*/
+            /*$("#loginbefore").hide();
+            $("#loginafter").show();*/
+            modalMyYaoyueShow()
         }
     }
-    function NeedLogin() {
-        if (!$.cookie("customer")) {
+    /*function NeedLogin() {
+        if ($.cookie("customer")) {
             modalMyYaoyueShow();
         }
-    }
+    }*/
     function Logout() {
-        $.cookie("customer", '', { expires: -1, domain: "http://www.sparkletour.com/member/sparkletour.com", path: "/" });
-        location.href = "../index.htm"/*tpa=http://www.sparkletour.com/*/;
+        $.cookie("customer", '', { expires: -1, path: "/" });
+        location.href = "index";
     }
     $("#btn_login").bind("click", function () {
         $("#lnerror_text").hide();
+        if($.cookie("customer")){
+            var val=$.cookie("customer");
+        }else{
+            var val = $.trim($("#txt_phone").val());
+        }
         if (CheckPhone() && CheckCode()) {
-            $.cookie("customer", JSON.stringify(testJson), { expires: 1, domain: "http://www.sparkletour.com/member/sparkletour.com", path: "/" });
-            location.reload();
+            $.cookie("customer", JSON.stringify(val), { expires: 1, path: "/" });
+            location.href='order?phone='+val;
         }
     });
     $("#btn_send_code").bind("click", function () {
@@ -660,15 +666,16 @@
                         <li><a href="../index.html" tppabs="http://www.sparkletour.com/">首页</a></li>
                         <li>会员中心</li>
                         <li class="active">订单查询</li>
+                        <li class="active"><span th:text="${name}"></span></li>
                     </ol>
                 </div>
             </div>
             <div class="shencon shenkuan">
                 <div class="shenconleft">
                     <span style="background-color: #A664A6; display: block; color: white;">我的耀悦</span>
-                    <span class="shenclcon" onclick="location.href='associator'">会员信息</span>
-                    <span class="shenclcon active" onclick="location.href='order'">订单查询</span>
-                    <span class="shenclcon" onclick="location.href='point'">会员积分</span>
+                    <span class="shenclcon" id="associator">会员信息</span>
+                    <span class="shenclcon active" id="order">订单查询</span>
+                    <span class="shenclcon" id="point">会员积分</span>
                 </div>
                 <div class="shencolright">
                     <div class="shencrtop" style="background-color: #A664A6">
@@ -708,7 +715,51 @@
                         </div>
                     </div>
                     <script type="text/javascript">
-                        var app = new Vue({
+                        $(function(){
+                            $("#associator").on("click",function(){
+                                if($.cookie("customer")){
+                                    window.location.href="index?phone="+$.cookie("customer");
+                                }else{
+                                    window.location.href="index";
+                                }
+                            })
+                            $("#order").on("click",function(){
+                                if($.cookie("customer")){
+                                    window.location.href="order?phone="+$.cookie("customer");
+                                }else{
+                                    window.location.href="order";
+                                }
+                            })
+                            $("#point").on("click",function(){
+                                if($.cookie("customer")){
+                                    window.location.href="point?phone="+$.cookie("customer");
+                                }else{
+                                    window.location.href="point";
+                                }
+                            })
+                            $(".associator").on("click",function(){
+                                if($.cookie("customer")){
+                                    window.location.href="index?phone="+$.cookie("customer");
+                                }else{
+                                    window.location.href="index";
+                                }
+                            })
+                            $(".order").on("click",function(){
+                                if($.cookie("customer")){
+                                    window.location.href="order?phone="+$.cookie("customer");
+                                }else{
+                                    window.location.href="order";
+                                }
+                            })
+                            $(".point").on("click",function(){
+                                if($.cookie("customer")){
+                                    window.location.href="point?phone="+$.cookie("customer");
+                                }else{
+                                    window.location.href="point";
+                                }
+                            })
+                        })
+                       /* var app = new Vue({
                             el: "#apptb",
                             data: {
                                 cstmr: {},
@@ -734,7 +785,7 @@
                                     $(".loadingindex").fadeIn();
                                     if (vm.pageNo < vm.totalPage) {
                                         var curPage = vm.pageNo + 1;
-                                        $.get("GetCustomOrders.ashx?customerId=" + vm.cstmr.cellphones[0].content + "&pageNo=" + curPage + "&pageSize=" + vm.pageSize, function (data) {
+                                        $.get("order=" + vm.cstmr.cellphones[0].content + "&pageNo=" + curPage + "&pageSize=" + vm.pageSize, function (data) {
                                             $(".loadingindex").fadeOut();
                                             data = JSON.parse(data)
                                             console.log(data)
@@ -775,7 +826,7 @@
                                     }
                                 }
                             }
-                        });
+                        });*/
                     </script>
                 </div>
                 <div class="clearfix"></div>
