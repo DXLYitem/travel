@@ -74,18 +74,18 @@ public class PersonaliseController {
     @RequestMapping("simpleSubmit")
     @ResponseBody
     public Integer simpleSubmit(Customize customize){
-        if(customize.getFlightSpace().equals("选择舱位")){
+        /*if(customize.getFlightSpace()!=null && customize.getFlightSpace().equals("选择舱位")){
             customize.setFlightSpace(null);
         }
-        if(customize.getHotel().equals("请选择")){
+        if(customize.getHotel() !=null && customize.getHotel().equals("请选择")){
             customize.setHotel(null);
         }
-        if(customize.getRoomType().equals("选择房间类型")){
+        if(customize.getRoomType() !=null && customize.getRoomType().equals("选择房间类型")){
             customize.setRoomType(null);
         }
         int num=customizeServiceImpl.addCustomize(customize);
-        return  num;
-        /*return 0;*/
+        return  num;*/
+        return 0;
     }
 
     /**
@@ -93,7 +93,13 @@ public class PersonaliseController {
      * @return
      */
     @RequestMapping("order")
-    public String order(){
+    public String order(String phone,Model model){
+        List<Customize> list=new ArrayList<>();
+        if(phone!=null && phone !=""){
+            list=customizeServiceImpl.listCustomize(phone);
+            model.addAttribute("orderlsit",list);
+            model.addAttribute("name",list.get(0).getContact());
+        }
         return "www.sparkletour.com/member/order";
     }
 
