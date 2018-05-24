@@ -235,52 +235,6 @@
         </ul>
     </div>
 </aside>
-<div class="pageWrapper" id="pageWrapper">
-    <header class="header" role="banner" id="siteHeader">
-        <div class="masthead">
-            <div class="contentWrapper">
-                <h1 class="logo"><a href="index.html" tppabs="http://www.sparkletour.com/">
-                    <img src="../../static/images/content/logo.png" alt="耀悅"></a></h1>
-                <nav class="navigation" role="navigation">
-                    <ul class="level1">
-                        <li class="discover">
-                            <a href="javascript:void(0);">探索世界</a>
-                            <ul class="level2">
-                                <li th:each="con,last : ${conList}">
-                                    <a href="ProductList/5644.htm" th:text="${con.continentName}">o</a>
-                                    <ul class="level3">
-                                        <div th:if="${last.index} eq '0'">
-                                            <li th:each="cou : ${couList0}"><a href="" th:text="${cou.countryName}"></a>
-                                            </li>
-                                        </div>
-                                        <div th:if="${last.index} eq '1'">
-                                            <li th:each="cou : ${couList1}"><a href="" th:text="${cou.countryName}"></a>
-                                            </li>
-                                        </div>
-                                        <div th:if="${last.index} eq '2'">
-                                            <li th:each="cou : ${couList2}"><a href="" th:text="${cou.countryName}"></a>
-                                            </li>
-                                        </div>
-                                        <div th:if="${last.index} eq '3'">
-                                            <li th:each="cou : ${couList3}"><a href="" th:text="${cou.countryName}"></a>
-                                            </li>
-                                        </div>
-                                        <div th:if="${last.index} eq '4'">
-                                            <li th:each="cou : ${couList4}"><a href="" th:text="${cou.countryName}"></a>
-                                            </li>
-                                        </div>
-                                        <div th:if="${last.index} eq '5'">
-                                            <li th:each="cou : ${couList5}"><a href="" th:text="${cou.countryName}"></a>
-                                            </li>
-                                        </div>
-                                        <div th:if="${last.index} eq '6'">
-                                            <li th:each="cou : ${couList6}"><a href="" th:text="${cou.countryName}"></a>
-                                            </li>
-                                        </div>
-                                        <div th:if="${last.index} eq '7'">
-                                            <li th:each="cou : ${couList7}"><a href="" th:text="${cou.countryName}"></a>
-                                            </li>
-                                        </div>
 
     <div class="pageWrapper" id="pageWrapper">
 
