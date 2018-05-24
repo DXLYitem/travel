@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service("customizeServiceImpl")
 
 public class CustomizeServiceImpl implements CustomizeService {
@@ -32,7 +34,7 @@ public class CustomizeServiceImpl implements CustomizeService {
         int num=customizeDao.submit(customize);
         //根据id和联系人生成缓存的键
         String id=queryId()+customize.getContact();
-        String userkey="user"+customize.getContact();
+        String userkey="user"+customize.getPhone();
         redisUtil.set(userkey,associator);
         redisUtil.set(id,customize);
         return num;
@@ -41,5 +43,23 @@ public class CustomizeServiceImpl implements CustomizeService {
     @Override
     public int queryId() {
         return customizeDao.selId();
+    }
+
+    /**
+     * 查询用户预订的订单
+     * @param phone
+     * @return
+     */
+    @Override
+    public List<Customize> listCustomize(String phone) {
+        String userkey="userlist"+phone;
+        List<Customize> list=null;
+        if(redisUtil.exists(userkey)){
+            list = (List<Customize>) redisUtil.lRange(userkey, 0, redisUtil.length(userkey)).get(0);
+        }else{
+            list=customizeDao.selCustomize(phone);
+            redisUtil.lPush(userkey,list);
+        }
+        return list;
     }
 }
