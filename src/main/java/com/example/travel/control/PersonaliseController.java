@@ -98,7 +98,9 @@ public class PersonaliseController {
         if(phone!=null && phone !=""){
             list=customizeServiceImpl.listCustomize(phone);
             model.addAttribute("orderlsit",list);
-            model.addAttribute("name",list.get(0).getContact());
+            if(list.size()>0){
+                model.addAttribute("name",list.get(0).getContact());
+            }
         }
         return "www.sparkletour.com/member/order";
     }
