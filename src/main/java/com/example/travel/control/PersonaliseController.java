@@ -1,12 +1,7 @@
 package com.example.travel.control;
 
-import com.example.travel.biz.ContinentService;
-import com.example.travel.biz.impl.AssociatorServiceImpl;
-import com.example.travel.biz.impl.CustomizeServiceImpl;
-import com.example.travel.biz.impl.HotelServiceImpl;
-import com.example.travel.biz.impl.PreorderServiceImpl;
+import com.example.travel.biz.impl.*;
 import com.example.travel.entity.*;
-import org.apache.catalina.LifecycleState;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,7 +15,7 @@ import java.util.List;
 public class PersonaliseController {
 
     @Autowired
-    private ContinentService continentService;
+    private ContinentServiceImpl continentServiceImpl;
     @Autowired
     private HotelServiceImpl hotelServiceImpl;
     @Autowired
@@ -48,10 +43,20 @@ public class PersonaliseController {
         roomstyle.add(new RoomStyle(1,"商务间"));
         roomstyle.add(new RoomStyle(1,"标准间"));
         roomstyle.add(new RoomStyle(1,"单人间"));
-        model.addAttribute("area",continentService.listContinent());
+        model.addAttribute("area",continentServiceImpl.listContinent());
         model.addAttribute("cang",cangWeis);
         model.addAttribute("roomstyle",roomstyle);
         return "www.sparkletour.com/Personalise";
+    }
+
+    /**
+     * 跳转会员信息页面
+     * @param phone
+     * @return
+     */
+    @RequestMapping("associator")
+    public String member(String phone){
+        return "www.sparkletour.com/member/associator";
     }
 
     /**
@@ -74,7 +79,7 @@ public class PersonaliseController {
     @RequestMapping("simpleSubmit")
     @ResponseBody
     public Integer simpleSubmit(Customize customize){
-        /*if(customize.getFlightSpace()!=null && customize.getFlightSpace().equals("选择舱位")){
+        if(customize.getFlightSpace()!=null && customize.getFlightSpace().equals("选择舱位")){
             customize.setFlightSpace(null);
         }
         if(customize.getHotel() !=null && customize.getHotel().equals("请选择")){
@@ -84,8 +89,8 @@ public class PersonaliseController {
             customize.setRoomType(null);
         }
         int num=customizeServiceImpl.addCustomize(customize);
-        return  num;*/
-        return 0;
+        return  num;
+        /*return 0;*/
     }
 
     /**
@@ -116,14 +121,13 @@ public class PersonaliseController {
         Integer num=preorderServiceImpl.addPreorder(preorder);
         return num;
     }
-
-    @RequestMapping("associator")
-    public String associator(){
-        return "www.sparkletour.com/member/index";
-    }
-
+    /**
+     * 跳转积分页面
+     * @param phone
+     * @return
+     */
     @RequestMapping("point")
-    public String point(){
+    public String point(String phone){
         return "www.sparkletour.com/member/point";
     }
 }

@@ -537,7 +537,7 @@
     var isEmail = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;//电子邮件验证规则
     var wait = 60;
     var countDown, timer;
-    function setCookie(name, value, exdays, domain) {
+   /* function setCookie(name, value, exdays, domain) {
         var str = name + "=" + encodeURIComponent(value);
         var d = new Date();
         d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -560,7 +560,7 @@
         var str = name + "=null;expires=" + date.toGMTString();
         str = domain ? str + ";domain=" + domain : str;
         document.cookie = str;
-    }
+    }*/
     function modalMyYaoyueShow() {
         $("#lnerror_text").hide();
         $("#modalMyYaoyue").modal("show");
@@ -718,9 +718,9 @@
                         $(function(){
                             $("#associator").on("click",function(){
                                 if($.cookie("customer")){
-                                    window.location.href="index?phone="+$.cookie("customer");
+                                    window.location.href="associator?phone="+$.cookie("customer");
                                 }else{
-                                    window.location.href="index";
+                                    window.location.href="associator";
                                 }
                             })
                             $("#order").on("click",function(){
@@ -739,9 +739,9 @@
                             })
                             $(".associator").on("click",function(){
                                 if($.cookie("customer")){
-                                    window.location.href="index?phone="+$.cookie("customer");
+                                    window.location.href="associator?phone="+$.cookie("customer");
                                 }else{
-                                    window.location.href="index";
+                                    window.location.href="associator";
                                 }
                             })
                             $(".order").on("click",function(){
