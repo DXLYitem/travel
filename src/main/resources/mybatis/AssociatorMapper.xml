@@ -5,4 +5,7 @@
     <insert id="insert" parameterType="Associator">
         insert into user(username,phone,email,scores) value (#{username},#{phone},#{email},${scores})
     </insert>
+    <select id="select" resultType="Associator" parameterType="String">
+        select * from user where phone=#{phone}
+    </select>
 </mapper>

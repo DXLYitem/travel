@@ -9,6 +9,8 @@ public class Preorder {
 
     private String address;
 
+    private String status;
+
     public Integer getId() {
         return id;
     }
@@ -41,6 +43,14 @@ public class Preorder {
         this.address = address;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
         return "Preorder{" +
@@ -48,6 +58,7 @@ public class Preorder {
                 ", name='" + name + '\'' +
                 ", phone='" + phone + '\'' +
                 ", address='" + address + '\'' +
+                ", status='" + status + '\'' +
                 '}';
     }
 }

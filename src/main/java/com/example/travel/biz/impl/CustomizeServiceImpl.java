@@ -2,8 +2,10 @@ package com.example.travel.biz.impl;
 
 import com.example.travel.biz.CustomizeService;
 import com.example.travel.dao.CustomizeDao;
+import com.example.travel.dao.OrderDao;
 import com.example.travel.entity.Associator;
 import com.example.travel.entity.Customize;
+import com.example.travel.entity.Order;
 import com.example.travel.util.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,21 +24,29 @@ public class CustomizeServiceImpl implements CustomizeService {
     private RedisUtil redisUtil;
     @Autowired
     private AssociatorServiceImpl associatorServiceImpl;
+    @Autowired
+    private OrderServiceImpl orderServiceImpl;
 
     @Override
-    public int addCustomize(Customize customize) {
+    public int addCustomize(Customize customize, Order order) {
         Associator associator=new Associator();
         associator.setEmail(customize.getEmail());
         associator.setPhone(customize.getPhone());
         associator.setUsername(customize.getContact());
         associator.setScores(0.0);
-        int no=associatorServiceImpl.add(associator);
         int num=customizeDao.submit(customize);
-        //根据id和联系人生成缓存的键
-        String id=queryId()+customize.getContact();
-        String userkey="user"+customize.getPhone();
-        redisUtil.set(userkey,associator);
-        redisUtil.set(id,customize);
+        int aa=queryId();
+        int no=associatorServiceImpl.add(associator);
+        order.setCustomizeid(aa);
+        orderServiceImpl.add(order);
+        String orderkey="order"+customize.getPhone();
+        String userkey="userlist"+customize.getPhone();
+        if(redisUtil.exists(userkey)){
+            redisUtil.remove(userkey);
+        }
+        if(redisUtil.exists(orderkey)){
+            redisUtil.remove(orderkey);
+        }
         return num;
     }
 
@@ -62,4 +72,5 @@ public class CustomizeServiceImpl implements CustomizeService {
         }
         return list;
     }
+
 }

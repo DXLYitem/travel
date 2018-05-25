@@ -1,26 +1,25 @@
 package com.example.travel.control;
 
-import com.example.travel.biz.ContinentService;
-import com.example.travel.biz.impl.AssociatorServiceImpl;
-import com.example.travel.biz.impl.CustomizeServiceImpl;
-import com.example.travel.biz.impl.HotelServiceImpl;
-import com.example.travel.biz.impl.PreorderServiceImpl;
+import com.example.travel.biz.impl.*;
 import com.example.travel.entity.*;
-import org.apache.catalina.LifecycleState;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 @Controller
 public class PersonaliseController {
 
     @Autowired
-    private ContinentService continentService;
+    private ContinentServiceImpl continentServiceImpl;
     @Autowired
     private HotelServiceImpl hotelServiceImpl;
     @Autowired
@@ -29,6 +28,8 @@ public class PersonaliseController {
     private PreorderServiceImpl preorderServiceImpl;
     @Autowired
     private AssociatorServiceImpl associatorServiceImpl;
+    @Autowired
+    private OrderServiceImpl orderServiceImpl;
 
     @RequestMapping("/Personalise")
     public String personalise(Model model){
@@ -48,10 +49,20 @@ public class PersonaliseController {
         roomstyle.add(new RoomStyle(1,"商务间"));
         roomstyle.add(new RoomStyle(1,"标准间"));
         roomstyle.add(new RoomStyle(1,"单人间"));
-        model.addAttribute("area",continentService.listContinent());
+        model.addAttribute("area",continentServiceImpl.listContinent());
         model.addAttribute("cang",cangWeis);
         model.addAttribute("roomstyle",roomstyle);
         return "www.sparkletour.com/Personalise";
+    }
+
+    /**
+     * 跳转会员信息页面
+     * @param phone
+     * @return
+     */
+    @RequestMapping("associator")
+    public String member(String phone){
+        return "www.sparkletour.com/member/associator";
     }
 
     /**
@@ -74,7 +85,7 @@ public class PersonaliseController {
     @RequestMapping("simpleSubmit")
     @ResponseBody
     public Integer simpleSubmit(Customize customize){
-        /*if(customize.getFlightSpace()!=null && customize.getFlightSpace().equals("选择舱位")){
+        if(customize.getFlightSpace()!=null && customize.getFlightSpace().equals("选择舱位")){
             customize.setFlightSpace(null);
         }
         if(customize.getHotel() !=null && customize.getHotel().equals("请选择")){
@@ -83,9 +94,17 @@ public class PersonaliseController {
         if(customize.getRoomType() !=null && customize.getRoomType().equals("选择房间类型")){
             customize.setRoomType(null);
         }
-        int num=customizeServiceImpl.addCustomize(customize);
-        return  num;*/
-        return 0;
+        Order order=new Order();
+        Random in=new Random();
+        int ordernum=in.nextInt();
+        Date ordertime=new Date();
+        int date=(int) new Date().getTime();
+        order.setOrderNum(ordernum+"");
+        order.setStatus("未消费");
+        order.setPrice(0.0);
+        int num=customizeServiceImpl.addCustomize(customize,order);
+        return  num;
+        /*return 0;*/
     }
 
     /**
@@ -93,12 +112,19 @@ public class PersonaliseController {
      * @return
      */
     @RequestMapping("order")
-    public String order(String phone,Model model){
-        List<Customize> list=new ArrayList<>();
+    public String order(String phone,Model model) throws ParseException {
+        List<Order> list=new ArrayList<>();
         if(phone!=null && phone !=""){
-            list=customizeServiceImpl.listCustomize(phone);
+            list=orderServiceImpl.orderList(phone);
+            SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:dd");
+            for(int i=0;i<list.size();i++){
+                String a=sdf.format(list.get(i).getOrderTime());
+                list.get(i).setTime(a);
+            }
             model.addAttribute("orderlsit",list);
-            model.addAttribute("name",list.get(0).getContact());
+            if(list.size()>0){
+                model.addAttribute("name",list.get(0).getCustomize().getContact());
+            }
         }
         return "www.sparkletour.com/member/order";
     }
@@ -114,14 +140,13 @@ public class PersonaliseController {
         Integer num=preorderServiceImpl.addPreorder(preorder);
         return num;
     }
-
-    @RequestMapping("associator")
-    public String associator(){
-        return "www.sparkletour.com/member/index";
-    }
-
+    /**
+     * 跳转积分页面
+     * @param phone
+     * @return
+     */
     @RequestMapping("point")
-    public String point(){
+    public String point(String phone){
         return "www.sparkletour.com/member/point";
     }
 }

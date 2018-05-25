@@ -13,8 +13,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 
-@Service
-@Transactional(propagation = Propagation.REQUIRED,rollbackFor = Exception.class)//事物处理
+@Service("continentServiceImpl")
 public class ContinentServiceImpl implements ContinentService {
     @Resource
     private RedisUtil redisUtil;

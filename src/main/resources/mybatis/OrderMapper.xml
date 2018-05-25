@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.travel.dao.OrderDao">
+    <resultMap id="order" type="Order">
+        <id column="orderid" property="orderId"/>
+        <result column="ordernum" property="orderNum"/>
+        <result column="ordertime" property="orderTime"/>
+        <result column="price" property="price"/>
+        <result column="destination" property="destination"/>
+        <result column="status" property="status"/>
+        <association property="customize" javaType="Customize">
+            <id column="customizeid" property="customizeId"/>
+            <id column="destination" property="destination"/>
+            <id column="tripsNum" property="tripsNum"/>
+            <id column="contact" property="contact"/>
+            <id column="phone" property="phone"/>
+            <id column="email" property="email"/>
+            <id column="startDate" property="startDate"/>
+            <id column="endDate" property="endDate"/>
+            <id column="flightTime" property="flightTime"/>
+            <id column="flightSpace" property="flightSpace"/>
+            <id column="flightCompany" property="flightCompany"/>
+            <id column="hotel" property="hotel"/>
+            <id column="roomType" property="roomType"/>
+            <id column="rhythm" property="rhythm"/>
+            <id column="tourProject" property="tourProject"/>
+            <id column="meal" property="meal"/>
+            <id column="other" property="other"/>
+        </association>
+    </resultMap>
+
+    <insert id="insert" parameterType="Order">
+        INSERT INTO `ORDER`(orderNum,orderTime,price,STATUS,customizeid) VALUE (#{orderNum},NOW(),#{price},#{status},#{customizeid})
+    </insert>
+
+    <select id="selOrder" parameterType="String" resultMap="order">
+        SELECT o.*,c.* FROM `Order` o,Customize c WHERE o.customizeid=c.customizeid AND c.phone=#{phone}
+    </select>
+</mapper>
