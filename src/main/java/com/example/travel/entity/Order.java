@@ -20,6 +20,12 @@ public class Order implements Serializable {
     private String destination;
     //订单状态
     private String status;
+    //私人订制id
+    private int customizeid;
+
+    private String time;
+
+    private Customize customize;
 
     public Integer getOrderId() {
         return orderId;
@@ -69,6 +75,30 @@ public class Order implements Serializable {
         this.status = status;
     }
 
+    public int getCustomizeid() {
+        return customizeid;
+    }
+
+    public void setCustomizeid(int customizeid) {
+        this.customizeid = customizeid;
+    }
+
+    public Customize getCustomize() {
+        return customize;
+    }
+
+    public void setCustomize(Customize customize) {
+        this.customize = customize;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
     @Override
     public String toString() {
         return "Order{" +
@@ -78,6 +108,7 @@ public class Order implements Serializable {
                 ", price=" + price +
                 ", destination='" + destination + '\'' +
                 ", status='" + status + '\'' +
+                ", customizeid=" + customizeid +
                 '}';
     }
 }

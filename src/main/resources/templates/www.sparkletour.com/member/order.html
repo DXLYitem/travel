@@ -377,7 +377,7 @@
 
             </ul>
         </li>
-        <li><a href="../Personalise.htm" tppabs="http://www.sparkletour.com/Personalise">私人定制</a></li>
+        <li><a href="Personalise" tppabs="http://www.sparkletour.com/Personalise">私人定制</a></li>
         <li><a href="../ProductList/pt/4.htm" tppabs="http://www.sparkletour.com/ProductList/pt/4">度假套餐</a>
             <ul class="level2">
                 <li>
@@ -616,18 +616,9 @@
     }
     function IsLogin() {
         if (!$.cookie("customer")) {
-            /*var c = JSON.parse($.cookie("customer"));*/
-            /*$(".setBorderBot").text(c.nick_name + '，您好');*/
-            /*$("#loginbefore").hide();
-            $("#loginafter").show();*/
             modalMyYaoyueShow()
         }
     }
-    /*function NeedLogin() {
-        if ($.cookie("customer")) {
-            modalMyYaoyueShow();
-        }
-    }*/
     function Logout() {
         $.cookie("customer", '', { expires: -1, path: "/" });
         location.href = "index";
@@ -687,30 +678,25 @@
                                 <thead>
                                     <tr>
                                         <th class="th1">订单号</th>
-                                        <th class="th2">线路名称</th>
-                                        <th class="th3">下单时间</th>
-                                        <th class="th4">订单金额</th>
-                                        <th class="th5">订单状态</th>
-                                        <th class="th6">订单操作</th>
+                                        <th class="th2">下单时间</th>
+                                        <th class="th3">订单金额</th>
+                                        <th class="th4">订单状态</th>
+                                        <th class="th5">订单操作</th>
                                     </tr>
                                 </thead>
-                                <tr v-for="item in list">
-                                    <td class="td1">{{item.WorkOrderId}}</td>
-                                    <td class="td2">{{ item.ProductName}}</td>
-                                    <td class="td3">{{item.CreateTime.split('T')[0]}}<br />
+                                <tr th:each="item :${orderlsit}">
+                                    <td class="td1" th:text="${item.orderNum}">{{item.WorkOrderId}}</td>
+                                    <td class="td2" th:text="${item.time}">{{ item.ProductName}}</td>
+                                    <td class="td3" th:text="${item.price}">{{item.CreateTime.split('T')[0]}}<br />
                                         {{item.CreateTime.split('T')[1].split('.')[0]}}</td>
-                                    <td class="td4">
-                                        <div class="shenjiner"><span class="shenjenr">总金额：</span><span class="shenjejg">￥{{item.订单应收}}</span></div>
-                                        <div class="shenjiner"><span class="shenjenr">待支付：</span><span class="shenjejg">￥{{item.订单应收-item.订单实收}}</span></div>
-                                    </td>
-                                    <td class="td5">{{item.工单状态}}</td>
-                                    <td class="td6"><a v-bind:href="javascript:if(confirm('http://www.sparkletour.com/member/getOrderDetailUrl(item.WorkOrderId)  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ������������ļ�δ�ҵ���  \n\n�����ڷ������ϴ���?'))window.location='http://www.sparkletour.com/member/getOrderDetailUrl(item.WorkOrderId)'" tppabs="http://www.sparkletour.com/member/getOrderDetailUrl(item.WorkOrderId)">查看订单</a></td>
+                                    <td class="td4" th:text="${item.status}">{{item.工单状态}}</td>
+                                    <td class="td5"><a href="">查看订单</a></td>
                                 </tr>
                             </table>
                             
                             <div style="clear: both"></div>
                             <div id="divOrderJzgd" class="shenjiazhaigengduo" v-if="pageNo>0&&pageNo<totalPage">
-                                <button id="btnOrderJZGD" type="button" v-on:click="getOrders(0)">加载更多（<span id="xsts">{{totalRows}}</span>/<span id="xstsTatol">{{curRows}}</span>）</button>
+                                <button id="btnOrderJZGD" type="button">加载更多</button>
                             </div>
                         </div>
                     </div>

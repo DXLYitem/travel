@@ -8,8 +8,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 @Controller
 public class PersonaliseController {
@@ -24,6 +28,8 @@ public class PersonaliseController {
     private PreorderServiceImpl preorderServiceImpl;
     @Autowired
     private AssociatorServiceImpl associatorServiceImpl;
+    @Autowired
+    private OrderServiceImpl orderServiceImpl;
 
     @RequestMapping("/Personalise")
     public String personalise(Model model){
@@ -88,7 +94,15 @@ public class PersonaliseController {
         if(customize.getRoomType() !=null && customize.getRoomType().equals("选择房间类型")){
             customize.setRoomType(null);
         }
-        int num=customizeServiceImpl.addCustomize(customize);
+        Order order=new Order();
+        Random in=new Random();
+        int ordernum=in.nextInt();
+        Date ordertime=new Date();
+        int date=(int) new Date().getTime();
+        order.setOrderNum(ordernum+"");
+        order.setStatus("未消费");
+        order.setPrice(0.0);
+        int num=customizeServiceImpl.addCustomize(customize,order);
         return  num;
         /*return 0;*/
     }
@@ -98,13 +112,18 @@ public class PersonaliseController {
      * @return
      */
     @RequestMapping("order")
-    public String order(String phone,Model model){
-        List<Customize> list=new ArrayList<>();
+    public String order(String phone,Model model) throws ParseException {
+        List<Order> list=new ArrayList<>();
         if(phone!=null && phone !=""){
-            list=customizeServiceImpl.listCustomize(phone);
+            list=orderServiceImpl.orderList(phone);
+            SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:dd");
+            for(int i=0;i<list.size();i++){
+                String a=sdf.format(list.get(i).getOrderTime());
+                list.get(i).setTime(a);
+            }
             model.addAttribute("orderlsit",list);
             if(list.size()>0){
-                model.addAttribute("name",list.get(0).getContact());
+                model.addAttribute("name",list.get(0).getCustomize().getContact());
             }
         }
         return "www.sparkletour.com/member/order";
