@@ -819,8 +819,8 @@
         <input name="hidProductId" type="hidden" id="hidProductId" value="39634" />
         <input name="hid_duration" type="hidden" id="hid_duration" value="10" />
         <div class="productIntroduction">
-            <div class="banner contentWrapper">
-                <h2 th:each="Item:${itemList}">
+            <div class="banner contentWrapper"th:each="Item:${itemList}">
+                <h2>
                     <p>
                             <span class="title" id="sp_mian_title" th:text="${Item.title}">
                                 塞舌尔 王子的誓言</span><span class="subTitle" id="sp_sub_title" th:text="${Item.playTime}"></span><span th:text="${Item.styleName}" class="subTitle" id="sp_sub_title"></span>
@@ -831,7 +831,7 @@
                 </h2>
                 <ul class="productInfo">
                     <li class="price">
-                        <span id="sp_min_price"></span>
+                        ￥<span id="sp_min_price" th:text="${Item.price}"></span>万元起
                     </li>
                 </ul>
             </div>
@@ -867,7 +867,7 @@
                                 <dt>最早出发日期</dt>
                                 <dd>
                                     <div class="productStartDate">
-                                        <a href="#priceCalendar" id="lk_price"></a>
+                                        <a href="#priceCalendar" id="lk_price" th:text="${#dates.format(Item.startTime,'yyyy-MM-dd')}"></a>
                                     </div>
                                 </dd>
                                 <dt>出发城市<span th:text="${Item.city}"style="color: red;margin-left:10px"></span></dt>
@@ -936,16 +936,17 @@
                 </div>
             </div>
 
-            <section class="dailySchedule" id="dailySchedule">
-                <div class="contentWrapper">
+            <section class="dailySchedule" id="dailySchedule" >
+                <div class="contentWrapper" >
                     <h3>每日行程</h3>
-                    <ol class="scheduleList">
+                    <div th:each="sched:${schedList}">
+                    <ol class="scheduleList" th:each="hot:${hotels}">
                         <li>
                             <div class="day" style="background-image: url('http://images1.aoyou.com/productlist/201603/4jt6z423184748.jpg?imageView2/1/q/90/w/360/h/270/');">
                                 <span>第一天</span>
                             </div>
-                            <h4><span class="number">1</span><span class="from">北京/塞舌尔</span></h4>
-                            <p class="description">当日凌晨于首都国际机场出发（需于出发前一日晚间抵达机场），选乘屡获殊荣的阿提哈德航空公务舱，经阿布扎比转机，飞往有“世界最美海岛”之称的塞舌尔。抵达塞舌尔马埃国际机场后，由当地代表接机，送往直升机坪，搭乘私人直升机入住威廉王子与凯特王妃的新婚蜜月地【北岛North Island】。 ◇ 马埃岛-北岛 直升飞机飞行约 30 分钟</p>
+                            <h4><span class="number">1</span><span class="from" th:text="${sched.title}">北京/塞舌尔</span></h4>
+                            <p class="description" th:text="${sched.explain}">当日凌晨于首都国际机场出发（需于出发前一日晚间抵达机场），选乘屡获殊荣的阿提哈德航空公务舱，经阿布扎比转机，飞往有“世界最美海岛”之称的塞舌尔。抵达塞舌尔马埃国际机场后，由当地代表接机，送往直升机坪，搭乘私人直升机入住威廉王子与凯特王妃的新婚蜜月地【北岛North Island】。 ◇ 马埃岛-北岛 直升飞机飞行约 30 分钟</p>
                             <ul class="agenda">
                                 <li>
                                     <div class="icon flight"></div>
@@ -972,7 +973,7 @@
                                     <div class="icon hotel"></div>
                                     <div class="agendaItem">
                                         <p>
-                    <span>北岛度假村 North Island<br/>
+                    <span th:text="${hot.hotelName}">北岛度假村 North Island<br/>
                         沙滩别墅
                     </span>
                                         </p>
@@ -983,400 +984,32 @@
                                         <li>
                                             <div class="icon breakfast"></div>
                                             <div class="agendaItem">
-                                                <span class="name">早餐</span><span class="cotent">商务舱餐食</span>
+                                                <span class="name">早餐</span><span class="cotent" th:text="${hot.breakfast}">商务舱餐食</span>
                                             </div>
                                         </li>
                                         <li>
                                             <div class="icon lunch"></div>
                                             <div class="agendaItem">
-                                                <span class="name">午餐</span><span class="cotent">商务舱餐食</span>
+                                                <span class="name">午餐</span><span class="cotent" th:text="${hot.lunch}">商务舱餐食</span>
                                             </div>
                                         </li>
                                         <li>
                                             <div class="icon dinner"></div>
                                             <div class="agendaItem">
-                                                <span class="name">晚餐</span><span class="cotent">酒店零点晚餐</span>
+                                                <span class="name">晚餐</span><span class="cotent" th:text="${hot.dinner}">酒店零点晚餐</span>
                                             </div>
                                         </li>
                                     </ol>
                                 </li>
                             </ul>
                         </li>
-                        <li>
-                            <div class="day" style="background-image: url('http://images1.aoyou.com/productlist/201603/v82xvz23171630.jpg?imageView2/1/q/90/w/360/h/270/');">
-                                <span>第二天</span>
-                            </div>
-                            <h4><span class="number">2</span><span class="from">北岛 王子蜜月地</span></h4>
-                            <p class="description">酒店早餐后，全天自由活动。<br />作为 Wildness Safaris 旗下唯一的海岛度假村，北岛的奢华更多体现于“天人合一”的完美平衡，当你从空中俯瞰时，很难想象这座小岛曾荣获“世界十大奢华酒店”、“世界最佳岛屿度假村”等诸多殊荣。她是塞舌尔这座纯净天堂的灵魂所在。入住北岛期间，您可免费享受以下服务和设施：由名厨打理的早午晚三餐、酒水畅饮（部分顶级红酒和香槟除外）、浮潜和深潜活动、深潜初级教学、独木舟、山地骑行、日落游艇巡航、半日海钓巡航、岛上度假向导、健身房、专享电瓶车接送、无线网络<br /><strong>旅游顾问提示</strong>：本日为自由活动，不提供当地代表服务，期间的离岛观光费用敬请自理。	&nbsp;<br /></p>
-                            <ul class="agenda">
-                                <li>
-                                    <div class="icon hotel"></div>
-                                    <div class="agendaItem">
-                                        <p>
-                    <span>北岛度假村 North Island<br/>
-                        沙滩别墅
-                    </span>
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="dining">
-                                    <ol>
-                                        <li>
-                                            <div class="icon breakfast"></div>
-                                            <div class="agendaItem">
-                                                <span class="name">早餐</span><span class="cotent">酒店早餐</span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="icon lunch"></div>
-                                            <div class="agendaItem">
-                                                <span class="name">午餐</span><span class="cotent">酒店午餐</span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="icon dinner"></div>
-                                            <div class="agendaItem">
-                                                <span class="name">晚餐</span><span class="cotent">酒店晚餐</span>
-                                            </div>
-                                        </li>
-                                    </ol>
-                                </li>
                             </ul>
                         </li>
-                        <li>
-                            <div class="day" style="background-image: url('http://images1.aoyou.com/productlist/201603/00n02623171631.jpg?imageView2/1/q/90/w/360/h/270/');">
-                                <span>第三天</span>
-                            </div>
-                            <h4><span class="number">3</span><span class="from">北岛 王子蜜月地</span></h4>
-                            <p class="description">酒店早餐后，全天自由活动。<br />请您在北岛享受阳光、大海、沙滩的恩赐，尽情体验世外桃源的生活。入住北岛期间，您可免费享受以下服务和设施：由名厨打理的早午晚三餐、酒水畅饮（部分顶级红酒和香槟除外）、浮潜和深潜活动、深潜初级教学、独木舟、山地骑行、日落游艇巡航、半日海钓巡航、岛上度假向导、健身房、专享电瓶车接送、无线网络<br /><strong>旅游顾问提示：</strong>本日为自由活动，不提供当地代表服务，期间的离岛观光费用敬请自理。<br /></p>
-                            <ul class="agenda">
-                                <li>
-                                    <div class="icon hotel"></div>
-                                    <div class="agendaItem">
-                                        <p>
-                    <span>北岛度假村 North Island<br/>
-                        沙滩别墅
-                    </span>
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="dining">
-                                    <ol>
-                                        <li>
-                                            <div class="icon breakfast"></div>
-                                            <div class="agendaItem">
-                                                <span class="name">早餐</span><span class="cotent">酒店早餐</span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="icon lunch"></div>
-                                            <div class="agendaItem">
-                                                <span class="name">午餐</span><span class="cotent">酒店午餐</span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="icon dinner"></div>
-                                            <div class="agendaItem">
-                                                <span class="name">晚餐</span><span class="cotent">酒店晚餐</span>
-                                            </div>
-                                        </li>
-                                    </ol>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <div class="day" style="background-image: url('http://images1.aoyou.com/productlist/201603/06j42223171630.jpg?imageView2/1/q/90/w/360/h/270/');">
-                                <span>第四天</span>
-                            </div>
-                            <h4><span class="number">4</span><span class="from">北岛 王子蜜月地</span></h4>
-                            <p class="description">酒店早餐后，全天自由活动。<br />请您在北岛享受阳光、大海、沙滩的恩赐，尽情体验世外桃源的生活。入住北岛期间，您可免费享受以下服务和设施：由名厨打理的早午晚三餐、酒水畅饮（部分顶级红酒和香槟除外）、浮潜和深潜活动、深潜初级教学、独木舟、山地骑行、日落游艇巡航、半日海钓巡航、岛上度假向导、健身房、专享电瓶车接送、无线网络<br /><strong>旅游顾问提示</strong>：本日为自由活动，不提供当地代表服务，期间的离岛观光费用敬请自理。<br /></p>
-                            <ul class="agenda">
-                                <li>
-                                    <div class="icon hotel"></div>
-                                    <div class="agendaItem">
-                                        <p>
-                    <span>北岛度假村 North Island<br/>
-                        沙滩别墅
-                    </span>
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="dining">
-                                    <ol>
-                                        <li>
-                                            <div class="icon breakfast"></div>
-                                            <div class="agendaItem">
-                                                <span class="name">早餐</span><span class="cotent">酒店早餐</span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="icon lunch"></div>
-                                            <div class="agendaItem">
-                                                <span class="name">午餐</span><span class="cotent">酒店午餐</span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="icon dinner"></div>
-                                            <div class="agendaItem">
-                                                <span class="name">晚餐</span><span class="cotent">酒店晚餐</span>
-                                            </div>
-                                        </li>
-                                    </ol>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <div class="day" style="background-image: url('http://images1.aoyou.com/productlist/201603/62xf4h23171624.jpg?imageView2/1/q/90/w/360/h/270/');">
-                                <span>第五天</span>
-                            </div>
-                            <h4><span class="number">5</span><span class="from">马埃岛 情迷克里奥</span></h4>
-                            <p class="description">酒店早餐后，与北岛告别。搭乘私人直升机返回马埃岛，由当地代表和私人专车接机。今日中午，我们邀您前往本地最受欢迎的特色餐厅，品尝<strong>【克里奥风味午餐】</strong>。备选餐厅：Marie Antoinette、Kaz Zanana Pink Salt、Maria's Rock Cafe享用午餐后，让我们走进塞舌尔的迷你首都<strong>【维多利亚 Victoria】</strong>，在当地代表的引领下，穿过大街小巷，参观<strong>【传统市场 Market】</strong>，与首都地标<strong>【钟楼 Clock Tower】</strong>合影，感受多姿多彩，和谐相融的克里奥文化。结束游览后，您将抵达屡获殊荣的<strong>【四季度假村</strong> <strong>Fourseason Resort】</strong>，入住休息。</p>
-                            <ul class="agenda">
-                                <li>
-                                    <div class="icon hotel"></div>
-                                    <div class="agendaItem">
-                                        <p>
-                    <span>塞舌尔四季度假村Four Seasons Resort Seychelles<br/>
-                        海景别墅
-                    </span>
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="dining">
-                                    <ol>
-                                        <li>
-                                            <div class="icon breakfast"></div>
-                                            <div class="agendaItem">
-                                                <span class="name">早餐</span><span class="cotent">酒店早餐</span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="icon lunch"></div>
-                                            <div class="agendaItem">
-                                                <span class="name">午餐</span><span class="cotent">本地特色午餐</span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="icon dinner"></div>
-                                            <div class="agendaItem">
-                                                <span class="name">晚餐</span><span class="cotent">酒店晚餐</span>
-                                            </div>
-                                        </li>
-                                    </ol>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <div class="day" style="background-image: url('http://images1.aoyou.com/productlist/201603/0220h423171629.jpg?imageView2/1/q/90/w/360/h/270/');">
-                                <span>第六天</span>
-                            </div>
-                            <h4><span class="number">6</span><span class="from">马埃岛 漫享时光</span></h4>
-                            <p class="description">酒店早餐后，全天自由活动。<br />请您在度假村尽受阳光、大海、沙滩的恩赐，尽情体验世外桃源的生活。入住四季度假村期间，您可免费享受以下服务和设施：每日早餐和晚餐、免费浮潜装备、部分非机动水上活动、客房管家、健身房、电瓶车接送、无线网络<br /><strong>◇ 特别注意</strong>：本日为自由活动，不提供当地代表服务，期间的午餐和观光费用敬请自理。<br /></p>
-                            <ul class="agenda">
-                                <li>
-                                    <div class="icon hotel"></div>
-                                    <div class="agendaItem">
-                                        <p>
-                    <span>塞舌尔四季度假村Four Seasons Resort Seychelles<br/>
-                        海景别墅
-                    </span>
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="dining">
-                                    <ol>
-                                        <li>
-                                            <div class="icon breakfast"></div>
-                                            <div class="agendaItem">
-                                                <span class="name">早餐</span><span class="cotent">酒店早餐</span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="icon lunch"></div>
-                                            <div class="agendaItem">
-                                                <span class="name">午餐</span><span class="cotent">随心自理</span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="icon dinner"></div>
-                                            <div class="agendaItem">
-                                                <span class="name">晚餐</span><span class="cotent">酒店晚餐</span>
-                                            </div>
-                                        </li>
-                                    </ol>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <div class="day" style="background-image: url('http://images1.aoyou.com/productlist/201603/rbzn2p23171627.png?imageView2/1/q/90/w/360/h/270/');">
-                                <span>第七天</span>
-                            </div>
-                            <h4><span class="number">7</span><span class="from">普拉兰+拉迪格 双岛私享游</span></h4>
-                            <p class="description">今日，我们邀您前往塞舌尔独具特色的两个外岛，发现更多精彩！早餐后，当地代表带您前往码头，乘豪华快船前往<strong>【普拉兰岛 Praslin】</strong>，这是塞舌尔第二大岛，也是早期探险者心中的伊甸园。岛上有世界最小的世界自然遗产地<strong>【五月谷保护区 Valleder Mer】</strong>，那里绿荫遮天，溪水潺潺，是塞舌尔国宝海椰子的栖息地。中午时分，乘船到宛如仙境的<strong>【拉迪格岛 La Digue】</strong>。享用特色午餐后，我们将带您搭乘木制牛车或敞篷卡车，穿过古老的"殖民庄园"，穿越奇异的巨石丛，发现纯美的"银泉沙滩"，这里的海水如水晶般清澈，沙、石、海的完美组合，让她成为《国家地理》评定的"世界最美沙滩"。黄昏时分乘船返回马埃岛，专车送返四季度假村休息。◇ 四季度假村-马埃岛码头 车程约40分钟 马埃岛-普拉兰岛 船程约50分钟   普拉兰岛-拉迪格岛 船程约20分钟 拉迪格岛-马埃岛 船程约1小时</p>
-                            <ul class="agenda">
-                                <li>
-                                    <div class="icon hotel"></div>
-                                    <div class="agendaItem">
-                                        <p>
-                    <span>塞舌尔四季度假村Four Seasons Resort Seychelles<br/>
-                        海景别墅
-                    </span>
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="dining">
-                                    <ol>
-                                        <li>
-                                            <div class="icon breakfast"></div>
-                                            <div class="agendaItem">
-                                                <span class="name">早餐</span><span class="cotent">酒店早餐</span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="icon lunch"></div>
-                                            <div class="agendaItem">
-                                                <span class="name">午餐</span><span class="cotent">拉迪格岛</span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="icon dinner"></div>
-                                            <div class="agendaItem">
-                                                <span class="name">晚餐</span><span class="cotent">酒店晚餐</span>
-                                            </div>
-                                        </li>
-                                    </ol>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <div class="day" style="background-image: url('http://images1.aoyou.com/productlist/201603/p2x06823171625.jpg?imageView2/1/q/90/w/360/h/270/');">
-                                <span>第八天</span>
-                            </div>
-                            <h4><span class="number">8</span><span class="from">马埃岛 漫享时光</span></h4>
-                            <p class="description">今日，请您在度假村尽受阳光、大海、沙滩的恩赐，尽情体验世外桃源的生活。入住四季度假村期间，您可免费享受以下服务和设施：每日早餐和晚餐、免费浮潜装备、部分非机动水上活动、客房管家、健身房、电瓶车接送、无线网络<strong>◇</strong> <strong>特别注意</strong>：本日为自由活动，不提供当地代表服务，期间的午餐和观光费用敬请自理。</p>
-                            <ul class="agenda">
-                                <li>
-                                    <div class="icon hotel"></div>
-                                    <div class="agendaItem">
-                                        <p>
-                    <span>塞舌尔四季度假村Four Seasons Resort Seychelles<br/>
-                        海景别墅
-                    </span>
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="dining">
-                                    <ol>
-                                        <li>
-                                            <div class="icon breakfast"></div>
-                                            <div class="agendaItem">
-                                                <span class="name">早餐</span><span class="cotent">酒店早餐</span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="icon lunch"></div>
-                                            <div class="agendaItem">
-                                                <span class="name">午餐</span><span class="cotent">随心自理</span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="icon dinner"></div>
-                                            <div class="agendaItem">
-                                                <span class="name">晚餐</span><span class="cotent">酒店晚餐</span>
-                                            </div>
-                                        </li>
-                                    </ol>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <div class="day" style="background-image: url('http://images1.aoyou.com/productlist/201603/8n2xtn23171625.jpg?imageView2/1/q/90/w/360/h/270/');">
-                                <span>第九天</span>
-                            </div>
-                            <h4><span class="number">9</span><span class="from">塞舌尔-阿布扎比</span></h4>
-                            <p class="description">酒店早餐后，今天是您在塞舌尔度过的最后一天，上午退房后，当地代表将带您离开四季度假村，前往马埃岛的至高点<strong>【修道院观景台 Mission Lodge Viewpoint】</strong>，俯瞰壮丽的群岛美景。享用午餐后，前往马埃岛国际机场，下午乘机告别伊甸园，经阿布扎比转机返回北京。<br /><strong>旅游顾问提示</strong>：四季度假村-观景台 车程约60分钟 观景台-马埃岛机场 车程约30分钟<br /></p>
-                            <ul class="agenda">
-                                <li>
-                                    <div class="icon flight"></div>
-                                    <div class="agendaItem">
-                                        <p>
-                    <span class="time">阿提哈德航空 EY4120 商务舱
-                    </span>
-                                        </p>
-                                        <p>
-                                            塞舌尔-维多利亚 塞舌尔国际机场  15:40 — 阿布扎比 巴提恩机场 20:10
-                                        </p>
-                                    </div>
-                                    <div class="agendaItem">
-                                        <p>
-                    <span class="time">阿提哈德航空 EY886 商务舱
-                    </span>
-                                        </p>
-                                        <p>
-                                            阿布扎比 巴提恩机场  21:30 — 北京 首都国际 08:50
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="dining">
-                                    <ol>
-                                        <li>
-                                            <div class="icon breakfast"></div>
-                                            <div class="agendaItem">
-                                                <span class="name">早餐</span><span class="cotent">酒店早餐</span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="icon lunch"></div>
-                                            <div class="agendaItem">
-                                                <span class="name">午餐</span><span class="cotent">本地特色午餐</span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="icon dinner"></div>
-                                            <div class="agendaItem">
-                                                <span class="name">晚餐</span><span class="cotent">公务舱餐食</span>
-                                            </div>
-                                        </li>
-                                    </ol>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <div class="day" style="background-image: url('http://images1.aoyou.com/productlist/201603/n0jlhj23171626.jpg?imageView2/1/q/90/w/360/h/270/');">
-                                <span>第十天</span>
-                            </div>
-                            <h4><span class="number">10</span><span class="from">阿布扎比/北京</span></h4>
-                            <p class="description">当日早晨抵达北京首都国际机场，结束难忘的塞舌尔王子誓言之旅，耀悦期待与您再次相约！</p>
-                            <ul class="agenda">
-                                <li class="dining">
-                                    <ol>
-                                        <li>
-                                            <div class="icon breakfast"></div>
-                                            <div class="agendaItem">
-                                                <span class="name">早餐</span><span class="cotent">公务舱餐食</span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="icon lunch"></div>
-                                            <div class="agendaItem">
-                                                <span class="name">午餐</span><span class="cotent">随心自理</span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="icon dinner"></div>
-                                            <div class="agendaItem">
-                                                <span class="name">晚餐</span><span class="cotent">随心自理</span>
-                                            </div>
-                                        </li>
-                                    </ol>
-                                </li>
-                            </ul>
-                        </li>
-
                     </ol>
+                    </div>
                 </div>
             </section>
-            <section class="hotelInfo" id="hotelInfo">
+            <section class="hotelInfo" id="hotelInfo" th:each="hot:${hotels}">
                 <div class="contentWrapper" role="tabpanel">
                     <h3>酒店信息</h3>
                     <!-- Hotel Nav tabs -->
@@ -1405,13 +1038,13 @@
                                 </div>
                             </div>
                             <div class="hotel">
-                                <h4><span class="nameCN">北岛度假村</span><span class="nameEN">North Island</span></h4>
+                                <h4><span class="nameCN" th:text="${hot.hotelName}">北岛度假村</span><span class="nameEN">North Island</span></h4>
                                 <ul class="hotelOverviewList">
-                                    <li><span>星级：</span><span class="stars"> ★ ★ ★ ★ ★</span></li>
-                                    <li><span>房型：</span><span class="room"> 沙滩别墅</span></li>
-                                    <li><span>地址：</span><span>North Island,Seychelles</span ></li>
+                                    <li><span>星级：</span><span class="stars" th:text="${hot.star}"> ★ ★ ★ ★ ★</span></li>
+                                    <li><span>房型：</span><span class="room" th:text="${hot.roomType}"> 沙滩别墅</span></li>
+                                    <li><span>地址：</span><span th:text="${hot.address}">North Island,Seychelles</span ></li>
                                 </ul>
-                                <p class="description">
+                                <p class="description" th:text="${hot.hotelDesc}">
                                     试想一下，在一间450平米的客房内尽情放松的感觉，这个数字绝非夸大其词，而是北岛度假村赠与每一位入住客人最慷慨的礼物。作为Wildness Collection旗下唯一的岛屿度假酒店，北岛的设计完全秉承“野奢”原则，在选材用料上极其贴近自然，体现原生海岛的天然风貌。这座以一岛一酒店形式开发的避世圣地，仅有11间客房，所有房间面向海滩，拥有私家按摩池和绝佳海景，直升机是唯一的官方上岛方式。作为英国威廉王子的蜜月之选，北岛曾在福布斯世界十大奢华酒店中排名榜首，只有最尊贵而富有品位的旅行家，才值得拥有她的美丽。
                                 </p>
                             </div>

@@ -379,7 +379,7 @@
 
                                     <ul class="level3">
                                         <div th:if="${theme.themeId} eq '1'">
-                                            <li th:each="h : ${h}"><a th:href="@{'ProductList?themeId='+${h.hobbyId}}"><span th:text="${h.hobbyName}"></span></a></li>
+                                            <li th:each="h : ${h}"><a th:href="@{'ProductList?hobbyId='+${h.hobbyId}}"><span th:text="${h.hobbyName}"></span></a></li>
                                         </div>
                                         <div th:if="${theme.themeId} eq '2'">
                                             <li th:each="t : ${t}"><a th:href="@{'ProductList?travelId='+${t.travelId}}"><span th:text="${t.travelName}"></span></a></li>
