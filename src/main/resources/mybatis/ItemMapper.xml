@@ -13,7 +13,7 @@
     </resultMap>
     <!--根据获取的值分页查询-->
     <select id="selectPageItem" resultMap="ItemMap" parameterType="Item">
-/*SELECT * FROM item*/
+        /*SELECT * FROM item*/
 
         SELECT ite.*,sy.styleName,the.themeName,tr.trafficName,tra.travelName,hob.hobbyName     FROM item ite
         LEFT JOIN theme the ON the.themeId=ite.themeId
@@ -24,29 +24,6 @@
         LEFT JOIN  country cou  ON ite.countryId=cou.countryId
         LEFT JOIN  continent con ON cou.continentId=con.continentId
 
-<where>
-    <if test="themeId !=null">AND ite.themeId=#{themeId}</if>
-    <if test="hobbyId !=null">AND ite.hobbyId=#{hobbyId}</if>
-    <if test="travelId !=null">AND ite.travelId=#{travelId}</if>
-    <if test="trafficId !=null">AND ite.trafficId=#{trafficId}</if>
-    <if test="styleId !=null">AND ite.styleId=#{styleId}</if>
-    <if test="startTime !=null">AND ite.startTime>=#{startTime}</if>
-    <if test="continentId !=null">AND con.continentId=#{continentId}</if>
-    <if test="countryId !=null">AND cou.countryId=#{countryId}</if>
-</where>
-    </select>
-
-<!--分组查询旅行主题-->
-    <select id="selectTravelName" resultMap="ItemMap" parameterType="Item">
-        SELECT tra.travelName FROM item ite
-        LEFT JOIN theme the ON the.themeId=ite.themeId
-        LEFT JOIN style sy ON sy.styleId=ite.styleId
-        LEFT JOIN traffic tr ON tr.trafficId=ite.trafficId
-        LEFT JOIN travel tra ON tra.travelId=ite.travelId
-        LEFT JOIN hobby hob ON hob.hobbyId=ite.hobbyId
-        LEFT JOIN  country cou  ON ite.countryId=cou.countryId
-        LEFT JOIN  continent con ON cou.continentId=con.continentId
-
         <where>
             <if test="themeId !=null">AND ite.themeId=#{themeId}</if>
             <if test="hobbyId !=null">AND ite.hobbyId=#{hobbyId}</if>
@@ -57,32 +34,7 @@
             <if test="continentId !=null">AND con.continentId=#{continentId}</if>
             <if test="countryId !=null">AND cou.countryId=#{countryId}</if>
         </where>
-        GROUP BY tra.travelId
     </select>
-
-    <!--分组查询旅行偏好-->
-    <select id="selectHobbyName" resultMap="ItemMap" parameterType="Item">
-        SELECT hob.hobbyName   FROM item ite
-        LEFT JOIN theme the ON the.themeId=ite.themeId
-        LEFT JOIN style sy ON sy.styleId=ite.styleId
-        LEFT JOIN traffic tr ON tr.trafficId=ite.trafficId
-        LEFT JOIN travel tra ON tra.travelId=ite.travelId
-        LEFT JOIN hobby hob ON hob.hobbyId=ite.hobbyId
-        LEFT JOIN  country cou  ON ite.countryId=cou.countryId
-        LEFT JOIN  continent con ON cou.continentId=con.continentId
-        <where>
-            <if test="themeId !=null">AND ite.themeId=#{themeId}</if>
-            <if test="hobbyId !=null">AND ite.hobbyId=#{hobbyId}</if>
-            <if test="travelId !=null">AND ite.travelId=#{travelId}</if>
-            <if test="trafficId !=null">AND ite.trafficId=#{trafficId}</if>
-            <if test="styleId !=null">AND ite.styleId=#{styleId}</if>
-            <if test="startTime !=null">AND ite.startTime>=#{startTime}</if>
-            <if test="continentId !=null">AND con.continentId=#{continentId}</if>
-            <if test="countryId !=null">AND cou.countryId=#{countryId}</if>
-        </where>
-        GROUP BY hob.hobbyId
-    </select>
-
 
     <!--传入旅行主题的ID数组-->
     <select id="selectTravelIdArray" resultMap="ItemMap" parameterType="Integer[]">
@@ -117,18 +69,18 @@
         <where>
 
             <if test="travelId !=null">
-                ite.travelId
-                <foreach  collection="array" item="travelId" open="in (" close=")" separator=",">
-                    #{travelId}
-                </foreach>
+              ite.travelId
+            <foreach  collection="array" item="travelId" open="in (" close=")" separator=",">
+               #{travelId}
+            </foreach>
             </if>
             <if test="hobbyId!=null">
                 ite.hobbyId
-                <foreach  collection="array" item="hobbyId" open="in (" close=")" separator=",">
-                    #{hobbyId}
-                </foreach>
+             <foreach  collection="array" item="hobbyId" open="in (" close=")" separator=",">
+                 #{hobbyId}
+             </foreach>
             </if>
-        </where>
+         </where>
     </select>
 
 
@@ -150,6 +102,52 @@
             </foreach>
 
         </where>
+    </select>
+    <!--分组查询旅行主题-->
+    <select id="selectTravelName" resultMap="ItemMap" parameterType="Item">
+        SELECT tra.* FROM item ite
+        LEFT JOIN theme the ON the.themeId=ite.themeId
+        LEFT JOIN style sy ON sy.styleId=ite.styleId
+        LEFT JOIN traffic tr ON tr.trafficId=ite.trafficId
+        LEFT JOIN travel tra ON tra.travelId=ite.travelId
+        LEFT JOIN hobby hob ON hob.hobbyId=ite.hobbyId
+        LEFT JOIN  country cou  ON ite.countryId=cou.countryId
+        LEFT JOIN  continent con ON cou.continentId=con.continentId
+
+        <where>
+            <if test="themeId !=null">AND ite.themeId=#{themeId}</if>
+            <if test="hobbyId !=null">AND ite.hobbyId=#{hobbyId}</if>
+            <if test="travelId !=null">AND ite.travelId=#{travelId}</if>
+            <if test="trafficId !=null">AND ite.trafficId=#{trafficId}</if>
+            <if test="styleId !=null">AND ite.styleId=#{styleId}</if>
+            <if test="startTime !=null">AND ite.startTime>=#{startTime}</if>
+            <if test="continentId !=null">AND con.continentId=#{continentId}</if>
+            <if test="countryId !=null">AND cou.countryId=#{countryId}</if>
+        </where>
+        GROUP BY tra.travelId
+    </select>
+
+    <!--分组查询旅行偏好-->
+    <select id="selectHobbyName" resultMap="ItemMap" parameterType="Item">
+        SELECT hob.*   FROM item ite
+        LEFT JOIN theme the ON the.themeId=ite.themeId
+        LEFT JOIN style sy ON sy.styleId=ite.styleId
+        LEFT JOIN traffic tr ON tr.trafficId=ite.trafficId
+        LEFT JOIN travel tra ON tra.travelId=ite.travelId
+        LEFT JOIN hobby hob ON hob.hobbyId=ite.hobbyId
+        LEFT JOIN  country cou  ON ite.countryId=cou.countryId
+        LEFT JOIN  continent con ON cou.continentId=con.continentId
+        <where>
+            <if test="themeId !=null">AND ite.themeId=#{themeId}</if>
+            <if test="hobbyId !=null">AND ite.hobbyId=#{hobbyId}</if>
+            <if test="travelId !=null">AND ite.travelId=#{travelId}</if>
+            <if test="trafficId !=null">AND ite.trafficId=#{trafficId}</if>
+            <if test="styleId !=null">AND ite.styleId=#{styleId}</if>
+            <if test="startTime !=null">AND ite.startTime>=#{startTime}</if>
+            <if test="continentId !=null">AND con.continentId=#{continentId}</if>
+            <if test="countryId !=null">AND cou.countryId=#{countryId}</if>
+        </where>
+        GROUP BY hob.hobbyId
     </select>
 
 

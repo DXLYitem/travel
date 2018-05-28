@@ -66,4 +66,11 @@ public interface ItemDao {
                                @Param("startTime") Date startTime,
                                @Param("continentId") Integer continentId,
                                @Param("countryId") Integer countryId);
+
+
+    List<Item> selectTravelIdArray(Integer[] travelId);
+
+    List<Item> selectHobbyIdArray(Integer[] hobbyId);
+
+    List<Item> selectHobbyIdAndTravelIdArray(@Param("hobbyId") Integer[] hobbyId, @Param("travelId") Integer[] travelId);
 }
