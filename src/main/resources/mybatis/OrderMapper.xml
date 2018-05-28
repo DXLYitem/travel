@@ -11,22 +11,32 @@
         <result column="status" property="status"/>
         <association property="customize" javaType="Customize">
             <id column="customizeid" property="customizeId"/>
-            <id column="destination" property="destination"/>
-            <id column="tripsNum" property="tripsNum"/>
-            <id column="contact" property="contact"/>
-            <id column="phone" property="phone"/>
-            <id column="email" property="email"/>
-            <id column="startDate" property="startDate"/>
-            <id column="endDate" property="endDate"/>
-            <id column="flightTime" property="flightTime"/>
-            <id column="flightSpace" property="flightSpace"/>
-            <id column="flightCompany" property="flightCompany"/>
-            <id column="hotel" property="hotel"/>
-            <id column="roomType" property="roomType"/>
-            <id column="rhythm" property="rhythm"/>
-            <id column="tourProject" property="tourProject"/>
-            <id column="meal" property="meal"/>
-            <id column="other" property="other"/>
+            <result column="destination" property="destination"/>
+            <result column="tripsNum" property="tripsNum"/>
+            <result column="contact" property="contact"/>
+            <result column="phone" property="phone"/>
+            <result column="email" property="email"/>
+            <result column="startDate" property="startDate"/>
+            <result column="endDate" property="endDate"/>
+            <result column="flightTime" property="flightTime"/>
+            <result column="flightSpace" property="flightSpace"/>
+            <result column="flightCompany" property="flightCompany"/>
+            <result column="hotel" property="hotel"/>
+            <result column="roomType" property="roomType"/>
+            <result column="rhythm" property="rhythm"/>
+            <result column="tourProject" property="tourProject"/>
+            <result column="meal" property="meal"/>
+            <result column="other" property="other"/>
+        </association>
+    </resultMap>
+
+    <resultMap id="scores" type="Order">
+        <id column="orderid" property="orderId"/>
+        <result column="ordernum" property="orderNum"/>
+        <result column="ordertime" property="orderTime"/>
+        <result column="price" property="price"/>
+        <association property="user" javaType="Associator">
+            <result property="scores" column="scores"/>
         </association>
     </resultMap>
 
@@ -35,6 +45,13 @@
     </insert>
 
     <select id="selOrder" parameterType="String" resultMap="order">
-        SELECT o.*,c.* FROM `Order` o,Customize c WHERE o.customizeid=c.customizeid AND c.phone=#{phone}
+        SELECT o.*,c.* FROM `order` o inner join customize c on o.customizeid=c.customizeid where c.phone=#{phone}
+    </select>
+
+    <select id="selscores" resultMap="scores" parameterType="String">
+        SELECT o.orderTime,o.orderNum,o.price,u.scores FROM `order` o
+        INNER JOIN customize c ON o.customizeid=c.customizeid
+        INNER JOIN `user` u ON u.phone=c.phone
+        WHERE c.phone=#{phone}
     </select>
 </mapper>

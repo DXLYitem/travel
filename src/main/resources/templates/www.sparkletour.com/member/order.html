@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <meta charset=utf-8"utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -10,7 +11,8 @@
 
     <title>私人旅行顾问_私人定制旅游_奢华旅游-中青旅耀悦高端旅游</title>
 
-    
+    <script src="../../../static/scripts/libs/jquery-3.3.1.js"></script>
+    <script src="../../../static/scripts/libs/vue.js"></script>
 <link rel="shortcut icon" href="/favicon.ico" />
 <link rel="bookmark" href="/favicon.ico" />
 <link rel="stylesheet" href="../../../static/styles/loaders.css" tppabs="http://www.sparkletour.com/styles/loaders.css" />
@@ -223,7 +225,7 @@
 <nav class="navigation" role="navigation">
     <ul class="level1">
         <li class="discover">
-            <a href="javascript:void(0);">探索世界</a>
+            <a href="index">探索世界</a>
             <ul class="level2">
                 <li>
                     <a href="../ProductList/5644.htm" tppabs="http://www.sparkletour.com/ProductList/5644">欧洲</a>
@@ -457,7 +459,7 @@
                 </div>
 
                 <div id="loginbefore" class="tool" style="display:none;">
-                    <a href="javascript:void(0);" onclick="modalMyYaoyueShow()" class="loginBtn">登录注册</a>
+                    <a href="javascript:void(0);" onclick="modalMyYaoyueShow()" class="loginBtn">登录</a>
                 </div>
                 <div id="loginafter" class="tool">
                     <a href="javascript:void(0);" class="logined">我的耀悅
@@ -481,7 +483,7 @@
     <div class="modal-dialog1">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" onclick="javascript:history.back(-1);">&times;</span></button>
                 <h4 class="modal-title" id="modalMyYaoyueLabel">我的耀悅</h4>
             </div>
             <div class="modal-body">
@@ -519,6 +521,7 @@
         </div>
     </div>
 </div>
+
 <!--[if lte IE 8]>
         <div id="browser">
 	        <p>我们检测到您还在使用版本较低的IE内核浏览器，为了获得最佳的浏览体验，耀悦旅行推荐您使用<span class="close">关闭</span></p>
@@ -632,7 +635,7 @@
         }
         if (CheckPhone() && CheckCode()) {
             $.cookie("customer", JSON.stringify(val), { expires: 1, path: "/" });
-            location.href='order?phone='+val;
+            location.href='order?phone='+val+"&num=0";
         }
     });
     $("#btn_send_code").bind("click", function () {
@@ -672,7 +675,7 @@
                     <div class="shencrtop" style="background-color: #A664A6">
                         <span class="shencrtl">订单查询</span>
                     </div>
-                    <div id="apptb">
+                        <div id="apptb">
                         <div class="shentable">
                             <table>
                                 <thead>
@@ -684,23 +687,72 @@
                                         <th class="th5">订单操作</th>
                                     </tr>
                                 </thead>
-                                <tr th:each="item :${orderlsit}">
-                                    <td class="td1" th:text="${item.orderNum}">{{item.WorkOrderId}}</td>
-                                    <td class="td2" th:text="${item.time}">{{ item.ProductName}}</td>
-                                    <td class="td3" th:text="${item.price}">{{item.CreateTime.split('T')[0]}}<br />
-                                        {{item.CreateTime.split('T')[1].split('.')[0]}}</td>
-                                    <td class="td4" th:text="${item.status}">{{item.工单状态}}</td>
-                                    <td class="td5"><a href="">查看订单</a></td>
-                                </tr>
+
+                                    <tr th:each="item :${orderlsit}" class="model">
+                                        <td class="td1" th:text="${item.orderNum}"></td>
+                                        <td class="td2" th:text="${item.time}"></td>
+                                        <td class="td3" th:text="${item.price}"></td>
+                                        <td class="td4" th:text="${item.status}"></td>
+                                        <td class="td5 showOrder">查看订单</td>
+                                        <td th:text="${item.customize.customizeId}" style="display: none"></td>
+                                    </tr>
+
+                                    <tr v-for="or in order" >
+                                        <td class="td1">{{or.orderNum}}</td>
+                                        <td class="td2">{{or.time}}</td>
+                                        <td class="td3">{{or.price}}</td>
+                                        <td class="td4">{{or.status}}</td>
+                                        <td class="td5 showOrder" v-on:click="showorder(or.customize.customizeId)">查看订单</td>
+                                        <td style="display: none">{{or.customize.customizeId}}</td>
+                                    </tr>
+
                             </table>
                             
                             <div style="clear: both"></div>
-                            <div id="divOrderJzgd" class="shenjiazhaigengduo" v-if="pageNo>0&&pageNo<totalPage">
+                            <div id="divOrderJzgd" class="shenjiazhaigengduo">
                                 <button id="btnOrderJZGD" type="button">加载更多</button>
                             </div>
                         </div>
+                            <div class="modal fade modalMyYaoyue" id="associatorshow" tabindex="-1" role="dialog" aria-labelledby="modalMyYaoyueLabel" aria-hidden="true" data-backdrop="static">
+                                <div class="modal-dialog1">
+                                    <div class="modal-content" style="width: 892px">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title" id="associatorshowLabel">我的耀悅</h4>
+                                        </div>
+                                        <div class="shencrtop" style="background-color: #A664A6">
+                                            <span class="shencrtl">订单查询</span>
+                                        </div>
+                                        <div id="apptb1">
+                                            <div class="shentable">
+                                                <table  style="width: 100%">
+                                                    <thead>
+                                                    <tr>
+                                                        <th class="th1" style="width: 130px;">电话</th>
+                                                        <th class="th2" style="width: 130px;">邮箱</th>
+                                                        <th class="th3" style="width: 130px;">出发时间</th>
+                                                        <th class="th4" style="width: 130px;">结束时间</th>
+                                                        <th class="th5" style="width: 130px;">酒店</th>
+                                                        <th class="th5" style="width: 100px;">航班</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tr>
+                                                        <td class="td1" style="width: 130px;">{{customize.phone}}</td>
+                                                        <td class="td2" style="width: 130px;">{{customize.email}}</td>
+                                                        <td class="td3" style="width: 130px;">{{customize.startDateString}}</td>
+                                                        <td class="td4" style="width: 130px;">{{customize.endDateString}}</td>
+                                                        <td class="td5" style="width: 130px;">{{customize.hotel}}</td>
+                                                        <td class="td5" style="width: 100px;">{{customize.flightTime}}</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                     </div>
-                    <script type="text/javascript">
+                    <script th:inline="javascript">
+
                         $(function(){
                             $("#associator").on("click",function(){
                                 if($.cookie("customer")){
@@ -732,7 +784,7 @@
                             })
                             $(".order").on("click",function(){
                                 if($.cookie("customer")){
-                                    window.location.href="order?phone="+$.cookie("customer");
+                                    window.location.href="order?phone="+$.cookie("customer")+"&num=0";
                                 }else{
                                     window.location.href="order";
                                 }
@@ -743,76 +795,58 @@
                                 }else{
                                     window.location.href="point";
                                 }
-                            })
-                        })
-                       /* var app = new Vue({
-                            el: "#apptb",
-                            data: {
-                                cstmr: {},
-                                pageNo: 0,
-                                pageSize: 10,
-                                totalPage: 1,
-                                totalRows: 1,
-                                list: []
-                            },
-                            computed: {
-                                curRows: function () {
-                                    var vm = this;
-                                    var tmp = vm.pageNo * vm.pageSize;
-                                    if (tmp > vm.totalRows) {
-                                        tmp = vm.totalRows
-                                    }
-                                    return tmp;
-                                }
-                            },
-                            methods: {
-                                getOrders: function (isInit) {
-                                    var vm = this
-                                    $(".loadingindex").fadeIn();
-                                    if (vm.pageNo < vm.totalPage) {
-                                        var curPage = vm.pageNo + 1;
-                                        $.get("order=" + vm.cstmr.cellphones[0].content + "&pageNo=" + curPage + "&pageSize=" + vm.pageSize, function (data) {
-                                            $(".loadingindex").fadeOut();
-                                            data = JSON.parse(data)
-                                            console.log(data)
-                                            if (data && data.dtTotal && data.dtWorkOrder) {
-                                                if (isInit == 1) {
-                                                    vm.totalPage = Math.ceil(data.dtTotal[0].Total * 1.0 / vm.pageSize);
-                                                    vm.totalRows = data.dtTotal[0].Total;
-                                                }
-                                                for (var i = 0; i < data.dtWorkOrder.length; i++) {
-                                                    var item = data.dtWorkOrder[i];
-                                                    vm.list.push(item);
-                                                }
-                                                vm.pageNo = curPage;
-                                            }
-                                            else {
-                                                alert("网络错误");
+                            });
+                            var apptb = new Vue({
+                                el: "#apptb",
+                                data: {
+                                    customize:{},
+                                    order:[]
+                                },
+                                methods:{
+                                    showorder:function(e){
+                                        $.ajax({
+                                            url:"orderShow",
+                                            type:"post",
+                                            data:{"id":e},
+                                            dataType:"json",
+                                            success:function(data){
+                                                apptb.customize=data;
+                                                $("#associatorshow").modal("show");
                                             }
                                         })
                                     }
+                                }
+                            })
+                            /*显示订单详细*/
+                            $(".showOrder").on("click",function(){
+                                var id=$(this).next().text();
+                                $.ajax({
+                                    url:"orderShow",
+                                    type:"post",
+                                    data:{"id":id},
+                                    dataType:"json",
+                                    success:function(data){
+                                        apptb.customize=data;
+                                        $("#associatorshow").modal("show");
+                                    }
+                                })
+                            });
+                           $("#btnOrderJZGD").on("click",function () {
+                               var phone=$.cookie("customer").replace(/\"/g,"");
+                               $.ajax({
+                                   url:"orderMore",
+                                   data:{"phone":phone},
+                                   dataType:"json",
+                                   type:"post",
+                                   success:function(data){
+                                       $(".model").remove();
+                                       apptb.order=data;
+                                   }
+                               })
+                           })
 
-                                },
-                                getOrderDetailUrl: function (id) {
-                                    return "/member/order/" + id;
-                                }
-                            },
-                            mounted: function () {
-                                var vm = this
-                                if (!$.cookie("customer")) {
-                                    modalMyYaoyueShow();
-                                }
-                                else {
-                                    vm.cstmr = JSON.parse($.cookie("customer"))
-                                    if (vm.cstmr.email) {
-                                        vm.getOrders(1)
-                                    }
-                                    else {
-                                        alert("请完成个人信息补全");
-                                    }
-                                }
-                            }
-                        });*/
+                        })
+
                     </script>
                 </div>
                 <div class="clearfix"></div>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset=utf-8"utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="../../../static/scripts/libs/owl-carousel/owl.theme.css" tppabs="http://www.sparkletour.com/scripts/libs/owl-carousel/owl.theme.css">
 <link rel="stylesheet" href="../../../static/scripts/libs/jPlayer/skin/pink.flag/css/jplayer.pink.flag.min.css" tppabs="http://www.sparkletour.com/scripts/libs/jPlayer/skin/pink.flag/css/jplayer.pink.flag.min.css" />
 <link rel="stylesheet" href="../../../static/styles/custom.css-ver=20171031132229.css" tppabs="http://www.sparkletour.com/styles/custom.css?ver=20171031132229" />
-<script type="text/javascript" src="../../../static/scripts/jquery-1.9.1.js" tppabs="http://www.sparkletour.com/scripts/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="../../../static/scripts/libs/jquery-3.3.1.js" tppabs="http://www.sparkletour.com/scripts/jquery-1.9.1.js"></script>
 <script type="text/javascript" src="../../../static/scripts/myjs.js" tppabs="http://www.sparkletour.com/scripts/myjs.js"></script>
 <script type="text/javascript" src="../../../static/scripts/o_code.js-ver=20180305112245" tppabs="http://www.sparkletour.com/scripts/o_code.js?ver=20180305112245"></script>
 <style type="text/css">
@@ -478,7 +478,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title" id="modalMyYaoyueLabel" style="display: inline">我的耀悅</h4>
-                    <input type="button" class="close" data-dismiss="modal" aria-label="Close" style="background:#0c1116;border: 0px;float: right" value="x"/>
+                    <input type="button" class="close" data-dismiss="modal" aria-label="Close" style="background:#0c1116;border: 0px;float: right" value="x" onclick="javascript:history.back(-1);"/>
                 </div>
                 <div class="modal-body">
                     <div class="modalMyYaoyueContent1 clearfix">
@@ -530,46 +530,47 @@
     $(function(){
         $("#associator").on("click",function(){
             if($.cookie("customer")){
-                window.location.href="associator?phone="+$.cookie("customer");
+                window.location.href="associator?phone="+$.cookie("customer").replace(/\"/g,"");
             }else{
                 window.location.href="associator";
             }
         })
         $("#order").on("click",function(){
             if($.cookie("customer")){
-                window.location.href="order?phone="+$.cookie("customer");
+                window.location.href="order?phone="+$.cookie("customer").replace(/\"/g,"")+"&num=0";
             }else{
                 window.location.href="order";
             }
         })
         $("#point").on("click",function(){
             if($.cookie("customer")){
-                window.location.href="point?phone="+$.cookie("customer");
+                window.location.href="point?phone="+$.cookie("customer").replace(/\"/g,"");
             }else{
                 window.location.href="point";
             }
         })
-        $("#associator").on("click",function(){
+        $(".associator").on("click",function(){
             if($.cookie("customer")){
-                window.location.href="associator?phone="+$.cookie("customer");
+                window.location.href="associator?phone="+$.cookie("customer").replace(/\"/g,"");
             }else{
                 window.location.href="associator";
             }
         })
-        $("#order").on("click",function(){
+        $(".order").on("click",function(){
             if($.cookie("customer")){
-                window.location.href="order?phone="+$.cookie("customer");
+                window.location.href="order?phone="+$.cookie("customer").replace(/\"/g,"")+"&num=0";
             }else{
                 window.location.href="order";
             }
         })
-        $("#point").on("click",function(){
+        $(".point").on("click",function(){
             if($.cookie("customer")){
-                window.location.href="point?phone="+$.cookie("customer");
+                window.location.href="point?phone="+$.cookie("customer").replace(/\"/g,"");
             }else{
                 window.location.href="point";
             }
         })
+
     })
     IsLogin();
     var prodListUrl = "/ProductList";
@@ -664,11 +665,11 @@
             $("#loginafter").show();*/
         }
     }
-    function NeedLogin() {
+    /*function NeedLogin() {
         if (!$.cookie("customer")) {
             modalMyYaoyueShow();
         }
-    }
+    }*/
     function Logout() {
         $.cookie("customer", '', { expires: -1, path: "/" });
         location.href = "index";
@@ -721,15 +722,15 @@
                         <ul>
                             <li>
                                 <span class="left">手机：</span>
-                                <span id="sp_phone"></span>
+                                <span id="sp_phone"  th:text="${associator.phone}"></span>
                             </li>
                             <li>
                                 <span class="left">昵称：</span>
-                                <span id="sp_nick_name"></span>
+                                <span id="sp_nick_name" th:text="${associator.username}"></span>
                             </li>
                             <li>
                                 <span class="left">邮箱：</span>
-                                <span id="sp_email"></span>
+                                <span id="sp_email" th:text="${associator.email}"></span>
                             </li>
                             <li style="display:none">
                                 <span class="left">备注：</span>
@@ -742,16 +743,16 @@
                         <ul class="exitinput">
                             <li>
                                 <span class="left">手机：</span>
-                                <span id="sp_phone_2"></span>
+                                <span id="sp_phone_2" th:text="${associator.phone}"></span>
                             </li>
                             <li>
                                 <span class="left">昵称：</span>
-                                <input type="text" id="txt_nick_name" placeholder="昵称"/>
+                                <input type="text" id="txt_nick_name" placeholder="昵称" th:value="${associator.username}"/>
                                 <div class="y-userinfo-error" style="display: none"></div>
                             </li>
                             <li>
                                 <span class="left">邮箱：</span>
-                                <input type="text" id="txt_email" placeholder="邮箱"/>
+                                <input type="text" id="txt_email" placeholder="邮箱" th:value="${associator.email}"/>
                                 <input type="hidden" id="txt_email_o"/>
                                 <div class="y-userinfo-error" style="display: none"></div>
                             </li>
@@ -767,8 +768,6 @@
                 </div>
                 <div class="clearfix"></div>
             </div>
-
-            
 <section class="brandStory" id="brandStory">
     <div class="contentWrapper row">
         <h2 class="accessible">品牌故事</h2>
@@ -864,13 +863,10 @@
         s.parentNode.insertBefore(hm, s);
     })();
 </script>
-
-
-
     </div>
     <script type="text/javascript">
         var cstmr;
-        if (!$.cookie("customer")) {
+        /*if (!$.cookie("customer")) {
             modalMyYaoyueShow();
             $("button").hide();
         }
@@ -894,8 +890,8 @@
                     $("#txt_email_o").val(cstmr.email);
                 }
             });
-        }
-        $("#btn_edit").bind("click", function () {
+        }*/
+        $("#btn_edit").on("click", function () {
             $("#div_detail").hide();
             $("#div_edit").show();
         });
@@ -907,52 +903,23 @@
                 $($("#txt_nick_name").next()).html("请填写昵称").show();
                 isValid = 0;
             }
-            if ($.trim($("#txt_email").val()) == "") {
-                $($("#txt_email").next()).html("请填写邮箱").show();
-                isValid = 0;
-            }
             else if (!isEmail.test($.trim($("#txt_email").val()))) {
                 $($("#txt_email").next()).html("邮箱格式不正确").show();
                 isValid = 0;
             }
             if (isValid )
             {
-                console.log(cstmr);
-                cstmr.nick_name=$.trim($("#txt_nick_name").val());
-                cstmr.email = $.trim($("#txt_email").val());
-                
-                cstmr.description = $.trim($("#txt_desc").val());
-                var postData = { "id": cstmr.id, "phone": cstmr.cellphones[0].content, "jsonData": { "customer": { "nick_name": cstmr.nick_name, "description": cstmr.description } } };
-                
-                if ($("#txt_email_o").val() != cstmr.email) {
-                    postData.jsonData.customer.email = cstmr.email;
-                }
-                postData.jsonData = JSON.stringify(postData.jsonData);
-                //postData.jsonData = JSON.stringify({ "customer": cstmr });
-                $(".loadingindex").fadeIn();
-                $.post("UpdateCustomer.ashx"/*tpa=http://www.sparkletour.com/member/UpdateCustomer.ashx*/, postData, function (res) {
-                    $(".loadingindex").fadeOut();
-                    res = JSON.parse(res);
-                    if (res.code == 1000)
-                    {
-                        var cstmrCookie = $.cookie("customer")
-                        cstmrCookie = JSON.parse(cstmrCookie)
-                        cstmrCookie.nick_name = cstmr.nick_name
-                        $.cookie("customer", JSON.stringify(cstmrCookie), { expires: 1, domain: "http://www.sparkletour.com/member/sparkletour.com" });
-                        $("#sp_nick_name").text(cstmr.nick_name);
-                        $("#sp_email").text(cstmr.email);
-                        $("#sp_desc").text(cstmr.description);
-                        $("#div_detail").show();
-                        $("#div_edit").hide();
-                        IsLogin();
+                var username=$.trim($("#txt_nick_name").val());
+                var email = $.trim($("#txt_email").val());
+                $.ajax({
+                    url:"modifyEmail",
+                    type:"post",
+                    dataType:"json",
+                    data:{"name":username,"email":email,"phone":$.cookie("customer").replace(/\"/g,"")},
+                    success:function(data){
+                        alert(data);
                     }
-                    if (res.code == 2000)
-                    {
-                        $($("#txt_email").next()).html("已存在相同邮箱").show();
-                    }
-                    console.log(res);
-                });
-                
+                })
             }
         });
     </script>

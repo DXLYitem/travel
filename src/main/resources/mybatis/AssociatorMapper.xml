@@ -8,4 +8,10 @@
     <select id="select" resultType="Associator" parameterType="String">
         select * from user where phone=#{phone}
     </select>
+    <select id="count" resultType="int" parameterType="String">
+       SELECT COUNT(1) FROM USER WHERE phone=#{phone}
+    </select>
+    <update id="update">
+        update user set email=#{email},username=#{name} where phone=#{phone}
+    </update>
 </mapper>

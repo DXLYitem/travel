@@ -1,5 +1,6 @@
 package com.example.travel.biz.impl;
 
+import com.example.travel.biz.AssociatorService;
 import com.example.travel.biz.CustomizeService;
 import com.example.travel.dao.CustomizeDao;
 import com.example.travel.dao.OrderDao;
@@ -23,7 +24,7 @@ public class CustomizeServiceImpl implements CustomizeService {
     @Autowired
     private RedisUtil redisUtil;
     @Autowired
-    private AssociatorServiceImpl associatorServiceImpl;
+    private AssociatorService associatorService;
     @Autowired
     private OrderServiceImpl orderServiceImpl;
 
@@ -36,7 +37,15 @@ public class CustomizeServiceImpl implements CustomizeService {
         associator.setScores(0.0);
         int num=customizeDao.submit(customize);
         int aa=queryId();
-        int no=associatorServiceImpl.add(associator);
+        int aaa=associatorService.quwerCount(associator.getPhone());
+        Associator at=associatorService.query(associator.getPhone());
+        if(at==null){
+            int no=associatorService.add(associator);
+        }else{
+            if(associator.getEmail()!=null&&at.getEmail()==null){
+                associatorService.modify(associator.getEmail(),at.getPhone(),associator.getUsername());
+            }
+        }
         order.setCustomizeid(aa);
         orderServiceImpl.add(order);
         String orderkey="order"+customize.getPhone();
@@ -61,16 +70,27 @@ public class CustomizeServiceImpl implements CustomizeService {
      * @return
      */
     @Override
-    public List<Customize> listCustomize(String phone) {
-        String userkey="userlist"+phone;
-        List<Customize> list=null;
+    public Customize listCustomize(Integer id) {
+        String userkey="userlist"+id;
+        Customize customize=null;
         if(redisUtil.exists(userkey)){
-            list = (List<Customize>) redisUtil.lRange(userkey, 0, redisUtil.length(userkey)).get(0);
+            customize= (Customize) redisUtil.get(userkey);
         }else{
-            list=customizeDao.selCustomize(phone);
-            redisUtil.lPush(userkey,list);
+            customize=customizeDao.selCustomize(id);
+            redisUtil.set(userkey,customize);
         }
-        return list;
+        return customize;
+    }
+
+    /**
+     * 根据电话修改邮箱
+     * @param email
+     * @param phone
+     * @return
+     */
+    @Override
+    public int modify(String email, String phone,String name) {
+        return customizeDao.update(email,phone,name);
     }
 
 }

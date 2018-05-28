@@ -297,7 +297,7 @@
                         $("#actionBtn").html("直接提交");
                         $("#x").on("click",function () {
                             $.cookie("customer",contactPhone);
-                            window.location.href="order?phone="+contactPhone;
+                            window.location.href="order?phone="+contactPhone+"&num=0";
                         })
                     }
                 })
@@ -516,7 +516,7 @@
                         $("#customiseProductSubmit").html("提交完整需求");
                         $("#x").on("click",function () {
                             $.cookie("customer",phone,{expires:1});
-                            window.location.href="order?phone="+phone;
+                            window.location.href="order?phone="+phone+"&num=0";
                         })
                     }
                 })
@@ -901,7 +901,7 @@
         })
         $(".order").on("click",function(){
             if($.cookie("customer")){
-                window.location.href="order?phone="+$.cookie("customer");
+                window.location.href="order?phone="+$.cookie("customer").replace(/\"/g,"")+"&num=0";
             }else{
                 window.location.href="order";
             }

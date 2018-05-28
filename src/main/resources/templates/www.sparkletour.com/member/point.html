@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset=utf-8"utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -201,7 +201,7 @@
 <nav class="navigation" role="navigation">
     <ul class="level1">
         <li class="discover">
-            <a href="javascript:void(0);">探索世界</a>
+            <a href="index">探索世界</a>
             <ul class="level2">
                 <li>
                     <a href="../ProductList/5644.htm" tppabs="http://www.sparkletour.com/ProductList/5644">欧洲</a>
@@ -437,14 +437,13 @@
                 <div id="loginbefore" class="tool" style="display:none;">
                     <a href="javascript:void(0);" onclick="modalMyYaoyueShow()" class="loginBtn">登录注册</a>
                 </div>
-                <div id="loginafter" class="tool" style="display: none">
+                <div id="loginafter" class="tool">
                     <a href="javascript:void(0);" class="logined">我的耀悅
                         <div class="loginBtnNav" style="z-index: 9999999;">
                             <ul>
-                                <li class="setBorderBot"></li>
-                                <li id="liMyMessagePage" onclick="location.href='associator'">会员信息</li>
-                                <li id="liOrderQuery" onclick="location.href='order'">订单查询</li>
-                                <li id="liPointQuery" onclick="location.href='point'">会员积分</li>
+                                <li id="liMyMessagePage" class="associator">会员信息</li>
+                                <li id="liOrderQuery" class="order">订单查询</li>
+                                <li id="liPointQuery" class="point">会员积分</li>
                                 <li id="userExit" class="setBorderTop" onclick="Logout();">退出</li>
                             </ul>
                         </div>
@@ -460,7 +459,7 @@
     <div class="modal-dialog1">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" onclick="javascript:history.back(-1);">&times;</span></button>
                 <h4 class="modal-title" id="modalMyYaoyueLabel">我的耀悅</h4>
             </div>
             <div class="modal-body">
@@ -509,6 +508,53 @@
 	        </dl>
         </div>
         <![endif]-->
+        <script>
+            $(function(){
+                $(".associator").on("click",function(){
+                    if($.cookie("customer")){
+                        window.location.href="member/index?phone="+$.cookie("customer").replace(/\"/g,"");
+                    }else{
+                        window.location.href="member/index";
+                    }
+                })
+                $(".order").on("click",function(){
+                    if($.cookie("customer")){
+                        window.location.href="order?phone="+$.cookie("customer").replace(/\"/g,"")+"&num=0";
+                    }else{
+                        window.location.href="order";
+                    }
+                })
+                $(".point").on("click",function(){
+                    if($.cookie("customer")){
+                        window.location.href="point?phone="+$.cookie("customer").replace(/\"/g,"");
+                    }else{
+                        window.location.href="point";
+                    }
+                })
+
+                $("#associator").on("click",function(){
+                    if($.cookie("customer")){
+                        window.location.href="member/index?phone="+$.cookie("customer").replace(/\"/g,"");
+                    }else{
+                        window.location.href="member/index";
+                    }
+                })
+                $("#order").on("click",function(){
+                    if($.cookie("customer")){
+                        window.location.href="order?phone="+$.cookie("customer").replace(/\"/g,"")+"&num=0";
+                    }else{
+                        window.location.href="order";
+                    }
+                })
+                $("#point").on("click",function(){
+                    if($.cookie("customer")){
+                        window.location.href="point?phone="+$.cookie("customer").replace(/\"/g,"");
+                    }else{
+                        window.location.href="point";
+                    }
+                })
+            })
+        </script>
 <script type="text/javascript">
     IsLogin();
     var prodListUrl = "/ProductList";
@@ -570,7 +616,7 @@
         }
         return flag;
     }
-    function time(o) {
+    /*function time(o) {
         if (wait == 0) {
             $(o).bind("click", function () {
                 $("#lnerror_text").hide();
@@ -592,29 +638,27 @@
             },
             1000)
         }
-    }
+    }*/
     function IsLogin() {
-        if ($.cookie("customer")) {
-            var c = JSON.parse($.cookie("customer"));
-            $(".setBorderBot").text(c.nick_name + '，您好');
-            $("#loginbefore").hide();
-            $("#loginafter").show();
-        }
-    }
-    function NeedLogin() {
         if (!$.cookie("customer")) {
             modalMyYaoyueShow();
         }
     }
+    /*function NeedLogin() {
+        if (!$.cookie("customer")) {
+            modalMyYaoyueShow();
+        }
+    }*/
     function Logout() {
-        $.cookie("customer", '', { expires: -1, domain: "http://www.sparkletour.com/member/sparkletour.com", path: "/" });
-        location.href = "../index.htm"/*tpa=http://www.sparkletour.com/*/;
+        $.cookie("customer", '', { expires: -1, path: "/" });
+        location.href = "index";
     }
     $("#btn_login").bind("click", function () {
         $("#lnerror_text").hide();
+        var phone = $.trim($("#txt_phone").val());
         if (CheckPhone() && CheckCode()) {
-            $.cookie("customer", JSON.stringify(testJson), { expires: 1, domain: "http://www.sparkletour.com/member/sparkletour.com", path: "/" });
-            location.reload();
+            $.cookie("customer", JSON.stringify(phone), { expires: 1, path: "/" });
+            location.href="point?phone="+phone;
         }
     });
     $("#btn_send_code").bind("click", function () {
@@ -645,9 +689,9 @@
             <div class="shencon shenkuan">
                 <div class="shenconleft">
                     <span class="shenclcon" style="background-color: #A664A6; display: block; color: white;">我的耀悦</span>
-                    <span class="shenclcon" onclick="location.href='associator'">会员信息</span>
-                    <span class="shenclcon" onclick="location.href='order'">订单查询</span>
-                    <span class="shenclcon active" onclick="location.href='point'">会员积分</span>
+                    <span class="shenclcon" id="associator">会员信息</span>
+                    <span class="shenclcon active" id="order">订单查询</span>
+                    <span class="shenclcon" id="point">会员积分</span>
                 </div>
                 <div class="shencolright">
                     <div class="shencrtop" style="background-color: #A664A6">
