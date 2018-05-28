@@ -10,7 +10,7 @@ import java.util.List;
  */
 public interface ItemService {
     List<Item>itemsList(Integer themeId, Integer hobbyId, Integer travelId, Integer trafficId, Integer styleId,
-                        Date startTime,Integer continentId ,Integer countryId);
+                        Date startTime, Integer continentId, Integer countryId);
 
    boolean itemCount(Integer themeId, Integer hobbyId, Integer travelId, Integer trafficId, Integer styleId);
 
@@ -22,16 +22,9 @@ public interface ItemService {
     List<Item>findDetailId(Integer detailId);
 
     List<Item> listTravelName(Integer themeId, Integer hobbyId, Integer travelId, Integer trafficId, Integer styleId,
-                              Date startTime,Integer continentId ,Integer countryId);
+                              Date startTime, Integer continentId, Integer countryId);
 
     List<Item> listHobbyName(Integer themeId, Integer hobbyId, Integer travelId, Integer trafficId, Integer styleId,
-                              Date startTime,Integer continentId ,Integer countryId);
-
-    List<Item> ListTravelIdArray(Integer [] travelId);
-
-    List<Item> ListHobbyIdArray(Integer [] travelId);
-
-
-    List<Item> listHobbyIdAndTravelIdArray(Integer [] hobbyId,Integer [] travelId);
+                             Date startTime, Integer continentId, Integer countryId);
 
 }

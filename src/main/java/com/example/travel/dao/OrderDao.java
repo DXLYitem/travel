@@ -10,5 +10,5 @@ public interface OrderDao {
 
     public List<Order> selOrder(@Param("phone") String phone);
 
-    public List<Order> selscores(@Param("phone")String phone);
+    public List<Order> selscores(@Param("phone") String phone);
 }

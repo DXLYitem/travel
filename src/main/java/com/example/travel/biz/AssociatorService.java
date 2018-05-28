@@ -9,5 +9,5 @@ public interface AssociatorService {
 
     public int quwerCount(String phone);
 
-    public int modify(String email,String phone,String name);
+    public int modify(String email, String phone, String name);
 }

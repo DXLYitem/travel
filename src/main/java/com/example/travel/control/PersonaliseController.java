@@ -62,6 +62,7 @@ public class PersonaliseController {
      */
     @RequestMapping("associator")
     public String member(String phone,Model model){
+        Associator associator=associatorServiceImpl.query(phone);
         model.addAttribute("associator",associatorServiceImpl.query(phone));
         return "www.sparkletour.com/member/associator";
     }

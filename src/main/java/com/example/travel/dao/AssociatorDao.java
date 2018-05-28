@@ -10,5 +10,5 @@ public interface AssociatorDao {
 
     public int count(@Param("phone") String phone);
 
-    public int update(@Param("email")String email,@Param("phone")String phone,@Param("name")String name);
+    public int update(@Param("email") String email, @Param("phone") String phone, @Param("name") String name);
 }

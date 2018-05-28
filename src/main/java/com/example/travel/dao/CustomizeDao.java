@@ -12,5 +12,5 @@ public interface CustomizeDao {
 
     public Customize selCustomize(@Param("id") Integer id);
 
-    public int update(@Param("email")String email,@Param("phone")String phone,@Param("name")String name);
+    public int update(@Param("email") String email, @Param("phone") String phone, @Param("name") String name);
 }

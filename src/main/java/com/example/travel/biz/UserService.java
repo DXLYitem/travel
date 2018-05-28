@@ -23,5 +23,5 @@ public interface UserService {
 	
 	List<User> getById(User user);*/
 
-	public List<User> findItemByPage(int currentPage,int pageSize);
+	public List<User> findItemByPage(int currentPage, int pageSize);
 }
