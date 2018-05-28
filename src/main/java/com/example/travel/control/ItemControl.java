@@ -39,36 +39,18 @@ public class ItemControl {
     @RequestMapping("ProductList")
     public String pList(@RequestParam(required=true,defaultValue="1") Integer page, Model model,
                         Integer themeId, Integer hobbyId, Integer travelId,
-                        Integer trafficId, Integer styleId, Integer pn,String  startTime,Integer continentId,Integer countryId) throws ParseException {
+                        Integer trafficId, Integer styleId, String  startTime,
+                        Integer continentId,Integer countryId) throws ParseException {
         SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
         Date date=null;
         if(startTime!=null){
             date=new Date();
           date=sdf.parse(startTime);
        }
-        //地域
-        List<Continent> list=continentService.listContinent();
-        model.addAttribute("conList",list);
-        //地区
-        for(int i=0;i<list.size();i++){
-            model.addAttribute("couList"+i,countryService.listCountry(list.get(i).getContinentId()));
-        }
-
-        //偏好
-        model.addAttribute("h",hobbyService.listHobby(1));
-        //主题
-        model.addAttribute("t",travelService.listTravel(2));
-        //交通工具
-        model.addAttribute("c",trafficService.listTraffic(3));
-        //旅行方式
-        model.addAttribute("s",styleService.listStyle(4));
-        //旅行主题
-        model.addAttribute("themeList",themeService.listTheme());
-
 
         //page从第几页开始，pagerSize每页显示3条数据
        // PageHelper.startPage(page,10);
-        List<Item>itemList=itemService.itemsList(themeId, hobbyId, travelId, trafficId, styleId,date,continentId,countryId);
+        List<Item> itemList =itemService.itemsList(themeId, hobbyId, travelId, trafficId, styleId,date,continentId,countryId);
         List<String> strList=new ArrayList<String>();
          for(int i=0;i<itemList.size();i++){
              String[] arr = itemList.get(i).getTitle().split(" ");
@@ -90,9 +72,8 @@ public class ItemControl {
                 hList.add(i);
             }
         }
-
        // PageInfo<Item> pager=new PageInfo<Item>(itemList);
-        if(itemList.size()>0 && strList.size()>0 && travelList.size()>0 && hList.size()>0){
+        if(itemList.size()>0 || strList.size()>0 || travelList.size()>0 || hList.size()>0){
             //根据点击分页查询
             //model.addAttribute("pager",pager);
             model.addAttribute("ItemList",itemList);
