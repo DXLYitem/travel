@@ -5,6 +5,7 @@ import com.example.travel.dao.ItemDao;
 import com.example.travel.entity.Country;
 import com.example.travel.entity.Item;
 import com.example.travel.util.RedisUtil;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,6 +21,26 @@ public class ItemServiceImpl implements ItemService{
     private ItemDao itemDao;
     @Resource
     private RedisUtil redisUtil;
+
+    @Override
+    public List<Item> listHobbyIdAndTravelIdArray(Integer[] hobbyId, Integer[] travelId) {
+        List<Item> itemArray=itemDao.selectHobbyIdAndTravelIdArray(hobbyId,travelId);
+        return itemArray;
+    }
+
+    @Override
+    public List<Item> ListHobbyIdArray(Integer[] hobbyId) {
+        List<Item> ItemArray=itemDao.selectHobbyIdArray(hobbyId);
+        return ItemArray;
+    }
+
+    @Override
+    public List<Item> ListTravelIdArray(Integer[] travelId) {
+        List<Item> ItemArray=itemDao.selectTravelIdArray(travelId);
+
+        return ItemArray;
+    }
+
 
     @Override
     public List<Item> listHobbyName(Integer themeId, Integer hobbyId, Integer travelId, Integer trafficId,
@@ -63,38 +84,98 @@ public class ItemServiceImpl implements ItemService{
         }
     }
 
+
+
     @Override
     public List<Item> listTravelName(Integer themeId, Integer hobbyId, Integer travelId, Integer trafficId, Integer styleId,
                                      Date startTime,Integer continentId ,Integer countryId) {
 
-        List<Item>items=itemDao.selectTravelName(themeId, hobbyId, travelId, trafficId, styleId ,startTime,continentId,countryId);
-        return items;
+        String iKey=null;
+
+        if(themeId!=null){
+            iKey="iteKey"+themeId;
+        }
+        if(hobbyId!=null){
+            iKey="iteKey"+hobbyId;
+        }
+        if(travelId!=null){
+            iKey="iteKey"+travelId;
+        }
+        if(trafficId!=null){
+            iKey="iteKey"+trafficId;
+        }
+        if(styleId!=null){
+            iKey="iteKey"+styleId;
+        }
+        if(startTime!=null){
+            iKey="iteKey"+startTime;
+        }
+        if(continentId!=null){
+            iKey="iteKey"+continentId;
+        }
+        if(countryId!=null){
+            iKey="iteKey"+countryId;
+        }
+        if(startTime!=null &&  continentId!=null){
+            iKey="iteKey"+startTime+continentId;
+        }
+        if(redisUtil.exists(iKey)){
+            Object o = redisUtil.lRange(iKey, 0, redisUtil.length(iKey)).get(0);
+            return (List<Item>) o;
+        }else{
+            List<Item>items=itemDao.selectTravelName(themeId, hobbyId, travelId, trafficId, styleId ,startTime,continentId,countryId);
+            redisUtil.lPush(iKey,items);
+            return items;
+        }
+
     }
 
     @Override
-    public List<Item> itemsList(Integer themeId, Integer hobbyId, Integer travelId, Integer trafficId, Integer styleId, Date startTime,Integer continentId,Integer countryId) {
-        List<Item>items=itemDao.selectPageItem(themeId, hobbyId, travelId, trafficId, styleId ,startTime,continentId,countryId);
+    public List<Item> itemsList(Integer themeId, Integer hobbyId, Integer travelId, Integer trafficId, Integer styleId,
+                                Date startTime,Integer continentId,Integer countryId) {
 
-        if(redisUtil.exists("item")){
-            redisUtil.remove("item");
+        String iKey=null;
+
+        if(themeId!=null){
+            iKey="itemKey"+themeId;
         }
-        redisUtil.lPush("item",items);
-        return items;
+        if(hobbyId!=null){
+            iKey="itemKey"+hobbyId;
+        }
+        if(travelId!=null){
+            iKey="itemKey"+travelId;
+        }
+        if(trafficId!=null){
+            iKey="itemKey"+trafficId;
+        }
+        if(styleId!=null){
+            iKey="itemKey"+styleId;
+        }
+        if(startTime!=null){
+            iKey="itemKey"+startTime;
+        }
+        if(continentId!=null){
+            iKey="itemKey"+continentId;
+        }
+        if(countryId!=null){
+            iKey="itemKey"+countryId;
+        }
+        if(startTime!=null &&  continentId!=null){
+            iKey="itemKey"+startTime+continentId;
+        }
+        if(redisUtil.exists(iKey)){
+            Object o = redisUtil.lRange(iKey, 0, redisUtil.length(iKey)).get(0);
+            return (List<Item>) o;
+        }else{
+            List<Item>items=itemDao.selectPageItem(themeId, hobbyId, travelId, trafficId, styleId ,startTime,continentId,countryId);
+            redisUtil.lPush(iKey,items);
+            return items;
+        }
+
     }
     @Override
     public boolean itemCount(Integer themeId, Integer hobbyId, Integer travelId, Integer trafficId, Integer styleId) {
-
-
-
-
-
-
-        if (redisUtil.exists("itemCount")) {
-            redisUtil.remove("itemCount");
-        }
-        int itemCount = itemDao.selectPageCount(themeId, hobbyId, travelId, trafficId, styleId);
-        redisUtil.lPush("itemCount", itemCount);
-
+      int itemCount = itemDao.selectPageCount(themeId, hobbyId, travelId, trafficId, styleId);
         return itemCount>0;
     }
     @Override
