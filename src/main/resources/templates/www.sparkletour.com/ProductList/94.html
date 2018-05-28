@@ -339,92 +339,92 @@
                 <nav class="navigation" role="navigation">
                     <ul class="level1">
                         <li class="discover">
-                            <a href="javascript:void(0);">探索世界</a>
+                            <a href="index">探索世界</a>
                             <ul class="level2">
-                                <li th:each="con,last : ${conList}">            <!--洲-->
+
+                                <li th:each="con,last : ${session.conList}">            <!--洲-->
                                     <a th:href="@{'ProductList?continentId='+${con.continentId}}" th:text="${con.continentName}">o</a>
                                     <ul class="level3">
                                         <div th:if="${last.index} eq '0'">                          <!--国-->
-                                            <li th:each="cou : ${couList0}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}"  th:text="${cou.countryName}"></a></li>
+                                            <li th:each="cou : ${session.couList0}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}"  th:text="${cou.countryName}"></a></li>
                                         </div>
                                         <div th:if="${last.index} eq '1'">
-                                            <li th:each="cou : ${couList1}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}" th:text="${cou.countryName}"></a></li>
+                                            <li th:each="cou : ${session.couList1}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}" th:text="${cou.countryName}"></a></li>
                                         </div>
                                         <div th:if="${last.index} eq '2'">
-                                            <li th:each="cou : ${couList2}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}"  th:text="${cou.countryName}"></a></li>
+                                            <li th:each="cou : ${session.couList2}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}"  th:text="${cou.countryName}"></a></li>
                                         </div>
                                         <div th:if="${last.index} eq '3'">
-                                            <li th:each="cou : ${couList3}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}"  th:text="${cou.countryName}"></a></li>
+                                            <li th:each="cou : ${session.couList3}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}"  th:text="${cou.countryName}"></a></li>
                                         </div>
                                         <div th:if="${last.index} eq '4'">
-                                            <li th:each="cou : ${couList4}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}" th:text="${cou.countryName}"></a></li>
+                                            <li th:each="cou : ${session.couList4}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}" th:text="${cou.countryName}"></a></li>
                                         </div>
                                         <div th:if="${last.index} eq '5'">
-                                            <li th:each="cou : ${couList5}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}" th:text="${cou.countryName}"></a></li>
+                                            <li th:each="cou : ${session.couList5}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}" th:text="${cou.countryName}"></a></li>
                                         </div>
                                         <div th:if="${last.index} eq '6'">
-                                            <li th:each="cou : ${couList6}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}"  th:text="${cou.countryName}"></a></li>
+                                            <li th:each="cou : ${session.couList6}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}"  th:text="${cou.countryName}"></a></li>
                                         </div>
                                         <div th:if="${last.index} eq '7'">
-                                            <li th:each="cou : ${couList7}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}" th:text="${cou.countryName}"></a></li>
+                                            <li th:each="cou : ${session.couList7}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}" th:text="${cou.countryName}"></a></li>
                                         </div>
 
                                     </ul>
                                 </li>
-
                             </ul>
                         </li>
                         <li>
                             <a href="javascript:void(0);">主题臻选</a>
                             <ul class="level2">
-                                <li th:each="theme : ${themeList}">
-                                    <a th:href="@{'ProductList?themeId='+${theme.themeId}}"><span th:text="${theme.themeName}"></span></a>
+                                <li th:each="theme : ${session.themeList}">
+                                    <a th:href="@{'ProductList?themeId='+${theme.themeId}}"><span
+                                            th:text="${theme.themeName}"></span></a>
 
                                     <ul class="level3">
                                         <div th:if="${theme.themeId} eq '1'">
-                                            <li th:each="h : ${h}"><a th:href="@{'ProductList?hobbyId='+${h.hobbyId}}"><span th:text="${h.hobbyName}"></span></a></li>
+                                            <li th:each="h : ${session.h}"><a th:href="@{'ProductList?hobbyId='+${h.hobbyId}}"><span th:text="${h.hobbyName}"></span></a></li>
                                         </div>
                                         <div th:if="${theme.themeId} eq '2'">
-                                            <li th:each="t : ${t}"><a th:href="@{'ProductList?travelId='+${t.travelId}}"><span th:text="${t.travelName}"></span></a></li>
+                                            <li th:each="t : ${session.t}"><a th:href="@{'ProductList?travelId='+${t.travelId}}"><span th:text="${t.travelName}"></span></a></li>
                                         </div>
                                         <div th:if="${theme.themeId} eq '3'">
-                                            <li th:each="c : ${c}"><a th:href="@{'ProductList?trafficId='+${c.trafficId}}"><span th:text="${c.trafficName}"></span></a></li>
+                                            <li th:each="c : ${session.c}"><a th:href="@{'ProductList?trafficId='+${c.trafficId}}"><span th:text="${c.trafficName}"></span></a></li>
                                         </div>
                                         <div th:if="${theme.themeId} eq '4'">
-                                            <li th:each="s : ${s}"><a th:href="@{'ProductList?styleId='+${s.styleId}}" th:text="${s.styleName}"><span th:text="${s.styleName}"></span></a></li>
+                                            <li th:each="s : ${session.s}"><a th:href="@{'ProductList?styleId='+${s.styleId}}" th:text="${s.styleName}"><span th:text="${s.styleName}"></span></a></li>
                                         </div>
                                     </ul>
                                 </li>
 
 
 
--->
                             </ul>
                         </li>
                         <li><a href="Personalise" >私人定制</a></li>
                         <li><a href="ProductList/pt/4.htm" >度假套餐</a>
                             <ul class="level2">
-                                <li>
-                                    <a href="javascript:void(0)">酒店品牌</a>
+                                <li th:each="holiday : ${session.holidayList}">
+                                    <!--<a href="javascript:void(0)">酒店品牌</a>-->
+                                    <a th:href="@{'ProductList?holidayId='+${holiday.holidayId}}"><span
+                                            th:text="${holiday.holidayName}"></span></a>
                                     <ul class="level3">
-                                        <li><a href="ProductList/35048.htm" >安缦</a></li>
-                                        <li><a href="ProductList/35049.htm" >四季</a></li>
-                                        <li><a href="ProductList/35050.htm">唯逸</a></li>
-                                        <li><a href="ProductList/35051.htm" >六善</a></li>
-                                        <li><a href="ProductList/35052.htm" >小众酒店</a></li>
-                                        <li><a href="ProductList/8693.htm" >欧洲河轮</a></li>
+                                        <div th:if="${holiday.holidayId} eq '1'">
+                                            <li th:each="b : ${session.b}"><a
+                                                    th:href="@{'ProductList?holidayId='+${b.brandId}}"><span
+                                                    th:text="${b.brandName}"></span></a></li>
+                                        </div>
+                                        <div th:if="${holiday.holidayId} eq '2'">
+                                            <li th:each="continent : ${session.continent}"><a
+                                                    th:href="@{'ProductList?holidayId='+${continent.continentId}}"><span
+                                                    th:text="${continent.continentName}"></span></a></li>
+                                        </div>
                                     </ul>
                                 </li>
-                                <li>
-                                    <a href="javascript:void(0)">区域</a>
-                                    <ul class="level3">
-                                        <li th:each="con: ${conList}"><a href="ProductList/35053/4.htm"  th:text="${con.continentName}">亚洲</a></li>
-                                    </ul>
                                 </li>
                             </ul>
-
                         </li>
-                        <li><a href="nge.htm">国家地理</a></li>
+                        <li><a href="nge">国家地理</a></li>
                         <li><a href="themes/health/index.htm" >海外健康</a></li>
                         <li>
                             <a href="javascript:void(0);">公司简介</a>
@@ -449,18 +449,20 @@
                     <div class="tool">
                         <div class="searchForm">
                             <div class="quickSearch">
-
+                                <!-- <input type="text" name="keyword" id="keyword" placeholder="快速搜索" /> -->
                                 <button>快速搜索<span class="accessible">搜索</span></button>
                             </div>
                             <div class="searchPanel">
                                 <a href="javascript:void(0);" class="close">X<span class="accessible">关闭搜索面板</span></a>
                                 <div class="row">
                                     <fieldset class="byDate">
-                                        <legend>按出发时间</legend>
+                                        <legend>按时间出行</legend>
                                         <ul>
                                             <li>
-                                                <input type="text" class="datePicker" id="txtStartDate" value=""  style="width: 260px;height: 32px;"/></li>
-
+                                                <input type="text" class="datePicker" id="txtStartDate" value=""
+                                                       style="width: 260px;height: 32px;"/></li>
+                                            <!-- <li>
+                                                 <input type="text" class="datePicker" id="txtEndDate" value="" /></li>-->
                                         </ul>
                                     </fieldset>
                                     <fieldset class="byDestination">
@@ -469,7 +471,7 @@
 
                                             <select class="inputDestination" id="searchByDestination">
                                                 <option  style="background-color: #0c1116" value="0">请选择</option>
-                                                <option th:each="con: ${conList}" style="background-color: #0c1116" th:value="${con.continentId}" th:text="${con.continentName}"></option>
+                                                <option th:each="con: ${session.conList}" style="background-color: #0c1116" th:value="${con.continentId}" th:text="${con.continentName}"></option>
                                             </select>
                                             <!-- <input type="text" class="inputDestination" id="searchByDestination" placeholder="输入目的地" />-->
                                         </div>
@@ -486,18 +488,16 @@
 
 
                     <div id="loginbefore" class="tool" style="display:none;">
-                        <a href="javascript:void(0);" onclick="modalMyYaoyueShow()" class="loginBtn">登录注册</a>
+                        <a href="javascript:void(0);" onclick="modalMyYaoyueShow()" class="loginBtn"></a>
                     </div>
-                    <div id="loginafter" class="tool" style="display: none">
+                    <div id="loginafter" class="tool">
                         <a href="javascript:void(0);" class="logined">我的耀悅
-                            <div class="loginBtnNav" style="z-index: 9999999;">
+                            <div class="loginBtnNav">
                                 <ul>
-                                    <li class="setBorderBot"></li>
-                                    <li id="liMyMessagePage" onclick="location.href='../member/index.htm'/*tpa=http://www.sparkletour.com/member/*/">会员信息</li>
-                                    <li id="liOrderQuery" onclick="location.href='../member/order.html'/*tpa=http://www.sparkletour.com/member/order*/">订单查询</li>
-                                    <li id="liPointQuery" onclick="location.href='../member/point.html'/*tpa=http://www.sparkletour.com/member/point*/">会员积分</li>
-                                    <li id="liTraveler">常用出行人</li>
-                                    <li id="liUpPassWd">修改密码</li>
+                                    <li class="setBorderBot" onclick="modalMyYaoyueShow()">登&nbsp;录</li>
+                                    <li id="liMyMessagePage" class="associator">会员信息</li>
+                                    <li id="liOrderQuery" class="order">订单查询</li>
+                                    <li id="liPointQuery" class="point">会员积分</li>
                                     <li id="userExit" class="setBorderTop" onclick="Logout();">退出</li>
                                 </ul>
                             </div>
@@ -680,6 +680,23 @@
                 time(this);
             }
         });
+
+        $("#btnHeadSearch").bind("click", function () {
+            var time=$("#txtStartDate").val();
+            var continentId=$("#searchByDestination option:selected").val();
+            if(continentId==0 && (time!=NaN && time !="" && time !=undefined)){
+                location.href = "ProductList?startTime="+time;
+            }
+            if(continentId!=0 && (time==NaN || time =="" || time ==undefined)){
+                location.href = "ProductList?continentId="+continentId
+            }
+            if(continentId!=0 && (time!=NaN && time !="" && time !=undefined)){
+                location.href = "ProductList?continentId="+continentId+"&startTime="+time;
+            }
+            if(continentId==0 && (time==NaN  || time =="" || time ==undefined)){
+                location.href = "ProductList";
+            }
+        })
     </script>
 
     <main role="main" id="pageContent" class="pageContent clearfix">
