@@ -1,7 +1,11 @@
 package com.example.travel.control;
 
-import com.example.travel.biz.*;
-import com.example.travel.entity.*;
+import com.example.travel.biz.DetailService;
+import com.example.travel.biz.IntroductionService;
+import com.example.travel.biz.ItemService;
+import com.example.travel.entity.Detail;
+import com.example.travel.entity.Introduction;
+import com.example.travel.entity.Item;
 import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,10 +21,6 @@ public class DetailControl {
     private ItemService itemService;
     @Resource
     private IntroductionService introductionService;
-    @Resource
-    private ScheduleService scheduleService;
-    @Resource
-    private HotelService hotelService;
     @RequestMapping("ProductDetail")
     private String detailList(Model model, Integer detailId){
         Integer a=detailId;
@@ -45,25 +45,7 @@ public class DetailControl {
         if(detailList!=null){
             model.addAttribute("detailList",detailList);
         }
-        /**
-         * 根据项目id查询行程表
-         */
-        Integer itemid=null;
-        if(detailList.size()>0){
-            itemid=detailList.get(0).getItemId();
-        }
-        List<Schedule>schedList=scheduleService.findByitemId(itemid);
-        model.addAttribute("schedList",schedList);
 
-        /**
-         * 根据行程表中的酒店Id查询酒店信息
-         */
-        Integer hotelId=null;
-        if(schedList.size()>0){
-            hotelId=schedList.get(0).getHotelId();
-        }
-        List<Hotel>hotels=hotelService.findByhotelId(hotelId);
-        model.addAttribute("hotels",hotels);
         return "/www.sparkletour.com/ProductDetail/39634";
     }
 }

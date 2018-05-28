@@ -5,13 +5,11 @@ import com.example.travel.dao.ItemDao;
 import com.example.travel.entity.Country;
 import com.example.travel.entity.Item;
 import com.example.travel.util.RedisUtil;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -24,56 +22,36 @@ public class ItemServiceImpl implements ItemService{
     private RedisUtil redisUtil;
 
     @Override
-    public List<Item> listHobbyIdAndTravelIdArray(Integer[] hobbyId, Integer[] travelId) {
-        List<Item> itemArray=itemDao.selectHobbyIdAndTravelIdArray(hobbyId,travelId);
-        return itemArray;
-    }
-
-    @Override
-    public List<Item> ListHobbyIdArray(Integer[] hobbyId) {
-        List<Item> ItemArray=itemDao.selectHobbyIdArray(hobbyId);
-        return ItemArray;
-    }
-
-    @Override
-    public List<Item> ListTravelIdArray(Integer[] travelId) {
-        List<Item> ItemArray=itemDao.selectTravelIdArray(travelId);
-
-        return ItemArray;
-    }
-
-
-    @Override
     public List<Item> listHobbyName(Integer themeId, Integer hobbyId, Integer travelId, Integer trafficId,
                                     Integer styleId, Date startTime, Integer continentId, Integer countryId) {
         String iKey=null;
 
         if(themeId!=null){
-            iKey="iKeythemeId"+themeId;
+            iKey="iKey"+themeId;
         }
         if(hobbyId!=null){
-            iKey="iKeyhobbyId"+hobbyId;
+            iKey="iKey"+hobbyId;
         }
         if(travelId!=null){
-            iKey="iKeytravelId"+travelId;
+            iKey="iKey"+travelId;
         }
         if(trafficId!=null){
-            iKey="iKeyrafficId"+trafficId;
+            iKey="iKey"+trafficId;
         }
         if(styleId!=null){
-            iKey="iKeystyleId"+styleId;
+            iKey="iKey"+styleId;
         }
         if(startTime!=null){
-            iKey="iKeystartTime"+startTime;
+            iKey="iKey"+startTime;
         }
         if(continentId!=null){
-            iKey="iKeycontinentId"+continentId;
+            iKey="iKey"+continentId;
         }
         if(countryId!=null){
-            iKey="iKeycountryId"+countryId;
+            iKey="iKey"+countryId;
         }
         if(startTime!=null &&  continentId!=null){
-            iKey="iKeystartTimecontinentId"+startTime+continentId;
+            iKey="iKey"+startTime+continentId;
         }
         if(redisUtil.exists(iKey)){
             Object o = redisUtil.lRange(iKey, 0, redisUtil.length(iKey)).get(0);
@@ -85,98 +63,38 @@ public class ItemServiceImpl implements ItemService{
         }
     }
 
-
-
     @Override
     public List<Item> listTravelName(Integer themeId, Integer hobbyId, Integer travelId, Integer trafficId, Integer styleId,
                                      Date startTime,Integer continentId ,Integer countryId) {
 
-        String iKey=null;
-
-        if(themeId!=null){
-            iKey="iteKeythemeId"+themeId;
-        }
-        if(hobbyId!=null){
-            iKey="iteKeyhobbyId"+hobbyId;
-        }
-        if(travelId!=null){
-            iKey="iteKeytravelId"+travelId;
-        }
-        if(trafficId!=null){
-            iKey="itemKeyrafficId"+trafficId;
-        }
-        if(styleId!=null){
-            iKey="iteKeystyleId"+styleId;
-        }
-        if(startTime!=null){
-            iKey="iteKeystartTime"+startTime;
-        }
-        if(continentId!=null){
-            iKey="iteKeycontinentId"+continentId;
-        }
-        if(countryId!=null){
-            iKey="iteKeycountryId"+countryId;
-        }
-        if(startTime!=null &&  continentId!=null){
-            iKey="iteKeystartTimecontinentId"+startTime+continentId;
-        }
-        if(redisUtil.exists(iKey)){
-            Object o = redisUtil.lRange(iKey, 0, redisUtil.length(iKey)).get(0);
-            return (List<Item>) o;
-        }else{
-            List<Item>items=itemDao.selectTravelName(themeId, hobbyId, travelId, trafficId, styleId ,startTime,continentId,countryId);
-            redisUtil.lPush(iKey,items);
-            return items;
-        }
-
+        List<Item>items=itemDao.selectTravelName(themeId, hobbyId, travelId, trafficId, styleId ,startTime,continentId,countryId);
+        return items;
     }
 
     @Override
-    public List<Item> itemsList(Integer themeId, Integer hobbyId, Integer travelId, Integer trafficId, Integer styleId,
-                                Date startTime,Integer continentId,Integer countryId) {
+    public List<Item> itemsList(Integer themeId, Integer hobbyId, Integer travelId, Integer trafficId, Integer styleId, Date startTime,Integer continentId,Integer countryId) {
+        List<Item>items=itemDao.selectPageItem(themeId, hobbyId, travelId, trafficId, styleId ,startTime,continentId,countryId);
 
-        String iKey=null;
-
-        if(themeId!=null){
-            iKey="itemKeythemeId"+themeId;
+        if(redisUtil.exists("item")){
+            redisUtil.remove("item");
         }
-        if(hobbyId!=null){
-            iKey="itemKeyhobbyId"+hobbyId;
-        }
-        if(travelId!=null){
-            iKey="itemKeytravelId"+travelId;
-        }
-        if(trafficId!=null){
-            iKey="itemKeyrafficId"+trafficId;
-        }
-        if(styleId!=null){
-            iKey="itemKeystyleId"+styleId;
-        }
-        if(startTime!=null){
-            iKey="itemKeystartTime"+startTime;
-        }
-        if(continentId!=null){
-            iKey="itemKeycontinentId"+continentId;
-        }
-        if(countryId!=null){
-            iKey="itemKeycountryId"+countryId;
-        }
-        if(startTime!=null &&  continentId!=null){
-            iKey="itemKeystartTimecontinentId"+startTime+continentId;
-        }
-        List<Item> items=new ArrayList<Item>();
-        redisUtil.remove(iKey);
-        if(redisUtil.exists(iKey)){
-            items = (List<Item>)redisUtil.lRange(iKey, 0, redisUtil.length(iKey)).get(0);
-        }else{
-            items=itemDao.selectPageItem(themeId, hobbyId, travelId, trafficId, styleId ,startTime,continentId,countryId);
-            redisUtil.lPush(iKey,items);
-        }
-        return  items;
+        redisUtil.lPush("item",items);
+        return items;
     }
     @Override
     public boolean itemCount(Integer themeId, Integer hobbyId, Integer travelId, Integer trafficId, Integer styleId) {
-      int itemCount = itemDao.selectPageCount(themeId, hobbyId, travelId, trafficId, styleId);
+
+
+
+
+
+
+        if (redisUtil.exists("itemCount")) {
+            redisUtil.remove("itemCount");
+        }
+        int itemCount = itemDao.selectPageCount(themeId, hobbyId, travelId, trafficId, styleId);
+        redisUtil.lPush("itemCount", itemCount);
+
         return itemCount>0;
     }
     @Override

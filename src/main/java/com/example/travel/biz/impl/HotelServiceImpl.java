@@ -29,17 +29,4 @@ public class HotelServiceImpl implements HotelService {
         }
         return hotels;
     }
-
-    @Override
-    public List<Hotel> findByhotelId(Integer hotelId) {
-        String key="key"+hotelId;
-        List<Hotel>hotels=null;
-        if(redisUtil.exists(key)){
-         hotels= (List<Hotel>)redisUtil.lRange(key,0,redisUtil.length(key)) .get(0);
-        }else {
-           hotels=hotelDao.selectByhotelId(hotelId);
-            redisUtil.lPush(key,hotels);
-        }
-        return hotels;
-    }
 }

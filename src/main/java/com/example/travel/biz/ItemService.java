@@ -27,11 +27,4 @@ public interface ItemService {
     List<Item> listHobbyName(Integer themeId, Integer hobbyId, Integer travelId, Integer trafficId, Integer styleId,
                              Date startTime, Integer continentId, Integer countryId);
 
-    List<Item> ListTravelIdArray(Integer[] travelId);
-
-    List<Item> ListHobbyIdArray(Integer[] travelId);
-
-
-    List<Item> listHobbyIdAndTravelIdArray(Integer[] hobbyId, Integer[] travelId);
-
 }
