@@ -61,9 +61,7 @@ public class PersonaliseController {
      * @return
      */
     @RequestMapping("associator")
-    public String member(String phone,Model model){
-        Associator associator=associatorServiceImpl.query(phone);
-        model.addAttribute("associator",associatorServiceImpl.query(phone));
+    public String member(String phone){
         return "www.sparkletour.com/member/associator";
     }
 
@@ -114,11 +112,10 @@ public class PersonaliseController {
      * @return
      */
     @RequestMapping("order")
-    public String order(String phone,String num,Model model) throws ParseException {
+    public String order(String phone,Model model) throws ParseException {
         List<Order> list=new ArrayList<>();
         if(phone!=null && phone !=""){
-            Integer num1=Integer.parseInt(num);
-            list=orderServiceImpl.orderList(phone,num1);
+            list=orderServiceImpl.orderList(phone);
             SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:dd");
             for(int i=0;i<list.size();i++){
                 String a=sdf.format(list.get(i).getOrderTime());
@@ -130,18 +127,6 @@ public class PersonaliseController {
             }
         }
         return "www.sparkletour.com/member/order";
-    }
-
-    @RequestMapping("orderMore")
-    @ResponseBody
-    public List<Order> moreOrder(String phone){
-        List<Order> list=orderServiceImpl.orderList(phone,null);
-        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:dd");
-        for(int i=0;i<list.size();i++){
-            String a=sdf.format(list.get(i).getOrderTime());
-            list.get(i).setTime(a);
-        }
-        return list;
     }
 
     /**
@@ -163,38 +148,5 @@ public class PersonaliseController {
     @RequestMapping("point")
     public String point(String phone){
         return "www.sparkletour.com/member/point";
-    }
-
-    /**
-     * 根据id查询订单信息
-     * @param id
-     * @return
-     */
-    @RequestMapping("orderShow")
-    @ResponseBody
-    public Customize selCustomize(String id){
-        Customize c=new Customize();
-        if (id != null && id != "") {
-            Integer customizeid=Integer.parseInt(id);
-            c=customizeServiceImpl.listCustomize(customizeid);
-            if(c.getStartDate()!=null && c.getStartDate()!=null) {
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-                c.setStartDateString(sdf.format(c.getStartDate()));
-                c.setEndDateString(sdf.format(c.getStartDate()));
-            }
-        }
-        return c;
-    }
-
-    /**
-     * 根据电话修改email
-     * @param email
-     * @param phone
-     * @return
-     */
-    @RequestMapping("modifyEmail")
-    @ResponseBody
-    public int modifyEmail(String email,String phone,String name){
-        return associatorServiceImpl.modify(email,phone,name);
     }
 }

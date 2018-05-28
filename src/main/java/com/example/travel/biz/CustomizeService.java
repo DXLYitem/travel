@@ -10,7 +10,5 @@ public interface CustomizeService {
 
     public int queryId();
 
-    public Customize listCustomize(Integer id);
-
-    public int modify(String email, String phone, String name);
+    public List<Customize> listCustomize(String phone);
 }

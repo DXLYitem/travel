@@ -61,7 +61,6 @@ public class ContinentControl {
 
          session.setAttribute("continent",continentService.listContinentByholidayId(2));
 
-        // System.out.println('aaa');
         return "/www.sparkletour.com/index";
      }
 }

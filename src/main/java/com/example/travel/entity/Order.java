@@ -22,8 +22,6 @@ public class Order implements Serializable {
     private String status;
     //私人订制id
     private int customizeid;
-    //用户
-    private User user;
 
     private String time;
 
@@ -99,14 +97,6 @@ public class Order implements Serializable {
 
     public void setTime(String time) {
         this.time = time;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 
     @Override

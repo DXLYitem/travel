@@ -42,10 +42,6 @@ public class Customize implements Serializable {
     private String meal;
     //其他需求
     private String other;
-    //出发日期
-    private String startDateString;
-    //结束日期
-    private String endDateString;
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
@@ -185,22 +181,6 @@ public class Customize implements Serializable {
 
     public void setOther(String other) {
         this.other = other;
-    }
-
-    public String getStartDateString() {
-        return startDateString;
-    }
-
-    public void setStartDateString(String startDateString) {
-        this.startDateString = startDateString;
-    }
-
-    public String getEndDateString() {
-        return endDateString;
-    }
-
-    public void setEndDateString(String endDateString) {
-        this.endDateString = endDateString;
     }
 
     @Override
