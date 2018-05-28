@@ -594,7 +594,7 @@
         var val = $.trim($("#txt_phone").val());
         if (CheckPhone() && CheckCode()) {
             $.cookie("customer", JSON.stringify(val), { expires: 1, path: "/" });
-            location.href="member/index?phone="+val;
+            location.href="associator?phone="+val;
         }
     });
     $("#btn_send_code").bind("click", function () {

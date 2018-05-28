@@ -504,6 +504,7 @@
     $("#btn_login").on("click",function(){
         var phone=$("#txt_phone").val();
         $.cookie("customer", phone, { expires: 1,path: "/" });
+        $("#modalMyYaoyue").modal("hide");
     })
 
     $("#btnHeadSearch").bind("click", function () {

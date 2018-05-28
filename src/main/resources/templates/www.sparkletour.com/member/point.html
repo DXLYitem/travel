@@ -424,9 +424,9 @@
             $(function(){
                 $(".associator").on("click",function(){
                     if($.cookie("customer")){
-                        window.location.href="member/index?phone="+$.cookie("customer").replace(/\"/g,"");
+                        window.location.href="associator?phone="+$.cookie("customer").replace(/\"/g,"");
                     }else{
-                        window.location.href="member/index";
+                        window.location.href="associator";
                     }
                 })
                 $(".order").on("click",function(){
@@ -446,9 +446,9 @@
 
                 $("#associator").on("click",function(){
                     if($.cookie("customer")){
-                        window.location.href="member/index?phone="+$.cookie("customer").replace(/\"/g,"");
+                        window.location.href="associator?phone="+$.cookie("customer").replace(/\"/g,"");
                     }else{
-                        window.location.href="member/index";
+                        window.location.href="associator";
                     }
                 })
                 $("#order").on("click",function(){
