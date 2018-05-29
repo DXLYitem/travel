@@ -2,12 +2,15 @@ package com.example.travel.control;
 
 import com.example.travel.biz.impl.*;
 import com.example.travel.entity.*;
+import org.apache.catalina.core.ApplicationContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -124,6 +127,8 @@ public class PersonaliseController {
                 list.get(i).setTime(a);
             }
             model.addAttribute("orderlsit",list);
+            model.addAttribute("pageNo",list.get(0).getPageNo());
+            model.addAttribute("pageSize",list.get(0).getPageSize());
             if(list.size()>0){
                 model.addAttribute("name",list.get(0).getCustomize().getContact());
             }
@@ -133,12 +138,13 @@ public class PersonaliseController {
 
     @RequestMapping("orderMore")
     @ResponseBody
-    public List<Order> moreOrder(String phone){
+    public List<Order> moreOrder(String phone,Model model){
         List<Order> list=orderServiceImpl.orderList(phone,null);
         SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:dd");
         for(int i=0;i<list.size();i++){
             String a=sdf.format(list.get(i).getOrderTime());
             list.get(i).setTime(a);
+            list.get(i).setPageSize(list.size());
         }
         return list;
     }
@@ -160,8 +166,32 @@ public class PersonaliseController {
      * @return
      */
     @RequestMapping("point")
-    public String point(String phone){
+    public String point(String phone, String num, Model model, HttpServletRequest request){
+        Cookie[] cookies = request.getCookies();
+        List<Order> list=orderServiceImpl.queryScores(phone,num);
+        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+        for(int i=0;i<list.size();i++){
+            list.get(i).setTime(sdf.format(list.get(i).getOrderTime()));
+        }
+        if(phone!=null){
+            model.addAttribute("pageNo1",list.get(0).getPageNo());
+            model.addAttribute("summoney",list.get(0).getTotalmoney());
+        }
+        model.addAttribute("scores",list);
         return "www.sparkletour.com/member/point";
+    }
+
+    @RequestMapping("morepoint")
+    @ResponseBody
+    public List<Order> morepoint(String phone,String num,Model model){
+        List<Order> list=orderServiceImpl.queryScores(phone,num);
+        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+        for(int i=0;i<list.size();i++) {
+            String a = sdf.format(list.get(i).getOrderTime());
+            list.get(i).setTime(a);
+            list.get(i).setPageSize(list.size());
+        }
+        return list;
     }
 
     /**

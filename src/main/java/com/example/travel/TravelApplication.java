@@ -10,6 +10,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -46,35 +47,6 @@ public class TravelApplication implements WebMvcConfigurer {
         pageHelper.setProperties(properties);
         return pageHelper;
         }
-    /*@Bean
-    public JedisConnectionFactory jedisConnectionFactory() {
-        JedisConnectionFactory factory = new JedisConnectionFactory();
-        factory.afterPropertiesSet();
-        factory.setHostName("127.0.0.1");
-        factory.setPort(6379);
-        factory.setTimeout(30000);
-        return factory;
-    }
-    @Bean()
-    public RedisTemplate<Object, Object> redisTemplate() {
-        RedisTemplate<Object, Object> redisTemplate = new RedisTemplate<>();
-        redisTemplate.setConnectionFactory(jedisConnectionFactory());
-        redisTemplate.afterPropertiesSet();
-        *//*StringRedisTemplate template = new StringRedisTemplate();
-        Jackson2JsonRedisSerializer jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer(Object.class);
-        ObjectMapper om = new ObjectMapper();
-        om.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
-        om.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
-        jackson2JsonRedisSerializer.setObjectMapper(om);
-        template.setValueSerializer(jackson2JsonRedisSerializer);
-        template.afterPropertiesSet();*//*
-        return redisTemplate;
-    }*/
-
-    @Bean
-    public User find(){
-        return new User();
-    }
 
     public static void main(String[] args) {
         SpringApplication.run(TravelApplication.class, args);

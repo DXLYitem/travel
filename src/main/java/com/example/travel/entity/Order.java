@@ -23,11 +23,17 @@ public class Order implements Serializable {
     //私人订制id
     private int customizeid;
     //用户
-    private User user;
+    private Associator user;
 
     private String time;
 
     private Customize customize;
+
+    private Integer pageNo;
+
+    private Integer pageSize;
+
+    private Double totalmoney;
 
     public Integer getOrderId() {
         return orderId;
@@ -101,12 +107,36 @@ public class Order implements Serializable {
         this.time = time;
     }
 
-    public User getUser() {
+    public Associator getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(Associator user) {
         this.user = user;
+    }
+
+    public Integer getPageNo() {
+        return pageNo;
+    }
+
+    public void setPageNo(Integer pageNo) {
+        this.pageNo = pageNo;
+    }
+
+    public Integer getPageSize() {
+        return pageSize;
+    }
+
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
+    }
+
+    public Double getTotalmoney() {
+        return totalmoney;
+    }
+
+    public void setTotalmoney(Double totalmoney) {
+        this.totalmoney = totalmoney;
     }
 
     @Override

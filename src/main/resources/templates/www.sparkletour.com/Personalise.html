@@ -815,7 +815,7 @@
         })
         $(".point").on("click",function(){
             if($.cookie("customer")){
-                window.location.href="point?phone="+$.cookie("customer");
+                window.location.href="point?phone="+$.cookie("customer")+"&num=0";
             }else{
                 window.location.href="point";
             }

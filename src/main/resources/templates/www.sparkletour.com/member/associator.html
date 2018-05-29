@@ -459,7 +459,7 @@
         })
         $("#point").on("click",function(){
             if($.cookie("customer")){
-                window.location.href="point?phone="+$.cookie("customer").replace(/\"/g,"");
+                window.location.href="point?phone="+$.cookie("customer").replace(/\"/g,"")+"&num=0";
             }else{
                 window.location.href="point";
             }
@@ -480,7 +480,7 @@
         })
         $(".point").on("click",function(){
             if($.cookie("customer")){
-                window.location.href="point?phone="+$.cookie("customer").replace(/\"/g,"");
+                window.location.href="point?phone="+$.cookie("customer").replace(/\"/g,"")+"&num=0";
             }else{
                 window.location.href="point";
             }

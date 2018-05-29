@@ -487,7 +487,7 @@
         })
         $(".point").on("click",function(){
             if($.cookie("customer")){
-                window.location.href="point?phone="+$.cookie("customer");
+                window.location.href="point?phone="+$.cookie("customer")+"&num=0";
             }else{
                 window.location.href="point";
             }
@@ -503,7 +503,7 @@
     }
     $("#btn_login").on("click",function(){
         var phone=$("#txt_phone").val();
-        $.cookie("customer", phone, { expires: 1,path: "/" });
+        $.cookie("customer",JSON.stringify(phone).replace(/\"/g,""), { expires: 1,path: "/" });
         $("#modalMyYaoyue").modal("hide");
     })
 

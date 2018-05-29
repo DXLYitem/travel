@@ -11,7 +11,8 @@
 
     <title>私人旅行顾问_私人定制旅游_奢华旅游-中青旅耀悦高端旅游</title>
 
-    
+    <script src="../../../static/scripts/libs/jquery-3.3.1.js"></script>
+    <script src="../../../static/scripts/libs/vue.js"></script>
 <link rel="shortcut icon" href="/favicon.ico" />
 <link rel="bookmark" href="/favicon.ico" />
 <link rel="stylesheet" href="../../../static/styles/loaders.css" tppabs="http://www.sparkletour.com/styles/loaders.css" />
@@ -438,7 +439,7 @@
                 })
                 $(".point").on("click",function(){
                     if($.cookie("customer")){
-                        window.location.href="point?phone="+$.cookie("customer").replace(/\"/g,"");
+                        window.location.href="point?phone="+$.cookie("customer").replace(/\"/g,"")+"&num=0";
                     }else{
                         window.location.href="point";
                     }
@@ -460,7 +461,7 @@
                 })
                 $("#point").on("click",function(){
                     if($.cookie("customer")){
-                        window.location.href="point?phone="+$.cookie("customer").replace(/\"/g,"");
+                        window.location.href="point?phone="+$.cookie("customer").replace(/\"/g,"")+"&num=0";
                     }else{
                         window.location.href="point";
                     }
@@ -569,8 +570,8 @@
         $("#lnerror_text").hide();
         var phone = $.trim($("#txt_phone").val());
         if (CheckPhone() && CheckCode()) {
-            $.cookie("customer", JSON.stringify(phone), { expires: 1, path: "/" });
-            location.href="point?phone="+phone;
+            $.cookie("customer", JSON.stringify(phone).replace(/\"/g,""), { expires: 1, path: "/" });
+            location.href="point?phone="+phone+"&num=0";
         }
     });
     $("#btn_send_code").bind("click", function () {
@@ -629,7 +630,7 @@
                     <div class="shenjifentop">
                         <div class="shenjftleft">
                             <span>剩余积分</span>
-                            <span class="shenfen" id="spRemainPoint">21956</span>
+                            <span class="shenfen" id="spRemainPoint" th:text="${summoney}"></span>
                             <div style="clear: both;"></div>
                         </div>
                         <div class="shenjftleft shenjftright">
@@ -653,17 +654,25 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td class="t1">2016-05-26</td>
-                                        <td class="t2">订单[031604254029]消费获取</td>
-                                        <td class="t3 td3">+21956</td>
+                                    <tr th:each="sc:${scores}" class="model">
+                                        <td class="t1" th:text="${sc.time}">2016-05-26</td>
+                                        <td class="t2" th:text="'订单['+${sc.orderNum}+']消费获取'">031604254029</td>
+                                        <td class="t3 td3" th:text="'+'+${sc.price}">+21956</td>
+                                        <td class="t4">消费获得</td>
+                                    </tr>
+                                    <tr v-for="or in order" class="vue">
+                                        <td class="t1">{{or.time}}</td>
+                                        <td class="t2"> 订单[{{or.orderNum}}]消费获取</td>
+                                        <td class="t3 td3">+{{or.price}}</td>
                                         <td class="t4">消费获得</td>
                                     </tr>
                                 </tbody>
                             </table>
                             <div style="clear: both"></div>
-                            <div id="divmPAdetail" class="shenjiazhaigengduo" style="display: none">
-                                <button id="btnPQuery" type="button">加载更多(<span id="spAdtxt">3</span>/<span id="spAdtxtTatol">1</span>)</button>
+                            <div id="divmPAdetail" class="shenjiazhaigengduo">
+                                <button id="btnPQuery" type="button">加载更多
+                                    (<span id="spAdtxt" th:text="${pageNo1}">3</span>/<span id="spAdtxtTatol">{{pagesize}}</span>)
+                                </button>
                             </div>
                         </div>
                         <div class="shenjftable" id="shenmingxi">
@@ -689,7 +698,6 @@
                 <div class="clearfix"></div>
             </div>
 
-            
 <section class="brandStory" id="brandStory">
     <div class="contentWrapper row">
         <h2 class="accessible">品牌故事</h2>
@@ -785,7 +793,37 @@
         s.parentNode.insertBefore(hm, s);
     })();
 </script>
-
+        <script th:inline="javascript">
+            $(function(){
+                var shenlaiyuan = new Vue({
+                    el: "#shenlaiyuan",
+                    data: {
+                        pageno:{},
+                        pagesize:1,
+                        sumlmoney:{},
+                        customize:{},
+                        order:[]
+                     }
+                })
+                $("#btnPQuery").on("click",function () {
+                    var phone=$.cookie("customer").replace(/\"/g,"");
+                    $.ajax({
+                        url:"morepoint",
+                        data:{"phone":phone},
+                        dataType:"json",
+                        type:"post",
+                        success:function(data){
+                            $(".model").remove();
+                            $(".vue").show();
+                            shenlaiyuan.order=data;
+                            shenlaiyuan.pageno=data[0].pageNo;
+                            shenlaiyuan.pagesize=data[0].pageSize;
+                            shenlaiyuan.sumlmoney=data[0].totalmoney;
+                        }
+                    })
+                })
+            })
+        </script>
 
 
     </div>

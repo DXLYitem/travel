@@ -639,7 +639,9 @@
                             
                             <div style="clear: both"></div>
                             <div id="divOrderJzgd" class="shenjiazhaigengduo">
-                                <button id="btnOrderJZGD" type="button">加载更多</button>
+                                <button id="btnOrderJZGD" type="button">加载更多
+                                    (<span id="spAdtxt"th:text="${pageNo}"></span>/<span id="spAdtxtTatol">{{pagesize}}</span>)
+                                </button>
                             </div>
                         </div>
                             <div class="modal fade modalMyYaoyue" id="associatorshow" tabindex="-1" role="dialog" aria-labelledby="modalMyYaoyueLabel" aria-hidden="true" data-backdrop="static">
@@ -653,6 +655,7 @@
                                             <span class="shencrtl">订单查询</span>
                                         </div>
                                         <div id="apptb1">
+
                                             <div class="shentable">
                                                 <table  style="width: 100%">
                                                     <thead>
@@ -685,42 +688,42 @@
                         $(function(){
                             $("#associator").on("click",function(){
                                 if($.cookie("customer")){
-                                    window.location.href="associator?phone="+$.cookie("customer");
+                                    window.location.href="associator?phone="+$.cookie("customer").replace(/\"/g,"");
                                 }else{
                                     window.location.href="associator";
                                 }
                             })
                             $("#order").on("click",function(){
                                 if($.cookie("customer")){
-                                    window.location.href="order?phone="+$.cookie("customer");
+                                    window.location.href="order?phone="+$.cookie("customer").replace(/\"/g,"");
                                 }else{
                                     window.location.href="order";
                                 }
                             })
                             $("#point").on("click",function(){
                                 if($.cookie("customer")){
-                                    window.location.href="point?phone="+$.cookie("customer");
+                                    window.location.href="point?phone="+$.cookie("customer").replace(/\"/g,"")+"&num=0";
                                 }else{
                                     window.location.href="point";
                                 }
                             })
                             $(".associator").on("click",function(){
                                 if($.cookie("customer")){
-                                    window.location.href="associator?phone="+$.cookie("customer");
+                                    window.location.href="associator?phone="+$.cookie("customer").replace(/\"/g,"");
                                 }else{
                                     window.location.href="associator";
                                 }
                             })
                             $(".order").on("click",function(){
                                 if($.cookie("customer")){
-                                    window.location.href="order?phone="+$.cookie("customer")+"&num=0";
+                                    window.location.href="order?phone="+$.cookie("customer").replace(/\"/g,"")+"&num=0";
                                 }else{
                                     window.location.href="order";
                                 }
                             })
                             $(".point").on("click",function(){
                                 if($.cookie("customer")){
-                                    window.location.href="point?phone="+$.cookie("customer");
+                                    window.location.href="point?phone="+$.cookie("customer").replace(/\"/g,"")+"&num=0";
                                 }else{
                                     window.location.href="point";
                                 }
@@ -728,6 +731,8 @@
                             var apptb = new Vue({
                                 el: "#apptb",
                                 data: {
+                                    pageno:{},
+                                    pagesize:1,
                                     customize:{},
                                     order:[]
                                 },
@@ -770,6 +775,8 @@
                                    success:function(data){
                                        $(".model").remove();
                                        apptb.order=data;
+                                       apptb.pageno=data[0].pageNo;
+                                       apptb.pagesize=data[0].pageSize;
                                    }
                                })
                            })
