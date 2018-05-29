@@ -36,6 +36,16 @@ public class Item implements Serializable {
     private Integer trafficId;
     //旅行方式ID
     private Integer styleId;
+    //图片路径
+    private String picPath;
+
+    public String getPicPath() {
+        return picPath;
+    }
+
+    public void setPicPath(String picPath) {
+        this.picPath = picPath;
+    }
 
     //偏好名
     private String hobbyName;
@@ -49,6 +59,53 @@ public class Item implements Serializable {
     private String travelName;
 
     private Integer continentId;
+
+    private Integer brandId;
+    //度假套餐ID
+    private Integer holidayId;
+    private String holidayName;
+    private String brandName;
+    private String continentName;
+
+    public Integer getBrandId() {
+        return brandId;
+    }
+
+    public void setBrandId(Integer brandId) {
+        this.brandId = brandId;
+    }
+
+    public Integer getHolidayId() {
+        return holidayId;
+    }
+
+    public void setHolidayId(Integer holidayId) {
+        this.holidayId = holidayId;
+    }
+
+    public String getHolidayName() {
+        return holidayName;
+    }
+
+    public void setHolidayName(String holidayName) {
+        this.holidayName = holidayName;
+    }
+
+    public String getBrandName() {
+        return brandName;
+    }
+
+    public void setBrandName(String brandName) {
+        this.brandName = brandName;
+    }
+
+    public String getContinentName() {
+        return continentName;
+    }
+
+    public void setContinentName(String continentName) {
+        this.continentName = continentName;
+    }
 
     public Integer getContinentId() {
         return continentId;
@@ -210,7 +267,6 @@ public class Item implements Serializable {
         this.styleId = styleId;
     }
 
-
     @Override
     public String toString() {
         return "Item{" +
@@ -228,11 +284,18 @@ public class Item implements Serializable {
                 ", travelId=" + travelId +
                 ", trafficId=" + trafficId +
                 ", styleId=" + styleId +
+                ", picPath='" + picPath + '\'' +
                 ", hobbyName='" + hobbyName + '\'' +
                 ", styleName='" + styleName + '\'' +
                 ", themeName='" + themeName + '\'' +
                 ", trafficName='" + trafficName + '\'' +
                 ", travelName='" + travelName + '\'' +
+                ", continentId=" + continentId +
+                ", brandId=" + brandId +
+                ", holidayId=" + holidayId +
+                ", holidayName='" + holidayName + '\'' +
+                ", brandName='" + brandName + '\'' +
+                ", continentName='" + continentName + '\'' +
                 '}';
     }
 }

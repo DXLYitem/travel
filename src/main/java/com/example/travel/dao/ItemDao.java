@@ -26,7 +26,10 @@ public interface ItemDao {
             @Param("styleId") Integer styleId,
             @Param("startTime") Date startTime,
             @Param("continentId")Integer continentId,
-            @Param("countryId")Integer countryId
+            @Param("countryId")Integer countryId,
+            @Param("detailId")Integer detailId,
+            @Param("brandId")Integer brandId,
+            @Param("holidayId")Integer holidayId
                          /* @Param("currentPage") Integer currentPage,
                           @Param("pageSize") Integer pageSize*/
     );
@@ -46,7 +49,7 @@ public interface ItemDao {
                         @Param("styleId") Integer styleId);
 
 
-    List<Item>selectDetailId(@Param("detailId") Integer themeId);
+    /*List<Item>selectDetailId(@Param("detailId") Integer themeId);*/
 
 
     List<Item> selectTravelName(@Param("themeId") Integer themeId,

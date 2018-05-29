@@ -2,6 +2,7 @@ package com.example.travel.biz.impl;
 
 import com.example.travel.biz.HotelService;
 import com.example.travel.dao.HotelDao;
+import com.example.travel.entity.Country;
 import com.example.travel.entity.Hotel;
 import com.example.travel.util.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,14 +33,14 @@ public class HotelServiceImpl implements HotelService {
 
     @Override
     public List<Hotel> findByhotelId(Integer hotelId) {
-        String key="key"+hotelId;
-        List<Hotel>hotels=null;
-        if(redisUtil.exists(key)){
-         hotels= (List<Hotel>)redisUtil.lRange(key,0,redisUtil.length(key)) .get(0);
-        }else {
-           hotels=hotelDao.selectByhotelId(hotelId);
-            redisUtil.lPush(key,hotels);
+        String kedy = "kedy" + hotelId;
+        if (redisUtil.exists(kedy)) {
+            Object o = redisUtil.lRange(kedy, 0, redisUtil.length(kedy)).get(0);
+            return (List<Hotel>) o;
+        } else {
+            List<Hotel> list = hotelDao.selectByhotelId(hotelId);
+            redisUtil.lPush(kedy, list);
+            return list;
         }
-        return hotels;
     }
 }

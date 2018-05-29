@@ -1,9 +1,10 @@
 package com.example.travel.control;
 
 import com.example.travel.biz.*;
-import com.example.travel.entity.*;
-import org.springframework.ui.Model;
+import com.example.travel.entity.Continent;
+import com.example.travel.entity.Item;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -14,18 +15,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * 海外健康控制层
+ *
+ */
 @Controller
-public class DetailControl {
-    @Resource
-    private DetailService detailService;
+public class HealthIndex {
     @Resource
     private ItemService itemService;
-    @Resource
-    private IntroductionService introductionService;
-    @Resource
-    private ScheduleService scheduleService;
-    @Resource
-    private HotelService hotelService;
     @Resource
     private ContinentService continentService;
     @Resource
@@ -44,11 +41,12 @@ public class DetailControl {
     private HolidayService holidayService;
     @Resource
     private BrandService brandService;
-    @RequestMapping("ProductDetail")
-    private String detailList(@RequestParam(required=true,defaultValue="1") Integer page, Model model, Integer detailId,
-                              Integer themeId, Integer hobbyId, Integer travelId,
-                              Integer trafficId, Integer styleId, Integer pn,
-                              String  startTime,Integer continentId,Integer countryId,Integer brandId,Integer holidayId)throws ParseException {
+    @RequestMapping("HealthIndex")
+    public String health(@RequestParam(required=true,defaultValue="1") Integer page, Model model,
+                         Integer themeId, Integer hobbyId, Integer travelId,
+                         Integer trafficId, Integer styleId, Integer pn, String  startTime, Integer continentId,
+                         Integer countryId, Integer detailId, Integer brandId, Integer holidayId) throws ParseException {
+
         SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
         Date date=new Date();
         if(startTime!=null){
@@ -61,6 +59,7 @@ public class DetailControl {
         for(int i=0;i<list.size();i++){
             model.addAttribute("couList"+i,countryService.listCountry(list.get(i).getContinentId()));
         }
+
         //偏好
         model.addAttribute("h",hobbyService.listHobby(1));
         //主题
@@ -71,6 +70,14 @@ public class DetailControl {
         model.addAttribute("s",styleService.listStyle(4));
         //旅行主题
         model.addAttribute("themeList",themeService.listTheme());
+        //度假套餐
+        model.addAttribute("holidayList", holidayService.listHoliday());
+        //酒店品牌
+        model.addAttribute("b", brandService.listBrand(1));
+
+        model.addAttribute("continent",continentService.listContinentByholidayId(2));
+
+
         //page从第几页开始，pagerSize每页显示3条数据
         // PageHelper.startPage(page,10);
         List<Item>itemList=itemService.itemsList(themeId, hobbyId, travelId, trafficId, styleId,date,continentId,countryId,detailId,brandId,holidayId);
@@ -94,54 +101,8 @@ public class DetailControl {
             model.addAttribute("hList",hList);
             //  model.addAttribute("arrExplain",explain);
         }
-        //酒店品牌
-        model.addAttribute("b", brandService.listBrand(1));
-         //查询地区表
-        model.addAttribute("continent",continentService.listContinentByholidayId(2));
-        //度假套餐
-        model.addAttribute("holidayList", holidayService.listHoliday());
-        /**
-         * 根据详细Id查询
-         */
-        List<Detail>detailList=detailService.detailList(detailId);
-      /*  *//**
-         * 根据项目Id查询
-         *//*
-        List<Item>itemListt=itemService.findDetailId(detailId);*/
-        /**
-         * 根据介绍Id查询
-         */
-        List<Introduction>introList=introductionService.finddetailId(detailId);
-        if(introList!=null){
-            model.addAttribute("introList",introList);
-        }
-        if(itemList!=null){
-            model.addAttribute("itemList",itemList);
-        }
-        if(detailList!=null){
-            model.addAttribute("detailList",detailList);
-        }
-        /**
-         * 根据项目id查询行程表
-         */
-        Integer itemid=null;
-        if(detailList.size()>0){
-            itemid=detailList.get(0).getItemId();
-        }
-        List<Schedule>schedList=scheduleService.findByitemId(itemid);
-        model.addAttribute("schedList",schedList);
 
-        /**
-         * 根据行程表中的酒店Id查询酒店信息
-         */
-        Integer hotelId=null;
-        if(schedList.size()>0){
-            hotelId=schedList.get(0).getHotelId();
-        }
-        List<Hotel>hotels=hotelService.findByhotelId(hotelId);
-        model.addAttribute("hotels",hotels);
 
-        return "/www.sparkletour.com/ProductDetail/39634";
+        return "/www.sparkletour.com/health";
     }
 }
-

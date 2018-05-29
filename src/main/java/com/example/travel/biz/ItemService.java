@@ -10,21 +10,18 @@ import java.util.List;
  */
 public interface ItemService {
     List<Item>itemsList(Integer themeId, Integer hobbyId, Integer travelId, Integer trafficId, Integer styleId,
-                        Date startTime,Integer continentId ,Integer countryId);
+                        Date startTime,Integer continentId ,Integer countryId,Integer detailId,Integer brandId,Integer holidayId);
 
-   boolean itemCount(Integer themeId, Integer hobbyId, Integer travelId, Integer trafficId, Integer styleId);
-
-    /**
+/*    *//**
      * 根据详细Id查询
      * @param detailId
      * @return
-     */
-    List<Item>findDetailId(Integer detailId);
+     *//*
+    List<Item>findDetailId(Integer detailId);*/
 
     List<Item> listTravelName(Integer themeId, Integer hobbyId, Integer travelId, Integer trafficId, Integer styleId,
                               Date startTime,Integer continentId ,Integer countryId);
 
     List<Item> listHobbyName(Integer themeId, Integer hobbyId, Integer travelId, Integer trafficId, Integer styleId,
-                              Date startTime,Integer continentId ,Integer countryId);
-
+                             Date startTime,Integer continentId ,Integer countryId);
 }

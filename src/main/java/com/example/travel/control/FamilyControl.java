@@ -4,12 +4,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * 世界控制层
+ * 亲子优选控制层
  */
 @Controller
-public class LandControl {
-    @RequestMapping("land")
-    public String lang(){
-        return "/www.sparkletour.com/nge/land";
+public class FamilyControl {
+    @RequestMapping("family")
+    public String family(){
+        return "/www.sparkletour.com/nge/family";
     }
 }

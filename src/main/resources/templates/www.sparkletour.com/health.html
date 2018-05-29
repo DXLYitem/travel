@@ -1,26 +1,20 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<!--<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>-->
-<head>
-    <meta charset=utf-8"utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="大溪地-中青旅耀悦高端旅游" />
-    <meta name="author" content="耀悦旅行" />
-    <title>
-        大溪地-中青旅耀悦高端旅游
-    </title>
 
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head><meta charset=utf-8"utf-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="description" content="高端旅游俱乐部-中青旅耀悦高端旅游" /><meta name="author" content="耀悦旅行" /><title>
+    海外健康-中青旅耀悦高端旅游
+</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="bookmark" href="/favicon.ico" />
-    <link rel="stylesheet" href="../../../static/styles/loaders.css"/>
-    <link rel="stylesheet" href="../../../static/scripts/libs/owl-carousel/owl.carousel.css">
-    <link rel="stylesheet" href="../../../static/scripts/libs/owl-carousel/owl.theme.css">
-    <link rel="stylesheet" href="../../../static/scripts/libs/jPlayer/skin/pink.flag/css/jplayer.pink.flag.min.css" />
-    <link rel="stylesheet" href="../../../static/styles/custom.css-ver=20171031132229.css" />
-    <script type="text/javascript" src="../../../static/scripts/jquery-1.9.1.js"></script>
-    <!--<script type="text/javascript" src="../../../static/scripts/myjs.js"></script>-->
-    <script type="text/javascript" src="../../../static/scripts/o_code.js-ver=20180305112245"></script>
+    <link rel="stylesheet" href="../../static/styles/loaders.css" tppabs="http://www.sparkletour.com/styles/loaders.css" />
+    <link rel="stylesheet" href="../../static/scripts/libs/owl-carousel/owl.carousel.css" tppabs="http://www.sparkletour.com/scripts/libs/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="../../static/scripts/libs/owl-carousel/owl.theme.css" tppabs="http://www.sparkletour.com/scripts/libs/owl-carousel/owl.theme.css">
+    <link rel="stylesheet" href="../../static/scripts/libs/jPlayer/skin/pink.flag/css/jplayer.pink.flag.min.css" tppabs="http://www.sparkletour.com/scripts/libs/jPlayer/skin/pink.flag/css/jplayer.pink.flag.min.css" />
+    <link rel="stylesheet" href="../../static/styles/custom.css-ver=20171031132229.css" tppabs="http://www.sparkletour.com/styles/custom.css?ver=20171031132229" />
+    <script type="text/javascript" src="../../static/scripts/jquery-1.9.1.js" tppabs="http://www.sparkletour.com/scripts/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="../../scripts/myjs.js" tppabs="http://www.sparkletour.com/scripts/myjs.js"></script>
+    <script type="text/javascript" src="../../static/scripts/o_code.js-ver=20180305112245" tppabs="http://www.sparkletour.com/scripts/o_code.js?ver=20180305112245"></script>
     <style type="text/css">
         .sider-chart {
             position: absolute;
@@ -29,7 +23,7 @@
             border-radius: 10px;
             width: 50px;
             height: 135px;
-            background: url("../../../static/images/sider-chart.png")/*tpa=http://www.sparkletour.com/images/sider-chart.png*/ no-repeat -1px 0;
+            background: url("../../static/images/sider-chart.png")/*tpa=http://www.sparkletour.com/themes/images/sider-chart.png*//*tpa=http://www.sparkletour.com/themes/images/sider-chart.png*/ no-repeat -1px 0;
         }
 
         .sider-chart .top-service {
@@ -61,7 +55,7 @@
         .top-service .chart-img .inner {
             width: 262px;
             height: 297px;
-            background: url("../../../static/images/chart-img.png")/*tpa=http://www.sparkletour.com/images/chart-img.png*/ no-repeat left top;
+            background: url("../../static/images/chart-img.png")/*tpa=http://www.sparkletour.com/themes/images/chart-img.png*//*tpa=http://www.sparkletour.com/themes/images/chart-img.png*/ no-repeat left top;
             box-shadow: 5px 5px 5px #ccc;
             box-shadow: 5px 5px 5px #ccc;
         }
@@ -84,7 +78,7 @@
             left: 50%;
             -webkit-transform: translate3d(-50%,-50%,0);
             -moz-transform: translate3d(-50%,-50%,0);
-            -o-transform:translate3d(-50%,-50%,0);
+            -0-transform:translate3d(-50%,-50%,0);
             z-index: 9999;
             display: none;
             transform: translate3d(-50%,-50%,0);
@@ -109,199 +103,86 @@
         }
     </style>
 
-    <script src="../../../static/scripts/libs/jquery-1.11.2.min.js"></script>
-    <script src="../../../static/scripts/libs/jquery.enplaceholder.js"></script>
-    <script src="../../../static/scripts/libs/jquery.easing.min.js"></script>
-    <script src="../../../static/scripts/libs/owl-carousel/owl.carousel.min.js"></script>
-    <script src="../../../static/scripts/libs/jquery.zaccordion.min.js"></script>
-    <script src="../../../static/scripts/libs/jquery.simplyscroll.min.js"></script>
-    <script src="../../../static/scripts/libs/jPlayer/jquery.jplayer.min.js"></script>
-    <script src="../../../static/scripts/libs/icheck.min.js"></script>
+    <script src="../../static/scripts/libs/jquery-1.11.2.min.js" tppabs="http://www.sparkletour.com/scripts/libs/jquery-1.11.2.min.js"></script>
+    <script src="../../static/scripts/libs/jquery.enplaceholder.js" tppabs="http://www.sparkletour.com/scripts/libs/jquery.enplaceholder.js"></script>
+    <script src="../../static/scripts/libs/jquery.easing.min.js" tppabs="http://www.sparkletour.com/scripts/libs/jquery.easing.min.js"></script>
+    <script src="../../static/scripts/libs/owl-carousel/owl.carousel.min.js" tppabs="http://www.sparkletour.com/scripts/libs/owl-carousel/owl.carousel.min.js"></script>
+    <script src="../../static/scripts/libs/jquery.zaccordion.min.js" tppabs="http://www.sparkletour.com/scripts/libs/jquery.zaccordion.min.js"></script>
+    <script src="../../static/scripts/libs/jquery.simplyscroll.min.js" tppabs="http://www.sparkletour.com/scripts/libs/jquery.simplyscroll.min.js"></script>
+    <script src="../../static/scripts/libs/jPlayer/jquery.jplayer.min.js" tppabs="http://www.sparkletour.com/scripts/libs/jPlayer/jquery.jplayer.min.js"></script>
+    <script src="../../static/scripts/libs/icheck.min.js" tppabs="http://www.sparkletour.com/scripts/libs/icheck.min.js"></script>
 
-    <script src="../../../static/scripts/libs/bootstrap-datepicker.min.js"></script>
-    <script src="../../../static/scripts/libs/bootstrap-datepicker.zh-CN.min.js" ></script>
-    <script src="../../../static/scripts/libs/bootstrap-typeahead.min.js"></script>
-    <script src="../../../static/scripts/libs/bloodhound.min.js"></script>
-    <script src="../../../static/scripts/autocomplete.js"></script>
-    <script src="../../../static/scripts/custom.js-ver=20170904134726"></script>
-    <script src="../../../static/scripts/jquery.cookie.js"></script>
-    <script src="../../../static/scripts/libs/bootstrap.min.js"></script>
-    <script src="../../../static/scripts/yaoyue.default.js"></script>
+    <script src="../../static/scripts/libs/bootstrap-datepicker.min.js" tppabs="http://www.sparkletour.com/scripts/libs/bootstrap-datepicker.min.js"></script>
+    <script src="../../static/scripts/libs/bootstrap-datepicker.zh-CN.min.js" tppabs="http://www.sparkletour.com/scripts/libs/bootstrap-datepicker.zh-CN.min.js"></script>
+    <script src="../../static/scripts/libs/bootstrap-typeahead.min.js" tppabs="http://www.sparkletour.com/scripts/libs/bootstrap-typeahead.min.js"></script>
+    <script src="../../static/scripts/libs/bloodhound.min.js" tppabs="http://www.sparkletour.com/scripts/libs/bloodhound.min.js"></script>
+    <script src="../../static/scripts/autocomplete.js" tppabs="http://www.sparkletour.com/scripts/autocomplete.js"></script>
+    <script src="../../static/scripts/custom.js-ver=20170904134726" tppabs="http://www.sparkletour.com/scripts/custom.js?ver=20170904134726"></script>
+    <script src="../../static/scripts/jquery.cookie.js" tppabs="http://www.sparkletour.com/scripts/jquery.cookie.js"></script>
+    <script src="../../static/scripts/libs/bootstrap.min.js" tppabs="http://www.sparkletour.com/scripts/libs/bootstrap.min.js"></script>
+    <script src="../../static/scripts/yaoyue.default.js" tppabs="http://www.sparkletour.com/scripts/yaoyue.default.js"></script>
 
 
     <!--[if (gte IE 6)&(lte IE 8)]>
-    <script type="text/javascript" src="../../../static/scripts/libs/selectivizr-min.js"></script>
+    <script type="text/javascript" src="../../static/scripts/libs/selectivizr-min.js"
+            tppabs="http://www.sparkletour.com/scripts/libs/selectivizr-min.js"></script>
     <![endif]-->
 
     <link rel="alternate" href="javascript:void(0);" hreflang="zh-Hant" />
-    <link rel="stylesheet" href="../../../static/scripts/libs/bootstrap.min.css" />
-    <link rel="stylesheet" href="../../../static/scripts/libs/bootstrap-datepicker3.css"/>
+    <link rel="stylesheet" href="../../static/scripts/libs/bootstrap.min.css" tppabs="http://www.sparkletour.com/scripts/libs/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../static/scripts/libs/bootstrap-datepicker3.css" tppabs="http://www.sparkletour.com/scripts/libs/bootstrap-datepicker3.css" />
 
 
     <!--[if (gt IE 8)|!(IE)]><!-->
-    <link rel="stylesheet" href="../../../static/styles/default.css"/>
-    <link rel="stylesheet" href="../../../static/styles/shen.css"/>
-    <link rel="stylesheet" href="../../../static/styles/shen150920.css-ver=20171130141404.css" />
+    <link rel="stylesheet" href="../../static/styles/default.css" tppabs="http://www.sparkletour.com/styles/default.css" />
+    <link rel="stylesheet" href="../../static/styles/shen.css" tppabs="http://www.sparkletour.com/styles/shen.css" />
+    <link rel="stylesheet" href="../../static/styles/shen150920.css-ver=20171130141404.css" tppabs="http://www.sparkletour.com/styles/shen150920.css?ver=20171130141404" />
     <!--<![endif]-->
 
 
 
-    <!--[if (lte IE 8)&!(IEMobile)]><link rel="stylesheet" href="../../../static/styles/oldie.css" type="text/css" media="screen, projection" /><![endif]-->
+    <!--[if (lte IE 8)&!(IEMobile)]>
+    <link rel="stylesheet" href="../../static/styles/oldie.css" tppabs="http://www.sparkletour.com/styles/oldie.css"
+          type="text/css" media="screen, projection"/><![endif]-->
     <!--[if lt IE 9]>
-    <script src="../../../static/scripts/libs/html5shiv.js"></script>
+    <script src="../scripts/libs/html5shiv.js" tppabs="http://www.sparkletour.com/themes/scripts/libs/html5shiv.js"></script>
     <![endif]-->
     <script>
         var _hmt = _hmt || [];
         (function () {
             var hm = document.createElement("script");
-            hm.src = "../../hm.baidu.com/hm.js-6f73c5138127e55458126f6f07b458ac"/*tpa=https://hm.baidu.com/hm.js?6f73c5138127e55458126f6f07b458ac*/;
+            hm.src = "../../../hm.baidu.com/hm.js-6f73c5138127e55458126f6f07b458ac"/*tpa=https://hm.baidu.com/hm.js?6f73c5138127e55458126f6f07b458ac*/;
             var s = document.getElementsByTagName("script")[0];
             s.parentNode.insertBefore(hm, s);
             var hm2 = document.createElement("script");
-            hm2.src = "../../hm.baidu.com/hm.js-1fefae274a4bd92d9d3d722764124989"/*tpa=https://hm.baidu.com/hm.js?1fefae274a4bd92d9d3d722764124989*/;
+            hm2.src = "../../../hm.baidu.com/hm.js-1fefae274a4bd92d9d3d722764124989"/*tpa=https://hm.baidu.com/hm.js?1fefae274a4bd92d9d3d722764124989*/;
             s.parentNode.insertBefore(hm2, s);
         })();
     </script>
     <script type="text/javascript" > var _oztime = (new Date()).getTime(); </script>
+    <link href="../../static/themes/health/css/ym.css" tppabs="http://www.sparkletour.com/themes/health/css/ym.css" rel="stylesheet" type="text/css" />
+    <style>
+        .masthead .navigation ul li a {
+            font-size: 1.12em;
+        }
+        .masthead .navigation .level2 a {
+            font-size: 1.0em;
+        }
+        .masthead .quickTool .phone {
+            font-size: 1.12em;
+        }
 
-    <script type="text/ecmascript">
-        $(function () {
+        .masthead .quickTool .searchForm .quickSearch button {
+            font-size: 1.0em;
+            padding-left: 8px;
+        }
 
-            /*   $(".loadMore").on("click", function () {
-                if ($(".m-product-sublist:hidden").length > 0) {
-                    $(".m-product-sublist:hidden").eq(0).show();
-                    modifyLoadMore();
-                }
-            });
-
-            $(".checkbox input[type=checkbox]").on("change", function () {
-                doSearch();
-            });
-            window.setTimeout(function () {
-                $("#byStartDate,#byReturnDate").on("changeDate", doSearch);
-            }, 500);
-            $(".list-inline li a").on("click", sortList);
-            modifyLoadMore();
-        });
-        function modifyLoadMore() {
-            var count = $(".m-product-sublist section").length;
-            var loaded = $(".m-product-sublist:visible section").length;
-            if (loaded >= count) {
-                $("button.loadMore").hide();
-            }
-            else {
-                $("button.loadMore").show();
-                $(".loaded").text(loaded);
-                $(".total").text(count);
-            }
-        }*/
-            function sortList(event) {
-                $(".list-inline li").removeClass("active");
-                var $li = $(this).closest("li");
-                $li.addClass("active");
-                $(".sortable").not($li).removeClass("sort-down sort-up");
-                if ($li.hasClass("sortable")) {
-                    if ($li.hasClass("sort-up")) {
-                        $li.removeClass("sort-up").addClass("sort-down");
-                    }
-                    else {
-                        $li.removeClass("sort-down").addClass("sort-up");
-                    }
-                }
-                if (!$("#showEmptyText").val()) {
-                    doSearch();
-                }
-            }
-
-            function doSearch() {
-                var objParam = {};
-                var labels = [];
-                labels.push($("#hidDefaultLabel").val());
-                var byStyle = $("input[name=byStyle]:checked");
-                var byPrefer = $("input[name=byClientPreference]:checked");
-                var byDestiny = $("input[name=ByDestinationContinent]:checked");
-                var pt = $("#hid_pt").val()
-                if (byStyle) {
-                    for (var i = 0; i < byStyle.length; i++) {
-                        labels.push(byStyle[i].value);
-                    }
-                }
-                if (byPrefer) {
-                    for (var i = 0; i < byPrefer.length; i++) {
-                        labels.push(byPrefer[i].value);
-                    }
-                }
-                if (byDestiny) {
-                    for (var i = 0; i < byDestiny.length; i++) {
-                        labels.push(byDestiny[i].value);
-                    }
-                }
-                objParam.labels = labels;
-                objParam.startDate = $("#byStartDate").val();
-                objParam.endDate = $("#byReturnDate").val();
-                //4 default; 0 price asc; 1 price desc; 2 days asc; 3 days desc
-                var sortField = 4;
-                var selSortField = $(".list-inline li.active");
-                var sKey = selSortField.attr("key");
-                if (sKey === "price") {
-                    if (selSortField.hasClass("sort-down")) {
-                        sortField = 1;
-                    }
-                    else {
-                        sortField = 0;
-                    }
-                }
-                if (sKey === "days") {
-                    if (selSortField.hasClass("sort-down")) {
-                        sortField = 3;
-                    }
-                    else {
-                        sortField = 2;
-                    }
-                }
-
-                objParam.sortField = sortField;
-                objParam.pt = pt
-                var params = $.param(objParam, true);
-                $.ajax({
-                    url: "http://www.sparkletour.com/Product/AjaxProductList.ashx",
-                    type: "get",
-                    data: params,
-                    success: function (respHtml) {
-                        $(".productList").html(respHtml);
-                        modifyLoadMore();
-                        $(".iconClock,.iconArrowUp,.iconGroup").tooltip();
-                    }
-                });
-            }
-        })
-
-    </script>
-
+        .stickyTools ul a {
+            font-size: 0.9em;
+        }
+    </style>
 </head>
 <body>
-
-<div class="chart-mask1"></div>
-<div class="loadingindex">
-    <div class="loader">
-        <div class="loader-inner ball-spin-fade-loader">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>
-</div>
-<div class="loaderbtn">
-    <div class="loader-inner ball-clip-rotate">
-        <div></div>
-    </div>
-</div>
-
 
 <a class="skipLink" href="#pageContent">Skip navigation</a>
 <aside class="stickyTools">
@@ -324,19 +205,21 @@
     </div>
 </aside>
 
+
 <div class="pageWrapper" id="pageWrapper">
+
 
 
     <header class="header" role="banner" id="siteHeader">
         <div class="masthead">
             <div class="contentWrapper">
-                <h1 class="logo"><a href="index.html" tppabs="http://www.sparkletour.com/">
+                <h1 class="logo"><a href="../../index.html" tppabs="http://www.sparkletour.com/">
                     <img src="../../static/images/content/logo.png"  alt="耀悅"></a></h1>
 
                 <nav class="navigation" role="navigation">
                     <ul class="level1">
                         <li class="discover">
-                            <a href="javascript:void(0);">探索世界</a>
+                            <a href="index">探索世界</a>
                             <ul class="level2">
                                 <li th:each="con,last : ${conList}">            <!--洲-->
                                     <a th:href="@{'ProductList?continentId='+${con.continentId}}" th:text="${con.continentName}">o</a>
@@ -368,14 +251,14 @@
 
                                     </ul>
                                 </li>
-
                             </ul>
                         </li>
                         <li>
                             <a href="javascript:void(0);">主题臻选</a>
                             <ul class="level2">
                                 <li th:each="theme : ${themeList}">
-                                    <a th:href="@{'ProductList?themeId='+${theme.themeId}}"><span th:text="${theme.themeName}"></span></a>
+                                    <a th:href="@{'ProductList?themeId='+${theme.themeId}}"><span
+                                            th:text="${theme.themeName}"></span></a>
 
                                     <ul class="level3">
                                         <div th:if="${theme.themeId} eq '1'">
@@ -442,17 +325,20 @@
                     <div class="tool">
                         <div class="searchForm">
                             <div class="quickSearch">
-
+                                <!-- <input type="text" name="keyword" id="keyword" placeholder="快速搜索" /> -->
                                 <button>快速搜索<span class="accessible">搜索</span></button>
                             </div>
                             <div class="searchPanel">
                                 <a href="javascript:void(0);" class="close">X<span class="accessible">关闭搜索面板</span></a>
                                 <div class="row">
                                     <fieldset class="byDate">
-                                        <legend>按出发时间</legend>
+                                        <legend>按时间出行</legend>
                                         <ul>
                                             <li>
-                                                <input type="text" class="datePicker" id="txtStartDate" value=""  style="width: 260px;height: 32px;"/></li>
+                                                <input type="text" class="datePicker" id="txtStartDate" value=""
+                                                       style="width: 260px;height: 32px;"/></li>
+                                            <!-- <li>
+                                                 <input type="text" class="datePicker" id="txtEndDate" value="" /></li>-->
                                         </ul>
                                     </fieldset>
                                     <fieldset class="byDestination">
@@ -463,6 +349,7 @@
                                                 <option  style="background-color: #0c1116" value="0">请选择</option>
                                                 <option th:each="con: ${conList}" style="background-color: #0c1116" th:value="${con.continentId}" th:text="${con.continentName}"></option>
                                             </select>
+                                            <!-- <input type="text" class="inputDestination" id="searchByDestination" placeholder="输入目的地" />-->
                                         </div>
                                     </fieldset>
                                 </div>
@@ -472,6 +359,9 @@
                             </div>
                         </div>
                     </div>
+
+
+
 
                     <div id="loginbefore" class="tool" style="display:none;">
                         <a href="javascript:void(0);" onclick="modalMyYaoyueShow()" class="loginBtn"></a>
@@ -559,7 +449,7 @@
             })
             $(".order").on("click",function(){
                 if($.cookie("customer")){
-                    window.location.href="order?phone="+$.cookie("customer")+"&num=0";
+                    window.location.href="order?phone="+$.cookie("customer");
                 }else{
                     window.location.href="order";
                 }
@@ -580,11 +470,7 @@
             $.cookie("customer", '', { expires: -1,path: "/" });
             location.href = "index";
         }
-        $("#btn_login").on("click",function(){
-            var phone=$("#txt_phone").val();
-            $.cookie("customer", phone, { expires: 1,path: "/" });
-            $("#modalMyYaoyue").modal("hide");
-        })
+
         $("#btnHeadSearch").bind("click", function () {
             var time=$("#txtStartDate").val();
             var continentId=$("#searchByDestination option:selected").val();
@@ -601,305 +487,175 @@
                 location.href = "ProductList";
             }
         })
+
     </script>
 
-    <main role="main" id="pageContent" class="pageContent clearfix">
-        <div class="searchBanner">
-            <img src="../../../static/images/content/productList/searchBanner_1030.jpg" alt="title for search banner">
-            <div class="slogan">
-                <div class="contentWrapper centeredWrapper">
-                    <div class="centeredContent">
-                        <p>邀 约 心 旅 行</p>
-                    </div>
-                </div>
-            </div>
+    <main role="main" id="pageContent" class="pageContent clearfix ">
+        <div class="banner"></div>
+        <div class="healthNav" id="div_nav">
+            <ul>
+                <li><a class="navOn" href="#" data-tab-index="0">海外体检</a></li>
+                <li><a href="#" data-tab-index="1">抗衰老</a></li>
+                <li><a href="#" data-tab-index="2">焕颜医美</a></li>
+                <li><a href="#" data-tab-index="3">服务理念</a></li>
+            </ul>
         </div>
-        <div class="searchResult clearfix">
-            <div class="contentWrapper">
-                <div class="breadcrumb">
-                    <p class="caption">您的位置：</p>
-                    <ol>
-                        <li><a href="../index.htm" tppabs="http://www.sparkletour.com/">首页</a></li>
-                        <!--  <li class="active" th:each="Item:${ItemList}">
-                             <a th:text="${Item.themeName}"></a>
-                          </li>-->
-
-                    </ol>
-                    <input name="hidDefaultLabel" type="hidden" id="hidDefaultLabel" value="94" />
-                </div>
-
-                <div class="productListPanel">
-                    <ul class="list-inline listHeader">
-                        <li key="default" class="active"><a href="javascript:void(0);">推荐</a></li>
-                        <li key="days" class="sortable"><a href="javascript:void(0);">天数</a></li>
-                        <li key="price" class="sortable"><a href="javascript:void(0);">价格</a></li>
-                        <input name="hid_pt" type="hidden" id="hid_pt" class="labels" />
-                    </ul>
-                    <div class="productList">
-                        <div class="m-product-sublist"  >
-
-                        </div>
-
-                        <section class="product" th:each="Item:${ItemList}">
-                            <h3 th:text="${Item.title}"></h3>
-                            <div class="promotionImage">
-                                <img class="productlist-image" src="../../../static/images/content/productlist/f4828t20121800.jpg" alt="大溪地 茉莉雅洲际" th:src="@{'../../../static/item/'+${Item.picPath}}">
-                                <p data-toggle="collapse" data-target="#promotionCover1" aria-expanded="false" aria-controls="promotionCover1"></p>
-                                <p class="collapse promotionCover" id="promotionCover1">耀悦臻选优质酒店，舒适航班和目的地服务，贵宾随心所欲安排当地行程，两人起订。</p>
-                            </div>
-                            <p class="brief"><span th:text="${Item.explain}"></span><br>
-                                <span th:text="${Item.playTime}"></span><span th:text="${Item.styleName}"></span></p>
-
-                            <div class="otherInfo clearfix">
-                                <p class="price" >￥<span th:text="${Item.price}"></span>万元起</p>
-                                <p class="startTime">最早出发日期：<span th:text="${#dates.format(Item.startTime,'yyyy-MM-dd')}"></span></p>
-                            </div>
-                            <!-- <p class="accessible">产品相关标签：</p>-->
-                            <ul class="list-inline tags">
-                                <li th:text="${Item.hobbyName}"></li>
-                                <li th:text="${Item.styleName}"></li>
-                                <li th:text="${Item.travelName}"></li>
-                                <li th:text="${Item.trafficName}"></li>
-                            </ul>
-                            <ul class="list-inline marks">
-                                <li>Hot</li>
-                            </ul>
-                            <a target = "_blank" th:href="@{'ProductDetail?detailId='+${Item.detailId}}" class="readMore">阅读更多关于大溪地 茉莉雅洲际的信息</a>
-                        </section>
-
+        <div id="hwtj" class="productList div_tops">
+            <div class="productIntro">只选择全球专业排名领先的医疗机构，进行重大疾病筛查及防癌精密体检，配套完善的私人健康管理服务，致力于早预防、早发现、早治疗。</div>
+            <ul>
+                <li>
+                    <div>
+                        <a href="../../ProductDetail/125890.htm" tppabs="http://www.sparkletour.com/ProductDetail/125890">
+                            <img src="../../../images1.aoyou.com/productlist/201706/v806jv28145113.jpg-imageView2-1-q-90-w-420-h-310-.jpg" tppabs="http://images1.aoyou.com/productlist/201706/v806jv28145113.jpg?imageView2/1/q/90/w/420/h/310/" alt="日本 癌研有明癌筛体检" />
+                        </a>
                     </div>
-                </div>
-                <aside class="filtersPanel">
-                    <div class="filterSection">
-                        <a class="filterName" data-toggle="collapse" href="#filterByDate" aria-expanded="false" aria-controls="filterByDate">日期选择</a>
-                        <div class="collapse in filterOptions" id="filterByDate">
-                            <div class="datePickerWrapper">
-                                <label for="byStartDate">出发日期</label>
-                                <input name="byStartDate" type="text" id="byStartDate" data-date-autoclose="true" class="datePicker" readonly="" />
-                            </div>
-                            <div class="datePickerWrapper">
-                                <label for="byReturnDate">返回日期</label>
-                                <input name="byReturnDate" type="text" id="byReturnDate" data-date-autoclose="true" class="datePicker" readonly="" />
-                            </div>
-                        </div>
+                    <div class="productName">
+                        <p>日本</p>
+                        <p>癌研有明癌筛体检</p>
                     </div>
-                    <div class="filterSection">
-                        <a class="filterName" data-toggle="collapse" href="#filterByDestination" aria-expanded="false" aria-controls="filterByDestination">目的地</a>
-                        <div class="collapse in filterOptions" id="filterByDestination">
-                            <ul>
-                                <li th:each="str : ${strList}">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type = "checkbox" aria-controls="europeCountries" aria-expanded="false" data-target="#europeCountries" data-toggle="collapse" name="ByDestinationContinent" value="2426">
-                                            <span th:text="${str}">无</span></label>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                </li>
+                <li>
+                    <div>
+                        <a href="../../ProductDetail/125937.htm" tppabs="http://www.sparkletour.com/ProductDetail/125937">
+                            <img src="../../../images1.aoyou.com/productlist/201608/6d6fvr26172428.jpg-imageView2-1-q-90-w-420-h-310-.jpg" tppabs="http://images1.aoyou.com/productlist/201608/6d6fvr26172428.jpg?imageView2/1/q/90/w/420/h/310/" alt="日本 池上综合医院健检" />
+                        </a>
                     </div>
-                    <div class="filterSection">
-                        <a class="filterName" data-toggle="collapse" href="#filterByStyle" aria-expanded="false" aria-controls="filterByStyle">旅行主题</a>
-                        <div class="collapse in filterOptions" id="filterByStyle">
-                            <ul>
-                                <li th:each="t: ${travelList}">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type = "checkbox" value="4979" name="byStyle"><span th:text="${t.travelName}"></span></label>
-                                    </div>
-                                </li>
+                    <div class="productName">
+                        <p>日本</p>
+                        <p>池上综合医院健检</p>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <a href="../../ProductDetail/69105.htm" tppabs="http://www.sparkletour.com/ProductDetail/69105">
+                            <img src="../../../images1.aoyou.com/productlist/201505/66jrxh29093901.png-imageView2-1-q-90-w-420-h-310-.png" tppabs="http://images1.aoyou.com/productlist/201505/66jrxh29093901.png?imageView2/1/q/90/w/420/h/310/" alt="新加坡 伊丽莎白诺维娜" />
+                        </a>
+                    </div>
+                    <div class="productName">
+                        <p>新加坡</p>
+                        <p>伊丽莎白诺维娜</p>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <a href="../../ProductDetail/126497.htm" tppabs="http://www.sparkletour.com/ProductDetail/126497">
+                            <img src="../../../images1.aoyou.com/productlist/201801/hllp6n23112251.jpg-imageView2-1-q-90-w-420-h-310-.jpg" tppabs="http://images1.aoyou.com/productlist/201801/hllp6n23112251.jpg?imageView2/1/q/90/w/420/h/310/" alt="台湾  基因检测及癌筛" />
+                        </a>
+                    </div>
+                    <div class="productName">
+                        <p>台湾</p>
+                        <p>基因检测及癌筛</p>
+                    </div>
+                </li>
 
-
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="filterSection">
-                        <a class="filterName" data-toggle="collapse" href="#filterByClientPreference" aria-expanded="false" aria-controls="filterByClientPreference">旅行偏好</a>
-                        <div class="collapse in filterOptions" id="filterByClientPreference">
-                            <ul>
-                                <li th:each="h : ${hList}">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type = "checkbox" value="4971" name="byClientPreference"><span th:text="${h.hobbyName}"></span></label>
-                                    </div>
-                                </li>
-
-                            </ul>
-                        </div>
-                    </div>
-                </aside>
-            </div>
+            </ul>
         </div>
-
-        <div class="personalization">
-            <h2>上述产品不符合您的需求？</h2>
-            <p>欢迎填写下表提交，即刻联系耀悦的私人旅行顾问</p>
-            <p>我们将为您和您的亲友量身定制专属行程</p>
-            <div class="actions">
-                <a href="../Personalise.htm" tppabs="http://www.sparkletour.com/Personalise">
-                    <button class="button primary">私人定制</button></a>
-            </div>
+        <div id="ksl" class="productList div_tops">
+            <div class="productIntro">利用干细胞及其衍生技术的最新临床应用成果，细胞逆龄，安全有效，由内而外改善身体。</div>
+            <ul>
+                <li>
+                    <div>
+                        <a href="../../ProductDetail/125989.htm" tppabs="http://www.sparkletour.com/ProductDetail/125989">
+                            <img src="../../../images1.aoyou.com/productlist/201801/b06zr205154758.jpg-imageView2-1-q-90-w-420-h-310-.jpg" tppabs="http://images1.aoyou.com/productlist/201801/b06zr205154758.jpg?imageView2/1/q/90/w/420/h/310/" alt="澳大利亚 细胞因子抗衰之旅" />
+                        </a>
+                    </div>
+                    <div class="productName">
+                        <p>澳洲</p>
+                        <p>细胞因子抗衰之旅</p>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <a href="../../ProductDetail/122318.htm" tppabs="http://www.sparkletour.com/ProductDetail/122318">
+                            <img src="../../../images1.aoyou.com/productlist/201709/4zt06212101425.jpg-imageView2-1-q-90-w-420-h-310-.jpg" tppabs="http://images1.aoyou.com/productlist/201709/4zt06212101425.jpg?imageView2/1/q/90/w/420/h/310/" alt="美国 梅奥医院基因检测" />
+                        </a>
+                    </div>
+                    <div class="productName">
+                        <p>美国</p>
+                        <p>梅奥医院基因检测</p>
+                    </div>
+                </li>
+            </ul>
         </div>
-        <div class="moreBrilliantProducts">
-            <div class="contentWrapper">
-                <h2>更多精彩</h2>
-                <div class="owl-carousel owl-theme BrilliantProducts clearfix">
-                    <div class="item">
-                        <div class="productCard">
-                            <img src="../../../static/images/content/productlist/d2nnbp17152426.jpg" alt="午夜阳光海景舱&lt;br /&gt;南极半岛经典航程&lt;br /&gt;达拉斯沃斯堡退税购物">
-                            <a target="_blank" href="../ProductDetail/94288.htm" tppabs="http://www.sparkletour.com/ProductDetail/94288" class="cover">
-                                <div class="briefInfo centeredWrapper">
-                                    <div class="centeredContent">
-                                        <ul class="features">
-                                            <li>午夜阳光海景舱<br />
-                                                南极半岛经典航程<br />
-                                                达拉斯沃斯堡退税购物
-                                            </li>
-                                        </ul>
-                                        <p class="price">￥7.99 万元起</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="productInfo">
-                            <p class="title">
-                                智利&amp;南极 远征世界尽头
-                            </p>
-                        </div>
+        <div id="hyym" class="productList div_tops">
+            <div class="productIntro">利用全球顶尖医疗美容技术，更安全的风险控制保障。安心焕颜，青春永驻。</div>
+            <ul>
+                <li>
+                    <div>
+                        <a href="../../ProductDetail/127269.htm" tppabs="http://www.sparkletour.com/ProductDetail/127269">
+                            <img src="../../../images1.aoyou.com/productlist/201802/20jzff14115827.jpg-imageView2-1-q-90-w-420-h-310-.jpg" tppabs="http://images1.aoyou.com/productlist/201802/20jzff14115827.jpg?imageView2/1/q/90/w/420/h/310/" alt="韩国 首尔焕颜之旅" />
+                        </a>
                     </div>
-                    <div class="item">
-                        <div class="productCard">
-                            <img src="../../../static/images/content/productlist/z2r6h008173358.jpg" alt="异国草原骑马&lt;br /&gt;宿国家公园内蒙古包&lt;br /&gt;别样亲子体验">
-                            <a target="_blank" href="../ProductDetail/93758.htm" tppabs="http://www.sparkletour.com/ProductDetail/93758" class="cover">
-                                <div class="briefInfo centeredWrapper">
-                                    <div class="centeredContent">
-                                        <ul class="features">
-                                            <li>异国草原骑马<br />
-                                                宿国家公园内蒙古包<br />
-                                                别样亲子体验
-                                            </li>
-                                        </ul>
-                                        <p class="price">￥2.59 万元起</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="productInfo">
-                            <p class="title">
-                                蒙古 小雄鹰的草原梦
-                            </p>
-                        </div>
+                    <div class="productName">
+                        <p>韩国</p>
+                        <p>首尔焕颜之旅</p>
                     </div>
-                    <div class="item">
-                        <div class="productCard">
-                            <img src="../../../static/images/content/productlist/fpfb6z27170845.jpg" alt="斐济瓦国双重体验&lt;br /&gt;国际连锁华威酒店&lt;br /&gt;赠送瓦国Ekasup民俗村游览">
-                            <a target="_blank" href="../ProductDetail/94345.htm" tppabs="http://www.sparkletour.com/ProductDetail/94345" class="cover">
-                                <div class="briefInfo centeredWrapper">
-                                    <div class="centeredContent">
-                                        <ul class="features">
-                                            <li>斐济瓦国双重体验<br />
-                                                国际连锁华威酒店<br />
-                                                赠送瓦国Ekasup民俗村游览
-                                            </li>
-                                        </ul>
-                                        <p class="price">￥0.88 万元起</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="productInfo">
-                            <p class="title">
-                                斐济瓦努阿图 缤纷华威
-                            </p>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="productCard">
-                            <img src="../../../static/images/content/productlist/04x64n05180613.jpg" alt="法国农庄松露大餐&lt;br /&gt;卡玛格湿地观火烈鸟&lt;br /&gt;卡朗克海峡徒步">
-                            <a target="_blank" href="../ProductDetail/93428.htm" tppabs="http://www.sparkletour.com/ProductDetail/93428" class="cover">
-                                <div class="briefInfo centeredWrapper">
-                                    <div class="centeredContent">
-                                        <ul class="features">
-                                            <li>法国农庄松露大餐<br />
-                                                卡玛格湿地观火烈鸟<br />
-                                                卡朗克海峡徒步
-                                            </li>
-                                        </ul>
-                                        <p class="price">￥4.95 万元起</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="productInfo">
-                            <p class="title">
-                                法国 探索大自然
-                            </p>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="productCard">
-                            <img src="../../../static/images/content/productlist/2nv68l17112852.jpg" alt="马赛马拉&amp;塞伦盖地两大国家公园&lt;br /&gt;长颈鹿庄园&amp;大象孤儿院">
-                            <a target="_blank" href="../ProductDetail/92453.htm" tppabs="http://www.sparkletour.com/ProductDetail/92453" class="cover">
-                                <div class="briefInfo centeredWrapper">
-                                    <div class="centeredContent">
-                                        <ul class="features">
-                                            <li>马赛马拉&塞伦盖地两大国家公园<br />
-                                                长颈鹿庄园&大象孤儿院
-                                            </li>
-                                        </ul>
-                                        <p class="price">￥7.65 万元起</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="productInfo">
-                            <p class="title">
-                                肯尼亚&amp;坦桑尼亚 动物大迁徙
-                            </p>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="productCard">
-                            <img src="../../../static/images/content/productlist/zj42vh03135159.jpg" alt="热海艺妓+伊豆私汤&lt;br /&gt;东京品米其林美食">
-                            <a target="_blank" href="../ProductDetail/55680.htm" tppabs="http://www.sparkletour.com/ProductDetail/55680" class="cover">
-                                <div class="briefInfo centeredWrapper">
-                                    <div class="centeredContent">
-                                        <ul class="features">
-                                            <li>热海艺妓+伊豆私汤<br />
-                                                东京品米其林美食
-                                            </li>
-                                        </ul>
-                                        <p class="price">￥3.75 万元起</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="productInfo">
-                            <p class="title">
-                                热海&amp;伊豆&amp;东京 私汤秘境
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                </li>
+            </ul>
         </div>
-
+        <div id="fwln" class="serviceIdea div_tops"></div>
+        <div class="hotLine"></div>
 
         <section class="brandStory" id="brandStory">
             <div class="contentWrapper row">
                 <h2 class="accessible">品牌故事</h2>
                 <ul>
                     <li class="iconLaunchTime">
-                        <img src="../../../static/images/content/brandStory-01.png" alt="30年专业旅游运营经验"></li>
+                        <img src="../../static/images/content/brandStory-01.png" tppabs="http://www.sparkletour.com/images/content/brandStory-01.png" alt="30年专业旅游运营经验"></li>
                     <li class="iconConsultantExperience">
-                        <img src="../../../static/images/content/brandStory-02.png" alt="10年耀悦旅行顾问平均从业时间"></li>
+                        <img src="../../static/images/content/brandStory-02.png" tppabs="http://www.sparkletour.com/images/content/brandStory-02.png" alt="10年耀悦旅行顾问平均从业时间"></li>
                     <li class="iconStuffEducation">
-                        <img src="../../../static/images/content/brandStory-03.png" alt="60%员工海外留学经历"></li>
+                        <img src="../../static/images/content/brandStory-03.png" tppabs="http://www.sparkletour.com/images/content/brandStory-03.png" alt="60%员工海外留学经历"></li>
                     <li class="iconServiceTime">
-                        <img src="../../../static/images/content/brandStory-04.png" alt="7x24全球紧急联系人贴心服务"></li>
+                        <img src="../../static/images/content/brandStory-04.png" tppabs="http://www.sparkletour.com/images/content/brandStory-04.png" alt="7x24全球紧急联系人贴心服务"></li>
                 </ul>
             </div>
         </section>
 
+        <script>
+            $(document).ready(function () {
+                var nav = $("#div_nav")
+                var nav_lis = $("#div_nav").find("a")
+                var div_tops = $(".div_tops").map(function () {
+                    return $(this).offset().top - 150
+                })
+                div_tops[3] -= 60
+                var top = nav.offset().top
+                nav_lis.bind("click", function () {
+                    var tar = $(this)
+                    var ti = tar.data("tabIndex")
+                    nav.css("position", "fixed")
+                    nav.css("top", "90px")
+                    $(document).scrollTop(div_tops[ti])
+                    return false
+                })
+                $(document).scroll(function () {
+                    var st = $(document).scrollTop()
+                    var t = top - st
+                    if (t <= 90) {
+                        nav.css("position", "fixed")
+                        nav.css("top", "90px")
+                    }
+                    else {
+                        nav.css("position", "")
+                        nav.css("top", "")
+                    }
+                    if (st < div_tops[1]) {
+                        nav_lis.removeClass("navOn")
+                        $(nav_lis[0]).addClass("navOn")
+                    } else if (st >= div_tops[1] && st < div_tops[2]) {
+                        nav_lis.removeClass("navOn")
+                        $(nav_lis[1]).addClass("navOn")
+                    } else if (st >= div_tops[2] && st < div_tops[3] - 60) {
+                        nav_lis.removeClass("navOn")
+                        $(nav_lis[2]).addClass("navOn")
+                    } else {
+                        nav_lis.removeClass("navOn")
+                        $(nav_lis[3]).addClass("navOn")
+                    }
+                })
+            })
+        </script>
     </main>
 
     <footer class="footer">
@@ -908,45 +664,45 @@
                 <h2>合作伙伴</h2>
                 <ul class="partnersList">
                     <li><a target="_blank" href="javascript:if(confirm('http://www.hilton.com.cn/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.hilton.com.cn/'" tppabs="http://www.hilton.com.cn/">
-                        <img src="../../../static/images/content/partners/partners-16.png" alt=""></a></li>
+                        <img src="../../static/images/content/partners/partners-16.png" tppabs="http://www.sparkletour.com/images/content/partners/partners-16.png" alt=""></a></li>
                     <li><a target="_blank" href="javascript:if(confirm('http://www.shangri-la.com/cn/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.shangri-la.com/cn/'" tppabs="http://www.shangri-la.com/cn/">
-                        <img src="../../../static/images/content/partners/partners-18.png" alt=""></a></li>
+                        <img src="../../static/images/content/partners/partners-18.png" tppabs="http://www.sparkletour.com/images/content/partners/partners-18.png" alt=""></a></li>
                     <li><a target="_blank" href="javascript:if(confirm('http://zh-keepexploring.canada.travel/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://zh-keepexploring.canada.travel/'" tppabs="http://zh-keepexploring.canada.travel/">
-                        <img src="../../../static/images/content/partners/partners-19.png" alt=""></a></li>
+                        <img src="../../static/images/content/partners/partners-19.png" tppabs="http://www.sparkletour.com/images/content/partners/partners-19.png" alt=""></a></li>
                     <li><a target="_blank" href="javascript:if(confirm('http://www.clubmed.com.cn/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.clubmed.com.cn/'" tppabs="http://www.clubmed.com.cn/">
-                        <img src="../../../static/images/content/partners/partners-17.png" alt=""></a></li>
+                        <img src="../../static/images/content/partners/partners-17.png" tppabs="http://www.sparkletour.com/images/content/partners/partners-17.png" alt=""></a></li>
                     <li><a target="_blank" href="javascript:if(confirm('http://www.americanairlines.cn/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.americanairlines.cn/'" tppabs="http://www.americanairlines.cn/">
-                        <img src="../../../static/images/content/partners/partners-01.png" alt=""></a></li>
+                        <img src="../../static/images/content/partners/partners-01.png" tppabs="http://www.sparkletour.com/images/content/partners/partners-01.png" alt=""></a></li>
                     <li><a target="_blank" href="javascript:if(confirm('http://www.starwoodhotels.com/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.starwoodhotels.com/'" tppabs="http://www.starwoodhotels.com/">
-                        <img src="../../../static/images/content/partners/partners-02.png" alt=""></a></li>
+                        <img src="../../static/images/content/partners/partners-02.png" tppabs="http://www.sparkletour.com/images/content/partners/partners-02.png" alt=""></a></li>
                     <li><a target="_blank" href="javascript:if(confirm('http://www.mandarinoriental.com.cn/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.mandarinoriental.com.cn/'" tppabs="http://www.mandarinoriental.com.cn/">
-                        <img src="../../../static/images/content/partners/partners-03.png" alt=""></a></li>
+                        <img src="../../static/images/content/partners/partners-03.png" tppabs="http://www.sparkletour.com/images/content/partners/partners-03.png" alt=""></a></li>
                     <li><a target="_blank" href="javascript:if(confirm('http://tahiti-tourisme.com/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://tahiti-tourisme.com/'" tppabs="http://tahiti-tourisme.com/">
-                        <img src="../../../static/images/content/partners/partners-04.png" alt=""></a></li>
+                        <img src="../../static/images/content/partners/partners-04.png" tppabs="http://www.sparkletour.com/images/content/partners/partners-04.png" alt=""></a></li>
                     <li><a target="_blank" href="javascript:if(confirm('http://www.belmond.com/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.belmond.com/'" tppabs="http://www.belmond.com/">
-                        <img src="../../../static/images/content/partners/partners-05.png" alt=""></a></li>
+                        <img src="../../static/images/content/partners/partners-05.png" tppabs="http://www.sparkletour.com/images/content/partners/partners-05.png" alt=""></a></li>
                     <li><a target="_blank" href="javascript:if(confirm('http://www.airfrance.com.cn/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.airfrance.com.cn/'" tppabs="http://www.airfrance.com.cn/">
-                        <img src="../../../static/images/content/partners/partners-06.png"  alt=""></a></li>
+                        <img src="../../static/images/content/partners/partners-06.png" tppabs="http://www.sparkletour.com/images/content/partners/partners-06.png" alt=""></a></li>
                     <li><a target="_blank" href="javascript:if(confirm('http://www.peninsula.com/zh-cn  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.peninsula.com/zh-cn'" tppabs="http://www.peninsula.com/zh-cn">
-                        <img src="../../../static/images/content/partners/partners-07.png" alt=""></a></li>
+                        <img src="../../static/images/content/partners/partners-07.png" tppabs="http://www.sparkletour.com/images/content/partners/partners-07.png" alt=""></a></li>
                     <li><a target="_blank" href="javascript:if(confirm('http://www.traveltexas.net.cn/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.traveltexas.net.cn/'" tppabs="http://www.traveltexas.net.cn/">
-                        <img src="../../../static/images/content/partners/partners-08.png"  alt=""></a></li>
+                        <img src="../../static/images/content/partners/partners-08.png" tppabs="http://www.sparkletour.com/images/content/partners/partners-08.png" alt=""></a></li>
                     <li><a target="_blank" href="javascript:if(confirm('http://www.jumeirah.com/zh/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.jumeirah.com/zh/'" tppabs="http://www.jumeirah.com/zh/">
-                        <img src="../../../static/images/content/partners/partners-09.png" alt=""></a></li>
+                        <img src="../../static/images/content/partners/partners-09.png" tppabs="http://www.sparkletour.com/images/content/partners/partners-09.png" alt=""></a></li>
                     <li><a target="_blank" href="javascript:if(confirm('http://www.amanresorts.com/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.amanresorts.com/'" tppabs="http://www.amanresorts.com/">
-                        <img src="../../../static/images/content/partners/partners-10.png" alt=""></a></li>
+                        <img src="../../static/images/content/partners/partners-10.png" tppabs="http://www.sparkletour.com/images/content/partners/partners-10.png" alt=""></a></li>
                     <li><a target="_blank" href="javascript:if(confirm('http://sr-jet.com/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://sr-jet.com/'" tppabs="http://sr-jet.com/">
-                        <img src="../../../static/images/content/partners/partners-11.png" alt=""></a></li>
+                        <img src="../../static/images/content/partners/partners-11.png" tppabs="http://www.sparkletour.com/images/content/partners/partners-11.png" alt=""></a></li>
                     <li><a target="_blank" href="javascript:if(confirm('http://www.emirates.com/cn/chinese/index.aspx  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.emirates.com/cn/chinese/index.aspx'" tppabs="http://www.emirates.com/cn/chinese/index.aspx">
-                        <img src="../../../static/images/content/partners/partners-12.png" alt=""></a></li>
+                        <img src="../../static/images/content/partners/partners-12.png" tppabs="http://www.sparkletour.com/images/content/partners/partners-12.png" alt=""></a></li>
                     <li><a target="_blank" href="javascript:if(confirm('http://www.airchina.com.cn/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.airchina.com.cn/'" tppabs="http://www.airchina.com.cn/">
-                        <img src="../../../static/images/content/partners/partners-13.png" alt=""></a></li>
+                        <img src="../../static/images/content/partners/partners-13.png" tppabs="http://www.sparkletour.com/images/content/partners/partners-13.png" alt=""></a></li>
                     <li><a target="_blank" href="javascript:if(confirm('http://www.banyantree.com/zh/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.banyantree.com/zh/'" tppabs="http://www.banyantree.com/zh/">
-                        <img src="../../../static/images/content/partners/partners-14.png" alt=""></a></li>
+                        <img src="../../static/images/content/partners/partners-14.png" tppabs="http://www.sparkletour.com/images/content/partners/partners-14.png" alt=""></a></li>
                     <li><a target="_blank" href="javascript:if(confirm('http://www.united.com/web/zh-CN/Default.aspx  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.united.com/web/zh-CN/Default.aspx'" tppabs="http://www.united.com/web/zh-CN/Default.aspx">
-                        <img src="../../../static/images/content/partners/partners-15.png" alt=""></a></li>
+                        <img src="../../static/images/content/partners/partners-15.png" tppabs="http://www.sparkletour.com/images/content/partners/partners-15.png" alt=""></a></li>
                     <li><a target="_blank" href="javascript:if(confirm('http://etdc.juran.com.cn/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://etdc.juran.com.cn/'" tppabs="http://etdc.juran.com.cn/">
-                        <img src="../../../static/images/content/partners/partners-20.png" alt=""></a></li>
+                        <img src="../../static/images/content/partners/partners-20.png" tppabs="http://www.sparkletour.com/images/content/partners/partners-20.png" alt=""></a></li>
                 </ul>
             </div>
         </section>
@@ -956,14 +712,14 @@
                 <ul class="contactUs row">
                     <li class="phone"><a href="tel:4008905588">400 890 5588</a></li>
                     <li class="wechat">
-                        <img src="../../../static/images/content/wechat.jpg" alt="耀悅微信平台"></li>
+                        <img src="../../static/images/content/wechat.jpg" tppabs="http://www.sparkletour.com/images/content/wechat.jpg" alt="耀悅微信平台"></li>
                 </ul>
                 <div class="copyright">
                     <p class="intro">耀悦&nbsp;&nbsp;中青旅旗下高端旅游品牌</p>
                     <p>
                         <a href="javascript:if(confirm('http://www.aoyou.com/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.aoyou.com/'" tppabs="http://www.aoyou.com/">
-                            <img src="../../../static/images/content/united-logo.png" alt="中青旅-耀悅" class="unitedLogo" /></a>
-                        <span class="copyrightInfo">Copyright SparkleTour  耀悦 2013-2017｜京ICP备17033069｜<a href="../SiteMap.htm" tppabs="http://www.sparkletour.com/SiteMap" target="_blank" style="color: #fff">网站地图</a></span>
+                            <img src="../../static/images/content/united-logo.png" tppabs="http://www.sparkletour.com/images/content/united-logo.png" alt="中青旅-耀悅" class="unitedLogo" /></a>
+                        <span class="copyrightInfo">Copyright SparkleTour  耀悦 2013-2017｜京ICP备17033069｜<a href="../../SiteMap.htm" tppabs="http://www.sparkletour.com/SiteMap" target="_blank" style="color: #fff">网站地图</a></span>
                     </p>
 
                 </div>
@@ -974,7 +730,7 @@
         var _hmt = _hmt || [];
         (function () {
             var hm = document.createElement("script");
-            hm.src = "../../hm.baidu.com/hm.js-0e68a173699885d7e33f7045626edbee"/*tpa=https://hm.baidu.com/hm.js?0e68a173699885d7e33f7045626edbee*/;
+            hm.src = "../../../hm.baidu.com/hm.js-0e68a173699885d7e33f7045626edbee"/*tpa=https://hm.baidu.com/hm.js?0e68a173699885d7e33f7045626edbee*/;
             var s = document.getElementsByTagName("script")[0];
             s.parentNode.insertBefore(hm, s);
         })();
@@ -982,7 +738,5 @@
 
 
 </div>
-
 </body>
 </html>
-

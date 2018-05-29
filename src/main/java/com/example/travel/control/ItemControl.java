@@ -33,11 +33,17 @@ public class ItemControl {
     private TrafficService trafficService;
     @Resource
     private StyleService styleService;
+    @Resource
+    private HolidayService holidayService;
+    @Resource
+    private BrandService brandService;
 
     @RequestMapping("ProductList")
     public String pList(@RequestParam(required=true,defaultValue="1") Integer page, Model model,
                         Integer themeId, Integer hobbyId, Integer travelId,
-                        Integer trafficId, Integer styleId, Integer pn,String  startTime,Integer continentId,Integer countryId) throws ParseException {
+                        Integer trafficId, Integer styleId, Integer pn,String  startTime,Integer continentId,
+                        Integer countryId,Integer detailId,Integer brandId,Integer holidayId) throws ParseException {
+
         SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
         Date date=new Date();
         if(startTime!=null){
@@ -61,11 +67,17 @@ public class ItemControl {
         model.addAttribute("s",styleService.listStyle(4));
         //旅行主题
         model.addAttribute("themeList",themeService.listTheme());
+        //度假套餐
+        model.addAttribute("holidayList", holidayService.listHoliday());
+        //酒店品牌
+        model.addAttribute("b", brandService.listBrand(1));
+
+        model.addAttribute("continent",continentService.listContinentByholidayId(2));
 
 
         //page从第几页开始，pagerSize每页显示3条数据
        // PageHelper.startPage(page,10);
-        List<Item>itemList=itemService.itemsList(themeId, hobbyId, travelId, trafficId, styleId,date,continentId,countryId);
+        List<Item>itemList=itemService.itemsList(themeId, hobbyId, travelId, trafficId, styleId,date,continentId,countryId,detailId,brandId,holidayId);
         List<String> strList=new ArrayList<String>();
          for(int i=0;i<itemList.size();i++){
              String[] arr = itemList.get(i).getTitle().split(" ");
@@ -84,9 +96,9 @@ public class ItemControl {
             model.addAttribute("strList",strList);
             model.addAttribute("travelList",travelList);
             model.addAttribute("hList",hList);
-
           //  model.addAttribute("arrExplain",explain);
         }
-       return "/www.sparkletour.com/ProductList/94";
+
+        return "/www.sparkletour.com/ProductList/94";
     }
 }
