@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if lt IE 7 ]> <html lang="en" class="no-js ie ie6"> <![endif]-->
 <!--[if IE 7 ]>    <html lang="en" class="no-js ie ie7"> <![endif]-->
 <!--[if IE 8 ]>    <html lang="en" class="no-js ie ie8"> <![endif]-->
@@ -142,18 +142,18 @@
     <script src="../../static/scripts/libs/icheck.min.js"
             tppabs="http://www.sparkletour.com/scripts/libs/icheck.min.js"></script>
 
-    <script src="../../static/scripts/libs/bootstrap-datepicker.min.js" tppabs="http://www.sparkletour.com/scripts/libs/bootstrap-datepicker.min.js"></script>
-    <script src="../../static/scripts/libs/bootstrap-datepicker.zh-CN.min.js" tppabs="http://www.sparkletour.com/scripts/libs/bootstrap-datepicker.zh-CN.min.js"></script>
-    <script src="../../static/scripts/libs/bootstrap-typeahead.min.js" tppabs="http://www.sparkletour.com/scripts/libs/bootstrap-typeahead.min.js"></script>
-    <script src="../../static/scripts/libs/bloodhound.min.js" tppabs="http://www.sparkletour.com/scripts/libs/bloodhound.min.js"></script>
-    <script src="../../static/scripts/autocomplete.js" tppabs="http://www.sparkletour.com/scripts/autocomplete.js"></script>
-    <script src="../../static/scripts/custom.js-ver=20170904134726" tppabs="http://www.sparkletour.com/scripts/custom.js?ver=20170904134726"></script>
-    <script src="../../static/scripts/jquery.cookie.js" tppabs="http://www.sparkletour.com/scripts/jquery.cookie.js"></script>
-    <script src="../../static/scripts/libs/bootstrap.min.js" tppabs="http://www.sparkletour.com/scripts/libs/bootstrap.min.js"></script>
-    <script src="../../static/scripts/yaoyue.default.js" tppabs="http://www.sparkletour.com/scripts/yaoyue.default.js"></script>
+<script src="../../static/scripts/libs/bootstrap-datepicker.min.js" tppabs="http://www.sparkletour.com/scripts/libs/bootstrap-datepicker.min.js"></script>
+<script src="../../static/scripts/libs/bootstrap-datepicker.zh-CN.min.js" tppabs="http://www.sparkletour.com/scripts/libs/bootstrap-datepicker.zh-CN.min.js"></script>
+<script src="../../static/scripts/libs/bootstrap-typeahead.min.js" tppabs="http://www.sparkletour.com/scripts/libs/bootstrap-typeahead.min.js"></script>
+<script src="../../static/scripts/libs/bloodhound.min.js" tppabs="http://www.sparkletour.com/scripts/libs/bloodhound.min.js"></script>
+<script src="../../static/scripts/autocomplete.js" tppabs="http://www.sparkletour.com/scripts/autocomplete.js"></script>
+<script src="../../static/scripts/custom.js-ver=20170904134726" tppabs="http://www.sparkletour.com/scripts/custom.js?ver=20170904134726"></script>
+<script src="../../static/scripts/jquery.cookie.js" tppabs="http://www.sparkletour.com/scripts/jquery.cookie.js"></script>
+<script src="../../static/scripts/libs/bootstrap.min.js" tppabs="http://www.sparkletour.com/scripts/libs/bootstrap.min.js"></script>
+<script src="../../static/scripts/yaoyue.default.js" tppabs="http://www.sparkletour.com/scripts/yaoyue.default.js"></script>
 
 
-    <!--[if (gte IE 6)&(lte IE 8)]>
+<!--[if (gte IE 6)&(lte IE 8)]>
     <script type="text/javascript" src="../../static/scripts/libs/selectivizr-min.js"
             tppabs="http://www.sparkletour.com/scripts/libs/selectivizr-min.js"></script>
     <![endif]-->
@@ -244,104 +244,107 @@
             <h1 class="logo"><a href="index.html" tppabs="http://www.sparkletour.com/">
                 <img src="../../static/images/content/logo.png"  alt="耀悅"></a></h1>
 
-            <nav class="navigation" role="navigation">
-                <ul class="level1">
-                    <li class="discover">
-                        <a href="index">探索世界</a>
-                        <ul class="level2">
-                            <li th:each="con,last : ${conList}">            <!--洲-->
-                                <a th:href="@{'ProductList?continentId='+${con.continentId}}" th:text="${con.continentName}">o</a>
-                                <ul class="level3">
-                                    <div th:if="${last.index} eq '0'">                          <!--国-->
-                                        <li th:each="cou : ${couList0}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}"  th:text="${cou.countryName}"></a></li>
-                                    </div>
-                                    <div th:if="${last.index} eq '1'">
-                                        <li th:each="cou : ${couList1}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}" th:text="${cou.countryName}"></a></li>
-                                    </div>
-                                    <div th:if="${last.index} eq '2'">
-                                        <li th:each="cou : ${couList2}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}"  th:text="${cou.countryName}"></a></li>
-                                    </div>
-                                    <div th:if="${last.index} eq '3'">
-                                        <li th:each="cou : ${couList3}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}"  th:text="${cou.countryName}"></a></li>
-                                    </div>
-                                    <div th:if="${last.index} eq '4'">
-                                        <li th:each="cou : ${couList4}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}" th:text="${cou.countryName}"></a></li>
-                                    </div>
-                                    <div th:if="${last.index} eq '5'">
-                                        <li th:each="cou : ${couList5}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}" th:text="${cou.countryName}"></a></li>
-                                    </div>
-                                    <div th:if="${last.index} eq '6'">
-                                        <li th:each="cou : ${couList6}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}"  th:text="${cou.countryName}"></a></li>
-                                    </div>
-                                    <div th:if="${last.index} eq '7'">
-                                        <li th:each="cou : ${couList7}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}" th:text="${cou.countryName}"></a></li>
-                                    </div>
+<nav class="navigation" role="navigation">
+    <ul class="level1">
+        <li class="discover">
+            <a href="index">探索世界</a>
+            <ul class="level2">
+                <li th:each="con,last : ${session.conList}">            <!--洲-->
+                    <a th:href="@{'ProductList?continentId='+${con.continentId}}" th:text="${con.continentName}">o</a>
+                    <ul class="level3">
+                        <div th:if="${last.index} eq '0'">                          <!--国-->
+                            <li th:each="cou : ${session.couList0}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}"  th:text="${cou.countryName}"></a></li>
+                        </div>
+                        <div th:if="${last.index} eq '1'">
+                            <li th:each="cou : ${session.couList1}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}" th:text="${cou.countryName}"></a></li>
+                        </div>
+                        <div th:if="${last.index} eq '2'">
+                            <li th:each="cou : ${session.couList2}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}"  th:text="${cou.countryName}"></a></li>
+                        </div>
+                        <div th:if="${last.index} eq '3'">
+                            <li th:each="cou : ${session.couList3}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}"  th:text="${cou.countryName}"></a></li>
+                        </div>
+                        <div th:if="${last.index} eq '4'">
+                            <li th:each="cou : ${session.couList4}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}" th:text="${cou.countryName}"></a></li>
+                        </div>
+                        <div th:if="${last.index} eq '5'">
+                            <li th:each="cou : ${session.couList5}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}" th:text="${cou.countryName}"></a></li>
+                        </div>
+                        <div th:if="${last.index} eq '6'">
+                            <li th:each="cou : ${session.couList6}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}"  th:text="${cou.countryName}"></a></li>
+                        </div>
+                        <div th:if="${last.index} eq '7'">
+                            <li th:each="cou : ${session.couList7}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}" th:text="${cou.countryName}"></a></li>
+                        </div>
 
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);">主题臻选</a>
-                        <ul class="level2">
-                            <li th:each="theme : ${themeList}">
-                                <a th:href="@{'ProductList?themeId='+${theme.themeId}}"><span
-                                        th:text="${theme.themeName}"></span></a>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+                        <li>
+                            <a href="javascript:void(0);">主题臻选</a>
+                            <ul class="level2">
+                                <li th:each="theme : ${session.themeList}">
+                                    <a th:href="@{'ProductList?themeId='+${theme.themeId}}"><span
+                                            th:text="${theme.themeName}"></span></a>
 
-                                <ul class="level3">
-                                    <div th:if="${theme.themeId} eq '1'">
-                                        <li th:each="h : ${h}"><a th:href="@{'ProductList?hobbyId='+${h.hobbyId}}"><span th:text="${h.hobbyName}"></span></a></li>
-                                    </div>
-                                    <div th:if="${theme.themeId} eq '2'">
-                                        <li th:each="t : ${t}"><a th:href="@{'ProductList?travelId='+${t.travelId}}"><span th:text="${t.travelName}"></span></a></li>
-                                    </div>
-                                    <div th:if="${theme.themeId} eq '3'">
-                                        <li th:each="c : ${c}"><a th:href="@{'ProductList?trafficId='+${c.trafficId}}"><span th:text="${c.trafficName}"></span></a></li>
-                                    </div>
-                                    <div th:if="${theme.themeId} eq '4'">
-                                        <li th:each="s : ${s}"><a th:href="@{'ProductList?styleId='+${s.styleId}}" th:text="${s.styleName}"><span th:text="${s.styleName}"></span></a></li>
-                                    </div>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a href="Personalise" >私人定制</a></li>
-                    <li><a href="ProductList/pt/4.htm" >度假套餐</a>
-                        <ul class="level2">
-                            <li th:each="holiday : ${holidayList}">
-                                <!--<a href="javascript:void(0)">酒店品牌</a>-->
-                                <a th:href="@{'ProductList?holidayId='+${holiday.holidayId}}"><span
-                                        th:text="${holiday.holidayName}"></span></a>
-                                <ul class="level3">
-                                    <div th:if="${holiday.holidayId} eq '1'">
-                                        <li th:each="b : ${b}"><a
-                                                th:href="@{'ProductList?brandId='+${b.brandId}}"><span
-                                                th:text="${b.brandName}"></span></a></li>
-                                    </div>
-                                    <div th:if="${holiday.holidayId} eq '2'">
-                                        <li th:each="continent : ${continent}"><a
-                                                th:href="@{'ProductList?continentId='+${continent.continentId}}"><span
-                                                th:text="${continent.continentName}"></span></a></li>
-                                    </div>
-                                </ul>
-                            </li>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a href="nge">国家地理</a></li>
-                    <li><a href="HealthIndex" >海外健康</a></li>
-                    <li>
-                        <a href="javascript:void(0);">公司简介</a>
-                        <ul class="level2">
-                            <li>
-                                <ul class="level3">
-                                    <li><a href="AboutUsIndex" >品牌故事</a></li>
-                                    <li><a href="ProductClub" >耀悦会</a></li>
-                                    <li><a href="InvitationList" >邀约 · 分享</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
+                    <ul class="level3">
+                        <div th:if="${theme.themeId} eq '1'">
+                            <li th:each="h : ${session.h}"><a th:href="@{'ProductList?hobbyId='+${h.hobbyId}}"><span th:text="${h.hobbyName}"></span></a></li>
+                        </div>
+                        <div th:if="${theme.themeId} eq '2'">
+                            <li th:each="t : ${session.t}"><a th:href="@{'ProductList?travelId='+${t.travelId}}"><span th:text="${t.travelName}"></span></a></li>
+                        </div>
+                        <div th:if="${theme.themeId} eq '3'">
+                            <li th:each="c : ${session.c}"><a th:href="@{'ProductList?trafficId='+${c.trafficId}}"><span th:text="${c.trafficName}"></span></a></li>
+                        </div>
+                        <div th:if="${theme.themeId} eq '4'">
+                            <li th:each="s : ${session.s}"><a th:href="@{'ProductList?styleId='+${s.styleId}}" th:text="${s.styleName}"><span th:text="${s.styleName}"></span></a></li>
+                        </div>
+                    </ul>
+                </li>
+
+
+
+            </ul>
+        </li>
+        <li><a href="Personalise" >私人定制</a></li>
+        <li><a href="ProductList/pt/4.htm" >度假套餐</a>
+            <ul class="level2">
+                 <li th:each="holiday : ${session.holidayList}">
+                    <!--<a href="javascript:void(0)">酒店品牌</a>-->
+                    <a th:href="@{'ProductList?holidayId='+${holiday.holidayId}}"><span
+                            th:text="${holiday.holidayName}"></span></a>
+                    <ul class="level3">
+                        <div th:if="${holiday.holidayId} eq '1'">
+                            <li th:each="b : ${session.b}"><a
+                                    th:href="@{'ProductList?brandId='+${b.brandId}}"><span
+                                    th:text="${b.brandName}"></span></a></li>
+                        </div>
+                        <div th:if="${holiday.holidayId} eq '2'">
+                            <li th:each="continent : ${session.continent}"><a
+                                    th:href="@{'ProductList?continentId='+${continent.continentId}}"><span
+                                    th:text="${continent.continentName}"></span></a></li>
+                        </div>
+                    </ul>
+                </li>
+                </li>
+            </ul>
+        </li>
+        <li><a href="nge">国家地理</a></li>
+        <li><a href="HealthIndex" >海外健康</a></li>
+        <li>
+            <a href="javascript:void(0);">公司简介</a>
+            <ul class="level2">
+                <li>
+                    <ul class="level3">
+                        <li><a href="AboutUsIndex" >品牌故事</a></li>
+                        <li><a href="ProductClub" >耀悦会</a></li>
+                        <li><a href="InvitationList" >邀约 · 分享</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
 
                 </ul>
             </nav>
@@ -377,7 +380,7 @@
                                             <option  style="background-color: #0c1116" value="0">请选择</option>
                                             <option th:each="con: ${conList}" style="background-color: #0c1116" th:value="${con.continentId}" th:text="${con.continentName}"></option>
                                         </select>
-                                        <!-- <input type="text" class="inputDestination" id="searchByDestination" placeholder="输入目的地" />-->
+                                       <!-- <input type="text" class="inputDestination" id="searchByDestination" placeholder="输入目的地" />-->
                                     </div>
                                 </fieldset>
                             </div>
@@ -456,16 +459,16 @@
     </div>
 </div>
 <!--[if lte IE 8]>
-<div id="browser">
-    <p>我们检测到您还在使用版本较低的IE内核浏览器，为了获得最佳的浏览体验，耀悦旅行推荐您使用<span class="close">关闭</span></p>
-    <dl>
-        <dd><a target="_blank" href="javascript:if(confirm('https://www.google.com/intl/zh-CN/chrome/browser/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='https://www.google.com/intl/zh-CN/chrome/browser/'" tppabs="https://www.google.com/intl/zh-CN/chrome/browser/">谷歌浏览器</a></dd>
-        <dd><a target="_blank" href="javascript:if(confirm('http://support.apple.com/kb/DL1531?viewlocale=zh_CN  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://support.apple.com/kb/DL1531?viewlocale=zh_CN'" tppabs="http://support.apple.com/kb/DL1531?viewlocale=zh_CN">Safari浏览器</a></dd>
-        <dd><a target="_blank" href="javascript:if(confirm('http://www.firefox.com.cn/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.firefox.com.cn/'" tppabs="http://www.firefox.com.cn/">火狐浏览器</a></dd>
-        <dd><a target="_blank" href="javascript:if(confirm('http://windows.microsoft.com/zh-cn/internet-explorer/download-ie  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://windows.microsoft.com/zh-cn/internet-explorer/download-ie'" tppabs="http://windows.microsoft.com/zh-cn/internet-explorer/download-ie">IE浏览器</a><span>（IE9以上）</span></dd>
-    </dl>
-</div>
-<![endif]-->
+        <div id="browser">
+	        <p>我们检测到您还在使用版本较低的IE内核浏览器，为了获得最佳的浏览体验，耀悦旅行推荐您使用<span class="close">关闭</span></p>
+	        <dl>
+		        <dd><a target="_blank" href="javascript:if(confirm('https://www.google.com/intl/zh-CN/chrome/browser/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='https://www.google.com/intl/zh-CN/chrome/browser/'" tppabs="https://www.google.com/intl/zh-CN/chrome/browser/">谷歌浏览器</a></dd>
+		        <dd><a target="_blank" href="javascript:if(confirm('http://support.apple.com/kb/DL1531?viewlocale=zh_CN  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://support.apple.com/kb/DL1531?viewlocale=zh_CN'" tppabs="http://support.apple.com/kb/DL1531?viewlocale=zh_CN">Safari浏览器</a></dd>
+		        <dd><a target="_blank" href="javascript:if(confirm('http://www.firefox.com.cn/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.firefox.com.cn/'" tppabs="http://www.firefox.com.cn/">火狐浏览器</a></dd>
+		        <dd><a target="_blank" href="javascript:if(confirm('http://windows.microsoft.com/zh-cn/internet-explorer/download-ie  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://windows.microsoft.com/zh-cn/internet-explorer/download-ie'" tppabs="http://windows.microsoft.com/zh-cn/internet-explorer/download-ie">IE浏览器</a><span>（IE9以上）</span></dd>
+	        </dl>
+        </div>
+        <![endif]-->
 <script type="text/javascript">
     $(function(){
         $(".associator").on("click",function(){
@@ -477,7 +480,7 @@
         })
         $(".order").on("click",function(){
             if($.cookie("customer")){
-                window.location.href="order?phone="+$.cookie("customer");
+                window.location.href="order?phone="+$.cookie("customer")+"&num=0";
             }else{
                 window.location.href="order";
             }
@@ -498,11 +501,16 @@
         $.cookie("customer", '', { expires: -1,path: "/" });
         location.href = "index";
     }
+    $("#btn_login").on("click",function(){
+        var phone=$("#txt_phone").val();
+        $.cookie("customer", phone, { expires: 1,path: "/" });
+        $("#modalMyYaoyue").modal("hide");
+    })
 
     $("#btnHeadSearch").bind("click", function () {
         var time=$("#txtStartDate").val();
         var continentId=$("#searchByDestination option:selected").val();
-        if(continentId==0 && (time!=NaN && time !="" && time !=undefined)){
+       if(continentId==0 && (time!=NaN && time !="" && time !=undefined)){
             location.href = "ProductList?startTime="+time;
         }
         if(continentId!=0 && (time==NaN || time =="" || time ==undefined)){
@@ -516,1156 +524,1156 @@
         }
     })
 
-</script>
+    </script>
 
-<div class="owl-carousel owl-theme homeBanners marg-top--90">
-    <a target="_blank" href="ProductList/5661.htm" tppabs="http://www.sparkletour.com/ProductList/5661">
-        <div class="item mt90"
-             style="background: url(https://images6.aoyou.com/productlist/201804/h26t2817142420.jpg) no-repeat center; height: 584px;">
-        </div>
-    </a>
-    <a target="_blank" href="ProductList/5659.htm" tppabs="http://www.sparkletour.com/ProductList/5659">
-        <div class="item mt90" bgimage="https://images2.aoyou.com/productlist/201805/t6df4x09112922.jpg"
-             style="background-repeat: no-repeat; background-position: center; height: 584px;">
-        </div>
-    </a>
-    <a target="_blank" href="themes/health/.html" tppabs="http://www.sparkletour.com/themes/health/">
-        <div class="item mt90" bgimage="https://images1.aoyou.com/productlist/201801/8bfxx830164013.jpg"
-             style="background-repeat: no-repeat; background-position: center; height: 584px;">
-        </div>
-    </a>
-    <a target="_blank" href="nge.htm" tppabs="http://www.sparkletour.com/nge">
-        <div class="item mt90" bgimage="https://images6.aoyou.com/productlist/201803/zx82z827132302.jpg"
-             style="background-repeat: no-repeat; background-position: center; height: 584px;">
-        </div>
-    </a>
-
-</div>
-<main role="main" id="pageContent" class="pageContent clearfix">
-
-    <div class="productCollections">
-        <section class="productCollection">
-            <div class="contentWrapper">
-                <h2>主题</h2>
-                <ul class="themeProducts clearfix">
-                    <li><a href="ProductList/4970.htm" tppabs="http://www.sparkletour.com/ProductList/4970"
-                           class="themeProduct"
-                           style="background-image: url('http://images.sparkletour.com/2016/07/01/20160701171336126.png')"></a>
-                    </li>
-                    <li><a href="ProductList/6101.htm" tppabs="http://www.sparkletour.com/ProductList/6101"
-                           class="themeProduct"
-                           style="background-image: url('http://images.sparkletour.com/2016/05/17/2016051715580437.png')"></a>
-                    </li>
-                    <li><a href="ProductList/4971.htm" tppabs="http://www.sparkletour.com/ProductList/4971"
-                           class="themeProduct"
-                           style="background-image: url('http://images.sparkletour.com/2015/05/31/20150531200449270.png')"></a>
-                    </li>
-                    <li><a href="ProductList/4975.htm" tppabs="http://www.sparkletour.com/ProductList/4975"
-                           class="themeProduct"
-                           style="background-image: url('http://images.sparkletour.com/2015/05/31/20150531200339367.png')"></a>
-                    </li>
-
-                </ul>
+    <div class="owl-carousel owl-theme homeBanners marg-top--90">
+        <a target="_blank" href="ProductList/5661.htm" tppabs="http://www.sparkletour.com/ProductList/5661">
+            <div class="item mt90"
+                 style="background: url(https://images6.aoyou.com/productlist/201804/h26t2817142420.jpg) no-repeat center; height: 584px;">
             </div>
-        </section>
-        <section class="productCollection">
-            <div class="contentWrapper hotSalesWrapper">
-                <h2>热卖</h2>
-                <ul class="hotSalesNav">
-                    <li><a href="javascript:void(0);" class="oceania active"><span>大洋洲</span></a></li>
-                    <li><a href="javascript:void(0);" class="northAmerica "><span>美洲</span></a></li>
-                    <li><a href="javascript:void(0);" class="eastasia "><span>东亚</span></a></li>
-                    <li><a href="javascript:void(0);" class="europe "><span>欧洲</span></a></li>
-                    <li><a href="javascript:void(0);" class="southeastasia "><span>东南亚</span></a></li>
-                    <li><a href="javascript:void(0);" class="china "><span>中国</span></a></li>
-                    <li><a href="javascript:void(0);" class="feizhou "><span>非洲</span></a></li>
-                </ul>
-                <div class="owl-carousel owl-theme hotSales">
-                    <div class="item">
-                        <div class="col1">
-                            <div class="hotSaleProduct small"
-                                 bgimage="http://images1.aoyou.com/productlist/201407/0pxr2x18154819.jpg?imageView2/1/q/90/w/284/h/214/">
-                                <a target="_blank" href="ProductDetail/125869.htm"
-                                   tppabs="http://www.sparkletour.com/ProductDetail/125869" class="cover"><span
-                                        class="accessible">澳大利亚 浪漫汉密尔顿岛4晚5天度假套餐</span></a>
-                                <div class="info">
-                                    <div class="brief centeredWrapper">
-                                        <div class="centeredContent">
-                                            <p class="title ie7mt80">澳大利亚 浪漫汉密尔顿岛</p>
-                                        </div>
-                                    </div>
-                                    <div class="detail centeredWrapper">
-                                        <div class="centeredContent">
-                                            <ul class="features ie7mt80">
-                                                <li>直升机赏唯美心形堡礁<br/>专业摄影师浪漫旅拍<br/>顶级奢华Qualia度假村<br/>4晚5天度假套餐</li>
-                                            </ul>
-                                            <p class="price">￥2.89 万元起</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="hotSaleProduct small"
-                                 bgimage="http://images1.aoyou.com/productlist/201501/h0n26h19140729.jpg?imageView2/1/q/90/w/284/h/214/">
-                                <a target="_blank" href="ProductDetail/64369.htm"
-                                   tppabs="http://www.sparkletour.com/ProductDetail/64369" class="cover"><span
-                                        class="accessible">斐济 一路亚萨瓦6晚8天高端自由行</span></a>
-                                <div class="info">
-                                    <div class="brief centeredWrapper">
-                                        <div class="centeredContent">
-                                            <p class="title ie7mt80">斐济 一路亚萨瓦</p>
-                                        </div>
-                                    </div>
-                                    <div class="detail centeredWrapper">
-                                        <div class="centeredContent">
-                                            <ul class="features ie7mt80">
-                                                <li>一生一次斐济<br/>亚萨瓦绝美私人海滩<br/>一价全包 免费wifi 晒出幸福<br/>6晚8天高端自由行</li>
-                                            </ul>
-                                            <p class="price">￥5.79 万元起</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col2">
-                            <div class="hotSaleProduct large"
-                                 bgimage="http://images1.aoyou.com/productlist/201603/nv024607161749.jpg?imageView2/1/q/90/w/594/h/446/">
-                                <a target="_blank" href="ProductDetail/39169.htm"
-                                   tppabs="http://www.sparkletour.com/ProductDetail/39169" class="cover"><span
-                                        class="accessible">大溪地 四季贵族6晚8天高端自由行</span></a>
-                                <div class="info">
-                                    <div class="brief centeredWrapper">
-                                        <div class="centeredContent">
-                                            <p class="title ie7mt80">大溪地 四季贵族</p>
-                                        </div>
-                                    </div>
-                                    <div class="detail centeredWrapper">
-                                        <div class="centeredContent">
-                                            <ul class="features ie7mt80">
-                                                <li>最性感小岛波拉波拉<br/>奢享四季水上屋<br/>好莱坞明星挚爱<br/>6晚8天高端自由行</li>
-                                            </ul>
-                                            <p class="price">￥4.69 万元起</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col1">
-                            <div class="hotSaleProduct small"
-                                 bgimage="http://images1.aoyou.com/productlist/201506/pt42hb01145510.jpg?imageView2/1/q/90/w/284/h/214/">
-                                <a target="_blank" href="ProductDetail/63761.htm"
-                                   tppabs="http://www.sparkletour.com/ProductDetail/63761" class="cover"><span
-                                        class="accessible">发现 瓦努阿图8晚10天私享游</span></a>
-                                <div class="info">
-                                    <div class="brief centeredWrapper">
-                                        <div class="centeredContent">
-                                            <p class="title ie7mt80">发现 瓦努阿图</p>
-                                        </div>
-                                    </div>
-                                    <div class="detail centeredWrapper">
-                                        <div class="centeredContent">
-                                            <ul class="features ie7mt80">
-                                                <li>原始南太岛国<br/>特色酒店Warwick+白草海洋度假村<br/>探访原始部落 深入火山腹地<br/>8晚10天私享游
-                                                </li>
-                                            </ul>
-                                            <p class="price">￥3.79 万元起</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="hotSaleProduct small"
-                                 bgimage="http://images1.aoyou.com/productlist/201403/p2z2f626174205.jpg?imageView2/1/q/90/w/927/h/475/?imageView2/1/q/90/w/284/h/214/">
-                                <a target="_blank" href="ProductDetail/100043.htm"
-                                   tppabs="http://www.sparkletour.com/ProductDetail/100043" class="cover"><span
-                                        class="accessible">经典新西兰</span></a>
-                                <div class="info">
-                                    <div class="brief centeredWrapper">
-                                        <div class="centeredContent">
-                                            <p class="title ie7mt80">经典新西兰</p>
-                                        </div>
-                                    </div>
-                                    <div class="detail centeredWrapper">
-                                        <div class="centeredContent">
-                                            <ul class="features ie7mt80">
-                                                <li>经典线路初识“新”美色 <br/>探秘“国际黑暗天空保护区” <br/>重温魔戒与霍比特人拍摄场地<br/>10晚12天私享游
-                                                </li>
-                                            </ul>
-                                            <p class="price">￥5.45 万元起</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="col1">
-                            <div class="hotSaleProduct small"
-                                 bgimage="http://images1.aoyou.com/productlist/201403/lz6l6825101710.jpg?imageView2/1/q/90/w/284/h/214/">
-                                <a target="_blank" href="ProductDetail/46418.htm"
-                                   tppabs="http://www.sparkletour.com/ProductDetail/46418" class="cover"><span
-                                        class="accessible">美国 驾驭夏威夷5晚8天高端自由行</span></a>
-                                <div class="info">
-                                    <div class="brief centeredWrapper">
-                                        <div class="centeredContent">
-                                            <p class="title ie7mt80">美国 驾驭夏威夷</p>
-                                        </div>
-                                    </div>
-                                    <div class="detail centeredWrapper">
-                                        <div class="centeredContent">
-                                            <ul class="features ie7mt80">
-                                                <li>5晚喜来登海景房<br/>2整天牧马人全险自驾<br/>夏威夷航空直飞<br/>5晚8天高端自由行</li>
-                                            </ul>
-                                            <p class="price">￥2.85 万元起</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="hotSaleProduct small"
-                                 bgimage="http://images1.aoyou.com/productlist/201508/h6tdrb12172849.jpg?imageView2/1/q/90/w/284/h/214/">
-                                <a target="_blank" href="ProductDetail/86942.htm"
-                                   tppabs="http://www.sparkletour.com/ProductDetail/86942" class="cover"><span
-                                        class="accessible">加拿大 “醉氧”落基山10晚12天私享游</span></a>
-                                <div class="info">
-                                    <div class="brief centeredWrapper">
-                                        <div class="centeredContent">
-                                            <p class="title ie7mt80">加拿大 “醉氧”落基山</p>
-                                        </div>
-                                    </div>
-                                    <div class="detail centeredWrapper">
-                                        <div class="centeredContent">
-                                            <ul class="features ie7mt80">
-                                                <li>班夫&贾斯珀国家公园<br/>北温哥华顶级索诺拉度假村<br/>10晚12天私享游</li>
-                                            </ul>
-                                            <p class="price">￥6.95 万元起</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col2">
-                            <div class="hotSaleProduct large"
-                                 bgimage="http://images1.aoyou.com/productlist/201608/0vrj6h19145232.jpg?imageView2/1/q/90/w/594/h/446/">
-                                <a target="_blank" href="ProductDetail/104530.htm"
-                                   tppabs="http://www.sparkletour.com/ProductDetail/104530" class="cover"><span
-                                        class="accessible">玻利维亚&秘鲁 天空之镜与失落之城11晚15天私享游</span></a>
-                                <div class="info">
-                                    <div class="brief centeredWrapper">
-                                        <div class="centeredContent">
-                                            <p class="title ie7mt80">玻利维亚&秘鲁 天空之镜与失落之城</p>
-                                        </div>
-                                    </div>
-                                    <div class="detail centeredWrapper">
-                                        <div class="centeredContent">
-                                            <ul class="features ie7mt80">
-                                                <li>Belmond酒店奢华享受<br/>国际段商务舱舒享旅程<br/>自然文化双重秘境深度探访<br/>11晚15天私享游</li>
-                                            </ul>
-                                            <p class="price">￥10.95 万元起</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col1">
-                            <div class="hotSaleProduct small"
-                                 bgimage="http://images1.aoyou.com/productlist/201604/hf2xpx26172059.jpg?imageView2/1/q/90/w/284/h/214/">
-                                <a target="_blank" href="ProductDetail/84275.htm"
-                                   tppabs="http://www.sparkletour.com/ProductDetail/84275" class="cover"><span
-                                        class="accessible">美国 情迷一号公路10晚12天私享游</span></a>
-                                <div class="info">
-                                    <div class="brief centeredWrapper">
-                                        <div class="centeredContent">
-                                            <p class="title ie7mt80">美国 情迷一号公路</p>
-                                        </div>
-                                    </div>
-                                    <div class="detail centeredWrapper">
-                                        <div class="centeredContent">
-                                            <ul class="features ie7mt80">
-                                                <li>敞篷野马自驾体验<br/>直升机鸟瞰西峡谷<br/>旧金山美味螃蟹餐<br/>10晚12天私享游</li>
-                                            </ul>
-                                            <p class="price">￥4.59 万元起</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="hotSaleProduct small"
-                                 bgimage="http://images1.aoyou.com/productlist/201608/64064004151443.jpg?imageView2/1/q/90/w/284/h/214/">
-                                <a target="_blank" href="ProductDetail/103487.htm"
-                                   tppabs="http://www.sparkletour.com/ProductDetail/103487" class="cover"><span
-                                        class="accessible">哥伦比亚&厄瓜多尔&秘鲁 印加余晖14晚17天私享游</span></a>
-                                <div class="info">
-                                    <div class="brief centeredWrapper">
-                                        <div class="centeredContent">
-                                            <p class="title ie7mt80">哥伦比亚&厄瓜多尔&秘鲁 印加余晖</p>
-                                        </div>
-                                    </div>
-                                    <div class="detail centeredWrapper">
-                                        <div class="centeredContent">
-                                            <ul class="features ie7mt80">
-                                                <li>遍览南美三国<br/>亚马逊雨林探秘<br/>帝国遗迹马丘比丘<br/>14晚17天私享游</li>
-                                            </ul>
-                                            <p class="price">￥11.25 万元起</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="col1">
-                            <div class="hotSaleProduct small"
-                                 bgimage="http://images1.aoyou.com/productlist/201801/hrh68b19112057.jpg?imageView2/1/q/90/w/927/h/475/?imageView2/1/q/90/w/284/h/214/">
-                                <a target="_blank" href="ProductDetail/126439.htm"
-                                   tppabs="http://www.sparkletour.com/ProductDetail/126439" class="cover"><span
-                                        class="accessible">青森 弘前赏樱 4晚5天私享游</span></a>
-                                <div class="info">
-                                    <div class="brief centeredWrapper">
-                                        <div class="centeredContent">
-                                            <p class="title ie7mt80">青森 弘前赏樱</p>
-                                        </div>
-                                    </div>
-                                    <div class="detail centeredWrapper">
-                                        <div class="centeredContent">
-                                            <ul class="features ie7mt80">
-                                                <li>赏樱名所<br/>古牧温泉<br/>莺歌乐舞<br/>4晚5天私享游<br/></li>
-                                            </ul>
-                                            <p class="price">￥2.75 万元起</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="hotSaleProduct small"
-                                 bgimage="http://images1.aoyou.com/productlist/201702/44phbt28104557.jpg?imageView2/1/q/90/w/927/h/475/?imageView2/1/q/90/w/284/h/214/">
-                                <a target="_blank" href="ProductDetail/112971.htm"
-                                   tppabs="http://www.sparkletour.com/ProductDetail/112971" class="cover"><span
-                                        class="accessible">日本 大和物语 4晚5天私享游</span></a>
-                                <div class="info">
-                                    <div class="brief centeredWrapper">
-                                        <div class="centeredContent">
-                                            <p class="title ie7mt80">日本 大和物语</p>
-                                        </div>
-                                    </div>
-                                    <div class="detail centeredWrapper">
-                                        <div class="centeredContent">
-                                            <ul class="features ie7mt80">
-                                                <li>千年古都<br/>贵族私邸<br/>原汁原味日式风情<br/>4晚5天私享游</li>
-                                            </ul>
-                                            <p class="price">￥5.99 万元起</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col2">
-                            <div class="hotSaleProduct large"
-                                 bgimage="http://images1.aoyou.com/productlist/201506/zj42vh03135159.jpg?imageView2/1/q/90/w/594/h/446/">
-                                <a target="_blank" href="ProductDetail/55680.htm"
-                                   tppabs="http://www.sparkletour.com/ProductDetail/55680" class="cover"><span
-                                        class="accessible">热海&伊豆&东京 私汤秘境4晚5天私享游</span></a>
-                                <div class="info">
-                                    <div class="brief centeredWrapper">
-                                        <div class="centeredContent">
-                                            <p class="title ie7mt80">热海&伊豆&东京 私汤秘境</p>
-                                        </div>
-                                    </div>
-                                    <div class="detail centeredWrapper">
-                                        <div class="centeredContent">
-                                            <ul class="features ie7mt80">
-                                                <li>热海艺妓+伊豆私汤<br/>东京品米其林美食<br/>4晚5天私享游</li>
-                                            </ul>
-                                            <p class="price">￥3.75 万元起</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col1">
-                            <div class="hotSaleProduct small"
-                                 bgimage="http://images1.aoyou.com/productlist/201703/btt84j03161858.jpg?imageView2/1/q/90/w/927/h/475/?imageView2/1/q/90/w/284/h/214/">
-                                <a target="_blank" href="ProductDetail/128654.htm"
-                                   tppabs="http://www.sparkletour.com/ProductDetail/128654" class="cover"><span
-                                        class="accessible">国家地理 日本 大和绝技之美 4晚5天招募团</span></a>
-                                <div class="info">
-                                    <div class="brief centeredWrapper">
-                                        <div class="centeredContent">
-                                            <p class="title ie7mt80">国家地理 日本 大和绝技之美</p>
-                                        </div>
-                                    </div>
-                                    <div class="detail centeredWrapper">
-                                        <div class="centeredContent">
-                                            <ul class="features ie7mt80">
-                                                <li>了解日本千年相扑历史文化<br/>近距离观赏相扑比赛<br/>古城茶室探寻京都悠久文化<br/>4晚5天招募团</li>
-                                            </ul>
-                                            <p class="price">￥5.97 万元起</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="hotSaleProduct small"
-                                 bgimage="http://images1.aoyou.com/productlist/201506/0xdz2p04102211.jpg?imageView2/1/q/90/w/284/h/214/">
-                                <a target="_blank" href="ProductDetail/45857.htm"
-                                   tppabs="http://www.sparkletour.com/ProductDetail/45857" class="cover"><span
-                                        class="accessible">大阪&京都&神户 恋恋关西4晚5天私享游</span></a>
-                                <div class="info">
-                                    <div class="brief centeredWrapper">
-                                        <div class="centeredContent">
-                                            <p class="title ie7mt80">大阪&京都&神户 恋恋关西</p>
-                                        </div>
-                                    </div>
-                                    <div class="detail centeredWrapper">
-                                        <div class="centeredContent">
-                                            <ul class="features ie7mt80">
-                                                <li>漫游三都物语<br/>揽尽和式风情<br/>4晚5天私享游</li>
-                                            </ul>
-                                            <p class="price">￥3.29 万元起</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="col1">
-                            <div class="hotSaleProduct small"
-                                 bgimage="http://images1.aoyou.com/productlist/201511/xjrbjd30182736.gif?imageView2/1/q/90/w/284/h/214/">
-                                <a target="_blank" href="ProductDetail/105933.htm"
-                                   tppabs="http://www.sparkletour.com/ProductDetail/105933" class="cover"><span
-                                        class="accessible">北欧  欧若拉 光8晚10天私享游</span></a>
-                                <div class="info">
-                                    <div class="brief centeredWrapper">
-                                        <div class="centeredContent">
-                                            <p class="title ie7mt80">北欧 欧若拉 光</p>
-                                        </div>
-                                    </div>
-                                    <div class="detail centeredWrapper">
-                                        <div class="centeredContent">
-                                            <ul class="features ie7mt80">
-                                                <li>追寻北欧绝美绚烂极光<br/>造访北极圈门户特罗姆瑟<br/>亲手捕捞品尝帝王蟹大餐<br/>8晚10天私享游</li>
-                                            </ul>
-                                            <p class="price">￥6.75 万元起</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="hotSaleProduct small"
-                                 bgimage="https://images5.aoyou.com/productlist/201801/0f4h4z04145057.jpg?imageView2/1/q/90/w/284/h/214/">
-                                <a target="_blank" href="ProductDetail/125880.htm"
-                                   tppabs="http://www.sparkletour.com/ProductDetail/125880" class="cover"><span
-                                        class="accessible">荷兰鉴赏艺术瑰宝8晚10天私享团</span></a>
-                                <div class="info">
-                                    <div class="brief centeredWrapper">
-                                        <div class="centeredContent">
-                                            <p class="title ie7mt80">荷兰 鉴赏艺术瑰宝</p>
-                                        </div>
-                                    </div>
-                                    <div class="detail centeredWrapper">
-                                        <div class="centeredContent">
-                                            <ul class="features ie7mt80">
-                                                <li>专家带队探寻梵高故乡 <br/>私密尊享鉴赏艺术瑰宝 <br/>亲历世外桃源羊角村<br/>8晚10天私享团</li>
-                                            </ul>
-                                            <p class="price">￥3.99 万元起</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col2">
-                            <div class="hotSaleProduct large"
-                                 bgimage="https://images2.aoyou.com/productlist/201612/20rbdz01160542.jpg?imageView2/1/q/90/w/594/h/446/">
-                                <a target="_blank" href="ProductDetail/84237.htm"
-                                   tppabs="http://www.sparkletour.com/ProductDetail/84237" class="cover"><span
-                                        class="accessible">冰岛  地球乌托邦6晚8天私享游</span></a>
-                                <div class="info">
-                                    <div class="brief centeredWrapper">
-                                        <div class="centeredContent">
-                                            <p class="title ie7mt80">冰岛 地球乌托邦</p>
-                                        </div>
-                                    </div>
-                                    <div class="detail centeredWrapper">
-                                        <div class="centeredContent">
-                                            <ul class="features ie7mt80">
-                                                <li>追寻冰岛神秘极光<br/>试骑呆萌冰岛马<br/>黄金圈冰川徒步<br/>6晚8天私享游</li>
-                                            </ul>
-                                            <p class="price">￥4.95 万元起</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col1">
-                            <div class="hotSaleProduct small"
-                                 bgimage="http://images1.aoyou.com/productlist/201603/d0rfz828145255.jpg?imageView2/1/q/90/w/927/h/475/?imageView2/1/q/90/w/284/h/214/">
-                                <a target="_blank" href="ProductDetail/92865.htm"
-                                   tppabs="http://www.sparkletour.com/ProductDetail/92865" class="cover"><span
-                                        class="accessible">法国 印象巴黎8晚10天私享游</span></a>
-                                <div class="info">
-                                    <div class="brief centeredWrapper">
-                                        <div class="centeredContent">
-                                            <p class="title ie7mt80">法国 印象巴黎</p>
-                                        </div>
-                                    </div>
-                                    <div class="detail centeredWrapper">
-                                        <div class="centeredContent">
-                                            <ul class="features ie7mt80">
-                                                <li>吉维尼莫奈花园<br/>复古老爷车巡游<br/>王侯私邸香格里拉<br/>8晚10天私享游</li>
-                                            </ul>
-                                            <p class="price">￥5.95 万元起</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="hotSaleProduct small"
-                                 bgimage="https://images1.aoyou.com/productlist/201801/z06rp017170840.jpg?imageView2/1/q/90/w/284/h/214/">
-                                <a target="_blank" href="ProductDetail/119312.htm"
-                                   tppabs="http://www.sparkletour.com/ProductDetail/119312" class="cover"><span
-                                        class="accessible">地中海撒丁岛  亲子美食之旅5晚6天度假套餐</span></a>
-                                <div class="info">
-                                    <div class="brief centeredWrapper">
-                                        <div class="centeredContent">
-                                            <p class="title ie7mt80">地中海撒丁岛 亲子美食之旅</p>
-                                        </div>
-                                    </div>
-                                    <div class="detail centeredWrapper">
-                                        <div class="centeredContent">
-                                            <ul class="features ie7mt80">
-                                                <li>全球最佳度假酒店Forte Village<br/>每日甄选精彩活动<br/>冠军级体育学院<br/>5晚6天度假套餐</li>
-                                            </ul>
-                                            <p class="price">1.99万元起</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="col1">
-                            <div class="hotSaleProduct small"
-                                 bgimage="https://images6.aoyou.com/productlist/201801/0tzfzx17165425.jpg?imageView2/1/q/90/w/284/h/214/">
-                                <a target="_blank" href="ProductDetail/98055.htm"
-                                   tppabs="http://www.sparkletour.com/ProductDetail/98055" class="cover"><span
-                                        class="accessible">甲米 丽思隐世精品系列4晚5天度假套餐</span></a>
-                                <div class="info">
-                                    <div class="brief centeredWrapper">
-                                        <div class="centeredContent">
-                                            <p class="title ie7mt80">甲米 丽思隐世精品系列</p>
-                                        </div>
-                                    </div>
-                                    <div class="detail centeredWrapper">
-                                        <div class="centeredContent">
-                                            <ul class="features ie7mt80">
-                                                <li>无敌壮美攀牙海景<br/>隐世丽思豪华亭阁别墅<br/>4*2米超大睡床<br/>丰富活动完美假期<br/>4晚5天度假套餐
-                                                </li>
-                                            </ul>
-                                            <p class="price">￥0.68万元起</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="hotSaleProduct small"
-                                 bgimage="http://images1.aoyou.com/productlist/201506/fb26d008145843.png?imageView2/1/q/90/w/284/h/214/">
-                                <a target="_blank" href="ProductDetail/57342.htm"
-                                   tppabs="http://www.sparkletour.com/ProductDetail/57342" class="cover"><span
-                                        class="accessible">不丹 幸福在云端7晚8天私享游</span></a>
-                                <div class="info">
-                                    <div class="brief centeredWrapper">
-                                        <div class="centeredContent">
-                                            <p class="title ie7mt80">不丹 幸福在云端</p>
-                                        </div>
-                                    </div>
-                                    <div class="detail centeredWrapper">
-                                        <div class="centeredContent">
-                                            <ul class="features ie7mt80">
-                                                <li>安缦库拉稀世奢享<br/>喜马拉雅安悦秘境<br/>7晚8天私享游</li>
-                                            </ul>
-                                            <p class="price">￥5.79 万元起</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col2">
-                            <div class="hotSaleProduct large"
-                                 bgimage="http://images1.aoyou.com/productlist/201701/6rph2z03170507.jpg?imageView2/1/q/90/w/927/h/475/?imageView2/1/q/90/w/594/h/446/">
-                                <a target="_blank" href="ProductDetail/110691.htm"
-                                   tppabs="http://www.sparkletour.com/ProductDetail/110691" class="cover"><span
-                                        class="accessible">缅甸 斯特兰德游轮4晚5天度假套餐</span></a>
-                                <div class="info">
-                                    <div class="brief centeredWrapper">
-                                        <div class="centeredContent">
-                                            <p class="title ie7mt80">缅甸 斯特兰德游轮</p>
-                                        </div>
-                                    </div>
-                                    <div class="detail centeredWrapper">
-                                        <div class="centeredContent">
-                                            <ul class="features ie7mt80">
-                                                <li>限时特惠船期<br/>The strand 游轮<br/>蒲甘&曼德勒深度体验<br/>4晚5天度假套餐</li>
-                                            </ul>
-                                            <p class="price">￥0.65 万元起</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col1">
-                            <div class="hotSaleProduct small"
-                                 bgimage="http://images1.aoyou.com/productlist/201605/08268019160532.jpg?imageView2/1/q/90/w/284/h/214/">
-                                <a target="_blank" href="ProductDetail/97718.htm"
-                                   tppabs="http://www.sparkletour.com/ProductDetail/97718" class="cover"><span
-                                        class="accessible">越南芽庄 安缦清幽之旅3晚4天度假套餐</span></a>
-                                <div class="info">
-                                    <div class="brief centeredWrapper">
-                                        <div class="centeredContent">
-                                            <p class="title ie7mt80">越南芽庄 安缦清幽之旅</p>
-                                        </div>
-                                    </div>
-                                    <div class="detail centeredWrapper">
-                                        <div class="centeredContent">
-                                            <ul class="features ie7mt80">
-                                                <li>AMANOI 养心山海间<br/>湖景别墅隐逸居停<br/>3晚4天度假套餐</li>
-                                            </ul>
-                                            <p class="price">￥1.09 万元起</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="hotSaleProduct small"
-                                 bgimage="http://images1.aoyou.com/productlist/201606/r220t213112844.jpg?imageView2/1/q/90/w/284/h/214/">
-                                <a target="_blank" href="ProductDetail/99489.htm"
-                                   tppabs="http://www.sparkletour.com/ProductDetail/99489" class="cover"><span
-                                        class="accessible">印尼日惹 神秘爪哇之旅3晚4天度假套餐</span></a>
-                                <div class="info">
-                                    <div class="brief centeredWrapper">
-                                        <div class="centeredContent">
-                                            <p class="title ie7mt80">印尼日惹 神秘爪哇之旅</p>
-                                        </div>
-                                    </div>
-                                    <div class="detail centeredWrapper">
-                                        <div class="centeredContent">
-                                            <ul class="features ie7mt80">
-                                                <li>安缦吉沃AMANJIWO 花园套房 <br/>婆罗浮屠壮观美景<br/>每日一项免费活动<br/>3晚4天度假套餐</li>
-                                            </ul>
-                                            <p class="price">￥0.58 万元起</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="col1">
-                            <div class="hotSaleProduct small"
-                                 bgimage="http://images1.aoyou.com/productlist/201507/t6h62815113004.jpg?imageView2/1/q/90/w/284/h/214/">
-                                <a target="_blank" href="ProductDetail/73849.htm"
-                                   tppabs="http://www.sparkletour.com/ProductDetail/73849" class="cover"><span
-                                        class="accessible">台湾 宝岛典藏5晚6天私享游</span></a>
-                                <div class="info">
-                                    <div class="brief centeredWrapper">
-                                        <div class="centeredContent">
-                                            <p class="title ie7mt80">台湾 宝岛典藏</p>
-                                        </div>
-                                    </div>
-                                    <div class="detail centeredWrapper">
-                                        <div class="centeredContent">
-                                            <ul class="features ie7mt80">
-                                                <li>至尊体验 舒心悦游 <br/>日月潭涵碧楼+台北圆山<br/>华航直飞公务舱<br/>5晚6天私享游</li>
-                                            </ul>
-                                            <p class="price">￥2.29 万元起</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="hotSaleProduct small"
-                                 bgimage="https://images1.aoyou.com/productlist/201703/v2206z02110809.png?imageView2/1/q/90/w/284/h/214/">
-                                <a target="_blank" href="ProductDetail/113149.htm"
-                                   tppabs="http://www.sparkletour.com/ProductDetail/113149" class="cover"><span
-                                        class="accessible">甘肃&青海&内蒙古 西北全地形纵横驰骋7晚8天私享团</span></a>
-                                <div class="info">
-                                    <div class="brief centeredWrapper">
-                                        <div class="centeredContent">
-                                            <p class="title ie7mt80">甘肃&青海&内蒙古 西北全地形纵横驰骋</p>
-                                        </div>
-                                    </div>
-                                    <div class="detail centeredWrapper">
-                                        <div class="centeredContent">
-                                            <ul class="features ie7mt80">
-                                                <li>高配改装越野车丛<br/>林戈壁冰川沙漠怪石全地形<br/>自驾特种路段<br/>7晚8天私享团</li>
-                                            </ul>
-                                            <p class="price">￥1.68 万元起</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col2">
-                            <div class="hotSaleProduct large"
-                                 bgimage="http://images1.aoyou.com/productlist/201512/b0hfz003165611.jpg?imageView2/1/q/90/w/594/h/446/">
-                                <a target="_blank" href="ProductDetail/83146.htm"
-                                   tppabs="http://www.sparkletour.com/ProductDetail/83146" class="cover"><span
-                                        class="accessible">台湾 萌宝东游记6晚7天私享游</span></a>
-                                <div class="info">
-                                    <div class="brief centeredWrapper">
-                                        <div class="centeredContent">
-                                            <p class="title ie7mt80">台湾 萌宝东游记</p>
-                                        </div>
-                                    </div>
-                                    <div class="detail centeredWrapper">
-                                        <div class="centeredContent">
-                                            <ul class="features ie7mt80">
-                                                <li>花莲太鲁阁<br/>九份山城<br/>几米公园<br/>芬朵奇堡<br/>海豚追踪<br/>6晚7天私享游</li>
-                                            </ul>
-                                            <p class="price">￥2.19 万元起</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col1">
-                            <div class="hotSaleProduct small"
-                                 bgimage="http://images1.aoyou.com/productlist/201703/0rtp8v03105408.jpg?imageView2/1/q/90/w/927/h/475/?imageView2/1/q/90/w/284/h/214/">
-                                <a target="_blank" href="ProductDetail/113217.htm"
-                                   tppabs="http://www.sparkletour.com/ProductDetail/113217" class="cover"><span
-                                        class="accessible">黑龙江 我们诞生在中国5晚6天私享游</span></a>
-                                <div class="info">
-                                    <div class="brief centeredWrapper">
-                                        <div class="centeredContent">
-                                            <p class="title ie7mt80">黑龙江 我们诞生在中国</p>
-                                        </div>
-                                    </div>
-                                    <div class="detail centeredWrapper">
-                                        <div class="centeredContent">
-                                            <ul class="features ie7mt80">
-                                                <li>越野自驾东极边疆<br/>生态学者一路随行<br/>湿地游学保育神鸟<br/>5晚6天私享游</li>
-                                            </ul>
-                                            <p class="price">￥0.79 万元起</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="hotSaleProduct small"
-                                 bgimage="http://images.sparkletour.com/2015/11/05/20151105163946234.jpg?imageView2/1/q/90/w/284/h/214/">
-                                <a target="_blank" href="ProductDetail/58276.htm"
-                                   tppabs="http://www.sparkletour.com/ProductDetail/58276" class="cover"><span
-                                        class="accessible">一蓑烟雨渡漓江 阳朔山水诗意探访3晚4天度假套餐</span></a>
-                                <div class="info">
-                                    <div class="brief centeredWrapper">
-                                        <div class="centeredContent">
-                                            <p class="title ie7mt80">桂林 烟雨渡漓江</p>
-                                        </div>
-                                    </div>
-                                    <div class="detail centeredWrapper">
-                                        <div class="centeredContent">
-                                            <ul class="features ie7mt80">
-                                                <li>诗意山水<br/>养心悦榕<br/>3晚4天度假套餐</li>
-                                            </ul>
-                                            <p class="price">￥0.49 万元起</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="col1">
-                            <div class="hotSaleProduct small"
-                                 bgimage="http://images1.aoyou.com/productlist/201704/4xhntp10121335.jpg?imageView2/1/q/90/w/927/h/475/?imageView2/1/q/90/w/284/h/214/">
-                                <a target="_blank" href="ProductDetail/114280.htm"
-                                   tppabs="http://www.sparkletour.com/ProductDetail/114280" class="cover"><span
-                                        class="accessible">摩洛哥 迷幻西撒哈拉13晚15天私享游</span></a>
-                                <div class="info">
-                                    <div class="brief centeredWrapper">
-                                        <div class="centeredContent">
-                                            <p class="title ie7mt80">摩洛哥 迷幻西撒哈拉</p>
-                                        </div>
-                                    </div>
-                                    <div class="detail centeredWrapper">
-                                        <div class="centeredContent">
-                                            <ul class="features ie7mt80">
-                                                <li>阿拉伯世界的文化巡礼<br/>沙漠遇到海的浪漫旅程<br/>真实呼吸的世界文化遗产<br/>13晚15天私享游</li>
-                                            </ul>
-                                            <p class="price">￥8.25 万元起</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="hotSaleProduct small"
-                                 bgimage="http://images1.aoyou.com/productlist/201605/2nv68l17112852.jpg?imageView2/1/q/90/w/284/h/214/">
-                                <a target="_blank" href="ProductDetail/92453.htm"
-                                   tppabs="http://www.sparkletour.com/ProductDetail/92453" class="cover"><span
-                                        class="accessible">肯尼亚&坦桑尼亚 动物大迁徙9晚11天私享游</span></a>
-                                <div class="info">
-                                    <div class="brief centeredWrapper">
-                                        <div class="centeredContent">
-                                            <p class="title ie7mt80">肯尼亚&坦桑尼亚 动物大迁徙</p>
-                                        </div>
-                                    </div>
-                                    <div class="detail centeredWrapper">
-                                        <div class="centeredContent">
-                                            <ul class="features ie7mt80">
-                                                <li>马赛马拉&塞伦盖地两大国家公园<br/>长颈鹿庄园&大象孤儿院<br/>9晚11天私享游</li>
-                                            </ul>
-                                            <p class="price">￥6.95 万元起</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col2">
-                            <div class="hotSaleProduct large"
-                                 bgimage="http://images1.aoyou.com/productlist/201607/t2806x14153314.jpg?imageView2/1/q/90/w/594/h/446/">
-                                <a target="_blank" href="ProductDetail/100792.htm"
-                                   tppabs="http://www.sparkletour.com/ProductDetail/100792" class="cover"><span
-                                        class="accessible">南非 狂野之路9晚12天私享游</span></a>
-                                <div class="info">
-                                    <div class="brief centeredWrapper">
-                                        <div class="centeredContent">
-                                            <p class="title ie7mt80">南非 狂野之路</p>
-                                        </div>
-                                    </div>
-                                    <div class="detail centeredWrapper">
-                                        <div class="centeredContent">
-                                            <ul class="features ie7mt80">
-                                                <li>Sabi保护区<br/>奔驰花园大道&逐浪开普敦<br/>鲨笼潜水&印度洋海钓&原始海岸皮划艇<br/>9晚12天私享游
-                                                </li>
-                                            </ul>
-                                            <p class="price">￥6.35 万元起</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col1">
-                            <div class="hotSaleProduct small"
-                                 bgimage="http://images1.aoyou.com/productlist/201607/d8vtr815103544.jpg?imageView2/1/q/90/w/284/h/214/">
-                                <a target="_blank" href="ProductDetail/101330.htm"
-                                   tppabs="http://www.sparkletour.com/ProductDetail/101330" class="cover"><span
-                                        class="accessible">南非 闪耀彩虹之国9晚12天私享游</span></a>
-                                <div class="info">
-                                    <div class="brief centeredWrapper">
-                                        <div class="centeredContent">
-                                            <p class="title ie7mt80">南非 闪耀彩虹之国</p>
-                                        </div>
-                                    </div>
-                                    <div class="detail centeredWrapper">
-                                        <div class="centeredContent">
-                                            <ul class="features ie7mt80">
-                                                <li>克鲁格国家公园Safari<br/>滨海小镇&私人酒庄<br/>全景奢游开普半岛<br/>9晚12天私享游</li>
-                                            </ul>
-                                            <p class="price">￥11.35 万元起</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="hotSaleProduct small"
-                                 bgimage="http://images1.aoyou.com/productlist/201608/n82xn223153302.jpg?imageView2/1/q/90/w/284/h/214/">
-                                <a target="_blank" href="ProductDetail/104872.htm"
-                                   tppabs="http://www.sparkletour.com/ProductDetail/104872" class="cover"><span
-                                        class="accessible">南非&莫桑比克 野奢假日7晚9天私享游</span></a>
-                                <div class="info">
-                                    <div class="brief centeredWrapper">
-                                        <div class="centeredContent">
-                                            <p class="title ie7mt80">南非&莫桑比克 野奢假日</p>
-                                        </div>
-                                    </div>
-                                    <div class="detail centeredWrapper">
-                                        <div class="centeredContent">
-                                            <ul class="features ie7mt80">
-                                                <li>Sabi Sabi野奢营地<br/>White Pearl度假村<br/>卡塔尔航空五星商务舱<br/>7晚9天私享游</li>
-                                            </ul>
-                                            <p class="price">￥9.95 万元起</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+        </a>
+        <a target="_blank" href="ProductList/5659.htm" tppabs="http://www.sparkletour.com/ProductList/5659">
+            <div class="item mt90" bgimage="https://images2.aoyou.com/productlist/201805/t6df4x09112922.jpg"
+                 style="background-repeat: no-repeat; background-position: center; height: 584px;">
             </div>
-        </section>
-        <section class="productCollection">
-            <div class="rapper rap">
-                <h2>精选</h2>
-                <div class="selection clearfix">
-                    <div class="item" bgimage="https://images5.aoyou.com/productlist/201801/8v60hr18161600.jpg">
-                        <div class="centeredWrapper briefInfoWrapper">
-                            <a target='_blank' href="ProductDetail/120209.htm"
-                               tppabs="http://www.sparkletour.com/ProductDetail/120209"
-                               class="centeredContent briefInfo">
-                                <span class="destination ie7mt180">直升机俯瞰乌鲁鲁红土巨岩<br/>乌鲁鲁东经131°野奢帐篷<br/>卡塔丘塔骆驼骑行观日出<br/>7晚9天私享团</span>
-                                <span class="price">￥6.89 万元起</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item" bgimage="https://images1.aoyou.com/productlist/201710/dddvfx16141106.jpg">
-                        <div class="centeredWrapper briefInfoWrapper">
-                            <a target='_blank' href="ProductDetail/111896.htm"
-                               tppabs="http://www.sparkletour.com/ProductDetail/111896"
-                               class="centeredContent briefInfo">
-                                <span class="destination ie7mt180">暢滑美国最大雪场 <br/>连线丹佛优享假期时光<br/>7晚9天私享游</span>
-                                <span class="price">￥4.95 万元起</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item" bgimage="https://images5.aoyou.com/productlist/201710/v0db8816141109.jpg">
-                        <div class="centeredWrapper briefInfoWrapper">
-                            <a target='_blank' href="ProductDetail/120766.htm"
-                               tppabs="http://www.sparkletour.com/ProductDetail/120766"
-                               class="centeredContent briefInfo">
-                                <span class="destination ie7mt180">安纳塔拉沙漠度假村 <br/>阿拉伯海私密泳池别墅 <br/>贴心服务的耀悦假期<br/>4晚6天度假套餐</span>
-                                <span class="price">￥3.50 万元起</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item" bgimage="https://images5.aoyou.com/productlist/201802/rrrh8624180647.jpg">
-                        <div class="centeredWrapper briefInfoWrapper">
-                            <a target='_blank' href="ProductDetail-productId=100043.htm"
-                               tppabs="http://www.sparkletour.com/ProductDetail?productId=100043"
-                               class="centeredContent briefInfo">
-                                <span class="destination ie7mt180">经典线路初识“新”美色 <br/>重温魔戒与霍比特人拍摄场地<br/>10晚12天私享游</span>
-                                <span class="price">￥5.45 万元起</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item" bgimage="https://images6.aoyou.com/productlist/201710/208b6616141108.jpg">
-                        <div class="centeredWrapper briefInfoWrapper">
-                            <a target='_blank' href="ProductDetail/122816.htm"
-                               tppabs="http://www.sparkletour.com/ProductDetail/122816"
-                               class="centeredContent briefInfo">
-                                <span class="destination ie7mt180">深入热带雨林奇观 <br/>徒步攀登非洲之巅 <br/>身临动物世界<br/>11晚13天私享游</span>
-                                <span class="price">￥6.95 万元起</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item" bgimage="https://images1.aoyou.com/productlist/201804/pf606b11151925.jpg">
-                        <div class="centeredWrapper briefInfoWrapper">
-                            <a target='_blank' href="ProductDetail/85596.htm"
-                               tppabs="http://www.sparkletour.com/ProductDetail/85596"
-                               class="centeredContent briefInfo">
-                                <span class="destination ie7mt180">暑期北欧亲子首选<br/>盖朗格尔峡湾&松恩峡湾<br/>畅游丹麦童话王国<br/>10晚12天私享游</span>
-                                <span class="price">￥5.55 万元起</span>
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
+        </a>
+        <a target="_blank" href="themes/health/index.htm" tppabs="http://www.sparkletour.com/themes/health/">
+            <div class="item mt90" bgimage="https://images1.aoyou.com/productlist/201801/8bfxx830164013.jpg"
+                 style="background-repeat: no-repeat; background-position: center; height: 584px;">
             </div>
-        </section>
-        <section class="productCollection" id="invatationSection">
-            <div class="contentWrapper">
-                <h2>邀约&#183;分享</h2>
-                <div class="owl-carousel owl-theme invitation clearfix">
-                    <div class="item">
-                        <h3>邀约|高端旅游耀悦与美国国家地理达成战略合作</h3>
-                        <a target="_blank" href="InvitationDetails/1088.htm"
-                           tppabs="http://www.sparkletour.com/InvitationDetails/1088">
-                            <img class="iconograph" src="../../static/images/j4h2rt30091310.jpg"
-                                 tppabs="https://images2.aoyou.com/productlist/201803/j4h2rt30091310.jpg"
-                                 alt="邀约|高端旅游耀悦与美国国家地理达成战略合作"/></a>
-                        <p class="abstract">3 月 28 日，中青旅旗下高端旅游品牌 耀悦旅行在京举办发布会，推出 邀约心旅行 全新品牌战...</p>
-                        <a target="_blank" href="InvitationDetails/1088.htm"
-                           tppabs="http://www.sparkletour.com/InvitationDetails/1088" class="viewMore">了解更多细节</a>
-                    </div>
-                    <div class="item">
-                        <h3>邀约|耀悦荣获胡润中国大陆出境游奢华旅行社</h3>
-                        <a target="_blank" href="InvitationDetails/89.htm"
-                           tppabs="http://www.sparkletour.com/InvitationDetails/89">
-                            <img class="iconograph" src="../../static/images/x8408816135513.jpg"
-                                 tppabs="https://images6.aoyou.com/productlist/201710/x8408816135513.jpg"
-                                 alt="邀约|耀悦荣获胡润中国大陆出境游奢华旅行社"/></a>
-                        <p class="abstract">2017年6月5日，在胡润百富总统奖的颁奖现场，耀悦再次荣获Top12胡润中国大陆出境游奢华旅行社。...</p>
-                        <a target="_blank" href="InvitationDetails/89.htm"
-                           tppabs="http://www.sparkletour.com/InvitationDetails/89" class="viewMore">了解更多细节</a>
-                    </div>
-                    <div class="item">
-                        <h3>邀约|耀悦再获《悦游》高端旅行社TOP5</h3>
-                        <a target="_blank" href="InvitationDetails/88.htm"
-                           tppabs="http://www.sparkletour.com/InvitationDetails/88">
-                            <img class="iconograph" src="../../static/images/6vv4v216135512.jpg"
-                                 tppabs="https://images6.aoyou.com/productlist/201710/6vv4v216135512.jpg"
-                                 alt="邀约|耀悦再获《悦游》高端旅行社TOP5"/></a>
-                        <p class="abstract">2017年6月5日， 2017年最值得期待的旅行榜单发布。这个有着全球旅业奥斯卡之称、由《悦游Con...</p>
-                        <a target="_blank" href="InvitationDetails/88.htm"
-                           tppabs="http://www.sparkletour.com/InvitationDetails/88" class="viewMore">了解更多细节</a>
-                    </div>
-
-                </div>
+        </a>
+        <a target="_blank" href="nge.htm" tppabs="http://www.sparkletour.com/nge">
+            <div class="item mt90" bgimage="https://images6.aoyou.com/productlist/201803/zx82z827132302.jpg"
+                 style="background-repeat: no-repeat; background-position: center; height: 584px;">
             </div>
-        </section>
+        </a>
+
     </div>
+    <main role="main" id="pageContent" class="pageContent clearfix">
 
-    <section class="brandStory" id="brandStory">
-        <div class="contentWrapper row">
-            <h2 class="accessible">品牌故事</h2>
-            <ul>
-                <li class="iconLaunchTime">
-                    <img src="../../static/images/content/brandStory-01.png"
-                         tppabs="http://www.sparkletour.com/images/content/brandStory-01.png" alt="30年专业旅游运营经验">
-                </li>
-                <li class="iconConsultantExperience">
-                    <img src="../../static/images/content/brandStory-02.png"
-                         tppabs="http://www.sparkletour.com/images/content/brandStory-02.png" alt="10年耀悦旅行顾问平均从业时间">
-                </li>
-                <li class="iconStuffEducation">
-                    <img src="../../static/images/content/brandStory-03.png"
-                         tppabs="http://www.sparkletour.com/images/content/brandStory-03.png" alt="60%员工海外留学经历">
-                </li>
-                <li class="iconServiceTime">
-                    <img src="../../static/images/content/brandStory-04.png"
-                         tppabs="http://www.sparkletour.com/images/content/brandStory-04.png" alt="7x24全球紧急联系人贴心服务">
-                </li>
-            </ul>
+        <div class="productCollections">
+            <section class="productCollection">
+                <div class="contentWrapper">
+                    <h2>主题</h2>
+                    <ul class="themeProducts clearfix">
+                        <li><a href="ProductList/4970.htm" tppabs="http://www.sparkletour.com/ProductList/4970"
+                               class="themeProduct"
+                               style="background-image: url('http://images.sparkletour.com/2016/07/01/20160701171336126.png')"></a>
+                        </li>
+                        <li><a href="ProductList/6101.htm" tppabs="http://www.sparkletour.com/ProductList/6101"
+                               class="themeProduct"
+                               style="background-image: url('http://images.sparkletour.com/2016/05/17/2016051715580437.png')"></a>
+                        </li>
+                        <li><a href="ProductList/4971.htm" tppabs="http://www.sparkletour.com/ProductList/4971"
+                               class="themeProduct"
+                               style="background-image: url('http://images.sparkletour.com/2015/05/31/20150531200449270.png')"></a>
+                        </li>
+                        <li><a href="ProductList/4975.htm" tppabs="http://www.sparkletour.com/ProductList/4975"
+                               class="themeProduct"
+                               style="background-image: url('http://images.sparkletour.com/2015/05/31/20150531200339367.png')"></a>
+                        </li>
+
+                    </ul>
+                </div>
+            </section>
+            <section class="productCollection">
+                <div class="contentWrapper hotSalesWrapper">
+                    <h2>热卖</h2>
+                    <ul class="hotSalesNav">
+                        <li><a href="javascript:void(0);" class="oceania active"><span>大洋洲</span></a></li>
+                        <li><a href="javascript:void(0);" class="northAmerica "><span>美洲</span></a></li>
+                        <li><a href="javascript:void(0);" class="eastasia "><span>东亚</span></a></li>
+                        <li><a href="javascript:void(0);" class="europe "><span>欧洲</span></a></li>
+                        <li><a href="javascript:void(0);" class="southeastasia "><span>东南亚</span></a></li>
+                        <li><a href="javascript:void(0);" class="china "><span>中国</span></a></li>
+                        <li><a href="javascript:void(0);" class="feizhou "><span>非洲</span></a></li>
+                    </ul>
+                    <div class="owl-carousel owl-theme hotSales">
+                        <div class="item">
+                            <div class="col1">
+                                <div class="hotSaleProduct small"
+                                     bgimage="http://images1.aoyou.com/productlist/201407/0pxr2x18154819.jpg?imageView2/1/q/90/w/284/h/214/">
+                                    <a target="_blank" href="ProductDetail/125869.htm"
+                                       tppabs="http://www.sparkletour.com/ProductDetail/125869" class="cover"><span
+                                            class="accessible">澳大利亚 浪漫汉密尔顿岛4晚5天度假套餐</span></a>
+                                    <div class="info">
+                                        <div class="brief centeredWrapper">
+                                            <div class="centeredContent">
+                                                <p class="title ie7mt80">澳大利亚 浪漫汉密尔顿岛</p>
+                                            </div>
+                                        </div>
+                                        <div class="detail centeredWrapper">
+                                            <div class="centeredContent">
+                                                <ul class="features ie7mt80">
+                                                    <li>直升机赏唯美心形堡礁<br/>专业摄影师浪漫旅拍<br/>顶级奢华Qualia度假村<br/>4晚5天度假套餐</li>
+                                                </ul>
+                                                <p class="price">￥2.89 万元起</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="hotSaleProduct small"
+                                     bgimage="http://images1.aoyou.com/productlist/201501/h0n26h19140729.jpg?imageView2/1/q/90/w/284/h/214/">
+                                    <a target="_blank" href="ProductDetail/64369.htm"
+                                       tppabs="http://www.sparkletour.com/ProductDetail/64369" class="cover"><span
+                                            class="accessible">斐济 一路亚萨瓦6晚8天高端自由行</span></a>
+                                    <div class="info">
+                                        <div class="brief centeredWrapper">
+                                            <div class="centeredContent">
+                                                <p class="title ie7mt80">斐济 一路亚萨瓦</p>
+                                            </div>
+                                        </div>
+                                        <div class="detail centeredWrapper">
+                                            <div class="centeredContent">
+                                                <ul class="features ie7mt80">
+                                                    <li>一生一次斐济<br/>亚萨瓦绝美私人海滩<br/>一价全包 免费wifi 晒出幸福<br/>6晚8天高端自由行</li>
+                                                </ul>
+                                                <p class="price">￥5.79 万元起</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col2">
+                                <div class="hotSaleProduct large"
+                                     bgimage="http://images1.aoyou.com/productlist/201603/nv024607161749.jpg?imageView2/1/q/90/w/594/h/446/">
+                                    <a target="_blank" href="ProductDetail/39169.htm"
+                                       tppabs="http://www.sparkletour.com/ProductDetail/39169" class="cover"><span
+                                            class="accessible">大溪地 四季贵族6晚8天高端自由行</span></a>
+                                    <div class="info">
+                                        <div class="brief centeredWrapper">
+                                            <div class="centeredContent">
+                                                <p class="title ie7mt80">大溪地 四季贵族</p>
+                                            </div>
+                                        </div>
+                                        <div class="detail centeredWrapper">
+                                            <div class="centeredContent">
+                                                <ul class="features ie7mt80">
+                                                    <li>最性感小岛波拉波拉<br/>奢享四季水上屋<br/>好莱坞明星挚爱<br/>6晚8天高端自由行</li>
+                                                </ul>
+                                                <p class="price">￥4.69 万元起</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col1">
+                                <div class="hotSaleProduct small"
+                                     bgimage="http://images1.aoyou.com/productlist/201506/pt42hb01145510.jpg?imageView2/1/q/90/w/284/h/214/">
+                                    <a target="_blank" href="ProductDetail/63761.htm"
+                                       tppabs="http://www.sparkletour.com/ProductDetail/63761" class="cover"><span
+                                            class="accessible">发现 瓦努阿图8晚10天私享游</span></a>
+                                    <div class="info">
+                                        <div class="brief centeredWrapper">
+                                            <div class="centeredContent">
+                                                <p class="title ie7mt80">发现 瓦努阿图</p>
+                                            </div>
+                                        </div>
+                                        <div class="detail centeredWrapper">
+                                            <div class="centeredContent">
+                                                <ul class="features ie7mt80">
+                                                    <li>原始南太岛国<br/>特色酒店Warwick+白草海洋度假村<br/>探访原始部落 深入火山腹地<br/>8晚10天私享游
+                                                    </li>
+                                                </ul>
+                                                <p class="price">￥3.79 万元起</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="hotSaleProduct small"
+                                     bgimage="http://images1.aoyou.com/productlist/201403/p2z2f626174205.jpg?imageView2/1/q/90/w/927/h/475/?imageView2/1/q/90/w/284/h/214/">
+                                    <a target="_blank" href="ProductDetail/100043.htm"
+                                       tppabs="http://www.sparkletour.com/ProductDetail/100043" class="cover"><span
+                                            class="accessible">经典新西兰</span></a>
+                                    <div class="info">
+                                        <div class="brief centeredWrapper">
+                                            <div class="centeredContent">
+                                                <p class="title ie7mt80">经典新西兰</p>
+                                            </div>
+                                        </div>
+                                        <div class="detail centeredWrapper">
+                                            <div class="centeredContent">
+                                                <ul class="features ie7mt80">
+                                                    <li>经典线路初识“新”美色 <br/>探秘“国际黑暗天空保护区” <br/>重温魔戒与霍比特人拍摄场地<br/>10晚12天私享游
+                                                    </li>
+                                                </ul>
+                                                <p class="price">￥5.45 万元起</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="col1">
+                                <div class="hotSaleProduct small"
+                                     bgimage="http://images1.aoyou.com/productlist/201403/lz6l6825101710.jpg?imageView2/1/q/90/w/284/h/214/">
+                                    <a target="_blank" href="ProductDetail/46418.htm"
+                                       tppabs="http://www.sparkletour.com/ProductDetail/46418" class="cover"><span
+                                            class="accessible">美国 驾驭夏威夷5晚8天高端自由行</span></a>
+                                    <div class="info">
+                                        <div class="brief centeredWrapper">
+                                            <div class="centeredContent">
+                                                <p class="title ie7mt80">美国 驾驭夏威夷</p>
+                                            </div>
+                                        </div>
+                                        <div class="detail centeredWrapper">
+                                            <div class="centeredContent">
+                                                <ul class="features ie7mt80">
+                                                    <li>5晚喜来登海景房<br/>2整天牧马人全险自驾<br/>夏威夷航空直飞<br/>5晚8天高端自由行</li>
+                                                </ul>
+                                                <p class="price">￥2.85 万元起</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="hotSaleProduct small"
+                                     bgimage="http://images1.aoyou.com/productlist/201508/h6tdrb12172849.jpg?imageView2/1/q/90/w/284/h/214/">
+                                    <a target="_blank" href="ProductDetail/86942.htm"
+                                       tppabs="http://www.sparkletour.com/ProductDetail/86942" class="cover"><span
+                                            class="accessible">加拿大 “醉氧”落基山10晚12天私享游</span></a>
+                                    <div class="info">
+                                        <div class="brief centeredWrapper">
+                                            <div class="centeredContent">
+                                                <p class="title ie7mt80">加拿大 “醉氧”落基山</p>
+                                            </div>
+                                        </div>
+                                        <div class="detail centeredWrapper">
+                                            <div class="centeredContent">
+                                                <ul class="features ie7mt80">
+                                                    <li>班夫&贾斯珀国家公园<br/>北温哥华顶级索诺拉度假村<br/>10晚12天私享游</li>
+                                                </ul>
+                                                <p class="price">￥6.95 万元起</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col2">
+                                <div class="hotSaleProduct large"
+                                     bgimage="http://images1.aoyou.com/productlist/201608/0vrj6h19145232.jpg?imageView2/1/q/90/w/594/h/446/">
+                                    <a target="_blank" href="ProductDetail/104530.htm"
+                                       tppabs="http://www.sparkletour.com/ProductDetail/104530" class="cover"><span
+                                            class="accessible">玻利维亚&秘鲁 天空之镜与失落之城11晚15天私享游</span></a>
+                                    <div class="info">
+                                        <div class="brief centeredWrapper">
+                                            <div class="centeredContent">
+                                                <p class="title ie7mt80">玻利维亚&秘鲁 天空之镜与失落之城</p>
+                                            </div>
+                                        </div>
+                                        <div class="detail centeredWrapper">
+                                            <div class="centeredContent">
+                                                <ul class="features ie7mt80">
+                                                    <li>Belmond酒店奢华享受<br/>国际段商务舱舒享旅程<br/>自然文化双重秘境深度探访<br/>11晚15天私享游</li>
+                                                </ul>
+                                                <p class="price">￥10.95 万元起</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col1">
+                                <div class="hotSaleProduct small"
+                                     bgimage="http://images1.aoyou.com/productlist/201604/hf2xpx26172059.jpg?imageView2/1/q/90/w/284/h/214/">
+                                    <a target="_blank" href="ProductDetail/84275.htm"
+                                       tppabs="http://www.sparkletour.com/ProductDetail/84275" class="cover"><span
+                                            class="accessible">美国 情迷一号公路10晚12天私享游</span></a>
+                                    <div class="info">
+                                        <div class="brief centeredWrapper">
+                                            <div class="centeredContent">
+                                                <p class="title ie7mt80">美国 情迷一号公路</p>
+                                            </div>
+                                        </div>
+                                        <div class="detail centeredWrapper">
+                                            <div class="centeredContent">
+                                                <ul class="features ie7mt80">
+                                                    <li>敞篷野马自驾体验<br/>直升机鸟瞰西峡谷<br/>旧金山美味螃蟹餐<br/>10晚12天私享游</li>
+                                                </ul>
+                                                <p class="price">￥4.59 万元起</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="hotSaleProduct small"
+                                     bgimage="http://images1.aoyou.com/productlist/201608/64064004151443.jpg?imageView2/1/q/90/w/284/h/214/">
+                                    <a target="_blank" href="ProductDetail/103487.htm"
+                                       tppabs="http://www.sparkletour.com/ProductDetail/103487" class="cover"><span
+                                            class="accessible">哥伦比亚&厄瓜多尔&秘鲁 印加余晖14晚17天私享游</span></a>
+                                    <div class="info">
+                                        <div class="brief centeredWrapper">
+                                            <div class="centeredContent">
+                                                <p class="title ie7mt80">哥伦比亚&厄瓜多尔&秘鲁 印加余晖</p>
+                                            </div>
+                                        </div>
+                                        <div class="detail centeredWrapper">
+                                            <div class="centeredContent">
+                                                <ul class="features ie7mt80">
+                                                    <li>遍览南美三国<br/>亚马逊雨林探秘<br/>帝国遗迹马丘比丘<br/>14晚17天私享游</li>
+                                                </ul>
+                                                <p class="price">￥11.25 万元起</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="col1">
+                                <div class="hotSaleProduct small"
+                                     bgimage="http://images1.aoyou.com/productlist/201801/hrh68b19112057.jpg?imageView2/1/q/90/w/927/h/475/?imageView2/1/q/90/w/284/h/214/">
+                                    <a target="_blank" href="ProductDetail/126439.htm"
+                                       tppabs="http://www.sparkletour.com/ProductDetail/126439" class="cover"><span
+                                            class="accessible">青森 弘前赏樱 4晚5天私享游</span></a>
+                                    <div class="info">
+                                        <div class="brief centeredWrapper">
+                                            <div class="centeredContent">
+                                                <p class="title ie7mt80">青森 弘前赏樱</p>
+                                            </div>
+                                        </div>
+                                        <div class="detail centeredWrapper">
+                                            <div class="centeredContent">
+                                                <ul class="features ie7mt80">
+                                                    <li>赏樱名所<br/>古牧温泉<br/>莺歌乐舞<br/>4晚5天私享游<br/></li>
+                                                </ul>
+                                                <p class="price">￥2.75 万元起</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="hotSaleProduct small"
+                                     bgimage="http://images1.aoyou.com/productlist/201702/44phbt28104557.jpg?imageView2/1/q/90/w/927/h/475/?imageView2/1/q/90/w/284/h/214/">
+                                    <a target="_blank" href="ProductDetail/112971.htm"
+                                       tppabs="http://www.sparkletour.com/ProductDetail/112971" class="cover"><span
+                                            class="accessible">日本 大和物语 4晚5天私享游</span></a>
+                                    <div class="info">
+                                        <div class="brief centeredWrapper">
+                                            <div class="centeredContent">
+                                                <p class="title ie7mt80">日本 大和物语</p>
+                                            </div>
+                                        </div>
+                                        <div class="detail centeredWrapper">
+                                            <div class="centeredContent">
+                                                <ul class="features ie7mt80">
+                                                    <li>千年古都<br/>贵族私邸<br/>原汁原味日式风情<br/>4晚5天私享游</li>
+                                                </ul>
+                                                <p class="price">￥5.99 万元起</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col2">
+                                <div class="hotSaleProduct large"
+                                     bgimage="http://images1.aoyou.com/productlist/201506/zj42vh03135159.jpg?imageView2/1/q/90/w/594/h/446/">
+                                    <a target="_blank" href="ProductDetail/55680.htm"
+                                       tppabs="http://www.sparkletour.com/ProductDetail/55680" class="cover"><span
+                                            class="accessible">热海&伊豆&东京 私汤秘境4晚5天私享游</span></a>
+                                    <div class="info">
+                                        <div class="brief centeredWrapper">
+                                            <div class="centeredContent">
+                                                <p class="title ie7mt80">热海&伊豆&东京 私汤秘境</p>
+                                            </div>
+                                        </div>
+                                        <div class="detail centeredWrapper">
+                                            <div class="centeredContent">
+                                                <ul class="features ie7mt80">
+                                                    <li>热海艺妓+伊豆私汤<br/>东京品米其林美食<br/>4晚5天私享游</li>
+                                                </ul>
+                                                <p class="price">￥3.75 万元起</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col1">
+                                <div class="hotSaleProduct small"
+                                     bgimage="http://images1.aoyou.com/productlist/201703/btt84j03161858.jpg?imageView2/1/q/90/w/927/h/475/?imageView2/1/q/90/w/284/h/214/">
+                                    <a target="_blank" href="ProductDetail/128654.htm"
+                                       tppabs="http://www.sparkletour.com/ProductDetail/128654" class="cover"><span
+                                            class="accessible">国家地理 日本 大和绝技之美 4晚5天招募团</span></a>
+                                    <div class="info">
+                                        <div class="brief centeredWrapper">
+                                            <div class="centeredContent">
+                                                <p class="title ie7mt80">国家地理 日本 大和绝技之美</p>
+                                            </div>
+                                        </div>
+                                        <div class="detail centeredWrapper">
+                                            <div class="centeredContent">
+                                                <ul class="features ie7mt80">
+                                                    <li>了解日本千年相扑历史文化<br/>近距离观赏相扑比赛<br/>古城茶室探寻京都悠久文化<br/>4晚5天招募团</li>
+                                                </ul>
+                                                <p class="price">￥5.97 万元起</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="hotSaleProduct small"
+                                     bgimage="http://images1.aoyou.com/productlist/201506/0xdz2p04102211.jpg?imageView2/1/q/90/w/284/h/214/">
+                                    <a target="_blank" href="ProductDetail/45857.htm"
+                                       tppabs="http://www.sparkletour.com/ProductDetail/45857" class="cover"><span
+                                            class="accessible">大阪&京都&神户 恋恋关西4晚5天私享游</span></a>
+                                    <div class="info">
+                                        <div class="brief centeredWrapper">
+                                            <div class="centeredContent">
+                                                <p class="title ie7mt80">大阪&京都&神户 恋恋关西</p>
+                                            </div>
+                                        </div>
+                                        <div class="detail centeredWrapper">
+                                            <div class="centeredContent">
+                                                <ul class="features ie7mt80">
+                                                    <li>漫游三都物语<br/>揽尽和式风情<br/>4晚5天私享游</li>
+                                                </ul>
+                                                <p class="price">￥3.29 万元起</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="col1">
+                                <div class="hotSaleProduct small"
+                                     bgimage="http://images1.aoyou.com/productlist/201511/xjrbjd30182736.gif?imageView2/1/q/90/w/284/h/214/">
+                                    <a target="_blank" href="ProductDetail/105933.htm"
+                                       tppabs="http://www.sparkletour.com/ProductDetail/105933" class="cover"><span
+                                            class="accessible">北欧  欧若拉 光8晚10天私享游</span></a>
+                                    <div class="info">
+                                        <div class="brief centeredWrapper">
+                                            <div class="centeredContent">
+                                                <p class="title ie7mt80">北欧 欧若拉 光</p>
+                                            </div>
+                                        </div>
+                                        <div class="detail centeredWrapper">
+                                            <div class="centeredContent">
+                                                <ul class="features ie7mt80">
+                                                    <li>追寻北欧绝美绚烂极光<br/>造访北极圈门户特罗姆瑟<br/>亲手捕捞品尝帝王蟹大餐<br/>8晚10天私享游</li>
+                                                </ul>
+                                                <p class="price">￥6.75 万元起</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="hotSaleProduct small"
+                                     bgimage="https://images5.aoyou.com/productlist/201801/0f4h4z04145057.jpg?imageView2/1/q/90/w/284/h/214/">
+                                    <a target="_blank" href="ProductDetail/125880.htm"
+                                       tppabs="http://www.sparkletour.com/ProductDetail/125880" class="cover"><span
+                                            class="accessible">荷兰鉴赏艺术瑰宝8晚10天私享团</span></a>
+                                    <div class="info">
+                                        <div class="brief centeredWrapper">
+                                            <div class="centeredContent">
+                                                <p class="title ie7mt80">荷兰 鉴赏艺术瑰宝</p>
+                                            </div>
+                                        </div>
+                                        <div class="detail centeredWrapper">
+                                            <div class="centeredContent">
+                                                <ul class="features ie7mt80">
+                                                    <li>专家带队探寻梵高故乡 <br/>私密尊享鉴赏艺术瑰宝 <br/>亲历世外桃源羊角村<br/>8晚10天私享团</li>
+                                                </ul>
+                                                <p class="price">￥3.99 万元起</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col2">
+                                <div class="hotSaleProduct large"
+                                     bgimage="https://images2.aoyou.com/productlist/201612/20rbdz01160542.jpg?imageView2/1/q/90/w/594/h/446/">
+                                    <a target="_blank" href="ProductDetail/84237.htm"
+                                       tppabs="http://www.sparkletour.com/ProductDetail/84237" class="cover"><span
+                                            class="accessible">冰岛  地球乌托邦6晚8天私享游</span></a>
+                                    <div class="info">
+                                        <div class="brief centeredWrapper">
+                                            <div class="centeredContent">
+                                                <p class="title ie7mt80">冰岛 地球乌托邦</p>
+                                            </div>
+                                        </div>
+                                        <div class="detail centeredWrapper">
+                                            <div class="centeredContent">
+                                                <ul class="features ie7mt80">
+                                                    <li>追寻冰岛神秘极光<br/>试骑呆萌冰岛马<br/>黄金圈冰川徒步<br/>6晚8天私享游</li>
+                                                </ul>
+                                                <p class="price">￥4.95 万元起</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col1">
+                                <div class="hotSaleProduct small"
+                                     bgimage="http://images1.aoyou.com/productlist/201603/d0rfz828145255.jpg?imageView2/1/q/90/w/927/h/475/?imageView2/1/q/90/w/284/h/214/">
+                                    <a target="_blank" href="ProductDetail/92865.htm"
+                                       tppabs="http://www.sparkletour.com/ProductDetail/92865" class="cover"><span
+                                            class="accessible">法国 印象巴黎8晚10天私享游</span></a>
+                                    <div class="info">
+                                        <div class="brief centeredWrapper">
+                                            <div class="centeredContent">
+                                                <p class="title ie7mt80">法国 印象巴黎</p>
+                                            </div>
+                                        </div>
+                                        <div class="detail centeredWrapper">
+                                            <div class="centeredContent">
+                                                <ul class="features ie7mt80">
+                                                    <li>吉维尼莫奈花园<br/>复古老爷车巡游<br/>王侯私邸香格里拉<br/>8晚10天私享游</li>
+                                                </ul>
+                                                <p class="price">￥5.95 万元起</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="hotSaleProduct small"
+                                     bgimage="https://images1.aoyou.com/productlist/201801/z06rp017170840.jpg?imageView2/1/q/90/w/284/h/214/">
+                                    <a target="_blank" href="ProductDetail/119312.htm"
+                                       tppabs="http://www.sparkletour.com/ProductDetail/119312" class="cover"><span
+                                            class="accessible">地中海撒丁岛  亲子美食之旅5晚6天度假套餐</span></a>
+                                    <div class="info">
+                                        <div class="brief centeredWrapper">
+                                            <div class="centeredContent">
+                                                <p class="title ie7mt80">地中海撒丁岛 亲子美食之旅</p>
+                                            </div>
+                                        </div>
+                                        <div class="detail centeredWrapper">
+                                            <div class="centeredContent">
+                                                <ul class="features ie7mt80">
+                                                    <li>全球最佳度假酒店Forte Village<br/>每日甄选精彩活动<br/>冠军级体育学院<br/>5晚6天度假套餐</li>
+                                                </ul>
+                                                <p class="price">1.99万元起</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="col1">
+                                <div class="hotSaleProduct small"
+                                     bgimage="https://images6.aoyou.com/productlist/201801/0tzfzx17165425.jpg?imageView2/1/q/90/w/284/h/214/">
+                                    <a target="_blank" href="ProductDetail/98055.htm"
+                                       tppabs="http://www.sparkletour.com/ProductDetail/98055" class="cover"><span
+                                            class="accessible">甲米 丽思隐世精品系列4晚5天度假套餐</span></a>
+                                    <div class="info">
+                                        <div class="brief centeredWrapper">
+                                            <div class="centeredContent">
+                                                <p class="title ie7mt80">甲米 丽思隐世精品系列</p>
+                                            </div>
+                                        </div>
+                                        <div class="detail centeredWrapper">
+                                            <div class="centeredContent">
+                                                <ul class="features ie7mt80">
+                                                    <li>无敌壮美攀牙海景<br/>隐世丽思豪华亭阁别墅<br/>4*2米超大睡床<br/>丰富活动完美假期<br/>4晚5天度假套餐
+                                                    </li>
+                                                </ul>
+                                                <p class="price">￥0.68万元起</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="hotSaleProduct small"
+                                     bgimage="http://images1.aoyou.com/productlist/201506/fb26d008145843.png?imageView2/1/q/90/w/284/h/214/">
+                                    <a target="_blank" href="ProductDetail/57342.htm"
+                                       tppabs="http://www.sparkletour.com/ProductDetail/57342" class="cover"><span
+                                            class="accessible">不丹 幸福在云端7晚8天私享游</span></a>
+                                    <div class="info">
+                                        <div class="brief centeredWrapper">
+                                            <div class="centeredContent">
+                                                <p class="title ie7mt80">不丹 幸福在云端</p>
+                                            </div>
+                                        </div>
+                                        <div class="detail centeredWrapper">
+                                            <div class="centeredContent">
+                                                <ul class="features ie7mt80">
+                                                    <li>安缦库拉稀世奢享<br/>喜马拉雅安悦秘境<br/>7晚8天私享游</li>
+                                                </ul>
+                                                <p class="price">￥5.79 万元起</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col2">
+                                <div class="hotSaleProduct large"
+                                     bgimage="http://images1.aoyou.com/productlist/201701/6rph2z03170507.jpg?imageView2/1/q/90/w/927/h/475/?imageView2/1/q/90/w/594/h/446/">
+                                    <a target="_blank" href="ProductDetail/110691.htm"
+                                       tppabs="http://www.sparkletour.com/ProductDetail/110691" class="cover"><span
+                                            class="accessible">缅甸 斯特兰德游轮4晚5天度假套餐</span></a>
+                                    <div class="info">
+                                        <div class="brief centeredWrapper">
+                                            <div class="centeredContent">
+                                                <p class="title ie7mt80">缅甸 斯特兰德游轮</p>
+                                            </div>
+                                        </div>
+                                        <div class="detail centeredWrapper">
+                                            <div class="centeredContent">
+                                                <ul class="features ie7mt80">
+                                                    <li>限时特惠船期<br/>The strand 游轮<br/>蒲甘&曼德勒深度体验<br/>4晚5天度假套餐</li>
+                                                </ul>
+                                                <p class="price">￥0.65 万元起</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col1">
+                                <div class="hotSaleProduct small"
+                                     bgimage="http://images1.aoyou.com/productlist/201605/08268019160532.jpg?imageView2/1/q/90/w/284/h/214/">
+                                    <a target="_blank" href="ProductDetail/97718.htm"
+                                       tppabs="http://www.sparkletour.com/ProductDetail/97718" class="cover"><span
+                                            class="accessible">越南芽庄 安缦清幽之旅3晚4天度假套餐</span></a>
+                                    <div class="info">
+                                        <div class="brief centeredWrapper">
+                                            <div class="centeredContent">
+                                                <p class="title ie7mt80">越南芽庄 安缦清幽之旅</p>
+                                            </div>
+                                        </div>
+                                        <div class="detail centeredWrapper">
+                                            <div class="centeredContent">
+                                                <ul class="features ie7mt80">
+                                                    <li>AMANOI 养心山海间<br/>湖景别墅隐逸居停<br/>3晚4天度假套餐</li>
+                                                </ul>
+                                                <p class="price">￥1.09 万元起</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="hotSaleProduct small"
+                                     bgimage="http://images1.aoyou.com/productlist/201606/r220t213112844.jpg?imageView2/1/q/90/w/284/h/214/">
+                                    <a target="_blank" href="ProductDetail/99489.htm"
+                                       tppabs="http://www.sparkletour.com/ProductDetail/99489" class="cover"><span
+                                            class="accessible">印尼日惹 神秘爪哇之旅3晚4天度假套餐</span></a>
+                                    <div class="info">
+                                        <div class="brief centeredWrapper">
+                                            <div class="centeredContent">
+                                                <p class="title ie7mt80">印尼日惹 神秘爪哇之旅</p>
+                                            </div>
+                                        </div>
+                                        <div class="detail centeredWrapper">
+                                            <div class="centeredContent">
+                                                <ul class="features ie7mt80">
+                                                    <li>安缦吉沃AMANJIWO 花园套房 <br/>婆罗浮屠壮观美景<br/>每日一项免费活动<br/>3晚4天度假套餐</li>
+                                                </ul>
+                                                <p class="price">￥0.58 万元起</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="col1">
+                                <div class="hotSaleProduct small"
+                                     bgimage="http://images1.aoyou.com/productlist/201507/t6h62815113004.jpg?imageView2/1/q/90/w/284/h/214/">
+                                    <a target="_blank" href="ProductDetail/73849.htm"
+                                       tppabs="http://www.sparkletour.com/ProductDetail/73849" class="cover"><span
+                                            class="accessible">台湾 宝岛典藏5晚6天私享游</span></a>
+                                    <div class="info">
+                                        <div class="brief centeredWrapper">
+                                            <div class="centeredContent">
+                                                <p class="title ie7mt80">台湾 宝岛典藏</p>
+                                            </div>
+                                        </div>
+                                        <div class="detail centeredWrapper">
+                                            <div class="centeredContent">
+                                                <ul class="features ie7mt80">
+                                                    <li>至尊体验 舒心悦游 <br/>日月潭涵碧楼+台北圆山<br/>华航直飞公务舱<br/>5晚6天私享游</li>
+                                                </ul>
+                                                <p class="price">￥2.29 万元起</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="hotSaleProduct small"
+                                     bgimage="https://images1.aoyou.com/productlist/201703/v2206z02110809.png?imageView2/1/q/90/w/284/h/214/">
+                                    <a target="_blank" href="ProductDetail/113149.htm"
+                                       tppabs="http://www.sparkletour.com/ProductDetail/113149" class="cover"><span
+                                            class="accessible">甘肃&青海&内蒙古 西北全地形纵横驰骋7晚8天私享团</span></a>
+                                    <div class="info">
+                                        <div class="brief centeredWrapper">
+                                            <div class="centeredContent">
+                                                <p class="title ie7mt80">甘肃&青海&内蒙古 西北全地形纵横驰骋</p>
+                                            </div>
+                                        </div>
+                                        <div class="detail centeredWrapper">
+                                            <div class="centeredContent">
+                                                <ul class="features ie7mt80">
+                                                    <li>高配改装越野车丛<br/>林戈壁冰川沙漠怪石全地形<br/>自驾特种路段<br/>7晚8天私享团</li>
+                                                </ul>
+                                                <p class="price">￥1.68 万元起</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col2">
+                                <div class="hotSaleProduct large"
+                                     bgimage="http://images1.aoyou.com/productlist/201512/b0hfz003165611.jpg?imageView2/1/q/90/w/594/h/446/">
+                                    <a target="_blank" href="ProductDetail/83146.htm"
+                                       tppabs="http://www.sparkletour.com/ProductDetail/83146" class="cover"><span
+                                            class="accessible">台湾 萌宝东游记6晚7天私享游</span></a>
+                                    <div class="info">
+                                        <div class="brief centeredWrapper">
+                                            <div class="centeredContent">
+                                                <p class="title ie7mt80">台湾 萌宝东游记</p>
+                                            </div>
+                                        </div>
+                                        <div class="detail centeredWrapper">
+                                            <div class="centeredContent">
+                                                <ul class="features ie7mt80">
+                                                    <li>花莲太鲁阁<br/>九份山城<br/>几米公园<br/>芬朵奇堡<br/>海豚追踪<br/>6晚7天私享游</li>
+                                                </ul>
+                                                <p class="price">￥2.19 万元起</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col1">
+                                <div class="hotSaleProduct small"
+                                     bgimage="http://images1.aoyou.com/productlist/201703/0rtp8v03105408.jpg?imageView2/1/q/90/w/927/h/475/?imageView2/1/q/90/w/284/h/214/">
+                                    <a target="_blank" href="ProductDetail/113217.htm"
+                                       tppabs="http://www.sparkletour.com/ProductDetail/113217" class="cover"><span
+                                            class="accessible">黑龙江 我们诞生在中国5晚6天私享游</span></a>
+                                    <div class="info">
+                                        <div class="brief centeredWrapper">
+                                            <div class="centeredContent">
+                                                <p class="title ie7mt80">黑龙江 我们诞生在中国</p>
+                                            </div>
+                                        </div>
+                                        <div class="detail centeredWrapper">
+                                            <div class="centeredContent">
+                                                <ul class="features ie7mt80">
+                                                    <li>越野自驾东极边疆<br/>生态学者一路随行<br/>湿地游学保育神鸟<br/>5晚6天私享游</li>
+                                                </ul>
+                                                <p class="price">￥0.79 万元起</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="hotSaleProduct small"
+                                     bgimage="http://images.sparkletour.com/2015/11/05/20151105163946234.jpg?imageView2/1/q/90/w/284/h/214/">
+                                    <a target="_blank" href="ProductDetail/58276.htm"
+                                       tppabs="http://www.sparkletour.com/ProductDetail/58276" class="cover"><span
+                                            class="accessible">一蓑烟雨渡漓江 阳朔山水诗意探访3晚4天度假套餐</span></a>
+                                    <div class="info">
+                                        <div class="brief centeredWrapper">
+                                            <div class="centeredContent">
+                                                <p class="title ie7mt80">桂林 烟雨渡漓江</p>
+                                            </div>
+                                        </div>
+                                        <div class="detail centeredWrapper">
+                                            <div class="centeredContent">
+                                                <ul class="features ie7mt80">
+                                                    <li>诗意山水<br/>养心悦榕<br/>3晚4天度假套餐</li>
+                                                </ul>
+                                                <p class="price">￥0.49 万元起</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="col1">
+                                <div class="hotSaleProduct small"
+                                     bgimage="http://images1.aoyou.com/productlist/201704/4xhntp10121335.jpg?imageView2/1/q/90/w/927/h/475/?imageView2/1/q/90/w/284/h/214/">
+                                    <a target="_blank" href="ProductDetail/114280.htm"
+                                       tppabs="http://www.sparkletour.com/ProductDetail/114280" class="cover"><span
+                                            class="accessible">摩洛哥 迷幻西撒哈拉13晚15天私享游</span></a>
+                                    <div class="info">
+                                        <div class="brief centeredWrapper">
+                                            <div class="centeredContent">
+                                                <p class="title ie7mt80">摩洛哥 迷幻西撒哈拉</p>
+                                            </div>
+                                        </div>
+                                        <div class="detail centeredWrapper">
+                                            <div class="centeredContent">
+                                                <ul class="features ie7mt80">
+                                                    <li>阿拉伯世界的文化巡礼<br/>沙漠遇到海的浪漫旅程<br/>真实呼吸的世界文化遗产<br/>13晚15天私享游</li>
+                                                </ul>
+                                                <p class="price">￥8.25 万元起</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="hotSaleProduct small"
+                                     bgimage="http://images1.aoyou.com/productlist/201605/2nv68l17112852.jpg?imageView2/1/q/90/w/284/h/214/">
+                                    <a target="_blank" href="ProductDetail/92453.htm"
+                                       tppabs="http://www.sparkletour.com/ProductDetail/92453" class="cover"><span
+                                            class="accessible">肯尼亚&坦桑尼亚 动物大迁徙9晚11天私享游</span></a>
+                                    <div class="info">
+                                        <div class="brief centeredWrapper">
+                                            <div class="centeredContent">
+                                                <p class="title ie7mt80">肯尼亚&坦桑尼亚 动物大迁徙</p>
+                                            </div>
+                                        </div>
+                                        <div class="detail centeredWrapper">
+                                            <div class="centeredContent">
+                                                <ul class="features ie7mt80">
+                                                    <li>马赛马拉&塞伦盖地两大国家公园<br/>长颈鹿庄园&大象孤儿院<br/>9晚11天私享游</li>
+                                                </ul>
+                                                <p class="price">￥6.95 万元起</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col2">
+                                <div class="hotSaleProduct large"
+                                     bgimage="http://images1.aoyou.com/productlist/201607/t2806x14153314.jpg?imageView2/1/q/90/w/594/h/446/">
+                                    <a target="_blank" href="ProductDetail/100792.htm"
+                                       tppabs="http://www.sparkletour.com/ProductDetail/100792" class="cover"><span
+                                            class="accessible">南非 狂野之路9晚12天私享游</span></a>
+                                    <div class="info">
+                                        <div class="brief centeredWrapper">
+                                            <div class="centeredContent">
+                                                <p class="title ie7mt80">南非 狂野之路</p>
+                                            </div>
+                                        </div>
+                                        <div class="detail centeredWrapper">
+                                            <div class="centeredContent">
+                                                <ul class="features ie7mt80">
+                                                    <li>Sabi保护区<br/>奔驰花园大道&逐浪开普敦<br/>鲨笼潜水&印度洋海钓&原始海岸皮划艇<br/>9晚12天私享游
+                                                    </li>
+                                                </ul>
+                                                <p class="price">￥6.35 万元起</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col1">
+                                <div class="hotSaleProduct small"
+                                     bgimage="http://images1.aoyou.com/productlist/201607/d8vtr815103544.jpg?imageView2/1/q/90/w/284/h/214/">
+                                    <a target="_blank" href="ProductDetail/101330.htm"
+                                       tppabs="http://www.sparkletour.com/ProductDetail/101330" class="cover"><span
+                                            class="accessible">南非 闪耀彩虹之国9晚12天私享游</span></a>
+                                    <div class="info">
+                                        <div class="brief centeredWrapper">
+                                            <div class="centeredContent">
+                                                <p class="title ie7mt80">南非 闪耀彩虹之国</p>
+                                            </div>
+                                        </div>
+                                        <div class="detail centeredWrapper">
+                                            <div class="centeredContent">
+                                                <ul class="features ie7mt80">
+                                                    <li>克鲁格国家公园Safari<br/>滨海小镇&私人酒庄<br/>全景奢游开普半岛<br/>9晚12天私享游</li>
+                                                </ul>
+                                                <p class="price">￥11.35 万元起</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="hotSaleProduct small"
+                                     bgimage="http://images1.aoyou.com/productlist/201608/n82xn223153302.jpg?imageView2/1/q/90/w/284/h/214/">
+                                    <a target="_blank" href="ProductDetail/104872.htm"
+                                       tppabs="http://www.sparkletour.com/ProductDetail/104872" class="cover"><span
+                                            class="accessible">南非&莫桑比克 野奢假日7晚9天私享游</span></a>
+                                    <div class="info">
+                                        <div class="brief centeredWrapper">
+                                            <div class="centeredContent">
+                                                <p class="title ie7mt80">南非&莫桑比克 野奢假日</p>
+                                            </div>
+                                        </div>
+                                        <div class="detail centeredWrapper">
+                                            <div class="centeredContent">
+                                                <ul class="features ie7mt80">
+                                                    <li>Sabi Sabi野奢营地<br/>White Pearl度假村<br/>卡塔尔航空五星商务舱<br/>7晚9天私享游</li>
+                                                </ul>
+                                                <p class="price">￥9.95 万元起</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <section class="productCollection">
+                <div class="rapper rap">
+                    <h2>精选</h2>
+                    <div class="selection clearfix">
+                        <div class="item" bgimage="https://images5.aoyou.com/productlist/201801/8v60hr18161600.jpg">
+                            <div class="centeredWrapper briefInfoWrapper">
+                                <a target='_blank' href="ProductDetail/120209.htm"
+                                   tppabs="http://www.sparkletour.com/ProductDetail/120209"
+                                   class="centeredContent briefInfo">
+                                    <span class="destination ie7mt180">直升机俯瞰乌鲁鲁红土巨岩<br/>乌鲁鲁东经131°野奢帐篷<br/>卡塔丘塔骆驼骑行观日出<br/>7晚9天私享团</span>
+                                    <span class="price">￥6.89 万元起</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="item" bgimage="https://images1.aoyou.com/productlist/201710/dddvfx16141106.jpg">
+                            <div class="centeredWrapper briefInfoWrapper">
+                                <a target='_blank' href="ProductDetail/111896.htm"
+                                   tppabs="http://www.sparkletour.com/ProductDetail/111896"
+                                   class="centeredContent briefInfo">
+                                    <span class="destination ie7mt180">暢滑美国最大雪场 <br/>连线丹佛优享假期时光<br/>7晚9天私享游</span>
+                                    <span class="price">￥4.95 万元起</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="item" bgimage="https://images5.aoyou.com/productlist/201710/v0db8816141109.jpg">
+                            <div class="centeredWrapper briefInfoWrapper">
+                                <a target='_blank' href="ProductDetail/120766.htm"
+                                   tppabs="http://www.sparkletour.com/ProductDetail/120766"
+                                   class="centeredContent briefInfo">
+                                    <span class="destination ie7mt180">安纳塔拉沙漠度假村 <br/>阿拉伯海私密泳池别墅 <br/>贴心服务的耀悦假期<br/>4晚6天度假套餐</span>
+                                    <span class="price">￥3.50 万元起</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="item" bgimage="https://images5.aoyou.com/productlist/201802/rrrh8624180647.jpg">
+                            <div class="centeredWrapper briefInfoWrapper">
+                                <a target='_blank' href="ProductDetail-productId=100043.htm"
+                                   tppabs="http://www.sparkletour.com/ProductDetail?productId=100043"
+                                   class="centeredContent briefInfo">
+                                    <span class="destination ie7mt180">经典线路初识“新”美色 <br/>重温魔戒与霍比特人拍摄场地<br/>10晚12天私享游</span>
+                                    <span class="price">￥5.45 万元起</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="item" bgimage="https://images6.aoyou.com/productlist/201710/208b6616141108.jpg">
+                            <div class="centeredWrapper briefInfoWrapper">
+                                <a target='_blank' href="ProductDetail/122816.htm"
+                                   tppabs="http://www.sparkletour.com/ProductDetail/122816"
+                                   class="centeredContent briefInfo">
+                                    <span class="destination ie7mt180">深入热带雨林奇观 <br/>徒步攀登非洲之巅 <br/>身临动物世界<br/>11晚13天私享游</span>
+                                    <span class="price">￥6.95 万元起</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="item" bgimage="https://images1.aoyou.com/productlist/201804/pf606b11151925.jpg">
+                            <div class="centeredWrapper briefInfoWrapper">
+                                <a target='_blank' href="ProductDetail/85596.htm"
+                                   tppabs="http://www.sparkletour.com/ProductDetail/85596"
+                                   class="centeredContent briefInfo">
+                                    <span class="destination ie7mt180">暑期北欧亲子首选<br/>盖朗格尔峡湾&松恩峡湾<br/>畅游丹麦童话王国<br/>10晚12天私享游</span>
+                                    <span class="price">￥5.55 万元起</span>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <section class="productCollection" id="invatationSection">
+                <div class="contentWrapper">
+                    <h2>邀约&#183;分享</h2>
+                    <div class="owl-carousel owl-theme invitation clearfix">
+                        <div class="item">
+                            <h3>邀约|高端旅游耀悦与美国国家地理达成战略合作</h3>
+                            <a target="_blank" href="InvitationDetails/1088.htm"
+                               tppabs="http://www.sparkletour.com/InvitationDetails/1088">
+                                <img class="iconograph" src="../../static/images/j4h2rt30091310.jpg"
+                                     tppabs="https://images2.aoyou.com/productlist/201803/j4h2rt30091310.jpg"
+                                     alt="邀约|高端旅游耀悦与美国国家地理达成战略合作"/></a>
+                            <p class="abstract">3 月 28 日，中青旅旗下高端旅游品牌 耀悦旅行在京举办发布会，推出 邀约心旅行 全新品牌战...</p>
+                            <a target="_blank" href="InvitationDetails/1088.htm"
+                               tppabs="http://www.sparkletour.com/InvitationDetails/1088" class="viewMore">了解更多细节</a>
+                        </div>
+                        <div class="item">
+                            <h3>邀约|耀悦荣获胡润中国大陆出境游奢华旅行社</h3>
+                            <a target="_blank" href="InvitationDetails/89.htm"
+                               tppabs="http://www.sparkletour.com/InvitationDetails/89">
+                                <img class="iconograph" src="../../static/images/x8408816135513.jpg"
+                                     tppabs="https://images6.aoyou.com/productlist/201710/x8408816135513.jpg"
+                                     alt="邀约|耀悦荣获胡润中国大陆出境游奢华旅行社"/></a>
+                            <p class="abstract">2017年6月5日，在胡润百富总统奖的颁奖现场，耀悦再次荣获Top12胡润中国大陆出境游奢华旅行社。...</p>
+                            <a target="_blank" href="InvitationDetails/89.htm"
+                               tppabs="http://www.sparkletour.com/InvitationDetails/89" class="viewMore">了解更多细节</a>
+                        </div>
+                        <div class="item">
+                            <h3>邀约|耀悦再获《悦游》高端旅行社TOP5</h3>
+                            <a target="_blank" href="InvitationDetails/88.htm"
+                               tppabs="http://www.sparkletour.com/InvitationDetails/88">
+                                <img class="iconograph" src="../../static/images/6vv4v216135512.jpg"
+                                     tppabs="https://images6.aoyou.com/productlist/201710/6vv4v216135512.jpg"
+                                     alt="邀约|耀悦再获《悦游》高端旅行社TOP5"/></a>
+                            <p class="abstract">2017年6月5日， 2017年最值得期待的旅行榜单发布。这个有着全球旅业奥斯卡之称、由《悦游Con...</p>
+                            <a target="_blank" href="InvitationDetails/88.htm"
+                               tppabs="http://www.sparkletour.com/InvitationDetails/88" class="viewMore">了解更多细节</a>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
         </div>
-    </section>
 
-</main>
+        <section class="brandStory" id="brandStory">
+            <div class="contentWrapper row">
+                <h2 class="accessible">品牌故事</h2>
+                <ul>
+                    <li class="iconLaunchTime">
+                        <img src="../../static/images/content/brandStory-01.png"
+                             tppabs="http://www.sparkletour.com/images/content/brandStory-01.png" alt="30年专业旅游运营经验">
+                    </li>
+                    <li class="iconConsultantExperience">
+                        <img src="../../static/images/content/brandStory-02.png"
+                             tppabs="http://www.sparkletour.com/images/content/brandStory-02.png" alt="10年耀悦旅行顾问平均从业时间">
+                    </li>
+                    <li class="iconStuffEducation">
+                        <img src="../../static/images/content/brandStory-03.png"
+                             tppabs="http://www.sparkletour.com/images/content/brandStory-03.png" alt="60%员工海外留学经历">
+                    </li>
+                    <li class="iconServiceTime">
+                        <img src="../../static/images/content/brandStory-04.png"
+                             tppabs="http://www.sparkletour.com/images/content/brandStory-04.png" alt="7x24全球紧急联系人贴心服务">
+                    </li>
+                </ul>
+            </div>
+        </section>
 
-<footer class="footer">
-    <section class="partners">
-        <div class="contentWrapper row">
-            <h2>合作伙伴</h2>
-            <ul class="partnersList">
-                <li><a target="_blank"
-                       href="javascript:if(confirm('http://www.hilton.com.cn/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.hilton.com.cn/'"
-                       tppabs="http://www.hilton.com.cn/">
-                    <img src="../../static/images/content/partners/partners-16.png"
-                         tppabs="http://www.sparkletour.com/images/content/partners/partners-16.png" alt=""></a>
-                </li>
-                <li><a target="_blank"
-                       href="javascript:if(confirm('http://www.shangri-la.com/cn/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.shangri-la.com/cn/'"
-                       tppabs="http://www.shangri-la.com/cn/">
-                    <img src="../../static/images/content/partners/partners-18.png"
-                         tppabs="http://www.sparkletour.com/images/content/partners/partners-18.png" alt=""></a>
-                </li>
-                <li><a target="_blank"
-                       href="javascript:if(confirm('http://zh-keepexploring.canada.travel/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://zh-keepexploring.canada.travel/'"
-                       tppabs="http://zh-keepexploring.canada.travel/">
-                    <img src="../../static/images/content/partners/partners-19.png"
-                         tppabs="http://www.sparkletour.com/images/content/partners/partners-19.png" alt=""></a>
-                </li>
-                <li><a target="_blank"
-                       href="javascript:if(confirm('http://www.clubmed.com.cn/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.clubmed.com.cn/'"
-                       tppabs="http://www.clubmed.com.cn/">
-                    <img src="../../static/images/content/partners/partners-17.png"
-                         tppabs="http://www.sparkletour.com/images/content/partners/partners-17.png" alt=""></a>
-                </li>
-                <li><a target="_blank"
-                       href="javascript:if(confirm('http://www.americanairlines.cn/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.americanairlines.cn/'"
-                       tppabs="http://www.americanairlines.cn/">
-                    <img src="../../static/images/content/partners/partners-01.png"
-                         tppabs="http://www.sparkletour.com/images/content/partners/partners-01.png" alt=""></a>
-                </li>
-                <li><a target="_blank"
-                       href="javascript:if(confirm('http://www.starwoodhotels.com/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.starwoodhotels.com/'"
-                       tppabs="http://www.starwoodhotels.com/">
-                    <img src="../../static/images/content/partners/partners-02.png"
-                         tppabs="http://www.sparkletour.com/images/content/partners/partners-02.png" alt=""></a>
-                </li>
-                <li><a target="_blank"
-                       href="javascript:if(confirm('http://www.mandarinoriental.com.cn/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.mandarinoriental.com.cn/'"
-                       tppabs="http://www.mandarinoriental.com.cn/">
-                    <img src="../../static/images/content/partners/partners-03.png"
-                         tppabs="http://www.sparkletour.com/images/content/partners/partners-03.png" alt=""></a>
-                </li>
-                <li><a target="_blank"
-                       href="javascript:if(confirm('http://tahiti-tourisme.com/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://tahiti-tourisme.com/'"
-                       tppabs="http://tahiti-tourisme.com/">
-                    <img src="../../static/images/content/partners/partners-04.png"
-                         tppabs="http://www.sparkletour.com/images/content/partners/partners-04.png" alt=""></a>
-                </li>
-                <li><a target="_blank"
-                       href="javascript:if(confirm('http://www.belmond.com/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.belmond.com/'"
-                       tppabs="http://www.belmond.com/">
-                    <img src="../../static/images/content/partners/partners-05.png"
-                         tppabs="http://www.sparkletour.com/images/content/partners/partners-05.png" alt=""></a>
-                </li>
-                <li><a target="_blank"
-                       href="javascript:if(confirm('http://www.airfrance.com.cn/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.airfrance.com.cn/'"
-                       tppabs="http://www.airfrance.com.cn/">
-                    <img src="../../static/images/content/partners/partners-06.png"
-                         tppabs="http://www.sparkletour.com/images/content/partners/partners-06.png" alt=""></a>
-                </li>
-                <li><a target="_blank"
-                       href="javascript:if(confirm('http://www.peninsula.com/zh-cn  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.peninsula.com/zh-cn'"
-                       tppabs="http://www.peninsula.com/zh-cn">
-                    <img src="../../static/images/content/partners/partners-07.png"
-                         tppabs="http://www.sparkletour.com/images/content/partners/partners-07.png" alt=""></a>
-                </li>
-                <li><a target="_blank"
-                       href="javascript:if(confirm('http://www.traveltexas.net.cn/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.traveltexas.net.cn/'"
-                       tppabs="http://www.traveltexas.net.cn/">
-                    <img src="../../static/images/content/partners/partners-08.png"
-                         tppabs="http://www.sparkletour.com/images/content/partners/partners-08.png" alt=""></a>
-                </li>
-                <li><a target="_blank"
-                       href="javascript:if(confirm('http://www.jumeirah.com/zh/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.jumeirah.com/zh/'"
-                       tppabs="http://www.jumeirah.com/zh/">
-                    <img src="../../static/images/content/partners/partners-09.png"
-                         tppabs="http://www.sparkletour.com/images/content/partners/partners-09.png" alt=""></a>
-                </li>
-                <li><a target="_blank"
-                       href="javascript:if(confirm('http://www.amanresorts.com/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.amanresorts.com/'"
-                       tppabs="http://www.amanresorts.com/">
-                    <img src="../../static/images/content/partners/partners-10.png"
-                         tppabs="http://www.sparkletour.com/images/content/partners/partners-10.png" alt=""></a>
-                </li>
-                <li><a target="_blank"
-                       href="javascript:if(confirm('http://sr-jet.com/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://sr-jet.com/'"
-                       tppabs="http://sr-jet.com/">
-                    <img src="../../static/images/content/partners/partners-11.png"
-                         tppabs="http://www.sparkletour.com/images/content/partners/partners-11.png" alt=""></a>
-                </li>
-                <li><a target="_blank"
-                       href="javascript:if(confirm('http://www.emirates.com/cn/chinese/index.aspx  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.emirates.com/cn/chinese/index.aspx'"
-                       tppabs="http://www.emirates.com/cn/chinese/index.aspx">
-                    <img src="../../static/images/content/partners/partners-12.png"
-                         tppabs="http://www.sparkletour.com/images/content/partners/partners-12.png" alt=""></a>
-                </li>
-                <li><a target="_blank"
-                       href="javascript:if(confirm('http://www.airchina.com.cn/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.airchina.com.cn/'"
-                       tppabs="http://www.airchina.com.cn/">
-                    <img src="../../static/images/content/partners/partners-13.png"
-                         tppabs="http://www.sparkletour.com/images/content/partners/partners-13.png" alt=""></a>
-                </li>
-                <li><a target="_blank"
-                       href="javascript:if(confirm('http://www.banyantree.com/zh/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.banyantree.com/zh/'"
-                       tppabs="http://www.banyantree.com/zh/">
-                    <img src="../../static/images/content/partners/partners-14.png"
-                         tppabs="http://www.sparkletour.com/images/content/partners/partners-14.png" alt=""></a>
-                </li>
-                <li><a target="_blank"
-                       href="javascript:if(confirm('http://www.united.com/web/zh-CN/Default.aspx  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.united.com/web/zh-CN/Default.aspx'"
-                       tppabs="http://www.united.com/web/zh-CN/Default.aspx">
-                    <img src="../../static/images/content/partners/partners-15.png"
-                         tppabs="http://www.sparkletour.com/images/content/partners/partners-15.png" alt=""></a>
-                </li>
-                <li><a target="_blank"
-                       href="javascript:if(confirm('http://etdc.juran.com.cn/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://etdc.juran.com.cn/'"
-                       tppabs="http://etdc.juran.com.cn/">
-                    <img src="../../static/images/content/partners/partners-20.png"
-                         tppabs="http://www.sparkletour.com/images/content/partners/partners-20.png" alt=""></a>
-                </li>
-            </ul>
-        </div>
-    </section>
-    <section class="AboutUs">
-        <div class="contentWrapper row">
-            <h2 class="accessible">关于我们</h2>
-            <ul class="contactUs row">
-                <li class="phone"><a href="tel:4008905588">400 890 5588</a></li>
-                <li class="wechat">
-                    <img src="../../static/images/content/wechat.jpg"
-                         tppabs="http://www.sparkletour.com/images/content/wechat.jpg" alt="耀悅微信平台"></li>
-            </ul>
-            <div class="copyright">
-                <p class="intro">耀悦&nbsp;&nbsp;中青旅旗下高端旅游品牌</p>
-                <p>
-                    <a href="javascript:if(confirm('http://www.aoyou.com/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.aoyou.com/'"
-                       tppabs="http://www.aoyou.com/">
-                        <img src="../../static/images/content/united-logo.png"
-                             tppabs="http://www.sparkletour.com/images/content/united-logo.png" alt="中青旅-耀悅"
-                             class="unitedLogo"/></a>
-                    <span class="copyrightInfo">Copyright SparkleTour  耀悦 2013-2017｜京ICP备17033069｜<a
-                            href="SiteMap.htm" tppabs="http://www.sparkletour.com/SiteMap" target="_blank"
-                            style="color: #fff">网站地图</a></span>
-                </p>
+    </main>
+
+    <footer class="footer">
+        <section class="partners">
+            <div class="contentWrapper row">
+                <h2>合作伙伴</h2>
+                <ul class="partnersList">
+                    <li><a target="_blank"
+                           href="javascript:if(confirm('http://www.hilton.com.cn/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.hilton.com.cn/'"
+                           tppabs="http://www.hilton.com.cn/">
+                        <img src="../../static/images/content/partners/partners-16.png"
+                             tppabs="http://www.sparkletour.com/images/content/partners/partners-16.png" alt=""></a>
+                    </li>
+                    <li><a target="_blank"
+                           href="javascript:if(confirm('http://www.shangri-la.com/cn/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.shangri-la.com/cn/'"
+                           tppabs="http://www.shangri-la.com/cn/">
+                        <img src="../../static/images/content/partners/partners-18.png"
+                             tppabs="http://www.sparkletour.com/images/content/partners/partners-18.png" alt=""></a>
+                    </li>
+                    <li><a target="_blank"
+                           href="javascript:if(confirm('http://zh-keepexploring.canada.travel/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://zh-keepexploring.canada.travel/'"
+                           tppabs="http://zh-keepexploring.canada.travel/">
+                        <img src="../../static/images/content/partners/partners-19.png"
+                             tppabs="http://www.sparkletour.com/images/content/partners/partners-19.png" alt=""></a>
+                    </li>
+                    <li><a target="_blank"
+                           href="javascript:if(confirm('http://www.clubmed.com.cn/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.clubmed.com.cn/'"
+                           tppabs="http://www.clubmed.com.cn/">
+                        <img src="../../static/images/content/partners/partners-17.png"
+                             tppabs="http://www.sparkletour.com/images/content/partners/partners-17.png" alt=""></a>
+                    </li>
+                    <li><a target="_blank"
+                           href="javascript:if(confirm('http://www.americanairlines.cn/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.americanairlines.cn/'"
+                           tppabs="http://www.americanairlines.cn/">
+                        <img src="../../static/images/content/partners/partners-01.png"
+                             tppabs="http://www.sparkletour.com/images/content/partners/partners-01.png" alt=""></a>
+                    </li>
+                    <li><a target="_blank"
+                           href="javascript:if(confirm('http://www.starwoodhotels.com/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.starwoodhotels.com/'"
+                           tppabs="http://www.starwoodhotels.com/">
+                        <img src="../../static/images/content/partners/partners-02.png"
+                             tppabs="http://www.sparkletour.com/images/content/partners/partners-02.png" alt=""></a>
+                    </li>
+                    <li><a target="_blank"
+                           href="javascript:if(confirm('http://www.mandarinoriental.com.cn/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.mandarinoriental.com.cn/'"
+                           tppabs="http://www.mandarinoriental.com.cn/">
+                        <img src="../../static/images/content/partners/partners-03.png"
+                             tppabs="http://www.sparkletour.com/images/content/partners/partners-03.png" alt=""></a>
+                    </li>
+                    <li><a target="_blank"
+                           href="javascript:if(confirm('http://tahiti-tourisme.com/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://tahiti-tourisme.com/'"
+                           tppabs="http://tahiti-tourisme.com/">
+                        <img src="../../static/images/content/partners/partners-04.png"
+                             tppabs="http://www.sparkletour.com/images/content/partners/partners-04.png" alt=""></a>
+                    </li>
+                    <li><a target="_blank"
+                           href="javascript:if(confirm('http://www.belmond.com/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.belmond.com/'"
+                           tppabs="http://www.belmond.com/">
+                        <img src="../../static/images/content/partners/partners-05.png"
+                             tppabs="http://www.sparkletour.com/images/content/partners/partners-05.png" alt=""></a>
+                    </li>
+                    <li><a target="_blank"
+                           href="javascript:if(confirm('http://www.airfrance.com.cn/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.airfrance.com.cn/'"
+                           tppabs="http://www.airfrance.com.cn/">
+                        <img src="../../static/images/content/partners/partners-06.png"
+                             tppabs="http://www.sparkletour.com/images/content/partners/partners-06.png" alt=""></a>
+                    </li>
+                    <li><a target="_blank"
+                           href="javascript:if(confirm('http://www.peninsula.com/zh-cn  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.peninsula.com/zh-cn'"
+                           tppabs="http://www.peninsula.com/zh-cn">
+                        <img src="../../static/images/content/partners/partners-07.png"
+                             tppabs="http://www.sparkletour.com/images/content/partners/partners-07.png" alt=""></a>
+                    </li>
+                    <li><a target="_blank"
+                           href="javascript:if(confirm('http://www.traveltexas.net.cn/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.traveltexas.net.cn/'"
+                           tppabs="http://www.traveltexas.net.cn/">
+                        <img src="../../static/images/content/partners/partners-08.png"
+                             tppabs="http://www.sparkletour.com/images/content/partners/partners-08.png" alt=""></a>
+                    </li>
+                    <li><a target="_blank"
+                           href="javascript:if(confirm('http://www.jumeirah.com/zh/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.jumeirah.com/zh/'"
+                           tppabs="http://www.jumeirah.com/zh/">
+                        <img src="../../static/images/content/partners/partners-09.png"
+                             tppabs="http://www.sparkletour.com/images/content/partners/partners-09.png" alt=""></a>
+                    </li>
+                    <li><a target="_blank"
+                           href="javascript:if(confirm('http://www.amanresorts.com/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.amanresorts.com/'"
+                           tppabs="http://www.amanresorts.com/">
+                        <img src="../../static/images/content/partners/partners-10.png"
+                             tppabs="http://www.sparkletour.com/images/content/partners/partners-10.png" alt=""></a>
+                    </li>
+                    <li><a target="_blank"
+                           href="javascript:if(confirm('http://sr-jet.com/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://sr-jet.com/'"
+                           tppabs="http://sr-jet.com/">
+                        <img src="../../static/images/content/partners/partners-11.png"
+                             tppabs="http://www.sparkletour.com/images/content/partners/partners-11.png" alt=""></a>
+                    </li>
+                    <li><a target="_blank"
+                           href="javascript:if(confirm('http://www.emirates.com/cn/chinese/index.aspx  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.emirates.com/cn/chinese/index.aspx'"
+                           tppabs="http://www.emirates.com/cn/chinese/index.aspx">
+                        <img src="../../static/images/content/partners/partners-12.png"
+                             tppabs="http://www.sparkletour.com/images/content/partners/partners-12.png" alt=""></a>
+                    </li>
+                    <li><a target="_blank"
+                           href="javascript:if(confirm('http://www.airchina.com.cn/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.airchina.com.cn/'"
+                           tppabs="http://www.airchina.com.cn/">
+                        <img src="../../static/images/content/partners/partners-13.png"
+                             tppabs="http://www.sparkletour.com/images/content/partners/partners-13.png" alt=""></a>
+                    </li>
+                    <li><a target="_blank"
+                           href="javascript:if(confirm('http://www.banyantree.com/zh/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.banyantree.com/zh/'"
+                           tppabs="http://www.banyantree.com/zh/">
+                        <img src="../../static/images/content/partners/partners-14.png"
+                             tppabs="http://www.sparkletour.com/images/content/partners/partners-14.png" alt=""></a>
+                    </li>
+                    <li><a target="_blank"
+                           href="javascript:if(confirm('http://www.united.com/web/zh-CN/Default.aspx  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.united.com/web/zh-CN/Default.aspx'"
+                           tppabs="http://www.united.com/web/zh-CN/Default.aspx">
+                        <img src="../../static/images/content/partners/partners-15.png"
+                             tppabs="http://www.sparkletour.com/images/content/partners/partners-15.png" alt=""></a>
+                    </li>
+                    <li><a target="_blank"
+                           href="javascript:if(confirm('http://etdc.juran.com.cn/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://etdc.juran.com.cn/'"
+                           tppabs="http://etdc.juran.com.cn/">
+                        <img src="../../static/images/content/partners/partners-20.png"
+                             tppabs="http://www.sparkletour.com/images/content/partners/partners-20.png" alt=""></a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section class="AboutUs">
+            <div class="contentWrapper row">
+                <h2 class="accessible">关于我们</h2>
+                <ul class="contactUs row">
+                    <li class="phone"><a href="tel:4008905588">400 890 5588</a></li>
+                    <li class="wechat">
+                        <img src="../../static/images/content/wechat.jpg"
+                             tppabs="http://www.sparkletour.com/images/content/wechat.jpg" alt="耀悅微信平台"></li>
+                </ul>
+                <div class="copyright">
+                    <p class="intro">耀悦&nbsp;&nbsp;中青旅旗下高端旅游品牌</p>
+                    <p>
+                        <a href="javascript:if(confirm('http://www.aoyou.com/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.aoyou.com/'"
+                           tppabs="http://www.aoyou.com/">
+                            <img src="../../static/images/content/united-logo.png"
+                                 tppabs="http://www.sparkletour.com/images/content/united-logo.png" alt="中青旅-耀悅"
+                                 class="unitedLogo"/></a>
+                        <span class="copyrightInfo">Copyright SparkleTour  耀悦 2013-2017｜京ICP备17033069｜<a
+                                href="SiteMap.htm" tppabs="http://www.sparkletour.com/SiteMap" target="_blank"
+                                style="color: #fff">网站地图</a></span>
+                    </p>
 
             </div>
         </div>

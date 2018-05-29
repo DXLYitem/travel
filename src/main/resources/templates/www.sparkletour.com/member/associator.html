@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset=utf-8"utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="../../../static/scripts/libs/owl-carousel/owl.theme.css" tppabs="http://www.sparkletour.com/scripts/libs/owl-carousel/owl.theme.css">
 <link rel="stylesheet" href="../../../static/scripts/libs/jPlayer/skin/pink.flag/css/jplayer.pink.flag.min.css" tppabs="http://www.sparkletour.com/scripts/libs/jPlayer/skin/pink.flag/css/jplayer.pink.flag.min.css" />
 <link rel="stylesheet" href="../../../static/styles/custom.css-ver=20171031132229.css" tppabs="http://www.sparkletour.com/styles/custom.css?ver=20171031132229" />
-<script type="text/javascript" src="../../../static/scripts/jquery-1.9.1.js" tppabs="http://www.sparkletour.com/scripts/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="../../../static/scripts/libs/jquery-3.3.1.js" tppabs="http://www.sparkletour.com/scripts/jquery-1.9.1.js"></script>
 <script type="text/javascript" src="../../../static/scripts/myjs.js" tppabs="http://www.sparkletour.com/scripts/myjs.js"></script>
 <script type="text/javascript" src="../../../static/scripts/o_code.js-ver=20180305112245" tppabs="http://www.sparkletour.com/scripts/o_code.js?ver=20180305112245"></script>
 <style type="text/css">
@@ -207,278 +207,193 @@
 </aside>
 
     <div class="pageWrapper" id="pageWrapper">
-        
 
-<header class="header" role="banner" id="siteHeader">
-    <div class="masthead">
-        <div class="contentWrapper">
-            <h1 class="logo"><a href="../index.html" tppabs="http://www.sparkletour.com/">
-                <img src="../../../static/images/content/logo.png" tppabs="http://www.sparkletour.com/images/content/logo.png" alt="耀悅"></a></h1>
-            
-<nav class="navigation" role="navigation">
-    <ul class="level1">
-        <li class="discover">
-            <a href="javascript:void(0);">探索世界</a>
-            <ul class="level2">
-                <li>
-                    <a href="../ProductList/5644.htm" tppabs="http://www.sparkletour.com/ProductList/5644">欧洲</a>
-                    <ul class="level3">
-                        <li><a href="../ProductList/5651.htm" tppabs="http://www.sparkletour.com/ProductList/5651">英国爱尔兰</a></li>
-                        <li><a href="../ProductList/5655.htm" tppabs="http://www.sparkletour.com/ProductList/5655">荷兰比利时</a></li>
-                        <li><a href="../ProductList/5652.htm" tppabs="http://www.sparkletour.com/ProductList/5652">法意瑞</a></li>
-                        <li><a href="../ProductList/5653.htm" tppabs="http://www.sparkletour.com/ProductList/5653">德奥捷匈</a></li>
-                        <li><a href="../ProductList/8856.htm" tppabs="http://www.sparkletour.com/ProductList/8856">北欧波罗的海</a></li>
-                        <li><a href="../ProductList/5654.htm" tppabs="http://www.sparkletour.com/ProductList/5654">西班牙葡萄牙</a></li>
-                        <li><a href="../ProductList/5656.htm" tppabs="http://www.sparkletour.com/ProductList/5656">俄罗斯</a></li>
-                        <li><a href="../ProductList/5657.htm" tppabs="http://www.sparkletour.com/ProductList/5657">希腊</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="../ProductList/5650.htm" tppabs="http://www.sparkletour.com/ProductList/5650">美洲</a>
-                    <ul class="level3">
-                        <li><a href="../ProductList/5684.htm" tppabs="http://www.sparkletour.com/ProductList/5684">巴哈马</a></li>
-                        <li><a href="../ProductList/5685.htm" tppabs="http://www.sparkletour.com/ProductList/5685">加拿大</a></li>
-                        <li><a href="../ProductList/5686.htm" tppabs="http://www.sparkletour.com/ProductList/5686">美国</a></li>
-                        <li><a href="../ProductList/134.htm" tppabs="http://www.sparkletour.com/ProductList/134">关岛</a></li>
-                        <li><a href="../ProductList/5687.htm" tppabs="http://www.sparkletour.com/ProductList/5687">夏威夷</a></li>
-                        <li><a href="../ProductList/7471.htm" tppabs="http://www.sparkletour.com/ProductList/7471">墨西哥古巴</a></li>
-                        <li><a href="../ProductList/7470.htm" tppabs="http://www.sparkletour.com/ProductList/7470">南美洲</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="../ProductList/5646.htm" tppabs="http://www.sparkletour.com/ProductList/5646">中东&amp;非洲</a>
-                    <ul class="level3">
-                        <li><a href="../ProductList/5665.htm" tppabs="http://www.sparkletour.com/ProductList/5665">阿联酋</a></li>
-                        <li><a href="../ProductList/5667.htm" tppabs="http://www.sparkletour.com/ProductList/5667">非洲</a></li>
-                        <li><a href="../ProductList/5668.htm" tppabs="http://www.sparkletour.com/ProductList/5668">毛里求斯塞舌尔</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="../ProductList/5645.htm" tppabs="http://www.sparkletour.com/ProductList/5645">大洋洲</a>
-                    <ul class="level3">
-                        <li><a href="../ProductList/5658.htm" tppabs="http://www.sparkletour.com/ProductList/5658">大溪地</a></li>
-                        <li><a href="../ProductList/5659.htm" tppabs="http://www.sparkletour.com/ProductList/5659">澳大利亚</a></li>
-                        <li><a href="../ProductList/5660.htm" tppabs="http://www.sparkletour.com/ProductList/5660">新西兰</a></li>
-                        <li><a href="../ProductList/5661.htm" tppabs="http://www.sparkletour.com/ProductList/5661">斐济</a></li>
-                        <li><a href="../ProductList/8719.htm" tppabs="http://www.sparkletour.com/ProductList/8719">新咯里多尼亚</a></li>
-                        <li><a href="../ProductList/5662.htm" tppabs="http://www.sparkletour.com/ProductList/5662">瓦努阿图</a></li>
-                        <li><a href="../ProductList/5663.htm" tppabs="http://www.sparkletour.com/ProductList/5663">库克群岛</a></li>
-                        <li><a href="../ProductList/5664.htm" tppabs="http://www.sparkletour.com/ProductList/5664">萨摩亚</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="../ProductList/5647.htm" tppabs="http://www.sparkletour.com/ProductList/5647">东南亚&amp;南亚</a>
-                    <ul class="level3">
-                        <li><a href="../ProductList/5669.htm" tppabs="http://www.sparkletour.com/ProductList/5669">泰国</a></li>
-                        <li><a href="../ProductList/5671.htm" tppabs="http://www.sparkletour.com/ProductList/5671">新加坡马来西亚</a></li>
-                        <li><a href="../ProductList/6556.htm" tppabs="http://www.sparkletour.com/ProductList/6556">越南柬埔寨老挝</a></li>
-                        <li><a href="../ProductList/5670.htm" tppabs="http://www.sparkletour.com/ProductList/5670">缅甸菲律宾</a></li>
-                        <li><a href="../ProductList/5672.htm" tppabs="http://www.sparkletour.com/ProductList/5672">印度尼西亚</a></li>
-                        <li><a href="../ProductList/5675.htm" tppabs="http://www.sparkletour.com/ProductList/5675">不丹尼泊尔印度</a></li>
-                        <li><a href="../ProductList/5673.htm" tppabs="http://www.sparkletour.com/ProductList/5673">马尔代夫</a></li>
-                        <li><a href="../ProductList/5674.htm" tppabs="http://www.sparkletour.com/ProductList/5674">斯里兰卡</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="../ProductList/5648.htm" tppabs="http://www.sparkletour.com/ProductList/5648">东北亚</a>
-                    <ul class="level3">
-                        <li><a href="../ProductList/5676.htm" tppabs="http://www.sparkletour.com/ProductList/5676">日本</a></li>
-                        <li><a href="../ProductList/5677.htm" tppabs="http://www.sparkletour.com/ProductList/5677">东京周边</a></li>
-                        <li><a href="../ProductList/5678.htm" tppabs="http://www.sparkletour.com/ProductList/5678">大阪周边</a></li>
-                        <li><a href="../ProductList/5679.htm" tppabs="http://www.sparkletour.com/ProductList/5679">北海道</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="javascript:if(confirm('http://www.sparkletour.com/ProductList/5649  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ������, �����������, ����Ŀ����ֹͣ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.sparkletour.com/ProductList/5649'" tppabs="http://www.sparkletour.com/ProductList/5649">中国</a>
-                    <ul class="level3">
-                        <li><a href="../ProductList/5682.htm" tppabs="http://www.sparkletour.com/ProductList/5682">港澳台</a></li>
-                        <li><a href="../ProductList/5683.htm" tppabs="http://www.sparkletour.com/ProductList/5683">国内</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="../ProductList/6101.htm" tppabs="http://www.sparkletour.com/ProductList/6101">极地</a>
-                    <ul class="level3">
-                        <li><a href="../ProductList/6101.htm" tppabs="http://www.sparkletour.com/ProductList/6101">南北极</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a href="javascript:void(0);">主题臻选</a>
-            <ul class="level2 themeCollections">
-                <li>
-                    <a href="../ProductList/4963.htm" tppabs="http://www.sparkletour.com/ProductList/4963">旅行偏好</a>
-                    <ul class="level3">
-                        <li><a href="../ProductList/4968.htm" tppabs="http://www.sparkletour.com/ProductList/4968">初游首选</a></li>
-                        <li><a href="../ProductList/4969.htm" tppabs="http://www.sparkletour.com/ProductList/4969">深度体验</a></li>
-                        <li><a href="../ProductList/4970.htm" tppabs="http://www.sparkletour.com/ProductList/4970">顶级体验</a></li>
-                        <li><a href="../ProductList/4971.htm" tppabs="http://www.sparkletour.com/ProductList/4971">海岛度假</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="../ProductList/4964.htm" tppabs="http://www.sparkletour.com/ProductList/4964">旅行主题</a>
-                    <ul class="level3">
-                        <li><a href="../ProductList/4974.htm" tppabs="http://www.sparkletour.com/ProductList/4974">运动乐活</a></li>
-                        <li><a href="../ProductList/4975.htm" tppabs="http://www.sparkletour.com/ProductList/4975">亲子优选</a></li>
-                        <li><a href="../ProductList/4976.htm" tppabs="http://www.sparkletour.com/ProductList/4976">环球自驾</a></li>
-                        <li><a href="../ProductList/4977.htm" tppabs="http://www.sparkletour.com/ProductList/4977">探索野奢</a></li>
-                        <li><a href="../ProductList/4978.htm" tppabs="http://www.sparkletour.com/ProductList/4978">健康悦活</a></li>
-                        <li><a href="../ProductList/4979.htm" tppabs="http://www.sparkletour.com/ProductList/4979">婚礼蜜月</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="../ProductList/4965.htm" tppabs="http://www.sparkletour.com/ProductList/4965">交通工具</a>
-                    <ul class="level3">
-                        <li><a href="../ProductList/4981.htm" tppabs="http://www.sparkletour.com/ProductList/4981">商务舱</a></li>
-                        <li><a href="../ProductList/4982.htm" tppabs="http://www.sparkletour.com/ProductList/4982">豪华列车</a></li>
-                        <li><a href="../ProductList/4983.htm" tppabs="http://www.sparkletour.com/ProductList/4983">私人飞机</a></li>
-                        <li><a href="../ProductList/4986.htm" tppabs="http://www.sparkletour.com/ProductList/4986">顶级邮轮</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="../ProductList/4966.htm" tppabs="http://www.sparkletour.com/ProductList/4966">旅行方式</a>
-                    <ul class="level3">
-                        <li><a href="../ProductList/4987.htm" tppabs="http://www.sparkletour.com/ProductList/4987">私享游</a></li>
-                        <li><a href="../ProductList/4988.htm" tppabs="http://www.sparkletour.com/ProductList/4988">高端自由行</a></li>
-                        <li><a href="../ProductList/4989.htm" tppabs="http://www.sparkletour.com/ProductList/4989">度假套餐</a></li>
-                    </ul>
-                </li>
-                <li class="specialCollections">
-                    <a href="../ProductList/4967.htm" tppabs="http://www.sparkletour.com/ProductList/4967">耀悦特辑</a>
-                    <ul class="level3">
-                        <li>
-                            <a href="../ProductList/8362.htm" tppabs="http://www.sparkletour.com/ProductList/8362">
-                                <span class="img">
-                                    <img src="../../images.sparkletour.com/2016/09/01/20160901183916926.jpg" tppabs="http://images.sparkletour.com/2016/09/01/20160901183916926.jpg" alt="安缦甄选" width="100" height="100"></span>
-                                <span class="title">安缦甄选</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="../themes/52experiences/index.htm" tppabs="http://www.sparkletour.com/themes/52experiences">
-                                <span class="img">
-                                    <img src="../../images5.aoyou.com/productlist/201711/4bvhx630093806.jpg" tppabs="https://images5.aoyou.com/productlist/201711/4bvhx630093806.jpg" alt="极致之旅" width="100" height="100"></span>
-                                <span class="title">极致之旅</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="../ProductList/94.htm" tppabs="http://www.sparkletour.com/ProductList/94">
-                                <span class="img">
-                                    <img src="../../images1.aoyou.com/productlist/201708/68f2rp11092821.jpg" tppabs="http://images1.aoyou.com/productlist/201708/68f2rp11092821.jpg" alt="大溪地专辑" width="100" height="100"></span>
-                                <span class="title">大溪地专辑</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
 
-            </ul>
-        </li>
-        <li><a href="../Personalise.htm" tppabs="http://www.sparkletour.com/Personalise">私人定制</a></li>
-        <li><a href="../ProductList/pt/4.htm" tppabs="http://www.sparkletour.com/ProductList/pt/4">度假套餐</a>
-            <ul class="level2">
-                <li>
-                    <a href="javascript:void(0)">酒店品牌</a>
-                    <ul class="level3">
-                        <li><a href="../ProductList/35048.htm" tppabs="http://www.sparkletour.com/ProductList/35048">安缦</a></li>
-                        <li><a href="../ProductList/35049.htm" tppabs="http://www.sparkletour.com/ProductList/35049">四季</a></li>
-                        <li><a href="../ProductList/35050.htm" tppabs="http://www.sparkletour.com/ProductList/35050">唯逸</a></li>
-                        <li><a href="../ProductList/35051.htm" tppabs="http://www.sparkletour.com/ProductList/35051">六善</a></li>
-                        <li><a href="../ProductList/35052.htm" tppabs="http://www.sparkletour.com/ProductList/35052">小众酒店</a></li>
-                        <li><a href="../ProductList/8693.htm" tppabs="http://www.sparkletour.com/ProductList/8693">欧洲河轮</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="javascript:void(0)">区域</a>
-                    <ul class="level3">
-                        <li><a href="../ProductList/35053/4.htm" tppabs="http://www.sparkletour.com/ProductList/35053/4">亚洲</a></li>
-                        <li><a href="../ProductList/5644/4.htm" tppabs="http://www.sparkletour.com/ProductList/5644/4">欧洲</a></li>
-                        <li><a href="../ProductList/5650/4.htm" tppabs="http://www.sparkletour.com/ProductList/5650/4">美洲</a></li>
-                        <li><a href="../ProductList/5646/4.htm" tppabs="http://www.sparkletour.com/ProductList/5646/4">中东&非洲</a></li>
-                    </ul>
-                </li>
-            </ul>
+        <header class="header" role="banner" id="siteHeader">
+            <div class="masthead">
+                <div class="contentWrapper">
+                    <h1 class="logo"><a href="index.html" tppabs="http://www.sparkletour.com/">
+                        <img src="../../static/images/content/logo.png"  alt="耀悅"></a></h1>
 
-        </li>
-        <li><a href="../nge.htm" tppabs="http://www.sparkletour.com/nge">国家地理</a></li>
-        <li><a href="../themes/health/index.htm" tppabs="http://www.sparkletour.com/themes/health/">海外健康</a></li>
-        <li>
-            <a href="javascript:void(0);">公司简介</a>
-            <ul class="level2">
-                <li>
-                    <ul class="level3">
-                        <li><a href="../AboutUs/index.htm" tppabs="http://www.sparkletour.com/AboutUs">品牌故事</a></li>
-                        <li><a href="../ProductClub.htm" tppabs="http://www.sparkletour.com/ProductClub">耀悦会</a></li>
-                        <li><a href="../InvitationList.htm" tppabs="http://www.sparkletour.com/InvitationList">邀约 · 分享</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
-    </ul>
-</nav>
+                    <nav class="navigation" role="navigation">
+                        <ul class="level1">
+                            <li class="discover">
+                                <a href="index">探索世界</a>
+                                <ul class="level2">
 
-            <div class="quickTool">
-                <!--<div class="tool">
-                    <a class="phone" href="tel:4008905588">400 890 5588</a>
-                </div>-->
-                <div class="tool">
-                    <div class="searchForm">
-                        <div class="quickSearch">
-                            <!-- <input type="text" name="keyword" id="keyword" placeholder="快速搜索" /> -->
-                            <button>快速搜索<span class="accessible">搜索</span></button>
-                        </div>
-                        <div class="searchPanel">
-                            <a href="javascript:void(0);" class="close">X<span class="accessible">关闭搜索面板</span></a>
-                            <div class="row">
-                                <fieldset class="byDate">
-                                    <legend>按时间出行</legend>
-                                    <ul>
-                                        <li>
-                                            <input type="text" class="datePicker" id="txtStartDate" value="" /></li>
-                                        <li>
-                                            <input type="text" class="datePicker" id="txtEndDate" value="" /></li>
-                                    </ul>
-                                </fieldset>
-                                <fieldset class="byDestination">
-                                    <legend>按目的地</legend>
-                                    <div>
-                                        <input type="text" class="inputDestination" id="searchByDestination" placeholder="输入目的地" />
+                                    <li th:each="con,last : ${session.conList}">            <!--洲-->
+                                        <a th:href="@{'ProductList?continentId='+${con.continentId}}" th:text="${con.continentName}">o</a>
+                                        <ul class="level3">
+                                            <div th:if="${last.index} eq '0'">                          <!--国-->
+                                                <li th:each="cou : ${session.couList0}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}"  th:text="${cou.countryName}"></a></li>
+                                            </div>
+                                            <div th:if="${last.index} eq '1'">
+                                                <li th:each="cou : ${session.couList1}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}" th:text="${cou.countryName}"></a></li>
+                                            </div>
+                                            <div th:if="${last.index} eq '2'">
+                                                <li th:each="cou : ${session.couList2}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}"  th:text="${cou.countryName}"></a></li>
+                                            </div>
+                                            <div th:if="${last.index} eq '3'">
+                                                <li th:each="cou : ${session.couList3}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}"  th:text="${cou.countryName}"></a></li>
+                                            </div>
+                                            <div th:if="${last.index} eq '4'">
+                                                <li th:each="cou : ${session.couList4}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}" th:text="${cou.countryName}"></a></li>
+                                            </div>
+                                            <div th:if="${last.index} eq '5'">
+                                                <li th:each="cou : ${session.couList5}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}" th:text="${cou.countryName}"></a></li>
+                                            </div>
+                                            <div th:if="${last.index} eq '6'">
+                                                <li th:each="cou : ${session.couList6}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}"  th:text="${cou.countryName}"></a></li>
+                                            </div>
+                                            <div th:if="${last.index} eq '7'">
+                                                <li th:each="cou : ${session.couList7}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}" th:text="${cou.countryName}"></a></li>
+                                            </div>
+
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);">主题臻选</a>
+                                <ul class="level2">
+                                    <li th:each="theme : ${session.themeList}">
+                                        <a th:href="@{'ProductList?themeId='+${theme.themeId}}"><span
+                                                th:text="${theme.themeName}"></span></a>
+
+                                        <ul class="level3">
+                                            <div th:if="${theme.themeId} eq '1'">
+                                                <li th:each="h : ${session.h}"><a th:href="@{'ProductList?hobbyId='+${h.hobbyId}}"><span th:text="${h.hobbyName}"></span></a></li>
+                                            </div>
+                                            <div th:if="${theme.themeId} eq '2'">
+                                                <li th:each="t : ${session.t}"><a th:href="@{'ProductList?travelId='+${t.travelId}}"><span th:text="${t.travelName}"></span></a></li>
+                                            </div>
+                                            <div th:if="${theme.themeId} eq '3'">
+                                                <li th:each="c : ${session.c}"><a th:href="@{'ProductList?trafficId='+${c.trafficId}}"><span th:text="${c.trafficName}"></span></a></li>
+                                            </div>
+                                            <div th:if="${theme.themeId} eq '4'">
+                                                <li th:each="s : ${session.s}"><a th:href="@{'ProductList?styleId='+${s.styleId}}" th:text="${s.styleName}"><span th:text="${s.styleName}"></span></a></li>
+                                            </div>
+                                        </ul>
+                                    </li>
+
+
+
+                                </ul>
+                            </li>
+                            <li><a href="Personalise" >私人定制</a></li>
+                            <li><a href="ProductList/pt/4.htm" >度假套餐</a>
+                                <ul class="level2">
+                                    <li th:each="holiday : ${session.holidayList}">
+                                        <!--<a href="javascript:void(0)">酒店品牌</a>-->
+                                        <a th:href="@{'ProductList?holidayId='+${holiday.holidayId}}"><span
+                                                th:text="${holiday.holidayName}"></span></a>
+                                        <ul class="level3">
+                                            <div th:if="${holiday.holidayId} eq '1'">
+                                                <li th:each="b : ${session.b}"><a
+                                                        th:href="@{'ProductList?holidayId='+${b.brandId}}"><span
+                                                        th:text="${b.brandName}"></span></a></li>
+                                            </div>
+                                            <div th:if="${holiday.holidayId} eq '2'">
+                                                <li th:each="continent : ${session.continent}"><a
+                                                        th:href="@{'ProductList?holidayId='+${continent.continentId}}"><span
+                                                        th:text="${continent.continentName}"></span></a></li>
+                                            </div>
+                                        </ul>
+                                    </li>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a href="nge">国家地理</a></li>
+                            <li><a href="themes/health/index.htm" >海外健康</a></li>
+                            <li>
+                                <a href="javascript:void(0);">公司简介</a>
+                                <ul class="level2">
+                                    <li>
+                                        <ul class="level3">
+                                            <li><a href="AboutUs/index.htm" >品牌故事</a></li>
+                                            <li><a href="ProductClub.htm" >耀悦会</a></li>
+                                            <li><a href="InvitationList.htm" >邀约 · 分享</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </nav>
+
+                    <div class="quickTool">
+                        <!--<div class="tool">
+                            <a class="phone" href="tel:4008905588">400 890 5588</a>
+                        </div>-->
+                        <div class="tool">
+                            <div class="searchForm">
+                                <div class="quickSearch">
+                                    <!-- <input type="text" name="keyword" id="keyword" placeholder="快速搜索" /> -->
+                                    <button>快速搜索<span class="accessible">搜索</span></button>
+                                </div>
+                                <div class="searchPanel">
+                                    <a href="javascript:void(0);" class="close">X<span class="accessible">关闭搜索面板</span></a>
+                                    <div class="row">
+                                        <fieldset class="byDate">
+                                            <legend>按时间出行</legend>
+                                            <ul>
+                                                <li>
+                                                    <input type="text" class="datePicker" id="txtStartDate" value=""
+                                                           style="width: 260px;height: 32px;"/></li>
+                                                <!-- <li>
+                                                     <input type="text" class="datePicker" id="txtEndDate" value="" /></li>-->
+                                            </ul>
+                                        </fieldset>
+                                        <fieldset class="byDestination">
+                                            <legend>按目的地</legend>
+                                            <div>
+
+                                                <select class="inputDestination" id="searchByDestination">
+                                                    <option  style="background-color: #0c1116" value="0">请选择</option>
+                                                    <option th:each="con: ${session.conList}" style="background-color: #0c1116" th:value="${con.continentId}" th:text="${con.continentName}"></option>
+                                                </select>
+                                                <!-- <input type="text" class="inputDestination" id="searchByDestination" placeholder="输入目的地" />-->
+                                            </div>
+                                        </fieldset>
                                     </div>
-                                </fieldset>
+                                    <div class="actions">
+                                        <button id="btnHeadSearch" type="submit">搜 索</button>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="actions">
-                                <button id="btnHeadSearch" type="submit">搜 索</button>
-                            </div>
+                        </div>
+
+
+
+
+                        <div id="loginbefore" class="tool" style="display:none;">
+                            <a href="javascript:void(0);" onclick="modalMyYaoyueShow()" class="loginBtn"></a>
+                        </div>
+                        <div id="loginafter" class="tool">
+                            <a href="javascript:void(0);" class="logined">我的耀悅
+                                <div class="loginBtnNav">
+                                    <ul>
+                                        <li class="setBorderBot" onclick="modalMyYaoyueShow()">登&nbsp;录</li>
+                                        <li id="liMyMessagePage" class="associator">会员信息</li>
+                                        <li id="liOrderQuery" class="order">订单查询</li>
+                                        <li id="liPointQuery" class="point">会员积分</li>
+                                        <li id="userExit" class="setBorderTop" onclick="Logout();">退出</li>
+                                    </ul>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>
-
-                <div id="loginbefore" class="tool" style="display:none;">
-                    <a href="javascript:void(0);" onclick="modalMyYaoyueShow()" class="loginBtn">登录注册</a>
-                </div>
-                <div id="loginafter" class="tool">
-                    <a href="javascript:void(0);" class="logined">我的耀悅
-                        <div class="loginBtnNav" style="z-index: 9999999;">
-                            <ul>
-                                <li class="setBorderBot"  onclick="modalMyYaoyueShow()">登录</li>
-                                <li id="liMyMessagePage" class="associator">会员信息</li>
-                                <li id="liOrderQuery" class="order">订单查询</li>
-                                <li id="liPointQuery" class="point">会员积分</li>
-                                <li id="userExit" class="setBorderTop" onclick="Logout();">退出</li>
-                            </ul>
-                        </div>
-                    </a>
-                </div>
+                <div class="navline"></div>
             </div>
-        </div>
-        <div class="navline"></div>
-    </div>
-</header>
+        </header>
 <!-- 登录 注册 忘记密码 入口 -->
 <div class="modal fade modalMyYaoyue" id="modalMyYaoyue" tabindex="-1" role="dialog" aria-labelledby="modalMyYaoyueLabel" aria-hidden="true" data-backdrop="static">
         <div class="modal-dialog1">
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title" id="modalMyYaoyueLabel" style="display: inline">我的耀悅</h4>
-                    <input type="button" class="close" data-dismiss="modal" aria-label="Close" style="background:#0c1116;border: 0px;float: right" value="x"/>
+                    <input type="button" class="close" data-dismiss="modal" aria-label="Close" style="background:#0c1116;border: 0px;float: right" value="x" onclick="javascript:history.back(-1);"/>
                 </div>
                 <div class="modal-body">
                     <div class="modalMyYaoyueContent1 clearfix">
@@ -530,46 +445,47 @@
     $(function(){
         $("#associator").on("click",function(){
             if($.cookie("customer")){
-                window.location.href="associator?phone="+$.cookie("customer");
+                window.location.href="associator?phone="+$.cookie("customer").replace(/\"/g,"");
             }else{
                 window.location.href="associator";
             }
         })
         $("#order").on("click",function(){
             if($.cookie("customer")){
-                window.location.href="order?phone="+$.cookie("customer");
+                window.location.href="order?phone="+$.cookie("customer").replace(/\"/g,"")+"&num=0";
             }else{
                 window.location.href="order";
             }
         })
         $("#point").on("click",function(){
             if($.cookie("customer")){
-                window.location.href="point?phone="+$.cookie("customer");
+                window.location.href="point?phone="+$.cookie("customer").replace(/\"/g,"");
             }else{
                 window.location.href="point";
             }
         })
-        $("#associator").on("click",function(){
+        $(".associator").on("click",function(){
             if($.cookie("customer")){
-                window.location.href="associator?phone="+$.cookie("customer");
+                window.location.href="associator?phone="+$.cookie("customer").replace(/\"/g,"");
             }else{
                 window.location.href="associator";
             }
         })
-        $("#order").on("click",function(){
+        $(".order").on("click",function(){
             if($.cookie("customer")){
-                window.location.href="order?phone="+$.cookie("customer");
+                window.location.href="order?phone="+$.cookie("customer").replace(/\"/g,"")+"&num=0";
             }else{
                 window.location.href="order";
             }
         })
-        $("#point").on("click",function(){
+        $(".point").on("click",function(){
             if($.cookie("customer")){
-                window.location.href="point?phone="+$.cookie("customer");
+                window.location.href="point?phone="+$.cookie("customer").replace(/\"/g,"");
             }else{
                 window.location.href="point";
             }
         })
+
     })
     IsLogin();
     var prodListUrl = "/ProductList";
@@ -664,11 +580,11 @@
             $("#loginafter").show();*/
         }
     }
-    function NeedLogin() {
+    /*function NeedLogin() {
         if (!$.cookie("customer")) {
             modalMyYaoyueShow();
         }
-    }
+    }*/
     function Logout() {
         $.cookie("customer", '', { expires: -1, path: "/" });
         location.href = "index";
@@ -678,7 +594,7 @@
         var val = $.trim($("#txt_phone").val());
         if (CheckPhone() && CheckCode()) {
             $.cookie("customer", JSON.stringify(val), { expires: 1, path: "/" });
-            location.href="member/index?phone="+val;
+            location.href="associator?phone="+val;
         }
     });
     $("#btn_send_code").bind("click", function () {
@@ -691,6 +607,23 @@
             time(this);
         }
     });
+
+    $("#btnHeadSearch").bind("click", function () {
+        var time=$("#txtStartDate").val();
+        var continentId=$("#searchByDestination option:selected").val();
+        if(continentId==0 && (time!=NaN && time !="" && time !=undefined)){
+            location.href = "ProductList?startTime="+time;
+        }
+        if(continentId!=0 && (time==NaN || time =="" || time ==undefined)){
+            location.href = "ProductList?continentId="+continentId
+        }
+        if(continentId!=0 && (time!=NaN && time !="" && time !=undefined)){
+            location.href = "ProductList?continentId="+continentId+"&startTime="+time;
+        }
+        if(continentId==0 && (time==NaN  || time =="" || time ==undefined)){
+            location.href = "ProductList";
+        }
+    })
 </script>
 
         <main role="main" id="pageContent" class="pageContent clearfix">
@@ -721,15 +654,15 @@
                         <ul>
                             <li>
                                 <span class="left">手机：</span>
-                                <span id="sp_phone"></span>
+                                <span id="sp_phone"  th:text="${associator.phone}"></span>
                             </li>
                             <li>
                                 <span class="left">昵称：</span>
-                                <span id="sp_nick_name"></span>
+                                <span id="sp_nick_name" th:text="${associator.username}"></span>
                             </li>
                             <li>
                                 <span class="left">邮箱：</span>
-                                <span id="sp_email"></span>
+                                <span id="sp_email" th:text="${associator.email}"></span>
                             </li>
                             <li style="display:none">
                                 <span class="left">备注：</span>
@@ -742,16 +675,16 @@
                         <ul class="exitinput">
                             <li>
                                 <span class="left">手机：</span>
-                                <span id="sp_phone_2"></span>
+                                <span id="sp_phone_2" th:text="${associator.phone}"></span>
                             </li>
                             <li>
                                 <span class="left">昵称：</span>
-                                <input type="text" id="txt_nick_name" placeholder="昵称"/>
+                                <input type="text" id="txt_nick_name" placeholder="昵称" th:value="${associator.username}"/>
                                 <div class="y-userinfo-error" style="display: none"></div>
                             </li>
                             <li>
                                 <span class="left">邮箱：</span>
-                                <input type="text" id="txt_email" placeholder="邮箱"/>
+                                <input type="text" id="txt_email" placeholder="邮箱" th:value="${associator.email}"/>
                                 <input type="hidden" id="txt_email_o"/>
                                 <div class="y-userinfo-error" style="display: none"></div>
                             </li>
@@ -767,8 +700,6 @@
                 </div>
                 <div class="clearfix"></div>
             </div>
-
-            
 <section class="brandStory" id="brandStory">
     <div class="contentWrapper row">
         <h2 class="accessible">品牌故事</h2>
@@ -864,13 +795,10 @@
         s.parentNode.insertBefore(hm, s);
     })();
 </script>
-
-
-
     </div>
     <script type="text/javascript">
         var cstmr;
-        if (!$.cookie("customer")) {
+        /*if (!$.cookie("customer")) {
             modalMyYaoyueShow();
             $("button").hide();
         }
@@ -894,8 +822,8 @@
                     $("#txt_email_o").val(cstmr.email);
                 }
             });
-        }
-        $("#btn_edit").bind("click", function () {
+        }*/
+        $("#btn_edit").on("click", function () {
             $("#div_detail").hide();
             $("#div_edit").show();
         });
@@ -907,52 +835,23 @@
                 $($("#txt_nick_name").next()).html("请填写昵称").show();
                 isValid = 0;
             }
-            if ($.trim($("#txt_email").val()) == "") {
-                $($("#txt_email").next()).html("请填写邮箱").show();
-                isValid = 0;
-            }
             else if (!isEmail.test($.trim($("#txt_email").val()))) {
                 $($("#txt_email").next()).html("邮箱格式不正确").show();
                 isValid = 0;
             }
             if (isValid )
             {
-                console.log(cstmr);
-                cstmr.nick_name=$.trim($("#txt_nick_name").val());
-                cstmr.email = $.trim($("#txt_email").val());
-                
-                cstmr.description = $.trim($("#txt_desc").val());
-                var postData = { "id": cstmr.id, "phone": cstmr.cellphones[0].content, "jsonData": { "customer": { "nick_name": cstmr.nick_name, "description": cstmr.description } } };
-                
-                if ($("#txt_email_o").val() != cstmr.email) {
-                    postData.jsonData.customer.email = cstmr.email;
-                }
-                postData.jsonData = JSON.stringify(postData.jsonData);
-                //postData.jsonData = JSON.stringify({ "customer": cstmr });
-                $(".loadingindex").fadeIn();
-                $.post("UpdateCustomer.ashx"/*tpa=http://www.sparkletour.com/member/UpdateCustomer.ashx*/, postData, function (res) {
-                    $(".loadingindex").fadeOut();
-                    res = JSON.parse(res);
-                    if (res.code == 1000)
-                    {
-                        var cstmrCookie = $.cookie("customer")
-                        cstmrCookie = JSON.parse(cstmrCookie)
-                        cstmrCookie.nick_name = cstmr.nick_name
-                        $.cookie("customer", JSON.stringify(cstmrCookie), { expires: 1, domain: "http://www.sparkletour.com/member/sparkletour.com" });
-                        $("#sp_nick_name").text(cstmr.nick_name);
-                        $("#sp_email").text(cstmr.email);
-                        $("#sp_desc").text(cstmr.description);
-                        $("#div_detail").show();
-                        $("#div_edit").hide();
-                        IsLogin();
+                var username=$.trim($("#txt_nick_name").val());
+                var email = $.trim($("#txt_email").val());
+                $.ajax({
+                    url:"modifyEmail",
+                    type:"post",
+                    dataType:"json",
+                    data:{"name":username,"email":email,"phone":$.cookie("customer").replace(/\"/g,"")},
+                    success:function(data){
+                        alert(data);
                     }
-                    if (res.code == 2000)
-                    {
-                        $($("#txt_email").next()).html("已存在相同邮箱").show();
-                    }
-                    console.log(res);
-                });
-                
+                })
             }
         });
     </script>

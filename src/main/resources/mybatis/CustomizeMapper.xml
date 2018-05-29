@@ -11,8 +11,12 @@
         SELECT LAST_INSERT_ID();
     </select>
 
-    <select id="selCustomize" parameterType="String" resultType="Customize">
-        SELECT * FROM customize WHERE phone=#{phone}
+    <select id="selCustomize" parameterType="Integer" resultType="Customize">
+        SELECT * FROM customize WHERE customizeid=#{id}
     </select>
+
+    <update id="update">
+        update customize set email=#{email},contact=#{name} where phone=#{phone}
+    </update>
 
 </mapper>

@@ -387,32 +387,33 @@
                         <li class="discover">
                             <a href="index">探索世界</a>
                             <ul class="level2">
-                                <li th:each="con,last : ${conList}">            <!--洲-->
+
+                                <li th:each="con,last : ${session.conList}">            <!--洲-->
                                     <a th:href="@{'ProductList?continentId='+${con.continentId}}" th:text="${con.continentName}">o</a>
                                     <ul class="level3">
                                         <div th:if="${last.index} eq '0'">                          <!--国-->
-                                            <li th:each="cou : ${couList0}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}"  th:text="${cou.countryName}"></a></li>
+                                            <li th:each="cou : ${session.couList0}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}"  th:text="${cou.countryName}"></a></li>
                                         </div>
                                         <div th:if="${last.index} eq '1'">
-                                            <li th:each="cou : ${couList1}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}" th:text="${cou.countryName}"></a></li>
+                                            <li th:each="cou : ${session.couList1}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}" th:text="${cou.countryName}"></a></li>
                                         </div>
                                         <div th:if="${last.index} eq '2'">
-                                            <li th:each="cou : ${couList2}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}"  th:text="${cou.countryName}"></a></li>
+                                            <li th:each="cou : ${session.couList2}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}"  th:text="${cou.countryName}"></a></li>
                                         </div>
                                         <div th:if="${last.index} eq '3'">
-                                            <li th:each="cou : ${couList3}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}"  th:text="${cou.countryName}"></a></li>
+                                            <li th:each="cou : ${session.couList3}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}"  th:text="${cou.countryName}"></a></li>
                                         </div>
                                         <div th:if="${last.index} eq '4'">
-                                            <li th:each="cou : ${couList4}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}" th:text="${cou.countryName}"></a></li>
+                                            <li th:each="cou : ${session.couList4}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}" th:text="${cou.countryName}"></a></li>
                                         </div>
                                         <div th:if="${last.index} eq '5'">
-                                            <li th:each="cou : ${couList5}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}" th:text="${cou.countryName}"></a></li>
+                                            <li th:each="cou : ${session.couList5}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}" th:text="${cou.countryName}"></a></li>
                                         </div>
                                         <div th:if="${last.index} eq '6'">
-                                            <li th:each="cou : ${couList6}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}"  th:text="${cou.countryName}"></a></li>
+                                            <li th:each="cou : ${session.couList6}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}"  th:text="${cou.countryName}"></a></li>
                                         </div>
                                         <div th:if="${last.index} eq '7'">
-                                            <li th:each="cou : ${couList7}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}" th:text="${cou.countryName}"></a></li>
+                                            <li th:each="cou : ${session.couList7}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}" th:text="${cou.countryName}"></a></li>
                                         </div>
 
                                     </ul>
@@ -422,22 +423,22 @@
                         <li>
                             <a href="javascript:void(0);">主题臻选</a>
                             <ul class="level2">
-                                <li th:each="theme : ${themeList}">
+                                <li th:each="theme : ${session.themeList}">
                                     <a th:href="@{'ProductList?themeId='+${theme.themeId}}"><span
                                             th:text="${theme.themeName}"></span></a>
 
                                     <ul class="level3">
                                         <div th:if="${theme.themeId} eq '1'">
-                                            <li th:each="h : ${h}"><a th:href="@{'ProductList?hobbyId='+${h.hobbyId}}"><span th:text="${h.hobbyName}"></span></a></li>
+                                            <li th:each="h : ${session.h}"><a th:href="@{'ProductList?hobbyId='+${h.hobbyId}}"><span th:text="${h.hobbyName}"></span></a></li>
                                         </div>
                                         <div th:if="${theme.themeId} eq '2'">
-                                            <li th:each="t : ${t}"><a th:href="@{'ProductList?travelId='+${t.travelId}}"><span th:text="${t.travelName}"></span></a></li>
+                                            <li th:each="t : ${session.t}"><a th:href="@{'ProductList?travelId='+${t.travelId}}"><span th:text="${t.travelName}"></span></a></li>
                                         </div>
                                         <div th:if="${theme.themeId} eq '3'">
-                                            <li th:each="c : ${c}"><a th:href="@{'ProductList?trafficId='+${c.trafficId}}"><span th:text="${c.trafficName}"></span></a></li>
+                                            <li th:each="c : ${session.c}"><a th:href="@{'ProductList?trafficId='+${c.trafficId}}"><span th:text="${c.trafficName}"></span></a></li>
                                         </div>
                                         <div th:if="${theme.themeId} eq '4'">
-                                            <li th:each="s : ${s}"><a th:href="@{'ProductList?styleId='+${s.styleId}}" th:text="${s.styleName}"><span th:text="${s.styleName}"></span></a></li>
+                                            <li th:each="s : ${session.s}"><a th:href="@{'ProductList?styleId='+${s.styleId}}" th:text="${s.styleName}"><span th:text="${s.styleName}"></span></a></li>
                                         </div>
                                     </ul>
                                 </li>
@@ -446,19 +447,19 @@
                         <li><a href="Personalise" >私人定制</a></li>
                         <li><a href="ProductList/pt/4.htm" >度假套餐</a>
                             <ul class="level2">
-                                <li th:each="holiday : ${holidayList}">
+                                <li th:each="holiday : ${session.holidayList}">
                                     <!--<a href="javascript:void(0)">酒店品牌</a>-->
                                     <a th:href="@{'ProductList?holidayId='+${holiday.holidayId}}"><span
                                             th:text="${holiday.holidayName}"></span></a>
                                     <ul class="level3">
                                         <div th:if="${holiday.holidayId} eq '1'">
-                                            <li th:each="b : ${b}"><a
-                                                    th:href="@{'ProductList?holidayId='+${b.brandId}}"><span
+                                            <li th:each="b : ${session.b}"><a
+                                                    th:href="@{'ProductList?brandId='+${b.brandId}}"><span
                                                     th:text="${b.brandName}"></span></a></li>
                                         </div>
                                         <div th:if="${holiday.holidayId} eq '2'">
-                                            <li th:each="continent : ${continent}"><a
-                                                    th:href="@{'ProductList?holidayId='+${continent.continentId}}"><span
+                                            <li th:each="continent : ${session.continent}"><a
+                                                    th:href="@{'ProductList?continentId='+${continent.continentId}}"><span
                                                     th:text="${continent.continentName}"></span></a></li>
                                         </div>
                                     </ul>
@@ -490,17 +491,20 @@
                     <div class="tool">
                         <div class="searchForm">
                             <div class="quickSearch">
-
+                                <!-- <input type="text" name="keyword" id="keyword" placeholder="快速搜索" /> -->
                                 <button>快速搜索<span class="accessible">搜索</span></button>
                             </div>
                             <div class="searchPanel">
                                 <a href="javascript:void(0);" class="close">X<span class="accessible">关闭搜索面板</span></a>
                                 <div class="row">
                                     <fieldset class="byDate">
-                                        <legend>按出发时间</legend>
+                                        <legend>按时间出行</legend>
                                         <ul>
                                             <li>
-                                                <input type="text" class="datePicker" id="txtStartDate" value=""  style="width: 260px;height: 32px;"/></li>
+                                                <input type="text" class="datePicker" id="txtStartDate" value=""
+                                                       style="width: 260px;height: 32px;"/></li>
+                                            <!-- <li>
+                                                 <input type="text" class="datePicker" id="txtEndDate" value="" /></li>-->
                                         </ul>
                                     </fieldset>
                                     <fieldset class="byDestination">
@@ -509,8 +513,9 @@
 
                                             <select class="inputDestination" id="searchByDestination">
                                                 <option  style="background-color: #0c1116" value="0">请选择</option>
-                                                <option th:each="con: ${conList}" style="background-color: #0c1116" th:value="${con.continentId}" th:text="${con.continentName}"></option>
+                                                <option th:each="con: ${session.conList}" style="background-color: #0c1116" th:value="${con.continentId}" th:text="${con.continentName}"></option>
                                             </select>
+                                            <!-- <input type="text" class="inputDestination" id="searchByDestination" placeholder="输入目的地" />-->
                                         </div>
                                     </fieldset>
                                 </div>
@@ -520,6 +525,9 @@
                             </div>
                         </div>
                     </div>
+
+
+
 
                     <div id="loginbefore" class="tool" style="display:none;">
                         <a href="javascript:void(0);" onclick="modalMyYaoyueShow()" class="loginBtn"></a>
@@ -633,6 +641,14 @@
             $.cookie("customer", phone, { expires: 1,path: "/" });
             $("#modalMyYaoyue").modal("hide");
         })
+        $("#btnHeadSearch").bind("click", function () {
+            var time=$("#txtStartDate").val();
+            var continentId=$("#searchByDestination option:selected").val();
+            if(continentId==0 && (time!=NaN && time !="" && time !=undefined)){
+                location.href = "ProductList?startTime="+time;
+            }
+        });
+
         $("#btnHeadSearch").bind("click", function () {
             var time=$("#txtStartDate").val();
             var continentId=$("#searchByDestination option:selected").val();
@@ -1662,9 +1678,7 @@
             <div class="contentWrapper row">
                 <h2 class="accessible">关于我们</h2>
                 <ul class="contactUs row">
-                    <!--
-                                        <li class="phone"><a href="tel:4008905588">400 890 5588</a></li>
-                    -->
+                    <li class="phone"><a href="tel:4008905588">400 890 5588</a></li>
                     <li class="wechat">
                         <img src="../../../static/images/content/wechat.jpg" alt="耀悅微信平台"></li>
                 </ul>
@@ -1681,12 +1695,6 @@
         </section>
     </footer>
     <script>
-        /*  $(function () {
-             var day=$(".number").text();
-             for(i=0;i<day.length;i++){
-                $(".number").text(i+1);
-             }
-          })*/
         var _hmt = _hmt || [];
         (function () {
             var hm = document.createElement("script");

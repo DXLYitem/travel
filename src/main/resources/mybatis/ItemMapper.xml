@@ -44,6 +44,73 @@
         </where>
     </select>
 
+    <!--传入旅行主题的ID数组-->
+    <select id="selectTravelIdArray" resultMap="ItemMap" parameterType="Integer[]">
+        SELECT ite.*,sy.styleName,the.themeName,tr.trafficName,tra.travelName,hob.hobbyName     FROM item ite
+        LEFT JOIN theme the ON the.themeId=ite.themeId
+        LEFT JOIN style sy ON sy.styleId=ite.styleId
+        LEFT JOIN traffic tr ON tr.trafficId=ite.trafficId
+        LEFT JOIN travel tra ON tra.travelId=ite.travelId
+        LEFT JOIN hobby hob ON hob.hobbyId=ite.hobbyId
+        LEFT JOIN  country cou  ON ite.countryId=cou.countryId
+        LEFT JOIN  continent con ON cou.continentId=con.continentId
+        <where>
+            ite.travelId
+            <foreach  collection="array" item="travelId" open="in (" close=")" separator=",">
+                #{travelId}
+            </foreach>
+
+        </where>
+    </select>
+
+
+
+    <select id="selectHobbyIdAndTravelIdArray" resultMap="ItemMap" parameterType="Integer[]">
+        SELECT ite.*,sy.styleName,the.themeName,tr.trafficName,tra.travelName,hob.hobbyName     FROM item ite
+        LEFT JOIN theme the ON the.themeId=ite.themeId
+        LEFT JOIN style sy ON sy.styleId=ite.styleId
+        LEFT JOIN traffic tr ON tr.trafficId=ite.trafficId
+        LEFT JOIN travel tra ON tra.travelId=ite.travelId
+        LEFT JOIN hobby hob ON hob.hobbyId=ite.hobbyId
+        LEFT JOIN  country cou  ON ite.countryId=cou.countryId
+        LEFT JOIN  continent con ON cou.continentId=con.continentId
+        <where>
+
+            <if test="travelId !=null">
+              ite.travelId
+            <foreach  collection="array" item="travelId" open="in (" close=")" separator=",">
+               #{travelId}
+            </foreach>
+            </if>
+            <if test="hobbyId!=null">
+                ite.hobbyId
+             <foreach  collection="array" item="hobbyId" open="in (" close=")" separator=",">
+                 #{hobbyId}
+             </foreach>
+            </if>
+         </where>
+    </select>
+
+
+
+    <!--传入旅行偏好的ID数组-->
+    <select id="selectHobbyIdArray" resultMap="ItemMap" parameterType="Integer[]">
+        SELECT ite.*,sy.styleName,the.themeName,tr.trafficName,tra.travelName,hob.hobbyName     FROM item ite
+        LEFT JOIN theme the ON the.themeId=ite.themeId
+        LEFT JOIN style sy ON sy.styleId=ite.styleId
+        LEFT JOIN traffic tr ON tr.trafficId=ite.trafficId
+        LEFT JOIN travel tra ON tra.travelId=ite.travelId
+        LEFT JOIN hobby hob ON hob.hobbyId=ite.hobbyId
+        LEFT JOIN  country cou  ON ite.countryId=cou.countryId
+        LEFT JOIN  continent con ON cou.continentId=con.continentId
+        <where>
+            ite.hobbyId
+            <foreach  collection="array" item="hobbyId" open="in (" close=")" separator=",">
+                #{hobbyId}
+            </foreach>
+
+        </where>
+    </select>
     <!--分组查询旅行主题-->
     <select id="selectTravelName" resultMap="ItemMap" parameterType="Item">
         SELECT tra.travelName FROM item ite
@@ -91,4 +158,19 @@
         GROUP BY hob.hobbyId
     </select>
 
+
+
+<select id="selectDetailId" resultMap="ItemMap">
+    SELECT ite.*,sy.styleName,the.themeName,tr.trafficName,tra.travelName,hob.hobbyName
+    FROM item ite
+    LEFT JOIN theme the ON the.themeId=ite.themeId
+    LEFT JOIN style sy ON sy.styleId=ite.styleId
+    LEFT JOIN traffic tr ON tr.trafficId=ite.trafficId
+    LEFT JOIN travel tra ON tra.travelId=ite.travelId
+    LEFT JOIN hobby hob ON hob.hobbyId=ite.hobbyId
+
+    <where>
+        <if test="detailId !=null">AND ite.detailId=#{detailId}</if>
+    </where>
+</select>
 </mapper>

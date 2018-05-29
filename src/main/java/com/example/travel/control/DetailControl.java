@@ -1,7 +1,11 @@
 package com.example.travel.control;
 
-import com.example.travel.biz.*;
-import com.example.travel.entity.*;
+import com.example.travel.biz.DetailService;
+import com.example.travel.biz.IntroductionService;
+import com.example.travel.biz.ItemService;
+import com.example.travel.entity.Detail;
+import com.example.travel.entity.Introduction;
+import com.example.travel.entity.Item;
 import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -104,10 +108,10 @@ public class DetailControl {
          * 根据详细Id查询
          */
         List<Detail>detailList=detailService.detailList(detailId);
-      /*  *//**
+        /**
          * 根据项目Id查询
-         *//*
-        List<Item>itemListt=itemService.findDetailId(detailId);*/
+         */
+        List<Item>itemList=itemService.findDetailId(detailId);
         /**
          * 根据介绍Id查询
          */
@@ -121,15 +125,6 @@ public class DetailControl {
         if(detailList!=null){
             model.addAttribute("detailList",detailList);
         }
-        /**
-         * 根据项目id查询行程表
-         */
-        Integer itemid=null;
-        if(detailList.size()>0){
-            itemid=detailList.get(0).getItemId();
-        }
-        List<Schedule>schedList=scheduleService.findByitemId(itemid);
-        model.addAttribute("schedList",schedList);
 
         /**
          * 根据行程表中的酒店Id查询酒店信息

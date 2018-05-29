@@ -7,5 +7,5 @@ import java.util.List;
 public interface OrderService {
     public int add(Order order);
 
-    public List<Order> orderList(String phone);
+    public List<Order> orderList(String phone, Integer num);
 }

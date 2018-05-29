@@ -167,6 +167,7 @@
     <script type="text/ecmascript">
         $(function () {
 
+
             /*   $(".loadMore").on("click", function () {
                 if ($(".m-product-sublist:hidden").length > 0) {
                     $(".m-product-sublist:hidden").eq(0).show();
@@ -336,79 +337,83 @@
                 <nav class="navigation" role="navigation">
                     <ul class="level1">
                         <li class="discover">
-                            <a href="javascript:void(0);">探索世界</a>
+                            <a href="index">探索世界</a>
                             <ul class="level2">
-                                <li th:each="con,last : ${conList}">            <!--洲-->
+
+                                <li th:each="con,last : ${session.conList}">            <!--洲-->
                                     <a th:href="@{'ProductList?continentId='+${con.continentId}}" th:text="${con.continentName}">o</a>
                                     <ul class="level3">
                                         <div th:if="${last.index} eq '0'">                          <!--国-->
-                                            <li th:each="cou : ${couList0}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}"  th:text="${cou.countryName}"></a></li>
+                                            <li th:each="cou : ${session.couList0}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}"  th:text="${cou.countryName}"></a></li>
                                         </div>
                                         <div th:if="${last.index} eq '1'">
-                                            <li th:each="cou : ${couList1}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}" th:text="${cou.countryName}"></a></li>
+                                            <li th:each="cou : ${session.couList1}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}" th:text="${cou.countryName}"></a></li>
                                         </div>
                                         <div th:if="${last.index} eq '2'">
-                                            <li th:each="cou : ${couList2}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}"  th:text="${cou.countryName}"></a></li>
+                                            <li th:each="cou : ${session.couList2}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}"  th:text="${cou.countryName}"></a></li>
                                         </div>
                                         <div th:if="${last.index} eq '3'">
-                                            <li th:each="cou : ${couList3}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}"  th:text="${cou.countryName}"></a></li>
+                                            <li th:each="cou : ${session.couList3}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}"  th:text="${cou.countryName}"></a></li>
                                         </div>
                                         <div th:if="${last.index} eq '4'">
-                                            <li th:each="cou : ${couList4}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}" th:text="${cou.countryName}"></a></li>
+                                            <li th:each="cou : ${session.couList4}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}" th:text="${cou.countryName}"></a></li>
                                         </div>
                                         <div th:if="${last.index} eq '5'">
-                                            <li th:each="cou : ${couList5}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}" th:text="${cou.countryName}"></a></li>
+                                            <li th:each="cou : ${session.couList5}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}" th:text="${cou.countryName}"></a></li>
                                         </div>
                                         <div th:if="${last.index} eq '6'">
-                                            <li th:each="cou : ${couList6}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}"  th:text="${cou.countryName}"></a></li>
+                                            <li th:each="cou : ${session.couList6}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}"  th:text="${cou.countryName}"></a></li>
                                         </div>
                                         <div th:if="${last.index} eq '7'">
-                                            <li th:each="cou : ${couList7}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}" th:text="${cou.countryName}"></a></li>
+                                            <li th:each="cou : ${session.couList7}"><a th:href="@{'ProductList?countryId='+${cou.countryId}}" th:text="${cou.countryName}"></a></li>
                                         </div>
 
                                     </ul>
                                 </li>
-
                             </ul>
                         </li>
                         <li>
                             <a href="javascript:void(0);">主题臻选</a>
                             <ul class="level2">
-                                <li th:each="theme : ${themeList}">
-                                    <a th:href="@{'ProductList?themeId='+${theme.themeId}}"><span th:text="${theme.themeName}"></span></a>
+                                <li th:each="theme : ${session.themeList}">
+                                    <a th:href="@{'ProductList?themeId='+${theme.themeId}}"><span
+                                            th:text="${theme.themeName}"></span></a>
 
                                     <ul class="level3">
                                         <div th:if="${theme.themeId} eq '1'">
-                                            <li th:each="h : ${h}"><a th:href="@{'ProductList?hobbyId='+${h.hobbyId}}"><span th:text="${h.hobbyName}"></span></a></li>
+                                            <li th:each="h : ${session.h}"><a th:href="@{'ProductList?hobbyId='+${h.hobbyId}}"><span th:text="${h.hobbyName}"></span></a></li>
                                         </div>
                                         <div th:if="${theme.themeId} eq '2'">
-                                            <li th:each="t : ${t}"><a th:href="@{'ProductList?travelId='+${t.travelId}}"><span th:text="${t.travelName}"></span></a></li>
+                                            <li th:each="t : ${session.t}"><a th:href="@{'ProductList?travelId='+${t.travelId}}"><span th:text="${t.travelName}"></span></a></li>
                                         </div>
                                         <div th:if="${theme.themeId} eq '3'">
-                                            <li th:each="c : ${c}"><a th:href="@{'ProductList?trafficId='+${c.trafficId}}"><span th:text="${c.trafficName}"></span></a></li>
+                                            <li th:each="c : ${session.c}"><a th:href="@{'ProductList?trafficId='+${c.trafficId}}"><span th:text="${c.trafficName}"></span></a></li>
                                         </div>
                                         <div th:if="${theme.themeId} eq '4'">
-                                            <li th:each="s : ${s}"><a th:href="@{'ProductList?styleId='+${s.styleId}}" th:text="${s.styleName}"><span th:text="${s.styleName}"></span></a></li>
+                                            <li th:each="s : ${session.s}"><a th:href="@{'ProductList?styleId='+${s.styleId}}" th:text="${s.styleName}"><span th:text="${s.styleName}"></span></a></li>
                                         </div>
                                     </ul>
                                 </li>
+
+
+
                             </ul>
                         </li>
                         <li><a href="Personalise" >私人定制</a></li>
                         <li><a href="ProductList/pt/4.htm" >度假套餐</a>
                             <ul class="level2">
-                                <li th:each="holiday : ${holidayList}">
+                                <li th:each="holiday : ${session.holidayList}">
                                     <!--<a href="javascript:void(0)">酒店品牌</a>-->
                                     <a th:href="@{'ProductList?holidayId='+${holiday.holidayId}}"><span
                                             th:text="${holiday.holidayName}"></span></a>
                                     <ul class="level3">
                                         <div th:if="${holiday.holidayId} eq '1'">
-                                            <li th:each="b : ${b}"><a
+                                            <li th:each="b : ${session.b}"><a
                                                     th:href="@{'ProductList?brandId='+${b.brandId}}"><span
                                                     th:text="${b.brandName}"></span></a></li>
                                         </div>
                                         <div th:if="${holiday.holidayId} eq '2'">
-                                            <li th:each="continent : ${continent}"><a
+                                            <li th:each="continent : ${session.continent}"><a
                                                     th:href="@{'ProductList?continentId='+${continent.continentId}}"><span
                                                     th:text="${continent.continentName}"></span></a></li>
                                         </div>
@@ -442,17 +447,20 @@
                     <div class="tool">
                         <div class="searchForm">
                             <div class="quickSearch">
-
+                                <!-- <input type="text" name="keyword" id="keyword" placeholder="快速搜索" /> -->
                                 <button>快速搜索<span class="accessible">搜索</span></button>
                             </div>
                             <div class="searchPanel">
                                 <a href="javascript:void(0);" class="close">X<span class="accessible">关闭搜索面板</span></a>
                                 <div class="row">
                                     <fieldset class="byDate">
-                                        <legend>按出发时间</legend>
+                                        <legend>按时间出行</legend>
                                         <ul>
                                             <li>
-                                                <input type="text" class="datePicker" id="txtStartDate" value=""  style="width: 260px;height: 32px;"/></li>
+                                                <input type="text" class="datePicker" id="txtStartDate" value=""
+                                                       style="width: 260px;height: 32px;"/></li>
+                                            <!-- <li>
+                                                 <input type="text" class="datePicker" id="txtEndDate" value="" /></li>-->
                                         </ul>
                                     </fieldset>
                                     <fieldset class="byDestination">
@@ -461,8 +469,9 @@
 
                                             <select class="inputDestination" id="searchByDestination">
                                                 <option  style="background-color: #0c1116" value="0">请选择</option>
-                                                <option th:each="con: ${conList}" style="background-color: #0c1116" th:value="${con.continentId}" th:text="${con.continentName}"></option>
+                                                <option th:each="con: ${session.conList}" style="background-color: #0c1116" th:value="${con.continentId}" th:text="${con.continentName}"></option>
                                             </select>
+                                            <!-- <input type="text" class="inputDestination" id="searchByDestination" placeholder="输入目的地" />-->
                                         </div>
                                     </fieldset>
                                 </div>
@@ -472,6 +481,9 @@
                             </div>
                         </div>
                     </div>
+
+
+
 
                     <div id="loginbefore" class="tool" style="display:none;">
                         <a href="javascript:void(0);" onclick="modalMyYaoyueShow()" class="loginBtn"></a>
@@ -638,8 +650,8 @@
                     <div class="productList">
                         <div class="m-product-sublist"  >
 
-                        </div>
-
+                        </div >
+                        <div id="id">
                         <section class="product" th:each="Item:${ItemList}">
                             <h3 th:text="${Item.title}"></h3>
                             <div class="promotionImage">
@@ -666,8 +678,23 @@
                             </ul>
                             <a target = "_blank" th:href="@{'ProductDetail?detailId='+${Item.detailId}}" class="readMore">阅读更多关于大溪地 茉莉雅洲际的信息</a>
                         </section>
-
+                        </div>
                     </div>
+                    <!--分页查询-->
+                    <!--  <div class="listFooter">
+                          <p>一共${page.pages}页</p>
+                          <a th:href="@{'ProductList?page='+${page.firstPage}}">第一页</a>
+                          <a th:href="@{'ProductList?page='+${page.nextPage}}">下一页</a>
+                          <a th:href="@{'ProductList?page='+${page.prePage}}">上一页</a>
+                          <a th:href="@{'ProductList?page='+${page.lastPage}}">最后页</a>
+                      </div>-->
+
+                    <!-- <p>一共${page.pages}页</p>
+                     <a href="ProductList?page=${page.firstPage}">第一页</a>
+                     <a href="ProductList?page=${page.nextPage}">下一页</a>
+                     <a href="ProductList?page=${page.prePage}">上一页</a>
+                     <a href="ProductList?page=${page.lastPage}">最后页</a>-->
+
                 </div>
                 <aside class="filtersPanel">
                     <div class="filterSection">
@@ -687,10 +714,10 @@
                         <a class="filterName" data-toggle="collapse" href="#filterByDestination" aria-expanded="false" aria-controls="filterByDestination">目的地</a>
                         <div class="collapse in filterOptions" id="filterByDestination">
                             <ul>
-                                <li th:each="str : ${strList}">
+                                <li th:each="str : ${strList}" class="str" >
                                     <div class="checkbox">
                                         <label>
-                                            <input type = "checkbox" aria-controls="europeCountries" aria-expanded="false" data-target="#europeCountries" data-toggle="collapse" name="ByDestinationContinent" value="2426">
+                                            <input type = "checkbox" aria-controls="europeCountries" aria-expanded="false" data-target="#europeCountries" data-toggle="collapse" name="ByDestinationContinent"  th:value="${str}">
                                             <span th:text="${str}">无</span></label>
                                     </div>
                                 </li>
@@ -704,7 +731,7 @@
                                 <li th:each="t: ${travelList}">
                                     <div class="checkbox">
                                         <label>
-                                            <input type = "checkbox" value="4979" name="byStyle"><span th:text="${t.travelName}"></span></label>
+                                            <input type = "checkbox" th:value="${t.travelId}" name="byStyle"><span th:text="${t.travelName}"></span></label>
                                     </div>
                                 </li>
 
@@ -719,7 +746,7 @@
                                 <li th:each="h : ${hList}">
                                     <div class="checkbox">
                                         <label>
-                                            <input type = "checkbox" value="4971" name="byClientPreference"><span th:text="${h.hobbyName}"></span></label>
+                                            <input type = "checkbox" th:value="${h.hobbyId}" name="byClientPreference"><span th:text="${h.hobbyName}"></span></label>
                                     </div>
                                 </li>
 
@@ -978,6 +1005,241 @@
             var s = document.getElementsByTagName("script")[0];
             s.parentNode.insertBefore(hm, s);
         })();
+
+
+        $(document).ready(function(){
+            $('input[name="ByDestinationContinent"]').on("click",function(){
+                var array=new Array();
+                $('input[name="ByDestinationContinent"]:checked').each(function(){
+                    array.push($(this).val());//向数组中添加元
+                    alert(array);
+                    console.log(array)
+                });
+
+                //标题
+           /* $.ajax({
+                url:"aaa",
+                traditional:true,
+                data:{"bb":array},
+                type:"POST",
+                success:function(data){
+                    alert("ok")
+                }
+            })*/
+          });
+
+
+     /*       //主题
+            $('input[name="byStyle"]').on("click",function(){
+                var array=new Array();
+                $('input[name="byStyle"]:checked').each(function(){
+                    array.push($(this).val());//向数组中添加元
+                });
+
+                $.ajax({
+                    url:"travelAjax",
+                    traditional:true,
+                    data:{"travelId":array},
+                    type:"POST",
+                    success:function(data){
+                        $("#id").children().filter("section").remove();
+                        for(var i=0;i<data.length;i++){
+                            var html=
+                                '<section class="product">'+
+                                '<h3>'+data[i].title+'</h3>'+
+                                '<div class="promotionImage">'+
+                                '<img class="productlist-image" src="../../../static/images/content/productlist/f4828t20121800.jpg" >'+
+                                '<p class="promotionMark luxury" data-toggle="collapse" data-target="#promotionCover1" aria-expanded="false" aria-controls="promotionCover1"></p>'+
+                                '<p class="collapse promotionCover" id="promotionCover1">耀悦臻选优质酒店，舒适航班和目的地服务，贵宾随心所欲安排当地行程，两人起订。</p>'+
+                                '</div>'+
+                                '<p class="brief"><span>'+data[i].explain+'</span></p>'+
+                                '<p><span>'+data[i].playTime+'</span><span>'+data[i].styleName+'</span></p>'+
+                                '<div class="otherInfo clearfix">'+
+                                '<p class="price" >￥<span>'+data[i].price+'</span>万元起</p>'+
+                                '<p class="startTime">最早出发日期：<span>'+data[i].startTime+'</span></p>'+
+                                '</div>'+
+                                '<ul class="list-inline tags">'+
+                                '<li>'+data[i].hobbyName+'</li>'+
+                                '<li>'+data[i].styleName+'</li>'+
+                                '<li>'+data[i].travelName+'</li>'+
+                                '<li>'+data[i].trafficName+'</li>'+
+                                '</ul>'+
+                                '<ul class="list-inline marks">'+
+                                '<li>Hot</li>'+
+                                '</ul>'+
+                                '<a target = "_blank" href="ProductDetail?detailId="'+data[i].detailId+'" class="readMore">阅读更多关于大溪地 茉莉雅洲际的信息</a>'+
+                                '</section>';
+                                $.each($("#id"),function(i,t){
+                                    $(t).html(html+$(t).html())
+                                 })
+                        }
+                    }
+                })
+
+            });
+
+
+            //偏好
+            $('input[name="byClientPreference"]').on("click",function() {
+                var array = new Array();
+                $('input[name="byClientPreference"]:checked').each(function () {
+                    array.push($(this).val());//向数组中添加元
+                });
+
+                alert(array)
+                console.log(array);
+                $.ajax({
+                    url: "hobbyAjax",
+                    traditional: true,
+                    data: {"hobbyId": array},
+                    type: "POST",
+                    success: function (data) {
+                        $("#id").children().filter("section").remove();
+                        for (var i = 0; i < data.length; i++) {
+                            var html =
+                                '<section class="product">' +
+                                '<h3>' + data[i].title + '</h3>' +
+                                '<div class="promotionImage">' +
+                                '<img class="productlist-image" src="../../../static/images/content/productlist/f4828t20121800.jpg" >' +
+                                '<p class="promotionMark luxury" data-toggle="collapse" data-target="#promotionCover1" aria-expanded="false" aria-controls="promotionCover1"></p>' +
+                                '<p class="collapse promotionCover" id="promotionCover1">耀悦臻选优质酒店，舒适航班和目的地服务，贵宾随心所欲安排当地行程，两人起订。</p>' +
+                                '</div>' +
+                                '<p class="brief"><span>' + data[i].explain + '</span></p>' +
+                                '<p><span>' + data[i].playTime + '</span><span>' + data[i].styleName + '</span></p>' +
+                                '<div class="otherInfo clearfix">' +
+                                '<p class="price" >￥<span>' + data[i].price + '</span>万元起</p>' +
+                                '<p class="startTime">最早出发日期：<span>' + data[i].startTime + '</span></p>' +
+                                '</div>' +
+                                '<ul class="list-inline tags">' +
+                                '<li>' + data[i].hobbyName + '</li>' +
+                                '<li>' + data[i].styleName + '</li>' +
+                                '<li>' + data[i].travelName + '</li>' +
+                                '<li>' + data[i].trafficName + '</li>' +
+                                '</ul>' +
+                                '<ul class="list-inline marks">' +
+                                '<li>Hot</li>' +
+                                '</ul>' +
+                                '<a target = "_blank" href="ProductDetail?detailId="' + data[i].detailId + '" class="readMore">阅读更多关于大溪地 茉莉雅洲际的信息</a>' +
+                                '</section>';
+                            $.each($("#id"), function (i, t) {
+                                $(t).html(html + $(t).html())
+                            })
+                        }
+                    }
+                })
+            })
+*/
+            //主题（2）
+            $('input[name="byStyle"]').on("click",function() {
+                var array1=new Array();
+                $('input[name="byStyle"]:checked').each(function(){
+                    array1.push($(this).val());//向数组中添加元
+                });
+
+                var array = new Array();
+                $('input[name="byClientPreference"]:checked').each(function () {
+                    array.push($(this).val());//向数组中添加元
+                });
+                alert("travelId"+array1)
+                alert("hobbyId"+array)
+                console.log(array);
+                $.ajax({
+                    url: "hobbyAjax",
+                    traditional: true,
+                    data: {"hobbyId": array,"travelId":array1},
+                    type: "POST",
+                    success: function (data) {
+                        $("#id").children().filter("section").remove();
+                        for (var i = 0; i < data.length; i++) {
+                            var html =
+                                '<section class="product">' +
+                                '<h3>' + data[i].title + '</h3>' +
+                                '<div class="promotionImage">' +
+                                '<img class="productlist-image" src="../../../static/images/content/productlist/f4828t20121800.jpg" >' +
+                                '<p class="promotionMark luxury" data-toggle="collapse" data-target="#promotionCover1" aria-expanded="false" aria-controls="promotionCover1"></p>' +
+                                '<p class="collapse promotionCover" id="promotionCover1">耀悦臻选优质酒店，舒适航班和目的地服务，贵宾随心所欲安排当地行程，两人起订。</p>' +
+                                '</div>' +
+                                '<p class="brief"><span>' + data[i].explain + '</span></p>' +
+                                '<p><span>' + data[i].playTime + '</span><span>' + data[i].styleName + '</span></p>' +
+                                '<div class="otherInfo clearfix">' +
+                                '<p class="price" >￥<span>' + data[i].price + '</span>万元起</p>' +
+                                '<p class="startTime">最早出发日期：<span>' + data[i].startTime + '</span></p>' +
+                                '</div>' +
+                                '<ul class="list-inline tags">' +
+                                '<li>' + data[i].hobbyName + '</li>' +
+                                '<li>' + data[i].styleName + '</li>' +
+                                '<li>' + data[i].travelName + '</li>' +
+                                '<li>' + data[i].trafficName + '</li>' +
+                                '</ul>' +
+                                '<ul class="list-inline marks">' +
+                                '<li>Hot</li>' +
+                                '</ul>' +
+                                '<a target = "_blank" href="ProductDetail?detailId="' + data[i].detailId + '" class="readMore">阅读更多关于大溪地 茉莉雅洲际的信息</a>' +
+                                '</section>';
+                            $.each($("#id"), function (i, t) {
+                                $(t).html(html + $(t).html())
+                            })
+                        }
+                    }
+                })
+            })
+
+            //偏好（2）
+            $('input[name="byClientPreference"]').on("click",function() {
+                var array1=new Array();
+                $('input[name="byStyle"]:checked').each(function(){
+                    array1.push($(this).val());//向数组中添加元
+                });
+
+                var array = new Array();
+                $('input[name="byClientPreference"]:checked').each(function () {
+                    array.push($(this).val());//向数组中添加元
+                });
+                alert("travelId"+array1)
+                alert("hobbyId"+array)
+                console.log(array);
+                $.ajax({
+                    url: "hobbyAjax",
+                    traditional: true,
+                    data: {"hobbyId": array,"travelId":array1},
+                    type: "POST",
+                    success: function (data) {
+                        $("#id").children().filter("section").remove();
+                        for (var i = 0; i < data.length; i++) {
+                            var html =
+                                '<section class="product">' +
+                                '<h3>' + data[i].title + '</h3>' +
+                                '<div class="promotionImage">' +
+                                '<img class="productlist-image" src="../../../static/images/content/productlist/f4828t20121800.jpg" >' +
+                                '<p class="promotionMark luxury" data-toggle="collapse" data-target="#promotionCover1" aria-expanded="false" aria-controls="promotionCover1"></p>' +
+                                '<p class="collapse promotionCover" id="promotionCover1">耀悦臻选优质酒店，舒适航班和目的地服务，贵宾随心所欲安排当地行程，两人起订。</p>' +
+                                '</div>' +
+                                '<p class="brief"><span>' + data[i].explain + '</span></p>' +
+                                '<p><span>' + data[i].playTime + '</span><span>' + data[i].styleName + '</span></p>' +
+                                '<div class="otherInfo clearfix">' +
+                                '<p class="price" >￥<span>' + data[i].price + '</span>万元起</p>' +
+                                '<p class="startTime">最早出发日期：<span>' + data[i].startTime + '</span></p>' +
+                                '</div>' +
+                                '<ul class="list-inline tags">' +
+                                '<li>' + data[i].hobbyName + '</li>' +
+                                '<li>' + data[i].styleName + '</li>' +
+                                '<li>' + data[i].travelName + '</li>' +
+                                '<li>' + data[i].trafficName + '</li>' +
+                                '</ul>' +
+                                '<ul class="list-inline marks">' +
+                                '<li>Hot</li>' +
+                                '</ul>' +
+                                '<a target = "_blank" href="ProductDetail?detailId="' + data[i].detailId + '" class="readMore">阅读更多关于大溪地 茉莉雅洲际的信息</a>' +
+                                '</section>';
+                            $.each($("#id"), function (i, t) {
+                                $(t).html(html + $(t).html())
+                            })
+                        }
+                    }
+                })
+            })
+        });
+
     </script>
 
 

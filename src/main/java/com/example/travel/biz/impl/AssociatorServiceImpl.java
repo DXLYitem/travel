@@ -14,6 +14,8 @@ public class AssociatorServiceImpl implements AssociatorService {
     private AssociatorDao associatorDao;
     @Autowired
     private RedisUtil redisUtil;
+    @Autowired
+    private CustomizeServiceImpl customizeService;
 
 
     @Override
@@ -37,5 +39,21 @@ public class AssociatorServiceImpl implements AssociatorService {
             redisUtil.set(key,associator);
         }
         return associator;
+    }
+
+    @Override
+    public int quwerCount(String phone) {
+        return associatorDao.count(phone);
+    }
+
+    @Override
+    public int modify(String email, String phone,String name) {
+        String key="user"+phone;
+        customizeService.modify(email,phone,name);
+        int num=associatorDao.update(email,phone,name);
+        if(num>0){
+            redisUtil.remove(key);
+        }
+        return num;
     }
 }
