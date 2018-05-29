@@ -20,10 +20,10 @@ public interface ItemService {
     List<Item>findDetailId(Integer detailId);*/
 
     List<Item> listTravelName(Integer themeId, Integer hobbyId, Integer travelId, Integer trafficId, Integer styleId,
-                              Date startTime, Integer continentId, Integer countryId);
+                              Date startTime, Integer continentId, Integer countryId,Integer detailId, Integer brandId, Integer holidayId);
 
     List<Item> listHobbyName(Integer themeId, Integer hobbyId, Integer travelId, Integer trafficId, Integer styleId,
-                             Date startTime, Integer continentId, Integer countryId);
+                             Date startTime, Integer continentId, Integer countryId,Integer detailId, Integer brandId, Integer holidayId);
 
     List<Item> ListTravelIdArray(Integer[] travelId);
 

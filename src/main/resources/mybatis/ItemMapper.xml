@@ -121,6 +121,8 @@
         LEFT JOIN hobby hob ON hob.hobbyId=ite.hobbyId
         LEFT JOIN  country cou  ON ite.countryId=cou.countryId
         LEFT JOIN  continent con ON cou.continentId=con.continentId
+        LEFT JOIN holiday h ON h.`holidayId`=ite.`holidayId`
+        LEFT JOIN brand br ON br.`brandId`=ite.`brandId`
 
         <where>
             <if test="themeId !=null">AND ite.themeId=#{themeId}</if>
@@ -131,6 +133,9 @@
             <if test="startTime !=null">AND ite.startTime>=#{startTime}</if>
             <if test="continentId !=null">AND con.continentId=#{continentId}</if>
             <if test="countryId !=null">AND cou.countryId=#{countryId}</if>
+            <if test="detailId !=null">AND ite.detailId=#{detailId}</if>
+            <if test="brandId !=null">AND br.brandId=#{brandId}</if>
+            <if test="holidayId !=null">AND h.holidayId=#{holidayId}</if>
         </where>
         GROUP BY tra.travelId
     </select>
@@ -145,6 +150,8 @@
         LEFT JOIN hobby hob ON hob.hobbyId=ite.hobbyId
         LEFT JOIN  country cou  ON ite.countryId=cou.countryId
         LEFT JOIN  continent con ON cou.continentId=con.continentId
+        LEFT JOIN holiday h ON h.`holidayId`=ite.`holidayId`
+        LEFT JOIN brand br ON br.`brandId`=ite.`brandId`
         <where>
             <if test="themeId !=null">AND ite.themeId=#{themeId}</if>
             <if test="hobbyId !=null">AND ite.hobbyId=#{hobbyId}</if>
@@ -154,6 +161,9 @@
             <if test="startTime !=null">AND ite.startTime>=#{startTime}</if>
             <if test="continentId !=null">AND con.continentId=#{continentId}</if>
             <if test="countryId !=null">AND cou.countryId=#{countryId}</if>
+            <if test="detailId !=null">AND ite.detailId=#{detailId}</if>
+            <if test="brandId !=null">AND br.brandId=#{brandId}</if>
+            <if test="holidayId !=null">AND h.holidayId=#{holidayId}</if>
         </where>
         GROUP BY hob.hobbyId
     </select>

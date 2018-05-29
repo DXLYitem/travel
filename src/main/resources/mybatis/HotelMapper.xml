@@ -6,4 +6,11 @@
     <select id="selHotel" resultType="Hotel" parameterType="int">
         SELECT * FROM hotel h,country cy,continent ct WHERE h.countryId=cy.countryId AND cy.continentId=ct.continentId AND ct.continentId=#{continentId}
     </select>
+
+    <select id="selectByhotelId" resultType="Hotel">
+        SELECT * FROM hotel
+        <where>
+            <if test="hotelId !=null">AND hotelId=#{hotelId}</if>
+        </where>
+    </select>
 </mapper>

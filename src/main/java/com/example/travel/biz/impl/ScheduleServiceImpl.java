@@ -16,13 +16,13 @@ public class ScheduleServiceImpl implements ScheduleService{
     private RedisUtil redisUtil;
 
     @Override
-    public List<Schedule> findByitemId(Integer hotelId) {
-      String key="key"+hotelId;
+    public List<Schedule> findByitemId(Integer itemId) {
+      String key="key"+itemId;
       if(redisUtil.exists(key)){
           Object itId = redisUtil.lRange(key, 0, redisUtil.length(key)).get(0);
           return (List<Schedule>) itId;
       } else {
-          List<Schedule> ScheduleList = scheduleDao.selectSchedule(hotelId);
+          List<Schedule> ScheduleList = scheduleDao.selectSchedule(itemId);
           redisUtil.lPush("ScheduleList", ScheduleList);
           return ScheduleList;
       }

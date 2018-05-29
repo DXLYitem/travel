@@ -1,11 +1,7 @@
 package com.example.travel.control;
 
-import com.example.travel.biz.DetailService;
-import com.example.travel.biz.IntroductionService;
-import com.example.travel.biz.ItemService;
-import com.example.travel.entity.Detail;
-import com.example.travel.entity.Introduction;
-import com.example.travel.entity.Item;
+import com.example.travel.biz.*;
+import com.example.travel.entity.*;
 import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -84,9 +80,9 @@ public class DetailControl {
             strList.add(arr[0]);
         }
         //查询旅行主题
-        List<Item> travelList=itemService.listTravelName(themeId, hobbyId, travelId, trafficId, styleId,date,continentId,countryId);
+        List<Item> travelList=itemService.listTravelName(themeId, hobbyId, travelId, trafficId, styleId,date,continentId,countryId,detailId,brandId,holidayId);
         //查询旅行偏好
-        List<Item> hList=itemService.listHobbyName(themeId, hobbyId, travelId, trafficId, styleId,date,continentId,countryId);
+        List<Item> hList=itemService.listHobbyName(themeId, hobbyId, travelId, trafficId, styleId,date,continentId,countryId,detailId,brandId,holidayId);
 
         // PageInfo<Item> pager=new PageInfo<Item>(itemList);
         if(itemList.size()>0 && strList.size()>0 && travelList.size()>0 ){
@@ -109,10 +105,6 @@ public class DetailControl {
          */
         List<Detail>detailList=detailService.detailList(detailId);
         /**
-         * 根据项目Id查询
-         */
-        List<Item>itemList=itemService.findDetailId(detailId);
-        /**
          * 根据介绍Id查询
          */
         List<Introduction>introList=introductionService.finddetailId(detailId);
@@ -126,6 +118,15 @@ public class DetailControl {
             model.addAttribute("detailList",detailList);
         }
 
+        /**
+         * 根据项目id查询行程表
+         */
+        Integer itemid=null;
+        if(detailList.size()>0){
+            itemid=detailList.get(0).getItemId();
+        }
+        List<Schedule>schedList=scheduleService.findByitemId(itemid);
+        model.addAttribute("schedList",schedList);
         /**
          * 根据行程表中的酒店Id查询酒店信息
          */

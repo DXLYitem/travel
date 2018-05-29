@@ -46,7 +46,14 @@ public interface ItemDao {
                         @Param("hobbyId") Integer hobbyId,
                         @Param("travelId") Integer travelId,
                         @Param("trafficId") Integer trafficId,
-                        @Param("styleId") Integer styleId);
+                        @Param("styleId") Integer styleId,
+                        @Param("startTime") Date startTime,
+                        @Param("continentId")Integer continentId,
+                        @Param("countryId")Integer countryId,
+                        @Param("detailId")Integer detailId,
+                        @Param("brandId")Integer brandId,
+                        @Param("holidayId")Integer holidayId);
+
 
 
     /*List<Item>selectDetailId(@Param("detailId") Integer themeId);*/
@@ -59,7 +66,10 @@ public interface ItemDao {
                                 @Param("styleId") Integer styleId,
                                 @Param("startTime") Date startTime,
                                 @Param("continentId")Integer continentId,
-                                @Param("countryId")Integer countryId);
+                                @Param("countryId")Integer countryId,
+                                @Param("detailId")Integer detailId,
+                                @Param("brandId")Integer brandId,
+                                @Param("holidayId")Integer holidayId);
 
     List<Item> selectHobbyName(@Param("themeId") Integer themeId,
                                @Param("hobbyId") Integer hobbyId,
@@ -68,7 +78,10 @@ public interface ItemDao {
                                @Param("styleId") Integer styleId,
                                @Param("startTime") Date startTime,
                                @Param("continentId") Integer continentId,
-                               @Param("countryId") Integer countryId);
+                               @Param("countryId") Integer countryId,
+                               @Param("detailId")Integer detailId,
+                               @Param("brandId")Integer brandId,
+                               @Param("holidayId")Integer holidayId);
 
 
     List<Item> selectTravelIdArray(Integer[] travelId);

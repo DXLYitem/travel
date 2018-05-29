@@ -12,7 +12,7 @@
     <select id="selectSchedule" resultMap="ScheduleMapper">
         SELECT * FROM schedule
         <where>
-            <if test="hotelId !=null">AND hotelId=#{hotelId}</if>
+            <if test="itemId !=null">AND itemId=#{itemId}</if>
         </where>
     /*    LIMIT 0,9*/
     </select>

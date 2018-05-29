@@ -45,7 +45,7 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public List<Item> listHobbyName(Integer themeId, Integer hobbyId, Integer travelId, Integer trafficId,
-                                    Integer styleId, Date startTime, Integer continentId, Integer countryId) {
+                                    Integer styleId, Date startTime, Integer continentId, Integer countryId,Integer detailId, Integer brandId, Integer holidayId) {
         String iKey = null;
 
         if (themeId != null) {
@@ -75,11 +75,20 @@ public class ItemServiceImpl implements ItemService {
         if (startTime != null && continentId != null) {
             iKey = "iKeystartTimecontinentId" + startTime + continentId;
         }
+        if (brandId != null) {
+            iKey = "itemKeybrandId" + brandId;
+        }
+        if (holidayId != null) {
+            iKey = "itemKeyholidayId" + holidayId;
+        }
+        if (detailId != null) {
+            iKey = "itemKeydetailId" + detailId;
+        }
         if (redisUtil.exists(iKey)) {
             Object o = redisUtil.lRange(iKey, 0, redisUtil.length(iKey)).get(0);
             return (List<Item>) o;
         } else {
-            List<Item> list = itemDao.selectHobbyName(themeId, hobbyId, travelId, trafficId, styleId, startTime, continentId, countryId);
+            List<Item> list = itemDao.selectHobbyName(themeId, hobbyId, travelId, trafficId, styleId, startTime, continentId, countryId,detailId,brandId,holidayId);
             redisUtil.lPush(iKey, list);
             return list;
         }
@@ -88,55 +97,63 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public List<Item> listTravelName(Integer themeId, Integer hobbyId, Integer travelId, Integer trafficId, Integer styleId,
-                                     Date startTime, Integer continentId, Integer countryId) {
-
-        String iKey=null;
-
-        if(themeId!=null){
-            iKey="iteKeythemeId"+themeId;
-        }
-        if(hobbyId!=null){
-            iKey="iteKeyhobbyId"+hobbyId;
-        }
-        if(travelId!=null){
-            iKey="iteKeytravelId"+travelId;
-        }
-        if(trafficId!=null){
-            iKey="itemKeyrafficId"+trafficId;
-        }
-        if(styleId!=null){
-            iKey="iteKeystyleId"+styleId;
-        }
-        if(startTime!=null){
-            iKey="iteKeystartTime"+startTime;
-        }
-        if(continentId!=null){
-            iKey="iteKeycontinentId"+continentId;
-        }
-        if(countryId!=null){
-            iKey="iteKeycountryId"+countryId;
-        }
-        if(startTime!=null &&  continentId!=null){
-            iKey="iteKeystartTimecontinentId"+startTime+continentId;
-        }
-        if(redisUtil.exists(iKey)){
-            Object o = redisUtil.lRange(iKey, 0, redisUtil.length(iKey)).get(0);
-            return (List<Item>) o;
-        }else{
-            List<Item>items=itemDao.selectTravelName(themeId, hobbyId, travelId, trafficId, styleId ,startTime,continentId,countryId);
-            redisUtil.lPush(iKey,items);
-            return items;
-        }
-
-
-    @Override
-    public List<Item> itemsList(Integer themeId, Integer hobbyId, Integer travelId, Integer trafficId, Integer styleId, Date startTime, Integer continentId, Integer countryId, Integer detailId, Integer brandId, Integer holidayId) {
-
+                                     Date startTime, Integer continentId, Integer countryId,Integer detailId, Integer brandId, Integer holidayId) {
 
         String iKey = null;
 
         if (themeId != null) {
-            iKey = "iKey" + themeId;
+            iKey = "iteKeythemeId" + themeId;
+        }
+        if (hobbyId != null) {
+            iKey = "iteKeyhobbyId" + hobbyId;
+        }
+        if (travelId != null) {
+            iKey = "iteKeytravelId" + travelId;
+        }
+        if (trafficId != null) {
+            iKey = "itemKeyrafficId" + trafficId;
+        }
+        if (styleId != null) {
+            iKey = "iteKeystyleId" + styleId;
+        }
+        if (startTime != null) {
+            iKey = "iteKeystartTime" + startTime;
+        }
+        if (continentId != null) {
+            iKey = "iteKeycontinentId" + continentId;
+        }
+        if (countryId != null) {
+            iKey = "iteKeycountryId" + countryId;
+        }
+        if (startTime != null && continentId != null) {
+            iKey = "iteKeystartTimecontinentId" + startTime + continentId;
+        }
+        if (brandId != null) {
+            iKey = "itemKeybrandId" + brandId;
+        }
+        if (holidayId != null) {
+            iKey = "itemKeyholidayId" + holidayId;
+        }
+        if (detailId != null) {
+            iKey = "itemKeydetailId" + detailId;
+        }
+        if (redisUtil.exists(iKey)) {
+            Object o = redisUtil.lRange(iKey, 0, redisUtil.length(iKey)).get(0);
+            return (List<Item>) o;
+        } else {
+            List<Item> items = itemDao.selectTravelName(themeId, hobbyId, travelId, trafficId, styleId, startTime, continentId, countryId,detailId,brandId,holidayId);
+            redisUtil.lPush(iKey, items);
+            return items;
+        }
+
+    }
+
+    @Override
+    public List<Item> itemsList(Integer themeId, Integer hobbyId, Integer travelId, Integer trafficId, Integer styleId, Date startTime, Integer continentId, Integer countryId, Integer detailId, Integer brandId, Integer holidayId) {
+        String iKey = null;
+
+        if (themeId != null) {
+            iKey = "iteKeythemeId" + themeId;
         }
         if (hobbyId != null) {
             iKey = "itemKeyhobbyId" + hobbyId;
@@ -162,12 +179,21 @@ public class ItemServiceImpl implements ItemService {
         if (startTime != null && continentId != null) {
             iKey = "itemKeystartTimecontinentId" + startTime + continentId;
         }
+        if (brandId != null) {
+            iKey = "itemKeybrandId" + brandId;
+        }
+        if (holidayId != null) {
+            iKey = "itemKeyholidayId" + holidayId;
+        }
+        if (detailId != null) {
+            iKey = "itemKeydetailId" + detailId;
+        }
         List<Item> items = new ArrayList<Item>();
 
         if (redisUtil.exists(iKey)) {
             items = (List<Item>) redisUtil.lRange(iKey, 0, redisUtil.length(iKey)).get(0);
         } else {
-            items = itemDao.selectPageItem(themeId, hobbyId, travelId, trafficId, styleId, startTime, continentId, countryId);
+            items = itemDao.selectPageItem(themeId, hobbyId, travelId, trafficId, styleId, startTime, continentId, countryId, detailId,brandId,holidayId);
             redisUtil.lPush(iKey, items);
         }
         return items;
@@ -186,4 +212,4 @@ public class ItemServiceImpl implements ItemService {
             return list;
         }
      }
-}
+}*/

@@ -87,9 +87,9 @@ public class InvitationListControl {
             strList.add(arr[0]);
         }
         //查询旅行主题
-        List<Item> travelList=itemService.listTravelName(themeId, hobbyId, travelId, trafficId, styleId,date,continentId,countryId);
+        List<Item> travelList=itemService.listTravelName(themeId, hobbyId, travelId, trafficId, styleId,date,continentId,countryId,detailId,brandId,holidayId);
         //查询旅行偏好
-        List<Item> hList=itemService.listHobbyName(themeId, hobbyId, travelId, trafficId, styleId,date,continentId,countryId);
+        List<Item> hList=itemService.listHobbyName(themeId, hobbyId, travelId, trafficId, styleId,date,continentId,countryId,detailId,brandId,holidayId);
 
         // PageInfo<Item> pager=new PageInfo<Item>(itemList);
         if(itemList.size()>0 && strList.size()>0 && travelList.size()>0 ){

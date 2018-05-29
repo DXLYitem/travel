@@ -87,7 +87,7 @@ public class ItemControl {
              strList.add(arr[0]);
          }
         //查询旅行主题
-        List<Item> travelList1=itemService.listTravelName(themeId, hobbyId, travelId, trafficId, styleId,date,continentId,countryId);
+        List<Item> travelList1=itemService.listTravelName(themeId, hobbyId, travelId, trafficId, styleId,date,continentId,countryId,detailId,brandId,holidayId);
          List<Item> travelList=new ArrayList<>();
          for(Item i:travelList1){
              if(i!=null){
@@ -95,7 +95,7 @@ public class ItemControl {
              }
          }
         //查询旅行偏好
-        List<Item> hList1=itemService.listHobbyName(themeId, hobbyId, travelId, trafficId, styleId,date,continentId,countryId);
+        List<Item> hList1=itemService.listHobbyName(themeId, hobbyId, travelId, trafficId, styleId,date,continentId,countryId,detailId,brandId,holidayId);
         List<Item> hList=new ArrayList<>();
         for(Item i:hList1){
             if(i!=null){

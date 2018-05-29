@@ -795,15 +795,13 @@
                         <ol class="scheduleList" th:each="hot:${hotels}">
                             <li>
                                 <div class="day" style="background-image: url('http://images1.aoyou.com/productlist/201603/4jt6z423184748.jpg?imageView2/1/q/90/w/360/h/270/');">
-                                    <!--
-                                                                    <div class="day" style="background-image: url('http://images1.aoyou.com/productlist/201603/4jt6z423184748.jpg?imageView2/1/q/90/w/360/h/270/');" th:style="'background:'+url@({'../../../static/schedule/'+${sched.imgPath}})">
-                                    -->
+                                <!--<div class="day" th:style="'background:url('+@{../../../static/schedule/+${sched.imgPath}}+');'">-->
                                     <span>第&nbsp;<p style="display: inline-block" th:text="${sc.count}">&nbsp;</p>&nbsp;天</span>
                                 </div>
                                 <h4><span class="number" th:text="${sc.index+1}"></span><span class="from" th:text="${sched.title}">北京/塞舌尔</span></h4>
                                 <p class="description" th:text="${sched.explain}">当日凌晨于首都国际机场出发（需于出发前一日晚间抵达机场），选乘屡获殊荣的阿提哈德航空公务舱，经阿布扎比转机，飞往有“世界最美海岛”之称的塞舌尔。抵达塞舌尔马埃国际机场后，由当地代表接机，送往直升机坪，搭乘私人直升机入住威廉王子与凯特王妃的新婚蜜月地【北岛North Island】。 ◇ 马埃岛-北岛 直升飞机飞行约 30 分钟</p>
                                 <ul class="agenda">
-                                    <li>
+                                    <!--<li>
                                         <div class="icon flight"></div>
                                         <div class="agendaItem">
                                             <p>
@@ -823,7 +821,7 @@
                                                 阿布扎比 巴提恩机场  08:05 — 塞舌尔-维多利亚 塞舌尔国际机场 12:40
                                             </p>
                                         </div>
-                                    </li>
+                                    </li>-->
                                     <li>
                                         <div class="icon hotel"></div>
                                         <div class="agendaItem">

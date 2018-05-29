@@ -6,5 +6,5 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 public interface ScheduleDao {
-    List<Schedule>selectSchedule(@Param("hotelId") Integer hotelId);
+    List<Schedule>selectSchedule(@Param("itemId") Integer itemId);
 }
